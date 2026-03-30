@@ -1,21 +1,16 @@
-import { createBrowserRouter } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import { Layout } from "@/components/Layout/Layout";
-
-const Home = lazy(() => import("@/pages/Home"));
+import { createBrowserRouter } from 'react-router-dom';
+// import { lazy } from "react";
+import { Layout } from '@/components/Layout/Layout';
+import Home from '@/pages/Home';
+import { Sobre } from '@/pages/Sobre/Sobre';
 
 export const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
-      {
-        path: "/",
-        element: (
-          <Suspense fallback={<div>Carregando...</div>}>
-            <Home />
-          </Suspense>
-        ),
-      }
-    ]
-  }
+      { path: '/', element: <Home /> },
+      { path: '/sobre', element: <Sobre /> },
+    ],
+  },
+
 ]);

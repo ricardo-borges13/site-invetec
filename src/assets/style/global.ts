@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import { normalize } from 'styled-normalize'
+import { createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -20,8 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   min-height: 100%;
   font-family: 'Poppins', sans-serif;
   background-color: ${({ theme }) => theme.colors.background.global};
-  color: ${({ theme }) => theme.colors.fonts.global};
+  color: ${({ theme }) => theme.fonts.body};
   overflow-x: hidden;
   }
-`
-
+`;
