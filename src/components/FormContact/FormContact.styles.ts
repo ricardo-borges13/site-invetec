@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: #f8fafc;
   padding: ${({ theme }) => theme.spacing.large};
-  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+
   width: 100%;
-  max-width: 450px;
-  margin: 0 auto;
+  max-width: 500px;
 
   form {
     display: flex;
@@ -16,10 +18,17 @@ export const FormContainer = styled.div`
 
   label {
     font-weight: 500;
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.black};
     display: block;
     margin-bottom: 0.3rem;
     caret-color: transparent;
+  }
+
+  p{
+    color: #6b7280;
+    font-Size: 0.85rem;
+    margin-bottom: 20px;
+    opacity: 0.7;
   }
 `;
 
@@ -34,20 +43,31 @@ export const FieldGroup = styled.div`
 
 export const Input = styled.input`
   width: 100%;
-  padding: 0.6rem;
+  background: white;
+  padding: 0.8rem;
   border: none;
-  border-radius: 6px;
-  font-size: ${({ theme }) => theme.spacing.medium};
+  border-radius: 8px;
+    font-size: 0.95rem;
+    border: 1px solid #e5e7eb;
+
+  &:focus {
+    outline: none;
+    border-color: ${({ theme }) => theme.colors.primary};
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  }
 `;
 
 export const TextArea = styled.textarea`
   width: 100%;
-  padding: 0.6rem;
-  border: none;
-  border-radius: 6px;
-  font-size: ${({ theme }) => theme.spacing.medium};
-  min-height: 100px;
-  resize: vertical;
+  padding: 0.8rem;
+  border-radius: 8px;
+
+  border: 1px solid #e5e7eb;
+
+  &:focus {
+    outline: none;
+    border-color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export const ErrorMessage = styled.span`

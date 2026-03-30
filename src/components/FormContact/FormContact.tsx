@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
-import * as S from './FormContact.styles';
 import toast, { Toaster } from 'react-hot-toast';
 import { CustomButton } from '../../components/CustomButton/CustomButton';
+import * as S from './FormContact.styles';
 
 type FormInputs = {
   nome: string;
@@ -84,7 +84,9 @@ export const FormContact = () => {
           },
         }}
       />
-
+      <p>
+        🔒 Seus dados estão seguros e não serão compartilhados.
+      </p>
       <form onSubmit={handleSubmit(submitHandler)}>
         <S.FieldGroup>
           <div style={{ flex: 1 }}>
@@ -162,8 +164,8 @@ export const FormContact = () => {
         </S.Mensagem>
 
         <CustomButton
-          text="Enviar"
-          variant="secondary"
+          text="Enviar Mensagem"
+          variant="cta"
           type="submit"
           disabled={isSubmitting}
           loading={isSubmitting}
