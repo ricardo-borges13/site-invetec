@@ -40,14 +40,14 @@ export const Menu = ({ onLinkClick }: MenuProps) => {
       }
     } else {
       // 👉 Desktop
-      if (itemTitle === 'Produtos') {
+      if (itemTitle === 'Parceiros') {
         e.preventDefault();
         // rola até a seção de produtos
         if (location.pathname === '/') {
-          const section = document.getElementById('produtos');
+          const section = document.getElementById('parceiros');
           if (section) section.scrollIntoView({ behavior: 'smooth' });
         } else {
-          navigate('/', { state: { scrollTo: 'produtos' } });
+          navigate('/', { state: { scrollTo: 'parceiros' } });
         }
         onLinkClick?.();
       } else {

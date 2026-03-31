@@ -5,24 +5,24 @@ import email from '@/assets/images/Card-E-mail.jpg';
 import ti from '@/assets/images/Card-TI.jpg';
 import erpImg from '@/assets/images/Card-W3.jpg';
 import web from '@/assets/images/Card-Web.jpg';
+import { BusinessPartner } from '@/components/Sections/BusinessPartner/BusinessPartner';
+import { CTASection } from '@/components/Sections/CTASection/CTASection';
 import { Hero } from '@/components/Sections/Hero/hero';
+import { SectionInfo } from '@/components/Sections/SectionInfo/SectionInfo';
+import { CardService } from '@/components/Sections/ServiceSection/CardService/CardService';
+import { ServiceSection } from '@/components/Sections/ServiceSection/ServiceSection';
 import { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { sobreData } from './Home.data';
-import { CTASection } from '@/components/Sections/CTASection/CTASection';
-import { CardService } from '@/components/Sections/ServiceSection/CardService/CardService';
-import { ServiceSection } from '@/components/Sections/ServiceSection/ServiceSection';
 import * as S from './Home.styles';
-import { BusinessPartner } from '@/components/Sections/BusinessPartner/BusinessPartner';
-import { SectionInfo } from '@/components/Sections/SectionInfo/SectionInfo';
 
 export const Home = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    if (location.state?.scrollTo === 'produtos') {
-      const section = document.getElementById('produtos');
+    if (location.state?.scrollTo === 'parceiros') {
+      const section = document.getElementById('parceiros');
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
       }
@@ -50,7 +50,7 @@ export const Home = () => {
         onSecondaryClick={handleSecondaryClick} // Use memoized handler
       />
 
-       <SectionInfo {...sobreData} />
+      <SectionInfo {...sobreData} />
 
       <ServiceSection title="Nossos Serviços">
         <CardService
@@ -92,7 +92,10 @@ export const Home = () => {
 
       <CTASection />
 
-      <BusinessPartner />
+      <div id="parceiros">
+        <BusinessPartner />
+      </div>
+
     </S.HomeWrapper>
   );
 };
