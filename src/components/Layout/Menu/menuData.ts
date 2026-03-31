@@ -6,7 +6,7 @@ export const menuItems = [
     path: '/servicos',
     showInFooter: false,
     submenu: [
-      { title: 'ERP W3ERP', path: '/servicos/erp-w3erp' },
+      { title: 'ERP W3ERP', path: '/servicos/erp' },
       {
         title: 'E-mail Corporativo',
         path: '/servicos/e-mail-corporativo',
@@ -31,12 +31,19 @@ export const menuItems = [
   },
   {
     id: 4,
+    title: 'Casos reais',
+    path: '/cases',
+    showInFooter: true,
+  },
+
+  {
+    id: 5,
     title: 'Sobre',
     path: '/sobre',
     showInFooter: true,
   },
   {
-    id: 5,
+    id: 6,
     title: 'Contato',
     path: '/contato',
     showInFooter: true,

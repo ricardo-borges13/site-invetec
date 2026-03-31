@@ -4,6 +4,10 @@ import { Layout } from '@/components/Layout/Layout';
 import Home from '@/pages/Home';
 import { Sobre } from '@/pages/Sobre/Sobre';
 import { Contato } from '@/pages/Contato/Contato';
+import { ERP } from '@/pages/ERP/ERP';
+import { TagPlus } from '@/pages/TagPlus/TagPlus';
+import { W3ERP } from '@/pages/W3ERP/W3ERP';
+import { Cases } from '@/pages/Cases/Cases';
 
 export const router = createBrowserRouter([
   {
@@ -11,7 +15,11 @@ export const router = createBrowserRouter([
     children: [
       { path: '/', element: <Home /> },
       { path: '/sobre', element: <Sobre /> },
-      { path: '/contato', element: <Contato /> }
+      { path: '/contato', element: <Contato /> },
+      { path: '/servicos/erp', element: <ERP /> },
+      { path: '/servicos/erp/tagplus', element: <TagPlus /> },
+      { path: '/servicos/erp/w3erp', element: <W3ERP /> },
+      { path: '/cases', element: <Cases /> },
     ],
   },
 
