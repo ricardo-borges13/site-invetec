@@ -1,10 +1,27 @@
 import logo from '@/assets/images/Logo-Invetec-branco.png';
+import { menuItems } from '@/components/Layout/Menu/menuData';
+import type { ContactInfo } from '@/pages/Contato/contactData';
 import { BiSolidPhoneOutgoing } from 'react-icons/bi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 import * as S from './Footer.syles';
 
-export const Footer = () => {
+export const Footer = ({ phone, email }: ContactInfo) => {
+  const footerItems = menuItems.filter(item => item.showInFooter);
+  const getCleanPhone = (phone: string) => phone.replace(/\D/g, '');
+  const getPhoneHref = (phone: string) => `tel:${getCleanPhone(phone)}`;
+
+  const getWhatsAppHref = (phone: string) => {
+    const message = encodeURIComponent(
+      'Olá, gostaria de saber mais sobre os serviços da INVETEC.'
+    );
+
+    return `https://wa.me/55${getCleanPhone(phone)}?text=${message}`;
+  };
+
+   const emailHref = `mailto:${email}`;
+
   return (
     <S.Container>
       <S.Content>
@@ -25,18 +42,13 @@ export const Footer = () => {
           <S.Title>Links Rápidos</S.Title>
 
           <S.List>
-            <li>
-              <a href="#services">Serviços</a>
-            </li>
-            <li>
-              <a href="#partners">Parceiros</a>
-            </li>
-            <li>
-              <a href="#about">Sobre</a>
-            </li>
-            <li>
-              <a href="#contact">Contato</a>
-            </li>
+            <ul>
+              {footerItems.map(item => (
+                <li key={item.id}>
+                  <Link to={item.path}>{item.title}</Link>
+                </li>
+              ))}
+            </ul>
           </S.List>
         </S.Section>
 
@@ -47,20 +59,18 @@ export const Footer = () => {
           <S.Text>
             <span>
               <MdEmail />
-              <a href="mailto:comercial@invetec.com.br">
-                comercial@invetec.com.br
-              </a>
+              <a href={emailHref}>{email}</a>
             </span>
           </S.Text>
 
           <S.Text>
             <span>
               <BiSolidPhoneOutgoing />
-              <a href="tel:+5531997101336">(31) 9 9710-1336</a>
+              <a href={getPhoneHref(phone)}> {phone}</a>
             </span>
             <S.Social>
               <a
-                href="https://wa.me/5531997101336?text=Em%20que%20posso%20ajudar%3F"
+                href={getWhatsAppHref(phone)}
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Falar no WhatsApp"

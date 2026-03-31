@@ -2,6 +2,7 @@ import heroImage from '@/assets/images/PagesHero-Sobre2.jpg';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import * as S from './Sobre.styles';
+import { Link } from 'react-router-dom';
 
 const diferenciais = [
   {
@@ -145,9 +146,7 @@ export const Sobre = () => {
             segurança e eficiência.
           </p>
 
-          <a href="https://wa.me/seunumero" target="_blank">
-            Falar com especialista
-          </a>
+          <Link to="/contato">Falar com especialista</Link>
         </S.CTA>
       </S.Container>
     </PageHeroSection>
