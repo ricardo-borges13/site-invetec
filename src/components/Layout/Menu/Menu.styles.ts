@@ -40,8 +40,7 @@ export const Nav = styled.nav`
     align-items: flex-start;
     gap: 1.2rem;
     background-color: ${({ theme }) => theme.colors.primary};
-    padding: ${({ theme }) => theme.spacing.medium}
-      ${({ theme }) => theme.spacing.medium};
+    padding: ${({ theme }) => theme.spacing.medium} ${({ theme }) => theme.spacing.medium};
     color: ${({ theme }) => theme.colors.white};
     width: 100%;
   }
@@ -58,10 +57,13 @@ export const Nav = styled.nav`
 export const MenuItem = styled.div`
   position: relative;
   display: inline-block;
+  padding-bottom: 10px;
 
-  &:hover ul {
-    display: block;
+   &:hover > a::before {
+    width: 100%;
   }
+
+
 
   &:hover > a::before {
     width: 100%;
@@ -125,7 +127,7 @@ export const Submenu = styled.ul<{ $isOpen?: boolean }>`
   min-width: 220px;
   z-index: 1000;
   position: absolute;
-  top: 100%;
+  top: calc(100% - 15px);
   left: 0;
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
   transform: ${({ $isOpen }) =>
