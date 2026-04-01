@@ -1,0 +1,89 @@
+import styled from 'styled-components';
+
+export const Container = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+`;
+
+export const Section = styled.section`
+  margin-bottom: 3rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
+  p {
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  ul {
+    margin-top: 1rem;
+    display: inline-block;
+    text-align: left;
+
+    li {
+      margin-bottom: 0.5rem;
+      list-style: none;
+    }
+  }
+`;
+
+export const Highlight = styled.section`
+  background: #f0fdf4;
+  border: 1px solid ${({ theme }) => theme.colors.ctaGreen};
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 3rem 0;
+`;
+
+export const Warning = styled.section`
+  background: #fff7ed;
+  border: 1px solid #fb923c;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 3rem 0;
+`;
+
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const Card = styled.div`
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+`;
+
+export const CTA = styled.section`
+  text-align: center;
+  margin-top: 3rem;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+`;

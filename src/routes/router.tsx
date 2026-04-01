@@ -8,6 +8,8 @@ import { ERP } from '@/pages/ERP/ERP';
 import { TagPlus } from '@/pages/TagPlus/TagPlus';
 import { W3ERP } from '@/pages/W3ERP/W3ERP';
 import { Cases } from '@/pages/Cases/Cases';
+import { CaseDatron } from '@/pages/CaseDatron/CaseDatron';
+import { CaseJPM } from '@/pages/CaseJPM/CaseJPM';
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,8 @@ export const router = createBrowserRouter([
       { path: '/servicos/erp/tagplus', element: <TagPlus /> },
       { path: '/servicos/erp/w3erp', element: <W3ERP /> },
       { path: '/cases', element: <Cases /> },
+      { path: '/cases/datron', element: <CaseDatron /> },
+      { path: '/cases/jpm', element: <CaseJPM /> }
     ],
   },
 

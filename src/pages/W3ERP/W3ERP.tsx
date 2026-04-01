@@ -4,10 +4,9 @@ import { FormContactERP } from '@/components/FormContactERP/FormContactERP';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import * as S from './W3ERP.styles';
-import { useNavigate } from 'react-router-dom';
 
 export const W3ERP = () => {
-  const navigate = useNavigate();
+
 
   return (
     <PageHeroSection
@@ -136,32 +135,6 @@ export const W3ERP = () => {
           </MotionReveal>
         </S.Warning>
 
-        <S.Case>
-          <MotionReveal>
-            <h2>Aplicação real do sistema em empresas</h2>
-
-            <p>
-              Atualmente sou responsável pela área de TI de empresas que
-              utilizam o W3ERP na operação real, como controle financeiro,
-              estoque, faturamento e processos internos.
-            </p>
-
-            <p>
-              Isso me permite entender na prática o que funciona, o que precisa
-              ser ajustado e como adaptar o sistema à realidade de cada negócio.
-            </p>
-
-            <S.ButtonGroup>
-              <CustomButton
-                variant="primary"
-                onClick={() => navigate('/cases')}
-              >
-                Ver como empresas usam o sistema
-              </CustomButton>
-            </S.ButtonGroup>
-          </MotionReveal>
-        </S.Case>
-
         {/* 🎯 QUALIFICAÇÃO */}
         <S.Section>
           <MotionReveal>
@@ -244,6 +217,41 @@ export const W3ERP = () => {
             <FormContactERP />
           </MotionReveal>
         </S.FormArea>
+
+        <S.Section>
+          <h2>Ainda está em dúvida?</h2>
+
+          <p>
+            Veja como empresas que tinham problemas parecidos com o seu
+            organizaram financeiro, estoque e vendas com o W3ERP.
+          </p>
+        </S.Section>
+
+        <S.Case>
+          <MotionReveal>
+            <h2>Aplicação real do sistema em empresas</h2>
+
+            <p>
+              Atualmente sou responsável pela área de TI de empresas que
+              utilizam o W3ERP na operação real, como controle financeiro,
+              estoque, faturamento e processos internos.
+            </p>
+
+            <p>
+              Isso me permite entender na prática o que funciona, o que precisa
+              ser ajustado e como adaptar o sistema à realidade de cada negócio.
+            </p>
+
+            <S.ButtonGroup>
+              <CustomButton
+                variant="primary"
+                onClick={() => window.open('/cases', '_blank')}
+              >
+                Ver casos reais de empresas que utilizam o W3ERP
+              </CustomButton>
+            </S.ButtonGroup>
+          </MotionReveal>
+        </S.Case>
       </S.Container>
 
       <S.Section>
