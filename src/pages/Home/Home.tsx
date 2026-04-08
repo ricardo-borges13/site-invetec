@@ -1,5 +1,5 @@
 import imgHero from '@/assets/images/BannerPrincipalHero.jpg';
-import cloud from '@/assets/images/Card-Cloud.jpg';
+import digital from '@/assets/images/Card-Digital.jpg';
 import ecommerce from '@/assets/images/Card-E-commerce.jpg';
 import email from '@/assets/images/Card-E-mail.jpg';
 import ti from '@/assets/images/Card-TI.jpg';
@@ -60,12 +60,6 @@ export const Home = () => {
         />
 
         <CardService
-          image={cloud}
-          title="Infraestrutura e Cloud"
-          subtitle="Servidores, backup e virtualização"
-        />
-
-        <CardService
           image={email}
           title="E-mail Corporativo"
           subtitle="Zimbra empresarial"
@@ -74,13 +68,19 @@ export const Home = () => {
         <CardService
           image={ecommerce}
           title="E-commerce"
-          subtitle="Implantação e suporte W3 ERP"
+          subtitle="Integrada com pagamentos, marketplaces e pronta para vender."
         />
 
         <CardService
           image={web}
           title="Criação de Sites"
           subtitle="Sites institucionais focados em geração de clientes"
+        />
+
+         <CardService
+          image={digital}
+          title="Marketing Digital"
+          subtitle="Criação de identidade visual, gestão de redes sociais e campanhas no Google para atrair mais clientes."
         />
 
         <CardService

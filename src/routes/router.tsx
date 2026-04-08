@@ -13,6 +13,9 @@ import { CaseJPM } from '@/pages/CaseJPM/CaseJPM';
 import { Zimbra } from '@/pages/Zimbra/Zimbra';
 import { Site } from '@/pages/Site/Site';
 import { SuporteTI } from '@/pages/SuporteTI/SuporteTI';
+import { Ecommerce } from '@/pages/TagPlus/Ecommerce/Ecommerce';
+import { MarketingDigital } from '@/pages/MarketingDigital/MarketingDigital';
+
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +32,9 @@ export const router = createBrowserRouter([
       { path: '/cases/jpm', element: <CaseJPM /> },
       { path: '/servicos/zimbra', element: <Zimbra /> },
       { path: '/servicos/criacao-de-sites', element: <Site /> },
-      { path: '/servicos/suporte-ti', element: <SuporteTI /> }, // Placeholder, criar página específica para suporte TI
+      { path: '/servicos/suporte-ti', element: <SuporteTI /> },
+      {path: '/servicos/e-commerce', element: <Ecommerce />},
+      { path: '/servicos/marketing-digital', element: <MarketingDigital /> }
     ],
   },
 

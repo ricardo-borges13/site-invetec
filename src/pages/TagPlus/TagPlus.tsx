@@ -7,7 +7,7 @@ import * as S from './TagPlus.styles';
 export const TagPlus = () => {
   const handleStart = () => {
     window.open(
-      'https://sistema.tagplus.com.br/checkout/?ref=SEU_LINK_AQUI',
+      'https://sistema.tagplus.com.br/checkout/?ref=sistema_parceiros&id_funcionario=1464',
       '_blank'
     );
   };
