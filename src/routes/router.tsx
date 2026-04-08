@@ -10,6 +10,9 @@ import { W3ERP } from '@/pages/W3ERP/W3ERP';
 import { Cases } from '@/pages/Cases/Cases';
 import { CaseDatron } from '@/pages/CaseDatron/CaseDatron';
 import { CaseJPM } from '@/pages/CaseJPM/CaseJPM';
+import { Zimbra } from '@/pages/Zimbra/Zimbra';
+import { Site } from '@/pages/Site/Site';
+import { SuporteTI } from '@/pages/SuporteTI/SuporteTI';
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +26,10 @@ export const router = createBrowserRouter([
       { path: '/servicos/erp/w3erp', element: <W3ERP /> },
       { path: '/cases', element: <Cases /> },
       { path: '/cases/datron', element: <CaseDatron /> },
-      { path: '/cases/jpm', element: <CaseJPM /> }
+      { path: '/cases/jpm', element: <CaseJPM /> },
+      { path: '/servicos/zimbra', element: <Zimbra /> },
+      { path: '/servicos/criacao-de-sites', element: <Site /> },
+      { path: '/servicos/suporte-ti', element: <SuporteTI /> }, // Placeholder, criar página específica para suporte TI
     ],
   },
 

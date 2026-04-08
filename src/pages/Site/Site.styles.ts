@@ -43,11 +43,15 @@ export const Highlight = styled.section`
 `;
 
 export const Warning = styled.section`
-  background: #fff7ed;
-  border: 1px solid #fb923c;
+  background: linear-gradient(180deg, #eff6ff, #ffffff);
+  border: 1px solid #3b82f6;
   border-radius: 16px;
   padding: 2rem;
   margin: 3rem 0;
+
+  h2 {
+    color: #1d4ed8;
+  }
 `;
 
 export const Grid = styled.div`
@@ -79,12 +83,17 @@ export const Card = styled.div`
   }
 `;
 
-export const CTA = styled.section`
-  text-align: center;
-  margin-top: 3rem;
+export const Steps = styled.div`
+  display: grid;
+  gap: 12px;
+  max-width: 600px;
+  margin: 1.5rem auto 0;
 
-  h2 {
-    margin-bottom: 1rem;
+  div {
+    background: #f9fafb;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.lightGray};
   }
 `;
 
@@ -103,9 +112,25 @@ export const FormArea = styled.section`
     margin-bottom: 1.5rem;
     color: ${({ theme }) => theme.colors.darkGray};
   }
+`;
 
-  > div {
-    max-width: 600px;
-    margin: 0 auto;
+export const Form = styled.form`
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+
+  input,
+  select,
+  textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.lightGray};
+    font-size: 0.9rem;
+  }
+
+  textarea {
+    min-height: 80px;
+    resize: vertical;
   }
 `;

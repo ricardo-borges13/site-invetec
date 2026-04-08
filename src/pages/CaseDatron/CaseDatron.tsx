@@ -1,57 +1,78 @@
 import heroImage from '@/assets/images/PagesHero-Sobre2.jpg';
-import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
+import { FormContactERP } from '@/components/FormContactERP/FormContactERP';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
-import { CustomButton } from '@/components/CustomButton/CustomButton';
-import { useNavigate } from 'react-router-dom';
+import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import * as S from './CaseDatron.styles';
 
 export const CaseDatron = () => {
-  const navigate = useNavigate();
+
 
   return (
     <PageHeroSection
-      title="Como a DATRON ganhou controle total da operação com ERP"
-      subTitle="Da falta de integração e retrabalho para uma gestão organizada e eficiente"
+      title="Como a DATRON reduziu custos e simplificou a operação sem perder controle"
+      subTitle="Migração estratégica de um sistema robusto da TOTVS para o W3ERP"
       image={heroImage}
     >
       <S.Container>
-
         {/* 🔥 CONTEXTO */}
         <S.Section>
           <MotionReveal>
             <h2>Sobre a empresa</h2>
             <p>
-              A DATRON atua no segmento de locação de radiocomunicação,
-              com operações que envolvem controle de equipamentos,
-              contratos recorrentes, faturamento e gestão financeira.
+              A DATRON atua no segmento de locação de radiocomunicação, com
+              operações que envolvem controle de equipamentos, contratos
+              recorrentes, faturamento e gestão financeira.
             </p>
           </MotionReveal>
         </S.Section>
 
-        {/* ❌ ANTES */}
         <S.Section>
           <MotionReveal>
-            <h2>O cenário antes da organização</h2>
+            <h2>O cenário inicial</h2>
 
-            <ul>
-              <li>❌ Informações descentralizadas</li>
-              <li>❌ Controle manual de processos</li>
-              <li>❌ Retrabalho entre setores</li>
-              <li>❌ Falta de visibilidade financeira</li>
-            </ul>
+            <p>
+              A DATRON já utilizava um sistema robusto da TOTVS (RM Sistemas),
+              com processos bem estruturados e controle eficiente de contratos,
+              faturamento e gestão financeira.
+            </p>
+
+            <p>
+              A operação funcionava bem e atendia às necessidades do negócio.
+            </p>
           </MotionReveal>
         </S.Section>
 
+        <S.Warning>
+          <MotionReveal>
+            <h2>O problema não era o sistema — era o custo e a complexidade</h2>
+
+            <p>
+              Com a necessidade de atualização da versão do sistema da Totvs,
+              seria necessário investir mais de R$30.000 em infraestrutura,
+              incluindo servidores, licenças de Windows Server e banco de dados.
+            </p>
+
+            <p>
+              Além disso, havia custos contínuos com manutenção, atualizações e
+              necessidade de máquinas mais potentes para rodar o sistema.
+            </p>
+
+            <p>
+              O desafio era manter o nível de controle da operação, mas com uma
+              estrutura mais simples e sustentável.
+            </p>
+          </MotionReveal>
+        </S.Warning>
         {/* ⚙️ SOLUÇÃO */}
         <S.Section>
           <MotionReveal>
-            <h2>O que foi feito</h2>
+            <h2>A decisão estratégica</h2>
 
             <ul>
-              <li>✔ Implantação do ERP W3ERP</li>
-              <li>✔ Mapeamento e organização dos processos</li>
-              <li>✔ Integração entre setores</li>
-              <li>✔ Treinamento da equipe</li>
+              <li>✔ Migração para um sistema 100% web</li>
+              <li>✔ Eliminação da necessidade de servidores locais</li>
+              <li>✔ Redução de custos com licenças e infraestrutura</li>
+              <li>✔ Manutenção do nível de controle operacional</li>
             </ul>
           </MotionReveal>
         </S.Section>
@@ -63,76 +84,78 @@ export const CaseDatron = () => {
 
             <S.Grid>
               <S.Card>
-                <h3>📊 Controle financeiro</h3>
-                <p>Visão clara de entradas, saídas e fluxo de caixa.</p>
+                <h3>💰 Redução de custos</h3>
+                <p>Eliminação de investimentos em servidores e licenças.</p>
               </S.Card>
 
               <S.Card>
-                <h3>⚙️ Processos integrados</h3>
-                <p>Setores conectados sem retrabalho.</p>
+                <h3>☁️ Sistema 100% web</h3>
+                <p>Acesso de qualquer lugar, sem instalação.</p>
               </S.Card>
 
               <S.Card>
-                <h3>📦 Controle de estoque</h3>
-                <p>Gestão precisa dos equipamentos.</p>
+                <h3>⚙️ Menos complexidade</h3>
+                <p>Fim da gestão de infraestrutura e atualizações locais.</p>
               </S.Card>
 
               <S.Card>
-                <h3>⚡ Mais eficiência</h3>
-                <p>Redução de erros e ganho de produtividade.</p>
+                <h3>📊 Controle mantido</h3>
+                <p>Todas as operações continuaram funcionando normalmente.</p>
+              </S.Card>
+
+              <S.Card>
+                <h3>📄 Melhor gestão de contratos</h3>
+                <p>W3ERP atendeu melhor que o sistema anterior nesse ponto.</p>
+              </S.Card>
+
+              <S.Card>
+                <h3>🚀 Mais agilidade</h3>
+                <p>Atualizações automáticas sem impacto nos usuários.</p>
               </S.Card>
             </S.Grid>
           </MotionReveal>
         </S.Highlight>
 
         {/* 🖥️ NA PRÁTICA */}
-        <S.Section>
-          <MotionReveal>
-            <h2>Como funciona na prática</h2>
-            <p>
-              Hoje a operação é integrada, com controle financeiro,
-              estoque, faturamento e relatórios em tempo real,
-              permitindo decisões mais rápidas e seguras.
-            </p>
-          </MotionReveal>
-        </S.Section>
-
-        {/* 🧠 DIFERENCIAL */}
         <S.Warning>
           <MotionReveal>
-            <h2>O sistema não é o problema — a implantação é</h2>
+            <h2>
+              Nem sempre trocar de sistema é sobre melhorar — às vezes é sobre
+              simplificar
+            </h2>
 
             <p>
-              Muitas empresas já trocaram de sistema várias vezes
-              e continuam enfrentando os mesmos problemas.
+              A DATRON já tinha um sistema eficiente. A mudança não foi por
+              falha, mas por estratégia.
             </p>
 
             <p>
-              O que faz a diferença não é apenas o software,
-              mas a forma como ele é implantado, adaptado e utilizado.
+              Reduzir custos, eliminar complexidade e manter a eficiência da
+              operação.
             </p>
 
             <p>
-              Foi exatamente esse acompanhamento que garantiu o sucesso
-              da implantação na DATRON.
+              E isso só é possível quando a escolha e a implantação são feitas
+              da forma correta.
             </p>
           </MotionReveal>
         </S.Warning>
 
         {/* 🚀 CTA */}
         <S.CTA>
-          <MotionReveal>
-            <h2>Quer esse nível de controle na sua empresa?</h2>
+          <S.FormArea>
+            <MotionReveal>
+              <h2>Quer entender qual é o melhor cenário para sua empresa?</h2>
 
-            <CustomButton
-              variant="cta"
-              onClick={() => navigate('/contato')}
-            >
-              Solicitar diagnóstico
-            </CustomButton>
-          </MotionReveal>
+              <p>
+                Nem sempre a melhor decisão é trocar de sistema — mas quando é,
+                precisa ser feita da forma certa.
+              </p>
+
+              <FormContactERP />
+            </MotionReveal>
+          </S.FormArea>
         </S.CTA>
-
       </S.Container>
     </PageHeroSection>
   );

@@ -6,21 +6,21 @@ export const menuItems = [
     path: '/servicos',
     showInFooter: false,
     submenu: [
-      { title: 'ERP W3ERP', path: '/servicos/erp' },
+      { title: 'Sistemas ERP', path: '/servicos/erp' },
       {
         title: 'E-mail Corporativo',
-        path: '/servicos/e-mail-corporativo',
+        path: '/servicos/zimbra',
       },
       {
-        title: 'Sites Institucionais',
-        path: '/servicos/sites-institucionais',
+        title: 'Criação de Sites',
+        path: '/servicos/criacao-de-sites',
       },
       {
         title: 'E-commerce',
         path: '/servicos/e-commerce',
       },
       { title: 'Cloud Computing', path: '/servicos/cloud-computing' },
-      { title: 'Suporte TI', path: '/servicos/suporte-ti' },
+      { title: 'Gestão e Suporte de TI', path: '/servicos/suporte-ti' },
     ],
   },
   {

@@ -11,14 +11,13 @@ export const Section = styled.section`
   margin-bottom: 3rem;
 
   h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
     color: ${({ theme }) => theme.colors.primary};
+    margin-bottom: 1rem;
   }
 
   p {
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 0.5rem;
     line-height: 1.6;
   }
 `;
@@ -26,33 +25,54 @@ export const Section = styled.section`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 30px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     grid-template-columns: 1fr;
   }
 `;
 
 export const Card = styled.div`
   background: white;
-  padding: 30px;
-  border-radius: 16px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
+  border-radius: 16px;
+  padding: 2rem;
   text-align: center;
 
   h3 {
-    margin-bottom: 12px;
+    margin-bottom: 1rem;
   }
 
   p {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
     line-height: 1.5;
   }
 
-  transition: 0.3s;
+  ul {
+    text-align: left;
+    margin: 1rem 0;
+    display: inline-block;
 
-  &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    li {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+  }
+`;
+
+export const ButtonGroup = styled.div`
+  margin-top: 1.5rem;
+`;
+
+export const FooterCTA = styled.section`
+  margin-top: 4rem;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
   }
 `;

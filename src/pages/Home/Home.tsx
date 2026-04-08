@@ -55,8 +55,8 @@ export const Home = () => {
       <ServiceSection title="Nossos Serviços">
         <CardService
           image={erpImg}
-          title="ERP"
-          subtitle="Implantação e suporte W3 ERP"
+          title="Sistema ERP"
+          subtitle="Implantação e suporte W3ERP e TagPlus"
         />
 
         <CardService
@@ -79,14 +79,14 @@ export const Home = () => {
 
         <CardService
           image={web}
-          title="Desenvolvimento Web"
-          subtitle="Sites Institucionais e Portfólios"
+          title="Criação de Sites"
+          subtitle="Sites institucionais focados em geração de clientes"
         />
 
         <CardService
           image={ti}
-          title="Suporte TI"
-          subtitle="Implantação e suporte W3 ERP"
+          title="Gestão de TI para Empresas"
+          subtitle="Organização, segurança e suporte contínuo para sua operação"
         />
       </ServiceSection>
 

@@ -6,11 +6,10 @@ import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { useState } from 'react';
 import { Accordion } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import * as S from './CaseJPM.styles';
 
 export const CaseJPM = () => {
-  const navigate = useNavigate();
+
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   return (
     <PageHeroSection
@@ -284,7 +283,7 @@ export const CaseJPM = () => {
               <FormContactERP />
             </MotionReveal>
           </S.FormArea>
-       
+
       </S.Container>
 
       {selectedImage && (
