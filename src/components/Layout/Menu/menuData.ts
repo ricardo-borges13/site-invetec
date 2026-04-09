@@ -51,3 +51,5 @@ export const menuItems = [
     showInFooter: true,
   },
 ];
+
+export type MenuItem = (typeof menuItems)[0];

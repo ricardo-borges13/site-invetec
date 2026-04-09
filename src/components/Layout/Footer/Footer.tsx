@@ -1,5 +1,5 @@
 import logo from '@/assets/images/Logo-Invetec-branco.png';
-import { menuItems } from '@/components/Layout/Menu/menuData';
+import { menuItems, type MenuItem } from '@/components/Layout/Menu/menuData';
 import type { ContactInfo } from '@/pages/Contato/contactData';
 import { BiSolidPhoneOutgoing } from 'react-icons/bi';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -19,7 +19,9 @@ export const Footer = ({ phone, email }: ContactInfo) => {
     e.preventDefault();
 
     if (location.pathname === '/') {
-      document.getElementById(item.scrollTo)?.scrollIntoView({ behavior: 'smooth' });
+      document
+        .getElementById(item.scrollTo)
+        ?.scrollIntoView({ behavior: 'smooth' });
     } else {
       navigate('/', { state: { scrollTo: item.scrollTo } });
     }
@@ -74,7 +76,12 @@ export const Footer = ({ phone, email }: ContactInfo) => {
               <a href={`tel:${getCleanPhone(phone)}`}>{phone}</a>
             </span>
             <S.Social>
-              <a href={whatsAppHref} target="_blank" rel="noopener noreferrer" title="Falar no WhatsApp">
+              <a
+                href={whatsAppHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Falar no WhatsApp"
+              >
                 <FaWhatsapp />
               </a>
             </S.Social>
