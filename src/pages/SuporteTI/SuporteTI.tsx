@@ -2,11 +2,11 @@ import heroImage from '@/assets/images/PagesHero-Suporte.jpg';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
-import * as S from './SuporteTI.styles';
 import { useNavigate } from 'react-router-dom';
+import * as S from './SuporteTI.styles';
 
 export const SuporteTI = () => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <PageHeroSection
       title="Gestão e Suporte de TI para Empresas"

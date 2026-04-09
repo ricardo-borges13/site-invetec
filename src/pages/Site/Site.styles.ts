@@ -7,20 +7,26 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.section`
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   text-align: center;
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
     color: ${({ theme }) => theme.colors.primary};
+    font-weight: 700;
   }
 
   p {
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
+    text-align: left;
   }
+
+  &:not(:first-child) h2 {
+  margin-top: 10px;
+}
 
   ul {
     margin-top: 1rem;
@@ -35,13 +41,12 @@ export const Section = styled.section`
 `;
 
 export const Highlight = styled.section`
-
-
-  background: #f0fdf4;
+ background: linear-gradient(135deg, #f0fdf4, #dcfce7);
   border: 1px solid ${({ theme }) => theme.colors.ctaGreen};
   border-radius: 16px;
-  padding: 2rem;
-  margin: 3rem 0;
+  padding: 2.5rem;
+  margin: 4rem 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 `;
 
 export const Warning = styled.section`
@@ -61,7 +66,7 @@ export const Grid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -71,10 +76,11 @@ export const Grid = styled.div`
 `;
 
 export const Card = styled.div`
-  background: white;
+background: white;
   border-radius: 12px;
   padding: 20px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
+  transition: all 0.3s ease;
 
   h3 {
     margin-bottom: 10px;
@@ -82,6 +88,11 @@ export const Card = styled.div`
 
   p {
     font-size: 0.9rem;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
   }
 `;
 

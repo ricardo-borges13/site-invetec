@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
       { path: '/cases', element: <Cases /> },
       { path: '/cases/datron', element: <CaseDatron /> },
       { path: '/cases/jpm', element: <CaseJPM /> },
-      { path: '/servicos/zimbra', element: <Zimbra /> },
+      { path: '/servicos/email-corporativo-zimbra', element: <Zimbra /> },
       { path: '/servicos/criacao-de-sites', element: <Site /> },
       { path: '/servicos/suporte-ti', element: <SuporteTI /> },
       { path: '/servicos/e-commerce', element: <Ecommerce /> },

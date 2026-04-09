@@ -41,7 +41,7 @@ export const servicesData = [
     image: email,
     title: 'E-mail Corporativo',
     subtitle: 'E-mails profissionais com segurança e comunicação profissional',
-    path: '/servicos/zimbra',
+    path: '/servicos/email-corporativo-zimbra',
   },
   {
     image: ecommerce,

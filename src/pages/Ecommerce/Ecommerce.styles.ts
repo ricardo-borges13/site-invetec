@@ -18,6 +18,7 @@ export const Section = styled.section`
     max-width: 700px;
     margin: 0 auto;
     color: #555;
+    text-align: left;
   }
 `;
 
@@ -26,9 +27,16 @@ export const Grid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+
+ grid-template-columns: repeat(3, 1fr);
+
+@media (max-width: 900px) {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 600px) {
+  grid-template-columns: 1fr;
+}
 `;
 
 export const Card = styled.div`
@@ -36,10 +44,12 @@ export const Card = styled.div`
   padding: 24px;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  transition: 0.3s;
+  transition: all 0.3s;
+  min-height: 200px;
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
   }
 
   h3 {
@@ -52,7 +62,8 @@ export const Card = styled.div`
 `;
 
 export const Highlight = styled.div`
-  background: #f0fdf4;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   padding: 40px;
   border-radius: 16px;
   text-align: center;
@@ -94,6 +105,10 @@ export const Carousel = styled.div`
   gap: 16px;
   overflow-x: auto;
   padding: 10px 0 10px 10px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  background: #f9fafb;
 
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
