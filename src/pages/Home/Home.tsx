@@ -1,10 +1,4 @@
 import imgHero from '@/assets/images/BannerPrincipalHero.jpg';
-import digital from '@/assets/images/Card-Digital.jpg';
-import ecommerce from '@/assets/images/Card-E-commerce.jpg';
-import email from '@/assets/images/Card-E-mail.jpg';
-import ti from '@/assets/images/Card-TI.jpg';
-import erpImg from '@/assets/images/Card-W3.jpg';
-import web from '@/assets/images/Card-Web.jpg';
 import { BusinessPartner } from '@/components/Sections/BusinessPartner/BusinessPartner';
 import { CTASection } from '@/components/Sections/CTASection/CTASection';
 import { Hero } from '@/components/Sections/Hero/hero';
@@ -13,8 +7,9 @@ import { CardService } from '@/components/Sections/ServiceSection/CardService/Ca
 import { ServiceSection } from '@/components/Sections/ServiceSection/ServiceSection';
 import { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { sobreData } from './Home.data';
+import { servicesData, sobreData } from './Home.data';
 import * as S from './Home.styles';
+import { SEO } from '@/components/SEO/Seo';
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -40,18 +35,33 @@ export const Home = () => {
 
   // Memoize event handlers with useCallback
   const handlePrimaryClick = useCallback(() => {
-    navigate('/orcamento');
-  }, [navigate]);
+    if (location.pathname === '/') {
+      const section = document.getElementById('servicos');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate('/', { state: { scrollTo: 'servicos' } });
+    }
+  }, [navigate, location]);
 
   const handleSecondaryClick = useCallback(() => {
     navigate('/contato');
   }, [navigate]);
 
   return (
+    <>
+     <SEO
+        title="Invetec | ERP, E-mail Corporativo, Sites e Soluções em TI"
+        description="Mais de 20 anos ajudando empresas a se organizar e crescer com ERP, e-mail corporativo profissional, sites e soluções digitais. Estrutura, segurança e resultado."
+        image="https://www.invetec.com.br/images/home.jpg"
+        url="https://www.invetec.com.br"
+      />
+
     <S.HomeWrapper>
       <Hero
-        title="Tecnologia e gestão para empresas"
-        subtitle="Soluções em ERP, Cloud, Infraestrutura e Desenvolvimento Web"
+        title="Tecnologia que organiza sua empresa e acelera resultados"
+        subtitle="ERP, e-mail corporativo profissional, sites e soluções digitais para organizar sua empresa e fortalecer sua presença no mercado"
         primaryButtonText="Ver Serviços"
         image={imgHero}
         secondaryButtonText="Fale com um especialista"
@@ -63,41 +73,15 @@ export const Home = () => {
 
       <div id="servicos">
         <ServiceSection title="Nossos Serviços">
-          <CardService
-            image={erpImg}
-            title="Sistema ERP"
-            subtitle="Implantação e suporte W3ERP e TagPlus"
-          />
-
-          <CardService
-            image={email}
-            title="E-mail Corporativo"
-            subtitle="Zimbra empresarial"
-          />
-
-          <CardService
-            image={ecommerce}
-            title="E-commerce"
-            subtitle="Integrada com pagamentos, marketplaces e pronta para vender."
-          />
-
-          <CardService
-            image={web}
-            title="Criação de Sites"
-            subtitle="Sites institucionais focados em geração de clientes"
-          />
-
-          <CardService
-            image={digital}
-            title="Marketing Digital"
-            subtitle="Criação de identidade visual, gestão de redes sociais e campanhas no Google para atrair mais clientes."
-          />
-
-          <CardService
-            image={ti}
-            title="Gestão de TI para Empresas"
-            subtitle="Organização, segurança e suporte contínuo para sua operação"
-          />
+          {servicesData.map(service => (
+            <CardService
+              key={service.title}
+              image={service.image}
+              title={service.title}
+              subtitle={service.subtitle}
+              path={service.path}
+            />
+          ))}
         </ServiceSection>
       </div>
       <CTASection />
@@ -106,5 +90,6 @@ export const Home = () => {
         <BusinessPartner />
       </div>
     </S.HomeWrapper>
+    </>
   );
 };

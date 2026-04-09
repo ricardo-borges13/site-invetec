@@ -37,11 +37,14 @@ export const Footer = ({ phone, email }: ContactInfo) => {
         {/* Empresa */}
         <S.Section>
           <S.LogoImage src={logo} alt="Invetec" />
+
           <S.Text>
-            Tecnologia e gestão para empresas.
-            <br />
-            Soluções em ERP, infraestrutura, e-commerce e desenvolvimento web
-            para impulsionar seu negócio.
+            Tecnologia que organiza sua empresa e impulsiona resultados.
+          </S.Text>
+          
+          <S.Text>
+            Soluções em ERP, infraestrutura, e-commerce e presença digital para
+            estruturar e fazer seu negócio crescer.
           </S.Text>
         </S.Section>
 

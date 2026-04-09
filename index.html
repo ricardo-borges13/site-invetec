@@ -1,11 +1,45 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <meta name="robots" content="index, follow" />
+
+    <!-- 🔹 Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Novo Projeto</title>
+
+    <!-- 🔹 Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- 🔹 Schema (pode manter - não conflita) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "INVETEC - Investindo em Tecnologia",
+        "url": "https://www.invetec.com.br/",
+        "logo": "https://www.invetec.com.br/logo.png",
+        "image": "https://www.invetec.com.br/images/home.jpg",
+        "description": "Tecnologia que organiza, estrutura e faz sua empresa crescer."
+        "telephone": "+55 31 9 9710-1336",
+        "areaServed": "BR"
+      }
+    </script>
+
+    <!-- 🔹 Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 🔹 Compatibilidade -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

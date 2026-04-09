@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.div<{ $clickable?: boolean }>`
+  cursor: ${({ $clickable }) => ($clickable ? 'pointer' : 'default')};
+
   background: ${({ theme }) => theme.colors.white};
   border-radius: 12px;
   padding: 20px;
   min-height: 220px;
   height: 100%; /* 🔥 importante */
   text-align: center;
-  box-shadow: ${({ theme }) => theme.shadows.small};
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
 
   display: flex; /* 🔥 */
@@ -15,9 +17,11 @@ export const CardContainer = styled.div`
   justify-content: space-between; /* 🔥 */
 
   &:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: ${({ $clickable }) => ($clickable ? 'translateY(-6px)' : 'none')};
     box-shadow: ${({ theme }) => theme.shadows.medium};
   }
+
+
 `;
 
 export const ImageWrapper = styled.div``;

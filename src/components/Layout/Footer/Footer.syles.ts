@@ -10,15 +10,15 @@ export const Container = styled.footer`
   width: 100%;
   background: linear-gradient(180deg, #0f3d63, #0a2540);
   color: ${({ theme }) => theme.colors.white};
-  padding: 80px 24px 40px;
+  padding: 30px 24px 20px;
 `;
 
 export const Content = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 56px;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 80px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     text-align: center;
@@ -118,7 +118,7 @@ export const Social = styled.div`
 
 export const Copy = styled.div`
   text-align: center;
-  margin-top: 56px;
+  margin-top: 36px;
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.85rem;

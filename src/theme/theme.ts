@@ -26,7 +26,7 @@ export const theme = {
     lightGray: '#f6f6f6',
     mediumGray: '#eeeeee',
     darkGray: '#1A1A1A',
-    white: '#FFFFFF',
+    white: '#ffffff',
     black: '#000000',
     success: '#1e7f4f',
     lightSuccess: '#2c8f5c', // Added new color

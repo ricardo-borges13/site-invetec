@@ -12,10 +12,9 @@ export const HeaderMain = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30); // muda o estado ao rolar
+      setIsScrolled(window.scrollY > 30);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -23,22 +22,20 @@ export const HeaderMain = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
-  const cleanPhone = contactData.phone.replace(/\D/g, '');
+    const cleanPhone = contactData.phone.replace(/\D/g, '');
 
-  const message = encodeURIComponent(
-    'Olá, gostaria de saber mais sobre os serviços da INVETEC.'
-  );
+    const message = encodeURIComponent(
+      'Olá, gostaria de saber mais sobre os serviços da INVETEC.'
+    );
 
-  const url = `https://wa.me/55${cleanPhone}?text=${message}`;
-
-  window.open(url, '_blank');
-};
+    window.open(`https://wa.me/55${cleanPhone}?text=${message}`, '_blank');
+  };
 
   return (
     <S.HeaderContainer $isScrolled={isScrolled}>
       <S.HeaderContent>
         <Link to="/">
-          <S.Image src={logo} alt="Logo" $isScrolled={isScrolled} />
+          <S.Image src={logo} alt="Invetec" $isScrolled={isScrolled} />
         </Link>
 
         <S.MenuWrapper>
@@ -55,7 +52,7 @@ export const HeaderMain = () => {
             variant="headerMain"
             onClick={handleWhatsAppClick}
           >
-            <FaWhatsapp size={24} />
+            <FaWhatsapp size={20} />
             Fale no WhatsApp
           </CustomButton>
         </S.MenuWrapper>

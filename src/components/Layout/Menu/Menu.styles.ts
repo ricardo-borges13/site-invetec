@@ -63,8 +63,6 @@ export const MenuItem = styled.div`
     width: 100%;
   }
 
-
-
   &:hover > a::before {
     width: 100%;
   }
@@ -119,64 +117,96 @@ export const MenuLink = styled(Link)`
 
 export const Submenu = styled.ul<{ $isOpen?: boolean }>`
   list-style: none;
-  background: ${({ theme }) => theme.hexToRgba(theme.colors.white, 0.9)};
-  border-radius: 8px;
-  box-shadow: 0 8px 16px
-    ${({ theme }) => theme.hexToRgba(theme.colors.black, 0.15)};
-  padding: ${({ theme }) => theme.spacing.small} 0;
-  min-width: 220px;
+  background: #ffffff;
+  border-radius: 12px;
+
+  /* 🔥 MELHOR SOMBRA */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+  padding: 8px 0;
+
+  /* 🔥 RESOLVE QUEBRA DE TEXTO */
+  min-width: 280px;
+
   z-index: 1000;
   position: absolute;
-  top: calc(100% - 15px);
+  top: calc(100% - 10px);
   left: 0;
+
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
   transform: ${({ $isOpen }) =>
-    $isOpen ? 'translateY(0)' : 'translateY(-10px)'};
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+    $isOpen ? 'translateY(0)' : 'translateY(-8px)'};
+
+  transition: all 0.25s ease;
+
   pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
   display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
 
-  /* --- MODO MOBILE --- */
+  /* MOBILE */
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
     position: static;
     background: transparent;
     box-shadow: none;
     min-width: unset;
     padding: 0 20px;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
     max-height: ${({ $isOpen }) => ($isOpen ? '500px' : '0')};
+    overflow: hidden;
     opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
     transform: none;
-    display: block;
   }
 `;
 
 export const SubmenuItem = styled.li`
   padding: 0;
 
+
   a {
     display: block;
-    padding: 0.6rem 1rem;
+    padding: 12px 20px;
+
     color: ${({ theme }) => theme.hexToRgba(theme.colors.black, 0.8)};
     text-decoration: none;
-    transition: background-color 0.4s ease;
+
+    font-weight: 600;
+
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+    position: relative;
+
+    /* 🔥 NÃO QUEBRA TEXTO */
+    white-space: nowrap;
 
     &:hover {
-      background: ${({ theme }) => theme.colors.lightGray};
+      background: #eff6ff;
       color: ${({ theme }) => theme.colors.primary};
+      
+    }
+
+    /* 🔥 BARRA LATERAL (UX TOP) */
+    &:hover::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: ${({ theme }) => theme.colors.primary};
+      border-radius: 2px;
     }
 
     @media (max-width: 774px) {
-      color: ${({ theme }) => theme.colors.white};
-      background: none;
+      white-space: normal;
       padding: 0.4rem 0;
+      color: ${({ theme }) => theme.colors.white};
 
       &:hover {
-        background: ${({ theme }) => theme.colors.lightGray};
+        background: none;
         color: ${({ theme }) => theme.colors.secondary};
+        transform: none;
+      }
+
+      &::before {
+        display: none;
       }
     }
   }
