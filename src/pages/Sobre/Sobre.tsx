@@ -1,29 +1,39 @@
 import heroImage from '@/assets/images/PagesHero-Sobre2.jpg';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
-import * as S from './Sobre.styles';
 import { Link } from 'react-router-dom';
+import * as S from './Sobre.styles';
 
 const diferenciais = [
   {
-    title: 'Experiência real de gestão',
+    title: 'Experiência real dentro de empresas',
     content:
-      'Mais de 20 anos atuando dentro da mesma empresa como responsável por toda a área de TI.',
+      'Mais de 20 anos atuando na prática, resolvendo problemas reais do dia a dia empresarial.',
   },
   {
-    title: 'Visão de negócio',
+    title: 'Tecnologia com visão de negócio',
     content:
-      'Entendimento completo dos processos empresariais: financeiro, fiscal, logística e comercial.',
+      'Não focamos apenas na parte técnica — entendemos financeiro, fiscal, comercial e operação.',
   },
   {
-    title: 'Soluções completas',
+    title: 'Soluções completas em um único parceiro',
     content:
-      'ERP, cloud, infraestrutura, e-mail corporativo e desenvolvimento web em um único parceiro.',
+      'ERP, infraestrutura, sites, marketing e suporte — tudo integrado e funcionando junto.',
   },
   {
-    title: 'Atendimento próximo',
+    title: 'Foco em resultado, não só em tecnologia',
     content:
-      'Relacionamento direto, rápido e focado na realidade de cada cliente.',
+      'Cada solução é pensada para organizar sua empresa e gerar crescimento real.',
+  },
+  {
+    title: 'Atendimento direto e sem burocracia',
+    content:
+      'Contato próximo, respostas rápidas e soluções práticas para o seu dia a dia.',
+  },
+  {
+    title: 'Sem soluções genéricas',
+    content:
+      'Cada empresa é única — adaptamos a tecnologia à sua realidade, não o contrário.',
   },
 ];
 
@@ -33,30 +43,38 @@ export const Sobre = () => {
       title="Sobre a Invetec"
       subTitle="Mais de 20 anos ajudando empresas a crescer com tecnologia"
       image={heroImage}
+      overlayOpacity={0.7}
     >
       <S.Container>
         {/* INTRO */}
         <S.Intro>
           <MotionReveal>
-            <h2>Transformando tecnologia em resultado</h2>
+            <h2>
+              Tecnologia que organiza, estrutura e faz sua empresa crescer
+            </h2>
           </MotionReveal>
 
           <MotionReveal delay={0.2}>
             <p>
-              A <strong>INVETEC</strong> é uma empresa especializada em
-              transformar a tecnologia em resultados práticos para empresas.
+              A <strong>INVETEC</strong> ajuda empresas a saírem do improviso e
+              terem controle real da operação através da tecnologia.
             </p>
           </MotionReveal>
 
           <MotionReveal delay={0.3}>
             <p>
-              Atuamos na estruturação, otimização e suporte de ambientes de TI,
-              sempre com foco em eficiência, segurança e crescimento do negócio.
+              Atuamos desde a base — com organização de processos e implantação
+              de sistemas — até a geração de novos negócios com presença
+              digital, marketing e vendas online.
+            </p>
+
+            <p>
+              Primeiro estruturamos sua empresa. Depois ajudamos ela a crescer.
             </p>
           </MotionReveal>
 
           <S.Highlight>
-            +20 anos de experiência em Tecnologia da Informação
+            Mais de 20 anos resolvendo problemas reais dentro de empresas
           </S.Highlight>
         </S.Intro>
 
@@ -68,18 +86,36 @@ export const Sobre = () => {
 
           <MotionReveal delay={0.2}>
             <p>
-              A INVETEC nasceu da vivência real de mercado. Seu fundador possui
-              sólida experiência como gestor de TI, sendo responsável por toda a
-              operação tecnológica de uma empresa por mais de 20 anos.
+              A INVETEC nasceu da prática, não da teoria. São mais de 20 anos
+              atuando diretamente dentro de empresas, resolvendo problemas reais
+              do dia a dia.
             </p>
           </MotionReveal>
 
           <S.List>
-            <li>Implantação e gestão de ERP (TOTVS RM e W3 ERP)</li>
-            <li>Administração de redes e servidores (Windows e Linux)</li>
-            <li>Gestão de ambientes corporativos (AD, DNS, DHCP)</li>
-            <li>Segurança da informação (GPO, firewall, políticas)</li>
-            <li>Integração entre áreas: financeiro, fiscal e logística</li>
+            <li>Implantação e gestão de ERP (TOTVS, W3ERP, TagPlus)</li>
+
+            <li>Organização e suporte completo da infraestrutura de TI</li>
+
+            <li>
+              Gestão de servidores e ambientes corporativos com segurança e
+              estabilidade
+            </li>
+
+            <li>
+              Proteção de dados e segurança da informação (controle de acessos,
+              políticas e firewall)
+            </li>
+
+            <li>
+              Integração entre setores da empresa: financeiro, fiscal,
+              comercial, logística e faturamento
+            </li>
+
+            <li>
+              Desenvolvimento de sites modernos focados em gerar contatos e
+              novos clientes
+            </li>
           </S.List>
         </S.Block>
 
@@ -90,36 +126,70 @@ export const Sobre = () => {
           </MotionReveal>
 
           <S.Grid3>
-            <S.SolutionCard>
-              <strong>ERP em nuvem</strong>
-              <p>Implantação, suporte e otimização do W3 ERP</p>
-            </S.SolutionCard>
+  <S.SolutionCard>
+    <strong>Gestão empresarial com ERP</strong>
+    <p>
+      Controle financeiro, fiscal e operacional em um único sistema,
+      trazendo organização e clareza para a empresa.
+    </p>
+  </S.SolutionCard>
 
-            <S.SolutionCard>
-              <strong>Infraestrutura e Cloud</strong>
-              <p>Servidores, backup e ambientes escaláveis</p>
-            </S.SolutionCard>
+  <S.SolutionCard>
+    <strong>Infraestrutura e Cloud</strong>
+    <p>
+      Ambientes seguros, estáveis e preparados para crescer junto com o seu negócio.
+    </p>
+  </S.SolutionCard>
 
-            <S.SolutionCard>
-              <strong>E-mail corporativo</strong>
-              <p>Segurança, antispam e alta disponibilidade</p>
-            </S.SolutionCard>
+  <S.SolutionCard>
+    <strong>E-mail corporativo profissional</strong>
+    <p>
+      Comunicação segura, confiável e com a identidade da sua empresa.
+    </p>
+  </S.SolutionCard>
 
-            <S.SolutionCard>
-              <strong>Backup em nuvem</strong>
-              <p>Proteção total dos dados da empresa</p>
-            </S.SolutionCard>
+  <S.SolutionCard>
+    <strong>Proteção e backup de dados</strong>
+    <p>
+      Segurança das informações com rotinas de backup e recuperação rápida.
+    </p>
+  </S.SolutionCard>
 
-            <S.SolutionCard>
-              <strong>Desenvolvimento Web</strong>
-              <p>Sites profissionais e sistemas sob medida</p>
-            </S.SolutionCard>
+  <S.SolutionCard>
+    <strong>Criação de sites que geram clientes</strong>
+    <p>
+      Mais do que presença online — sites pensados para atrair, converter e gerar oportunidades.
+    </p>
+  </S.SolutionCard>
 
-            <S.SolutionCard>
-              <strong>Suporte especializado</strong>
-              <p>Atendimento rápido e direto</p>
-            </S.SolutionCard>
-          </S.Grid3>
+  <S.SolutionCard>
+    <strong>Marketing digital e presença online</strong>
+    <p>
+      Redes sociais, conteúdo e campanhas para aumentar visibilidade e atrair novos clientes.
+    </p>
+  </S.SolutionCard>
+
+  <S.SolutionCard>
+    <strong>E-commerce pronto para vender</strong>
+    <p>
+      Lojas virtuais integradas com pagamentos e marketplaces, preparadas para escalar vendas.
+    </p>
+  </S.SolutionCard>
+
+  <S.SolutionCard>
+    <strong>Suporte e gestão de TI</strong>
+    <p>
+      Acompanhamento contínuo para manter tudo funcionando com segurança e eficiência.
+    </p>
+  </S.SolutionCard>
+
+  <S.SolutionCard>
+    <strong>Integração entre sistemas e áreas</strong>
+    <p>
+      Conexão entre setores da empresa para eliminar retrabalho e melhorar a produtividade.
+    </p>
+  </S.SolutionCard>
+</S.Grid3>
         </S.Block>
 
         {/* DIFERENCIAIS */}
