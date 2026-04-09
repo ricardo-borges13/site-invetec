@@ -145,6 +145,10 @@ export const CompareCard = styled.div<{ type: 'good' | 'bad' }>`
 
 
 export const Warning = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: #fff7ed;
   border: 1px solid #fb923c;
   border-radius: 16px;

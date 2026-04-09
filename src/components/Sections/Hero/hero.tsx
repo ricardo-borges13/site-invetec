@@ -30,7 +30,7 @@ export const Hero = React.memo(
           src={image}
           alt="Banner principal"
           loading="eager"
-          fetchPriority="high"
+          $fetchPriority="high"
           decoding="async"
         />
 

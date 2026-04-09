@@ -29,6 +29,15 @@ export const Home = () => {
     }
   }, [location]);
 
+  useEffect(() => {
+    if (location.state?.scrollTo === 'servicos') {
+      const section = document.getElementById('servicos');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   // Memoize event handlers with useCallback
   const handlePrimaryClick = useCallback(() => {
     navigate('/orcamento');
@@ -52,50 +61,50 @@ export const Home = () => {
 
       <SectionInfo {...sobreData} />
 
-      <ServiceSection title="Nossos Serviços">
-        <CardService
-          image={erpImg}
-          title="Sistema ERP"
-          subtitle="Implantação e suporte W3ERP e TagPlus"
-        />
+      <div id="servicos">
+        <ServiceSection title="Nossos Serviços">
+          <CardService
+            image={erpImg}
+            title="Sistema ERP"
+            subtitle="Implantação e suporte W3ERP e TagPlus"
+          />
 
-        <CardService
-          image={email}
-          title="E-mail Corporativo"
-          subtitle="Zimbra empresarial"
-        />
+          <CardService
+            image={email}
+            title="E-mail Corporativo"
+            subtitle="Zimbra empresarial"
+          />
 
-        <CardService
-          image={ecommerce}
-          title="E-commerce"
-          subtitle="Integrada com pagamentos, marketplaces e pronta para vender."
-        />
+          <CardService
+            image={ecommerce}
+            title="E-commerce"
+            subtitle="Integrada com pagamentos, marketplaces e pronta para vender."
+          />
 
-        <CardService
-          image={web}
-          title="Criação de Sites"
-          subtitle="Sites institucionais focados em geração de clientes"
-        />
+          <CardService
+            image={web}
+            title="Criação de Sites"
+            subtitle="Sites institucionais focados em geração de clientes"
+          />
 
-         <CardService
-          image={digital}
-          title="Marketing Digital"
-          subtitle="Criação de identidade visual, gestão de redes sociais e campanhas no Google para atrair mais clientes."
-        />
+          <CardService
+            image={digital}
+            title="Marketing Digital"
+            subtitle="Criação de identidade visual, gestão de redes sociais e campanhas no Google para atrair mais clientes."
+          />
 
-        <CardService
-          image={ti}
-          title="Gestão de TI para Empresas"
-          subtitle="Organização, segurança e suporte contínuo para sua operação"
-        />
-      </ServiceSection>
-
+          <CardService
+            image={ti}
+            title="Gestão de TI para Empresas"
+            subtitle="Organização, segurança e suporte contínuo para sua operação"
+          />
+        </ServiceSection>
+      </div>
       <CTASection />
 
       <div id="parceiros">
         <BusinessPartner />
       </div>
-
     </S.HomeWrapper>
   );
 };

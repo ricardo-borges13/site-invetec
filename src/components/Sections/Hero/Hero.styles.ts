@@ -25,7 +25,7 @@ export const HeroContainer = styled.section`
 `;
 
 /* Imagem de fundo real */
-export const BackgroundImage = styled.img`
+export const BackgroundImage = styled.img <{ $fetchPriority?: string }>`
   position: absolute;
   inset: 0;
   width: 100%;

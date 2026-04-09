@@ -1,4 +1,4 @@
-import heroImage from '@/assets/images/PagesHero-Sobre2.jpg'; // depois pode trocar
+import heroImage from '@/assets/images/PagesHero-TagPlus.jpg'; // depois pode trocar
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
@@ -34,7 +34,7 @@ export const TagPlus = () => {
           <MotionReveal>
             <h2>O sistema ideal para quem está começando</h2>
             <p>
-              O TagPlus é um ERP simples, rápido e acessível, ideal para
+              O <strong>TagPlus</strong> é um ERP simples, rápido e acessível, ideal para
               empresas que precisam organizar financeiro, vendas e estoque sem
               complicação.
             </p>
@@ -76,7 +76,7 @@ export const TagPlus = () => {
     <h2>Você pode começar sozinho — ou com minha ajuda</h2>
 
     <p>
-      O TagPlus é simples e você pode começar sozinho.
+      O <strong>TagPlus</strong> é simples e você pode começar sozinho.
       Mas se quiser acelerar o processo e evitar erros, eu posso te ajudar na configuração inicial.
     </p>
 

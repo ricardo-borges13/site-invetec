@@ -1,4 +1,4 @@
-import heroImage from '@/assets/images/PagesHero-Sobre2.jpg';
+import heroImage from '@/assets/images/PagesHero-Email.jpg';
 import imageZimbra from '@/assets/images/Zimbra-Painel.jpg';
 import { FormContactEmail } from '@/components/FormContactEmail/FormContactEmail';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
@@ -182,7 +182,7 @@ export const Zimbra = () => {
           <MotionReveal>
             <h2>Migração sem dor</h2>
             <p>
-              Eu cuido de todo o processo de migração, configuração e adaptação,
+              Nós cuidamos de todos os detalhes, processo de migração, configuração e adaptação,
               garantindo que sua equipe continue trabalhando sem interrupções.
             </p>
           </MotionReveal>

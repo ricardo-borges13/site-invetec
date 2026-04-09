@@ -103,3 +103,26 @@ export const Price = styled.p`
   margin: 20px 0;
   font-size: 1.1rem;
 `;
+
+
+
+/* 📋 FORMULÁRIO */
+export const FormArea = styled.section`
+  margin-top: 3rem;
+  background: #c7dbf3;
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  border: 2px solid rgba(0,0,0,0.05);
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
+  > div {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+`;
+

@@ -6,6 +6,8 @@ export type PageHeroSectionProps = {
   subTitle?: string;
   image: string;
   children?: React.ReactNode;
+  textColor?: string;
+  overlayOpacity?: number;
 };
 
 export const PageHeroSection = ({
@@ -13,13 +15,16 @@ export const PageHeroSection = ({
   subTitle,
   image,
   children,
+  textColor,
+  overlayOpacity
+
 }: PageHeroSectionProps) => {
   return (
     <>
     <S.HeroWrapper $image={image}>
-      <S.Overlay />
+      <S.Overlay $opacity={overlayOpacity} />
 
-      <S.Content>
+      <S.Content $color={textColor}>
         <motion.h1
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

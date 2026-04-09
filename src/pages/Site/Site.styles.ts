@@ -35,6 +35,8 @@ export const Section = styled.section`
 `;
 
 export const Highlight = styled.section`
+
+
   background: #f0fdf4;
   border: 1px solid ${({ theme }) => theme.colors.ctaGreen};
   border-radius: 16px;
@@ -100,9 +102,10 @@ export const Steps = styled.div`
 export const FormArea = styled.section`
   margin-top: 2rem;
   padding: 2.5rem;
-  background: #f9fafb;
+  background: #c7dbf3;
   border-radius: 16px;
   text-align: center;
+  border: 2px solid rgba(0,0,0,0.05);
 
   h2 {
     margin-bottom: 0.5rem;
@@ -134,3 +137,5 @@ export const Form = styled.form`
     resize: vertical;
   }
 `;
+
+

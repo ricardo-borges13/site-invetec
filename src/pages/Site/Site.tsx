@@ -1,4 +1,4 @@
-import heroImage from '@/assets/images/PagesHero-Sobre2.jpg';
+import heroImage from '@/assets/images/PagesHero-Site.jpg';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
@@ -7,9 +7,10 @@ import * as S from './Site.styles';
 export const Site = () => {
   return (
     <PageHeroSection
-      title="Criação de Sites que Geram Clientes de Verdade"
+      title="Criação de Sites que Geram Clientes"
       subTitle="Mais do que presença online — uma ferramenta real para atrair e converter"
       image={heroImage}
+      overlayOpacity={0.7}
     >
       <S.Container>
         {/* 🟠 DOR */}
@@ -40,10 +41,10 @@ export const Site = () => {
             </h2>
 
             <ul>
-              <li>Você depende só de indicação ou WhatsApp</li>
-              <li>Já pensou em refazer o site, mas nunca saiu do papel</li>
-              <li>Seu site não transmite confiança</li>
-              <li>Você não tem controle para atualizar conteúdo</li>
+              <li>✔ Você depende só de indicação ou WhatsApp</li>
+              <li>✔ Já pensou em refazer o site, mas nunca saiu do papel</li>
+              <li>✔ Seu site não transmite confiança</li>
+              <li>✔ Você não tem controle para atualizar conteúdo</li>
             </ul>
           </MotionReveal>
         </S.Section>
@@ -84,14 +85,14 @@ export const Site = () => {
           <MotionReveal>
             <h2>Seu site precisa de tráfego para gerar resultado</h2>
 
-            <p>Um site bem feito é essencial, mas sozinho não gera clientes.</p>
+            <p>✔ Um site bem feito é essencial, mas sozinho não gera clientes.</p>
 
             <p>
-              Para ter resultado, é preciso que as pessoas encontrem sua
+              ✔ Para ter resultado, é preciso que as pessoas encontrem sua
               empresa.
             </p>
 
-            <p>Por isso, além da criação do site, também atuo com:</p>
+            <p>✔ Por isso, além da criação do site, também atuo com:</p>
 
             <S.Grid>
               <S.Card>
@@ -134,15 +135,15 @@ export const Site = () => {
 
             <p>
               Com mais de 20 anos de experiência em TI e implantação de
-              sistemas, eu entendo o funcionamento real das empresas e construo
+              sistemas, entendemos o funcionamento real das empresas e construo
               o site com foco em resultado.
             </p>
 
             <ul>
-              <li>✔ Entendimento do seu negócio</li>
-              <li>✔ Estrutura pensada para conversão</li>
-              <li>✔ Acompanhamento direto</li>
-              <li>✔ Solução prática, não só visual</li>
+              <li> Entendimento do seu negócio</li>
+              <li> Estrutura pensada para conversão</li>
+              <li> Acompanhamento direto</li>
+              <li> Solução prática, não só visual</li>
             </ul>
           </MotionReveal>
         </S.Warning>
@@ -164,7 +165,7 @@ export const Site = () => {
         </S.Section>
 
         {/* 🟠 OBJEÇÃO */}
-        <S.Section>
+        {/* <S.Section>
           <MotionReveal>
             <h2>E sobre portfólio?</h2>
 
@@ -184,7 +185,7 @@ export const Site = () => {
 
             <p>Cada projeto recebe atenção direta, sem ser apenas mais um.</p>
           </MotionReveal>
-        </S.Section>
+        </S.Section> */}
 
         {/* 🟢 FORMULÁRIO / CTA */}
         <S.FormArea>
@@ -213,7 +214,7 @@ export const Site = () => {
 
               <textarea placeholder="Descreva como você imagina seu site" />
 
-              <CustomButton variant="cta" text="Quero criar meu site" />
+              <CustomButton variant="cta" text="Receber orçamento agora" />
             </S.Form>
           </MotionReveal>
         </S.FormArea>

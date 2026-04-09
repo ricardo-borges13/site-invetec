@@ -3,7 +3,9 @@ import styled from 'styled-components';
 export const HeroWrapper = styled.section<{ $image: string }>`
   position: relative;
   width: 100%;
-  height: clamp(300px, 50vh, 420px);
+
+  /* 🔥 altura mais elegante */
+  min-height: clamp(400px, 55vh, 500px);
 
   background-image: url(${({ $image }) => $image});
   background-size: cover;
@@ -13,40 +15,56 @@ export const HeroWrapper = styled.section<{ $image: string }>`
   align-items: center;
   justify-content: center;
 
+  padding: 80px 20px 60px; /* 👈 resolve topo colado */
+
   overflow: hidden;
 `;
 
-export const Overlay = styled.div`
+export const Overlay = styled.div<{ $opacity?: number }>`
   position: absolute;
   inset: 0;
 
-  background: linear-gradient(
-    135deg,
-    rgba(10, 37, 64, 0.85),
-    rgba(15, 61, 99, 0.7)
+  /* 🔥 overlay MUITO mais leve */
+background: linear-gradient(
+    to bottom,
+    rgba(10, 37, 64, ${({ $opacity }) => $opacity ?? 0.5}),
+    rgba(10, 37, 64, ${({ $opacity }) => ($opacity ?? 0.5) - 0.2})
   );
 
-  backdrop-filter: blur(2px);
+  /* ❌ remove blur pesado */
+  backdrop-filter: none;
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<{ $color?: string }>`
   position: relative;
   z-index: 2;
 
   text-align: center;
-  color: white;
+  color: ${({ $color }) => $color || '#fff'};
 
-  padding: 0 20px;
+  max-width: 1100px;
+
+
 
   h1 {
-    font-size: clamp(2rem, 3vw, 3rem);
+    font-size: clamp(2rem, 3vw, 3.2rem);
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    text-shadow:
+  0 2px 8px rgba(0, 0, 0, 0.6),
+  0 0 20px rgba(0, 0, 0, 0.3);;
   }
 
+
   p {
-    font-size: 1.1rem;
-    opacity: 0.9;
+    font-size: 1.3rem;
+    opacity: 0.95;
+    color: #fff;
+    text-shadow:
+  0 2px 8px rgba(0, 0, 0, 0.6),
+  0 0 20px rgba(0, 0, 0, 0.3);;
   }
 `;
 

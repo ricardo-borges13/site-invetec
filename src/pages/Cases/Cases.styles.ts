@@ -76,3 +76,22 @@ export const FooterCTA = styled.section`
     margin-bottom: 1.5rem;
   }
 `;
+
+
+/* 📋 FORMULÁRIO */
+export const FormArea = styled.section`
+  margin-top: 3rem;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
+  > div {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+`;
+
+

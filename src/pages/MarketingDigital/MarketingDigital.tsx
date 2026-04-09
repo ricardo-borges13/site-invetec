@@ -1,5 +1,5 @@
 import { PageHeroSection } from "@/components/PageHeroSection/PageHeroSection"
-import heroImage from '@/assets/images/PagesHero-Sobre2.jpg';
+import heroImage from '@/assets/images/PagesHero-Marketing.jpg';
 
 export const MarketingDigital = () => {
   return(

@@ -2,8 +2,9 @@ import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
-import heroImage from '@/assets/images/PagesHero-Sobre2.jpg';
+import heroImage from '@/assets/images/PagesHero-Case.jpg';
 import * as S from './Cases.styles';
+import { FormContactERP } from '@/components/FormContactERP/FormContactERP';
 
 export const Cases = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ export const Cases = () => {
       title="Casos reais de empresas que organizaram sua gestão com ERP"
       subTitle="Cada empresa tem um cenário — e a solução certa depende disso"
       image={heroImage}
+      overlayOpacity={0.7}
     >
       <S.Container>
 
@@ -85,25 +87,13 @@ export const Cases = () => {
 
         </S.Grid>
 
-        {/* 💡 CTA LEVE */}
-        <S.FooterCTA>
-          <MotionReveal>
-            <h2>E no seu caso?</h2>
-
-            <p>
-              Cada empresa está em um momento diferente.
-              O importante é entender qual é o melhor caminho para o seu cenário.
-            </p>
-
-            <CustomButton
-              variant="cta"
-              onClick={() => navigate('/servicos/erp/w3erp')}
-            >
-              Solicitar diagnóstico
-            </CustomButton>
-          </MotionReveal>
-        </S.FooterCTA>
-
+        {/* 📋 FORM */}
+                <S.FormArea>
+                  <MotionReveal>
+                    <h2>Solicitar diagnóstico</h2>
+                    <FormContactERP />
+                  </MotionReveal>
+                </S.FormArea>
       </S.Container>
     </PageHeroSection>
   );

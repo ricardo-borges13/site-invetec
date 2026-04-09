@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+const linkStyle = `
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+`;
+
 export const Container = styled.footer`
   width: 100%;
   background: linear-gradient(180deg, #0f3d63, #0a2540);
@@ -10,7 +16,6 @@ export const Container = styled.footer`
 export const Content = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 56px;
@@ -35,55 +40,53 @@ export const Title = styled.h3`
 `;
 
 export const Text = styled.p`
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  gap: 8px;
   color: #cbd5e1;
   line-height: 1.8;
   font-size: 0.95rem;
+`;
 
-  a {
-    color: #cbd5e1;
-    transition: all 0.3s ease;
-    text-decoration: none;
+export const ContactItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 0.95rem;
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.primary};
-    }
-  }
-
-  span{
+  span {
     display: flex;
     align-items: center;
     gap: 8px;
-    line-height: 1.8;
-    font-size: 0.95rem;
     font-weight: 600;
+    margin-bottom: 12px;
 
-      svg {
+    svg {
       font-size: 1.3rem;
       color: ${({ theme }) => theme.colors.primary};
     }
   }
 
-
+  a {
+    ${linkStyle}
+    &:hover {
+      color: ${({ theme }) => theme.colors.primary};
+    }
+  }
 `;
 
-export const List = styled.ul`
+export const NavList = styled.ul`
   list-style: none;
   padding: 0;
-    font-size: 0.95rem;
-    font-weight: 600;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
 
   li {
     margin-bottom: 10px;
   }
 
   a {
-    color: #cbd5e1;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    ${linkStyle}
+    display: inline-block;
 
     &:hover {
       color: ${({ theme }) => theme.colors.primary};
@@ -104,7 +107,7 @@ export const Social = styled.div`
   a {
     font-size: 2rem;
     color: ${({ theme }) => theme.colors.primary};
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
 
     &:hover {
       color: ${({ theme }) => theme.colors.whatsappGreen};
@@ -117,9 +120,7 @@ export const Copy = styled.div`
   text-align: center;
   margin-top: 56px;
   padding-top: 16px;
-
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-
   font-size: 0.85rem;
   color: #94a3b8;
 `;

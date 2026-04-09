@@ -12,49 +12,49 @@ export const Menu = ({ onLinkClick }: MenuProps) => {
   const navigate = useNavigate();
   const [openMenu, setOpenMenu] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [openSubmenuMobile, setOpenSubmenuMobile] = useState<number | null>(
-    null
-  );
+  const [openSubmenuMobile, setOpenSubmenuMobile] = useState<number | null>(null);
 
-  // Detecta se é mobile
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 1038);
-    handleResize(); // roda uma vez ao iniciar
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   function handleMenuClick(
     e: React.MouseEvent,
-    itemId: number,
-    itemTitle: string
+    item: (typeof menuItems)[0]
   ) {
+    // 👉 MOBILE
     if (isMobile) {
-      // 👉 No mobile, abre/fecha apenas o submenu desse item
-      if (itemTitle === 'Produtos') {
+      if (item.submenu) {
         e.preventDefault();
-        setOpenSubmenuMobile(prev => (prev === itemId ? null : itemId));
+        setOpenSubmenuMobile(prev => (prev === item.id ? null : item.id));
       } else {
-        // 👉 Se não tiver submenu, permite navegação normal
         onLinkClick?.();
       }
-    } else {
-      // 👉 Desktop
-      if (itemTitle === 'Parceiros') {
-        e.preventDefault();
-        // rola até a seção de produtos
-        if (location.pathname === '/') {
-          const section = document.getElementById('parceiros');
-          if (section) section.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          navigate('/', { state: { scrollTo: 'parceiros' } });
-        }
-        onLinkClick?.();
-      } else {
-        // 👉 Outros menus — permitem roteamento normal
-        onLinkClick?.();
-      }
+      return;
     }
+
+    // 👉 SCROLL PARA SEÇÕES (Serviços / Parceiros / etc)
+    if (item.scrollTo) {
+      e.preventDefault();
+
+      if (location.pathname === '/') {
+        const section = document.getElementById(item.scrollTo);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        navigate('/', { state: { scrollTo: item.scrollTo } });
+      }
+
+      onLinkClick?.();
+      return;
+    }
+
+    // 👉 NORMAL (rotas)
+    onLinkClick?.();
   }
 
   function handleMouseEnter(id: number) {
@@ -82,7 +82,7 @@ export const Menu = ({ onLinkClick }: MenuProps) => {
         >
           <MenuLink
             to={item.path ?? '#'}
-            onClick={e => handleMenuClick(e, item.id, item.title)}
+            onClick={e => handleMenuClick(e, item)}
           >
             {item.title}
           </MenuLink>

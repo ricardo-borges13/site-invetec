@@ -79,6 +79,13 @@ export const Highlight = styled.section`
 /* 📋 FORMULÁRIO */
 export const FormArea = styled.section`
   margin-top: 3rem;
+  background: #c7dbf3;
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  border: 2px solid rgba(0,0,0,0.05);
+
+  margin-bottom: 3rem;
   text-align: center;
 
   h2 {
@@ -94,11 +101,15 @@ export const FormArea = styled.section`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* sempre 4 colunas no desktop */
   gap: 24px;
 
   @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 em tablet */
+  }
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr; /* empilhado no mobile */
   }
 `;
 
@@ -152,7 +163,7 @@ export const Case = styled.section`
   border: 1px solid ${({ theme }) => theme.colors.primary};
   border-radius: 16px;
   padding: 2.5rem;
-  margin: 4rem 0;
+  margin: 1rem 0;
   text-align: center;
 
   h2 {
@@ -168,7 +179,6 @@ export const Case = styled.section`
 `;
 
 export const ButtonGroup = styled.div`
-  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
   gap: 12px;

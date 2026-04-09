@@ -3,8 +3,9 @@ export const menuItems = [
   {
     id: 2,
     title: 'Serviços',
-    path: '/servicos',
-    showInFooter: false,
+    path: '/',
+    scrollTo: 'servicos',
+    showInFooter: true,
     submenu: [
       { title: 'Sistemas ERP', path: '/servicos/erp' },
       {
@@ -27,7 +28,8 @@ export const menuItems = [
     id: 3,
     title: 'Parceiros',
     path: '/parceiros',
-    showInFooter: true,
+    scrollTo: 'parceiros',
+    showInFooter: false,
   },
   {
     id: 4,

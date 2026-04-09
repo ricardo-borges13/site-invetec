@@ -1,4 +1,4 @@
-import heroImage from '@/assets/images/PagesHero-Sobre2.jpg';
+import heroImage from '@/assets/images/PagesHero-Suporte.jpg';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
@@ -12,6 +12,7 @@ export const SuporteTI = () => {
       title="Gestão e Suporte de TI para Empresas"
       subTitle="Organização, segurança e estabilidade para sua operação"
       image={heroImage}
+      overlayOpacity={0.7}
     >
       <S.Container>
         {/* 🟠 DOR */}

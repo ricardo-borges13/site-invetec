@@ -2,7 +2,7 @@ import image3 from '@/assets/images//JOIAS-MOOVIN.jpg';
 import image1 from '@/assets/images/BEBIDAS-MOOVIN.jpg';
 import image5 from '@/assets/images/COMIDA-MOOVIN.jpg';
 import image4 from '@/assets/images/MODA-MOOVIN.jpg';
-import heroImage from '@/assets/images/PagesHero-Sobre2.jpg';
+import heroImage from '@/assets/images/PagesHero-Ecommerce.jpg';
 import image2 from '@/assets/images/ROUPAS-MOOVIN.jpg';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';

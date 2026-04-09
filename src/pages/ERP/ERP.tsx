@@ -1,9 +1,10 @@
-import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
-import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
+import heroImage from '@/assets/images/PagesHero-ERP.jpg'; // pode trocar depois
 import { CustomButton } from '@/components/CustomButton/CustomButton';
-import heroImage from '@/assets/images/PagesHero-Sobre2.jpg'; // pode trocar depois
-import * as S from './ERP.styles';
+import { FormContactERP } from '@/components/FormContactERP/FormContactERP';
+import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
+import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { useNavigate } from 'react-router-dom';
+import * as S from './ERP.styles';
 
 export const ERP = () => {
   const navigate = useNavigate();
@@ -15,15 +16,12 @@ export const ERP = () => {
       image={heroImage}
     >
       <S.Container>
-
         {/* 🔥 DOR */}
         <S.Section>
           <MotionReveal>
             <h2>Você está perdendo controle da sua empresa?</h2>
-            <p>
-              Planilhas, retrabalho, falta de integração entre setores...
-            </p>
-            <p>  Esses problemas travam o crescimento e aumentam custos.</p>
+            <p>Planilhas, retrabalho, falta de integração entre setores...</p>
+            <p> Esses problemas travam o crescimento e aumentam custos.</p>
           </MotionReveal>
         </S.Section>
 
@@ -41,7 +39,9 @@ export const ERP = () => {
 
         {/* ⚖️ COMPARAÇÃO */}
         <S.Section>
-          <S.Title>Compare as opções e escolha o ERP ideal para sua empresa</S.Title>
+          <S.Title>
+            Compare as opções e escolha o ERP ideal para sua empresa
+          </S.Title>
 
           <S.Grid>
             {/* TAGPLUS */}
@@ -59,7 +59,10 @@ export const ERP = () => {
 
                 <S.Price>Planos a partir de R$ 65,90/mês</S.Price>
 
-                <CustomButton variant="primary" onClick={() => navigate('/servicos/erp/tagplus')}>
+                <CustomButton
+                  variant="primary"
+                  onClick={() => navigate('/servicos/erp/tagplus')}
+                >
                   Quero começar com TagPlus
                 </CustomButton>
               </S.Card>
@@ -80,7 +83,10 @@ export const ERP = () => {
 
                 <S.Price>Investimento sob consulta</S.Price>
 
-                <CustomButton variant="primary" onClick={() => navigate('/servicos/erp/w3erp')}>
+                <CustomButton
+                  variant="primary"
+                  onClick={() => navigate('/servicos/erp/w3erp')}
+                >
                   Quero entender o W3ERP
                 </CustomButton>
               </S.Card>
@@ -93,15 +99,19 @@ export const ERP = () => {
           <MotionReveal>
             <h2>Não tem certeza qual ERP escolher?</h2>
             <p>
-              Eu analiso sua empresa e indico a melhor solução para o seu cenário.
+              Eu analiso sua empresa e indico a melhor solução para o seu
+              cenário.
             </p>
-
-            <CustomButton variant="cta">
-              Falar com especialista
-            </CustomButton>
           </MotionReveal>
         </S.Section>
 
+        {/* 📋 FORM */}
+        <S.FormArea>
+          <MotionReveal>
+            <h2>Solicitar diagnóstico</h2>
+            <FormContactERP />
+          </MotionReveal>
+        </S.FormArea>
       </S.Container>
     </PageHeroSection>
   );

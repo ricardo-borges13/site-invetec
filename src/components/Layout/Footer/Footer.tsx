@@ -4,23 +4,30 @@ import type { ContactInfo } from '@/pages/Contato/contactData';
 import { BiSolidPhoneOutgoing } from 'react-icons/bi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import * as S from './Footer.syles';
 
 export const Footer = ({ phone, email }: ContactInfo) => {
   const footerItems = menuItems.filter(item => item.showInFooter);
-  const getCleanPhone = (phone: string) => phone.replace(/\D/g, '');
-  const getPhoneHref = (phone: string) => `tel:${getCleanPhone(phone)}`;
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const getWhatsAppHref = (phone: string) => {
-    const message = encodeURIComponent(
-      'Olá, gostaria de saber mais sobre os serviços da INVETEC.'
-    );
+  const getCleanPhone = (p: string) => p.replace(/\D/g, '');
 
-    return `https://wa.me/55${getCleanPhone(phone)}?text=${message}`;
+  const handleFooterClick = (e: React.MouseEvent, item: MenuItem) => {
+    if (!item.scrollTo) return;
+    e.preventDefault();
+
+    if (location.pathname === '/') {
+      document.getElementById(item.scrollTo)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/', { state: { scrollTo: item.scrollTo } });
+    }
   };
 
-   const emailHref = `mailto:${email}`;
+  const whatsAppHref = `https://wa.me/55${getCleanPhone(phone)}?text=${encodeURIComponent(
+    'Olá, gostaria de saber mais sobre os serviços da INVETEC.'
+  )}`;
 
   return (
     <S.Container>
@@ -28,7 +35,6 @@ export const Footer = ({ phone, email }: ContactInfo) => {
         {/* Empresa */}
         <S.Section>
           <S.LogoImage src={logo} alt="Invetec" />
-
           <S.Text>
             Tecnologia e gestão para empresas.
             <br />
@@ -37,48 +43,42 @@ export const Footer = ({ phone, email }: ContactInfo) => {
           </S.Text>
         </S.Section>
 
-        {/* Links */}
+        {/* Links Rápidos */}
         <S.Section>
           <S.Title>Links Rápidos</S.Title>
-
-          <S.List>
-            <ul>
-              {footerItems.map(item => (
-                <li key={item.id}>
-                  <Link to={item.path}>{item.title}</Link>
-                </li>
-              ))}
-            </ul>
-          </S.List>
+          <S.NavList>
+            {footerItems.map(item => (
+              <li key={item.id}>
+                <Link to={item.path} onClick={e => handleFooterClick(e, item)}>
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </S.NavList>
         </S.Section>
 
         {/* Contato */}
         <S.Section>
           <S.Title>Contato</S.Title>
 
-          <S.Text>
+          <S.ContactItem>
             <span>
               <MdEmail />
-              <a href={emailHref}>{email}</a>
+              <a href={`mailto:${email}`}>{email}</a>
             </span>
-          </S.Text>
+          </S.ContactItem>
 
-          <S.Text>
+          <S.ContactItem>
             <span>
               <BiSolidPhoneOutgoing />
-              <a href={getPhoneHref(phone)}> {phone}</a>
+              <a href={`tel:${getCleanPhone(phone)}`}>{phone}</a>
             </span>
             <S.Social>
-              <a
-                href={getWhatsAppHref(phone)}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Falar no WhatsApp"
-              >
+              <a href={whatsAppHref} target="_blank" rel="noopener noreferrer" title="Falar no WhatsApp">
                 <FaWhatsapp />
               </a>
             </S.Social>
-          </S.Text>
+          </S.ContactItem>
         </S.Section>
       </S.Content>
 
