@@ -126,70 +126,77 @@ export const Sobre = () => {
           </MotionReveal>
 
           <S.Grid3>
-  <S.SolutionCard>
-    <strong>Gestão empresarial com ERP</strong>
-    <p>
-      Controle financeiro, fiscal e operacional em um único sistema,
-      trazendo organização e clareza para a empresa.
-    </p>
-  </S.SolutionCard>
+            <S.SolutionCard>
+              <strong>Gestão empresarial com ERP</strong>
+              <p>
+                Controle financeiro, fiscal e operacional em um único sistema,
+                trazendo organização e clareza para a empresa.
+              </p>
+            </S.SolutionCard>
 
-  <S.SolutionCard>
-    <strong>Infraestrutura e Cloud</strong>
-    <p>
-      Ambientes seguros, estáveis e preparados para crescer junto com o seu negócio.
-    </p>
-  </S.SolutionCard>
+            <S.SolutionCard>
+              <strong>Infraestrutura e Cloud</strong>
+              <p>
+                Ambientes seguros, estáveis e preparados para crescer junto com
+                o seu negócio.
+              </p>
+            </S.SolutionCard>
 
-  <S.SolutionCard>
-    <strong>E-mail corporativo profissional</strong>
-    <p>
-      Comunicação segura, confiável e com a identidade da sua empresa.
-    </p>
-  </S.SolutionCard>
+            <S.SolutionCard>
+              <strong>E-mail corporativo profissional</strong>
+              <p>
+                Comunicação segura, confiável e com a identidade da sua empresa.
+              </p>
+            </S.SolutionCard>
 
-  <S.SolutionCard>
-    <strong>Proteção e backup de dados</strong>
-    <p>
-      Segurança das informações com rotinas de backup e recuperação rápida.
-    </p>
-  </S.SolutionCard>
+            <S.SolutionCard>
+              <strong>Proteção e backup de dados</strong>
+              <p>
+                Segurança das informações com rotinas de backup e recuperação
+                rápida.
+              </p>
+            </S.SolutionCard>
 
-  <S.SolutionCard>
-    <strong>Criação de sites que geram clientes</strong>
-    <p>
-      Mais do que presença online — sites pensados para atrair, converter e gerar oportunidades.
-    </p>
-  </S.SolutionCard>
+            <S.SolutionCard>
+              <strong>Criação de sites que geram clientes</strong>
+              <p>
+                Mais do que presença online — sites pensados para atrair,
+                converter e gerar oportunidades.
+              </p>
+            </S.SolutionCard>
 
-  <S.SolutionCard>
-    <strong>Marketing digital e presença online</strong>
-    <p>
-      Redes sociais, conteúdo e campanhas para aumentar visibilidade e atrair novos clientes.
-    </p>
-  </S.SolutionCard>
+            <S.SolutionCard>
+              <strong>Marketing digital e presença online</strong>
+              <p>
+                Redes sociais, conteúdo e campanhas para aumentar visibilidade e
+                atrair novos clientes.
+              </p>
+            </S.SolutionCard>
 
-  <S.SolutionCard>
-    <strong>E-commerce pronto para vender</strong>
-    <p>
-      Lojas virtuais integradas com pagamentos e marketplaces, preparadas para escalar vendas.
-    </p>
-  </S.SolutionCard>
+            <S.SolutionCard>
+              <strong>E-commerce pronto para vender</strong>
+              <p>
+                Lojas virtuais integradas com pagamentos e marketplaces,
+                preparadas para escalar vendas.
+              </p>
+            </S.SolutionCard>
 
-  <S.SolutionCard>
-    <strong>Suporte e gestão de TI</strong>
-    <p>
-      Acompanhamento contínuo para manter tudo funcionando com segurança e eficiência.
-    </p>
-  </S.SolutionCard>
+            <S.SolutionCard>
+              <strong>Suporte e gestão de TI</strong>
+              <p>
+                Acompanhamento contínuo para manter tudo funcionando com
+                segurança e eficiência.
+              </p>
+            </S.SolutionCard>
 
-  <S.SolutionCard>
-    <strong>Integração entre sistemas e áreas</strong>
-    <p>
-      Conexão entre setores da empresa para eliminar retrabalho e melhorar a produtividade.
-    </p>
-  </S.SolutionCard>
-</S.Grid3>
+            <S.SolutionCard>
+              <strong>Integração entre sistemas e áreas</strong>
+              <p>
+                Conexão entre setores da empresa para eliminar retrabalho e
+                melhorar a produtividade.
+              </p>
+            </S.SolutionCard>
+          </S.Grid3>
         </S.Block>
 
         {/* DIFERENCIAIS */}

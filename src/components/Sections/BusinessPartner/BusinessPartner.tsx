@@ -2,6 +2,7 @@ import * as S from './BusinessPartner.styles';
 import W3ERP from '@/assets/images/w3erp.jpg';
 import PENSO from '@/assets/images/PENSO.jpg';
 import MOOVIN from '@/assets/images/moovin.jpg';
+import TAGPLUS from '@/assets/images/TagPlus.jpg';
 
 type Partner = {
   name: string;
@@ -13,6 +14,7 @@ const partners: Partner[] = [
   { name: 'W3 ERP', src: W3ERP, url: 'https://www.w3erp.com.br' },
   { name: 'Penso', src: PENSO, url: 'https://www.penso.com.br' },
   { name: 'Moovin', src: MOOVIN, url: 'https://partner.moovin.app/invetec' },
+  { name: 'TagPlus', src: TAGPLUS, url: 'https://sistema.tagplus.com.br/checkout/?ref=sistema_parceiros&id_funcionario=1464' },
 ];
 
 export const BusinessPartner = () => {
