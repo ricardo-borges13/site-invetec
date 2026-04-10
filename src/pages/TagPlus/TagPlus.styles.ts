@@ -23,8 +23,12 @@ export const Section = styled.section`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
+
+  h3{
+    font-size: 1.5rem;
+  }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -32,19 +36,27 @@ export const Grid = styled.div`
 `;
 
 export const Card = styled.div`
-  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  background: #f8fafc;
   padding: 24px;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+   border: 1px solid ${({ theme }) => theme.colors.primary}20;
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0,0,0,0.08);
+    border-color: ${({ theme }) => theme.colors.primary};
   }
 
   h3 {
     margin-bottom: 10px;
   }
+
 
   p {
     font-size: 0.95rem;
@@ -57,6 +69,8 @@ export const Highlight = styled.div`
   border-radius: 16px;
   text-align: center;
   margin-bottom: 80px;
+  border: 1px solid ${({ theme }) => theme.colors.ctaGreen};
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
   h2 {
     margin-bottom: 16px;
@@ -75,6 +89,9 @@ export const Highlight = styled.div`
 
 export const CTA = styled.div`
   text-align: center;
+  background: #ecfdf5;
+  padding: 40px;
+  border-radius: 16px;
 
   p {
     margin-bottom: 20px;

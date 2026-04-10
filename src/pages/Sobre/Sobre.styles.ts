@@ -13,20 +13,39 @@ export const Intro = styled.div`
 
   h2 {
     font-size: 2.4rem;
-  font-weight: 700;
+    font-weight: 700;
+    margin-bottom: 28px;
   }
 
- p:not(.highlight) {
-    margin-bottom: 16px;
-    line-height: 1.6;
+  p {
+    margin-bottom: 20px;
+    line-height: 1.7;
+    color: #4b5563;
+  }
+
+  p.lead {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #371f32;
+}
+
+  p:last-child {
+    margin-top: 30px;
+    font-weight: 600;
   }
 `;
-
 export const Highlight = styled.p`
-  margin-top: 20px;
+  margin: 32px 0;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.primary};
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  line-height: 1.5;
+
+  padding: 16px 20px;
+  border-radius: 12px;
+
+  background: ${({ theme }) => theme.hexToRgba(theme.colors.primary, 0.06)};
+  border: 1px solid ${({ theme }) => theme.hexToRgba(theme.colors.primary, 0.2)};
 `;
 
 export const Block = styled.section`

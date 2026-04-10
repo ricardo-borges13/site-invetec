@@ -23,6 +23,7 @@ export const Section = styled.section`
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
+    text-align: left;
   }
 
   ul {
@@ -101,8 +102,9 @@ export const FormArea = styled.section`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* sempre 4 colunas no desktop */
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
+  align-items: stretch;
 
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr); /* 2x2 em tablet */
@@ -118,22 +120,29 @@ export const Card = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.primary};
   padding: 24px;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; // 🔥 resolve o alinhamento
+
+  min-height: 220px; // 🔥 força padrão visual
 
   h3 {
     margin-bottom: 10px;
+    min-height: 48px; // 🔥 garante alinhamento dos títulos
+    line-height: 1.2;
+    font-size: 1.4rem;
+
+  word-break: break-word;       // 🔥 quebra palavras grandes
+  overflow-wrap: break-word;    // 🔥 fallback moderno
+  hyphens: auto;                // 🔥 melhora quebra (quando possível)
+
+  text-align: center;
   }
 
   p {
     font-size: 0.95rem;
     line-height: 1.5;
-  }
-
-  transition: 0.3s;
-
-  &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   }
 `;
 
@@ -144,6 +153,7 @@ export const Warning = styled.section`
   padding: 2rem;
   margin: 3rem 0;
   text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 
   h2 {
     color: #ea580c;
@@ -191,7 +201,7 @@ export const VideoWrapper = styled.div`
 
   iframe {
     width: 100%;
-    height: 400px;
+    height: 420px;
     border-radius: 12px;
   }
 

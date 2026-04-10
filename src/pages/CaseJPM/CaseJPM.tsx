@@ -12,9 +12,11 @@ export const CaseJPM = () => {
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   return (
+    <>
+
     <PageHeroSection
-      title="Como a JPM organizou vendas, estoque e financeiro com ERP"
-      subTitle="Mais controle operacional e decisões mais seguras no dia a dia"
+      title="Como a JPM saiu do controle manual e organizou a operação com ERP"
+      subTitle="Mais controle, menos erros e decisões mais seguras no dia a dia"
       image={heroImage}
     >
       <S.Container>
@@ -23,9 +25,7 @@ export const CaseJPM = () => {
           <MotionReveal>
             <h2>Sobre a empresa</h2>
             <p>
-              A JPM atua no comércio de borrachas e materiais elétricos, com
-              operação voltada para vendas, controle de estoque e gestão
-              financeira.
+              A JPM atua no comércio de borrachas e materiais elétricos, com operação focada em vendas, controle de estoque e gestão financeira.
             </p>
           </MotionReveal>
         </S.Section>
@@ -37,8 +37,9 @@ export const CaseJPM = () => {
 
             <p>
               Antes da implantação do ERP, a operação era totalmente manual e
-              dependia de controles paralelos.
+              dependia de controles paralelos. Isso gerava retrabalho constante, falta de controle e risco de erros nas operações.
             </p>
+
 
             <ul>
               <li>❌ Sistema sem integração entre setores</li>
@@ -54,7 +55,7 @@ export const CaseJPM = () => {
 
         {/* ⚙️ SOLUÇÃO */}
 
-        <S.SectionTitle>O que foi feito</S.SectionTitle>
+        <S.SectionTitle>O que foi feito na prática</S.SectionTitle>
         <S.AccordionWrapper>
           <Accordion flush>
             <Accordion.Item eventKey="0">
@@ -104,7 +105,8 @@ export const CaseJPM = () => {
         {/* 📊 RESULTADOS */}
         <S.Highlight>
           <MotionReveal>
-            <h2>Resultados alcançados na prática</h2>
+            <h2>Resultados reais após a implantação</h2>
+            <p>Resultados reais após a implantação</p>
 
             <S.Grid>
               <S.Card>
@@ -174,11 +176,10 @@ export const CaseJPM = () => {
         <S.Section>
           <S.Highlight>
             <MotionReveal>
-              <h2>Como funciona hoje com o ERP</h2>
+              <h2>Como funciona hoje com o W3ERP</h2>
 
               <p>
-                Com a implantação do W3ERP, toda a operação passou a ser
-                integrada, eliminando retrabalho e automatizando os processos.
+                Hoje a operação é totalmente integrada, eliminando retrabalho e automatizando processos.
               </p>
 
               <ul>
@@ -202,8 +203,7 @@ export const CaseJPM = () => {
             <h2>Antes e depois na prática</h2>
 
             <p>
-              A mudança não foi apenas no sistema, mas na forma de operar a
-              empresa no dia a dia.
+              A mudança não foi apenas no sistema, mas na forma como a empresa opera no dia a dia.
             </p>
 
             <S.CompareGrid>
@@ -264,8 +264,7 @@ export const CaseJPM = () => {
             </p>
 
             <p>
-              Foi esse acompanhamento que garantiu uma implantação eficiente e
-              funcional na JPM.
+              Foi esse acompanhamento que garantiu uma implantação eficiente, alinhada à operação e com resultado real na JPM.
             </p>
           </MotionReveal>
         </S.Warning>
@@ -274,10 +273,9 @@ export const CaseJPM = () => {
 
           <S.FormArea>
             <MotionReveal>
-              <h2>Quer esse nível de organização na sua empresa?</h2>
+              <h2>Quer esse nível de controle na sua empresa?</h2>
               <p>
-                Preencha o diagnóstico e eu analiso seu cenário para te mostrar
-                como aplicar isso na sua realidade.
+                Preencha o diagnóstico e eu analiso seu cenário para mostrar como aplicar isso na sua realidade.
               </p>
 
               <FormContactERP />
@@ -296,5 +294,6 @@ export const CaseJPM = () => {
         </S.Lightbox>
       )}
     </PageHeroSection>
+    </>
   );
 };
