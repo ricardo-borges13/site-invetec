@@ -118,11 +118,17 @@ export const ConversionMiniCard = styled.div`
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 1rem 1.1rem;
+  min-height: 124px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   strong {
     display: block;
     color: ${({ theme }) => theme.colors.primaryDark};
     margin-bottom: 0.35rem;
+    line-height: 1.4;
   }
 
   p {
@@ -169,11 +175,11 @@ export const Grid = styled.div`
 `;
 
 export const PainGrid = styled(Grid)`
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 
   @media (max-width: 1100px) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   @media (max-width: 768px) {
@@ -186,14 +192,24 @@ export const Card = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.primary};
   padding: 24px;
   border-radius: 16px;
-  text-align: center;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100%;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.04);
 
   h3 {
     margin-bottom: 10px;
+    color: ${({ theme }) => theme.colors.primaryDark};
+    line-height: 1.35;
   }
 
   p {
     font-size: 0.95rem;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0;
   }
 
   transition: 0.3s;
@@ -204,17 +220,20 @@ export const Card = styled.div`
 `;
 
 export const PainCard = styled(Card)`
-  padding: 18px 16px;
+  padding: 20px 18px;
+  min-height: 188px;
+  border-color: #9fc5ff;
+  box-shadow: none;
 
   h3 {
     margin-bottom: 8px;
-    font-size: 1rem;
+    font-size: 1.02rem;
     line-height: 1.35;
   }
 
   p {
-    font-size: 0.88rem;
-    line-height: 1.5;
+    font-size: 0.92rem;
+    line-height: 1.6;
   }
 
   @media (max-width: 1100px) {
@@ -252,7 +271,7 @@ export const FormArea = styled.section`
   border-radius: 16px;
   padding: 2.5rem;
   text-align: center;
-  border: 2px solid rgba(0,0,0,0.05);
+  border: 2px solid rgba(0, 0, 0, 0.05);
 
   h2 {
     margin-bottom: 0.5rem;
@@ -293,6 +312,7 @@ export const CompareCard = styled.div<{ type: 'good' | 'bad' }>`
   padding: 2rem;
   border-radius: 16px;
   text-align: left;
+  min-height: 100%;
 
   background: ${({ type }) =>
     type === 'good' ? '#ecfdf5' : '#fff7ed'};
@@ -306,12 +326,15 @@ export const CompareCard = styled.div<{ type: 'good' | 'bad' }>`
   }
 
   ul {
+    margin: 0;
+    padding-left: 1.2rem;
+
     li {
       margin-bottom: 0.5rem;
+      line-height: 1.6;
     }
   }
 `;
-
 
 export const Warning = styled.section`
   display: flex;
@@ -347,7 +370,7 @@ export const SystemImage = styled.div`
     width: 100%;
     max-width: 900px;
     border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -378,7 +401,6 @@ export const Feature = styled.div`
   }
 `;
 
-
 export const Lightbox = styled.div`
   position: fixed;
   inset: 0;
@@ -392,7 +414,7 @@ export const Lightbox = styled.div`
     max-width: 90%;
     max-height: 90%;
     border-radius: 10px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   }
 `;
 
@@ -401,7 +423,7 @@ export const CloseButton = styled.button`
   top: 20px;
   right: 20px;
 
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -443,10 +465,40 @@ export const SubHighlight = styled.section`
   padding: 2rem;
   margin: 2rem 0;
   text-align: center;
+
+  h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    max-width: 760px;
+    margin: 0 auto;
+    line-height: 1.7;
+    color: #475569;
+  }
+
+  ul {
+    margin: 1rem auto 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+    max-width: 540px;
+    text-align: left;
+
+    li {
+      list-style: none;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      color: #334155;
+      line-height: 1.5;
+    }
+  }
 `;
 
 export const Header = styled.header`
-max-width: 600px;
-margin: 0 auto;
-text-align: center;
-`
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+`;

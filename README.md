@@ -313,3 +313,13 @@ O ESLint está configurado para:
 - detectar erros
 - aplicar boas práticas
 - manter consistência no código
+
+### 3 comandos que vão te dar MUITO ganho - CODEX
+
+Analise esse arquivo e melhore estrutura, legibilidade e performance sem mudar o visual
+
+Crie um novo componente seguindo exatamente o padrão dos styled-components já usados no projeto
+
+Melhore essa seção pensando em conversão de clientes para e-mail corporativo
+
+Analise meu projeto React com styled-components e crie uma nova seção abaixo do hero seguindo o padrão visual atual, com foco em conversão para serviço de e-mail corporativo
