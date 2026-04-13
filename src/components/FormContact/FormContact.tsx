@@ -35,7 +35,7 @@ export const FormContact = () => {
 
   const onSubmitReal = async (data: FormInputs) => {
     try {
-      const response = await fetch('https://formspree.io/f/xaqdqqnk', {
+      const response = await fetch('https://formspree.io/f/xqewkarw', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -84,9 +84,7 @@ export const FormContact = () => {
           },
         }}
       />
-      <p>
-        🔒 Seus dados estão seguros e não serão compartilhados.
-      </p>
+      <p>🔒 Seus dados estão seguros e não serão compartilhados.</p>
       <form onSubmit={handleSubmit(submitHandler)}>
         <S.FieldGroup>
           <div style={{ flex: 1 }}>
@@ -101,8 +99,14 @@ export const FormContact = () => {
           </div>
 
           <div style={{ flex: 1 }}>
-            <label>Empresa</label>
-            <S.Input placeholder="Empresa" {...register('empresa')} />
+            <label>* Empresa</label>
+            <S.Input
+              placeholder="Empresa"
+              {...register('empresa', { required: 'A empresa é obrigatória.' })}
+            />
+            {errors.nome && (
+              <S.ErrorMessage>{errors.nome.message}</S.ErrorMessage>
+            )}
           </div>
         </S.FieldGroup>
 

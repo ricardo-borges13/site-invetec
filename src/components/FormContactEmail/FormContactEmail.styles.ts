@@ -52,3 +52,11 @@ export const TextArea = styled.textarea`
   border-radius: 8px;
   border: 1px solid #e5e7eb;
 `;
+
+
+export const ErrorMessage = styled.span`
+  color: ${({ theme }) => theme.colors.error};
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  display: block;
+`;
