@@ -12,7 +12,7 @@ export const W3ERP = () => {
       <SEO
         title="Sistema ERP para Empresas em Crescimento | W3ERP com Implantação | Invetec"
         description="Sua empresa cresceu e perdeu o controle? Implante o W3ERP com acompanhamento especializado. Integre setores, organize processos e tenha controle total da operação."
-        image="https://www.invetec.com.br/images/w3erp.jpg"
+        image="https://www.invetec.com.br/images/SEO-W3ERP.jpg"
         url="https://www.invetec.com.br/servicos/erp/w3erp"
       />
       <PageHeroSection

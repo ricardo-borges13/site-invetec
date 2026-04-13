@@ -27,6 +27,16 @@ export const ConversionIntroContent = styled.div`
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 18px 40px rgba(0, 123, 255, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px rgba(0, 123, 255, 0.12);
+    border-color: ${({ theme }) => theme.colors.primaryDark};
+  }
 
   h2 {
     color: ${({ theme }) => theme.colors.primaryDark};
@@ -101,6 +111,16 @@ export const ConversionIntroAside = styled.aside`
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 46px rgba(15, 23, 42, 0.08);
+    border-color: #bfdbfe;
+  }
 
   h3 {
     color: ${({ theme }) => theme.colors.primaryDark};
@@ -123,6 +143,18 @@ export const ConversionMiniCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.06);
+    border-color: #bfdbfe;
+    background: #fdfefe;
+  }
 
   strong {
     display: block;
@@ -212,10 +244,17 @@ export const Card = styled.div`
     margin: 0;
   }
 
-  transition: 0.3s;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background-color 0.28s ease;
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+    border-color: ${({ theme }) => theme.colors.primaryDark};
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   }
 `;
 
@@ -223,7 +262,14 @@ export const PainCard = styled(Card)`
   padding: 20px 18px;
   min-height: 188px;
   border-color: #9fc5ff;
-  box-shadow: none;
+  box-shadow: 0 8px 18px rgba(0, 123, 255, 0.04);
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: ${({ theme }) => theme.colors.primary};
+    box-shadow: 0 20px 34px rgba(0, 123, 255, 0.12);
+    background: linear-gradient(180deg, #ffffff 0%, #f6faff 100%);
+  }
 
   h3 {
     margin-bottom: 8px;
@@ -254,6 +300,14 @@ export const Highlight = styled.section`
   padding: 2rem;
   margin: 3rem 0;
   text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(34, 197, 94, 0.12);
+  }
 
   h2 {
     margin-bottom: 1rem;
@@ -267,11 +321,12 @@ export const Highlight = styled.section`
 
 export const FormArea = styled.section`
   margin-top: 3rem;
-  background: #c7dbf3;
-  border-radius: 16px;
+  background: linear-gradient(180deg, #d4e5f7 0%, #c7dbf3 100%);
+  border-radius: 20px;
   padding: 2.5rem;
   text-align: center;
-  border: 2px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(80, 129, 190, 0.22);
+  box-shadow: 0 22px 42px rgba(27, 71, 128, 0.08);
 
   h2 {
     margin-bottom: 0.5rem;
@@ -279,12 +334,17 @@ export const FormArea = styled.section`
 
   p {
     margin-bottom: 1.5rem;
-    opacity: 0.8;
+    opacity: 0.88;
   }
 
   > div {
-    max-width: 600px;
+    max-width: 680px;
     margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+    border-radius: 18px;
   }
 `;
 
@@ -313,6 +373,10 @@ export const CompareCard = styled.div<{ type: 'good' | 'bad' }>`
   border-radius: 16px;
   text-align: left;
   min-height: 100%;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
 
   background: ${({ type }) =>
     type === 'good' ? '#ecfdf5' : '#fff7ed'};
@@ -323,6 +387,11 @@ export const CompareCard = styled.div<{ type: 'good' | 'bad' }>`
 
   h3 {
     margin-bottom: 1rem;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 38px rgba(15, 23, 42, 0.08);
   }
 
   ul {
@@ -371,6 +440,14 @@ export const SystemImage = styled.div`
     max-width: 900px;
     border-radius: 16px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+
+    &:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 26px 50px rgba(0, 0, 0, 0.14);
+    }
   }
 `;
 
@@ -451,6 +528,14 @@ export const InfoBox = styled.section`
   padding: 2rem;
   margin: 2rem 0;
   text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 36px rgba(0, 123, 255, 0.08);
+  }
 
   h2 {
     color: ${({ theme }) => theme.colors.primary};
@@ -465,6 +550,16 @@ export const SubHighlight = styled.section`
   padding: 2rem;
   margin: 2rem 0;
   text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 34px rgba(15, 23, 42, 0.06);
+    border-color: #dbe5f1;
+  }
 
   h2 {
     margin-bottom: 0.75rem;

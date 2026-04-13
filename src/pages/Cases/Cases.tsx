@@ -15,7 +15,7 @@ export const Cases = () => {
       <SEO
         title="Casos de Sucesso com ERP | Empresas que Ganharam Controle e Organização | Invetec"
         description="Veja exemplos reais de empresas que saíram do controle manual ou reduziram custos com ERP. Descubra qual solução faz sentido para o seu cenário."
-        image="https://www.invetec.com.br/images/cases.jpg"
+        image="https://www.invetec.com.br/images/SEO-Case.jpg"
         url="https://www.invetec.com.br/cases"
       />
       <PageHeroSection

@@ -31,7 +31,7 @@ export const TagPlus = () => {
       <SEO
         title="ERP para Pequenas Empresas | Teste Grátis TagPlus | Invetec"
         description="Organize sua empresa com um ERP simples e rápido. Teste o TagPlus grátis por 15 dias e controle financeiro, vendas e estoque sem complicação."
-        image="https://www.invetec.com.br/images/tagplus.jpg"
+        image="https://www.invetec.com.br/images/SEO-TagPlus.jpg"
         url="https://www.invetec.com.br/servicos/erp/tagplus"
       />
       <PageHeroSection

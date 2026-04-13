@@ -11,7 +11,7 @@ export const Site = () => {
       <SEO
         title="Criação de Sites que Geram Clientes | Sites Profissionais para Empresas | Invetec"
         description="Seu site não gera clientes? Criação de sites profissionais com foco em conversão, presença no Google e estratégias para atrair contatos."
-        image="https://www.invetec.com.br/images/site.jpg"
+        image="https://www.invetec.com.br/images/SEO-Site.jpg"
         url="https://www.invetec.com.br/servicos/criacao-de-sites"
       />
 

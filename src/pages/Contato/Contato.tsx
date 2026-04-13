@@ -11,7 +11,7 @@ export const Contato = () => {
       <SEO
         title="Contato | Fale com um especialista em TI, ERP e Sites - Invetec"
         description="Entre em contato com a Invetec e descubra como organizar sua empresa com ERP, e-mail corporativo, sites e soluções em TI. Atendimento rápido e personalizado."
-        image="https://www.invetec.com.br/images/contato.jpg"
+        image="https://www.invetec.com.br/images/SEO-Contato.jpg"
         url="https://www.invetec.com.br/contato"
       />
       <PageHeroSection
@@ -24,7 +24,7 @@ export const Contato = () => {
             <h2>Vamos entender o que sua empresa precisa</h2>
             <p>
               Explique rapidamente sua necessidade e eu analiso o cenário para
-              indicar a melhor solução. 
+              indicar a melhor solução.
             </p>
             <p><strong>Resposta rápida e sem compromisso.</strong></p>
           </header>

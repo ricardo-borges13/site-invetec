@@ -13,7 +13,7 @@ export const SuporteTI = () => {
       <SEO
         title="Gestão e Suporte de TI para Empresas | Organização e Segurança | Invetec"
         description="Sua TI é desorganizada? Tenha gestão e suporte de TI com foco em segurança, estabilidade e controle. Reduza falhas e melhore a operação da sua empresa."
-        image="https://www.invetec.com.br/images/suporte-ti.jpg"
+        image="https://www.invetec.com.br/images/SEO-SuporteTI.jpg"
         url="https://www.invetec.com.br/servicos/suporte-ti"
       />
 

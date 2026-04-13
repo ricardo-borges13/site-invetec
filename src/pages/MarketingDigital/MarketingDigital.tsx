@@ -8,7 +8,7 @@ export const MarketingDigital = () => {
       <SEO
         title="Marketing Digital para Empresas - Invetec"
         description="Página em desenvolvimento. Em breve soluções completas de marketing digital para gerar clientes e crescimento para sua empresa."
-        url="https://www.invetec.com.br/marketing"
+        url="https://www.invetec.com.br/marketing-digital"
         noindex={true}
         nofollow={true}
       />

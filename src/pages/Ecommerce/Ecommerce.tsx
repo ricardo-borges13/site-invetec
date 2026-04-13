@@ -31,7 +31,7 @@ export const Ecommerce = () => {
       <SEO
         title="Criação de Loja Virtual para Vender Online | E-commerce Profissional | Invetec"
         description="Monte sua loja virtual com estrutura profissional e comece a vender online de verdade. Plataforma completa, integração com pagamentos e suporte para acelerar seus resultados."
-        image="https://www.invetec.com.br/images/ecommerce.jpg"
+        image="https://www.invetec.com.br/images/SEO-E-commerce.jpg"
         url="https://www.invetec.com.br/servicos/e-commerce"
       />
       <PageHeroSection

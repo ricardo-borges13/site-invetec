@@ -1,4 +1,4 @@
-import heroImage from '@/assets/images/PagesHero-Sobre2.jpg';
+import heroImage from '@/assets/images/PagesHero-Datron.jpg';
 import { FormContactERP } from '@/components/FormContactERP/FormContactERP';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
@@ -11,7 +11,7 @@ export const CaseDatron = () => {
       <SEO
         title="Case ERP: Como a DATRON Reduziu Custos e Simplificou a Operação | Invetec"
         description="Veja como a DATRON reduziu custos com ERP ao migrar da TOTVS para o W3ERP, mantendo controle e simplificando a operação."
-        image="https://www.invetec.com.br/images/case-datron.jpg"
+        image="https://www.invetec.com.br/images/SEO-Case-Datron.jpg"
         url="https://www.invetec.com.br/cases/datron"
       />
       <PageHeroSection

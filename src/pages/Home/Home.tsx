@@ -54,7 +54,7 @@ export const Home = () => {
      <SEO
         title="Invetec | ERP, E-mail Corporativo, Sites e Soluções em TI"
         description="Mais de 20 anos ajudando empresas a se organizar e crescer com ERP, e-mail corporativo profissional, sites e soluções digitais. Estrutura, segurança e resultado."
-        image="https://www.invetec.com.br/images/home.jpg"
+        image="https://www.invetec.com.br/images/SEO-Home.jpg"
         url="https://www.invetec.com.br"
       />
 

@@ -44,7 +44,7 @@ export const Sobre = () => {
       <SEO
         title="Sobre a Invetec | Especialista em ERP, TI, Sites e Soluções para Empresas"
         description="Mais de 20 anos ajudando empresas a organizar processos, implantar ERP e crescer com tecnologia. Conheça a Invetec e nossas soluções completas em TI, sites e marketing digital."
-        image="https://www.invetec.com.br/images/sobre.jpg"
+        image="https://www.invetec.com.br/images/SEO-Sobre.jpg"
         url="https://www.invetec.com.br/sobre"
       />
 

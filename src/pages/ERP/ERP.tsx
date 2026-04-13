@@ -15,7 +15,7 @@ export const ERP = () => {
       <SEO
         title="Sistema ERP para Empresas | Controle, Organização e Crescimento | Invetec"
         description="Mais de 20 anos implantando sistemas ERP para empresas. Organize processos, integre setores e tenha controle total para crescer com segurança."
-        image="https://www.invetec.com.br/images/erp.jpg"
+        image="https://www.invetec.com.br/images/SEO-ERP.jpg"
         url="https://www.invetec.com.br/servicos/erp"
       />
 

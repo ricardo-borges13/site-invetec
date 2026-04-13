@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+﻿import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
 import { CustomButton } from '../CustomButton/CustomButton';
 import * as S from './FormContactEmail.styles';
@@ -22,7 +22,6 @@ export const FormContactEmail = () => {
     formState: { errors, isSubmitting },
   } = useForm<FormInputs>();
 
-  // Toast de teste (simulação)
   const onSubmitMock = async (_data: FormInputs) => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -44,23 +43,21 @@ export const FormContactEmail = () => {
       });
 
       if (response.ok) {
-        toast.success(
-          'Mensagem enviada com sucesso! 🎉 Em breve entraremos em contato',
-          { duration: 5000 }
-        );
+        toast.success('Mensagem enviada com sucesso! Em breve entraremos em contato.', {
+          duration: 5000,
+        });
         reset();
       } else {
         toast.error('Erro ao enviar. Tente novamente.', { duration: 4000 });
       }
     } catch (error) {
-      toast.error('Erro de conexão. Tente novamente mais tarde.', {
+      toast.error('Erro de conexao. Tente novamente mais tarde.', {
         duration: 4000,
       });
       console.error(error);
     }
   };
 
-  //Verifica qual ambiente o código está rodando (teste ou produção)
   const isDev = import.meta.env.DEV;
   const submitHandler = isDev ? onSubmitMock : onSubmitReal;
 
@@ -86,103 +83,112 @@ export const FormContactEmail = () => {
           },
         }}
       />
-      <p>🔒 Seus dados estão seguros e não serão compartilhados.</p>
+
+      <S.IntroText>
+        Seus dados estao seguros e serao usados apenas para retorno comercial.
+      </S.IntroText>
+
       <form onSubmit={handleSubmit(submitHandler)}>
         <S.FieldGroup>
-          <div style={{ flex: 1 }}>
+          <S.Field>
             <label>Nome *</label>
             <S.Input
               placeholder="Nome"
-              {...register('nome', { required: 'O nome é obrigatório.' })}
+              {...register('nome', { required: 'O nome e obrigatorio.' })}
             />
             {errors.nome && (
               <S.ErrorMessage>{errors.nome.message}</S.ErrorMessage>
             )}
-          </div>
+          </S.Field>
 
-          <div style={{ flex: 1 }}>
-            <label>* Empresa</label>
+          <S.Field>
+            <label>Empresa *</label>
             <S.Input
               placeholder="Empresa"
-              {...register('empresa', { required: 'A empresa é obrigatória.' })}
+              {...register('empresa', { required: 'A empresa e obrigatoria.' })}
             />
-            {errors.nome && (
-              <S.ErrorMessage>{errors.nome.message}</S.ErrorMessage>
+            {errors.empresa && (
+              <S.ErrorMessage>{errors.empresa.message}</S.ErrorMessage>
             )}
-          </div>
+          </S.Field>
         </S.FieldGroup>
 
         <S.FieldGroup>
-          <div style={{ flex: 1 }}>
+          <S.Field>
             <label>E-mail *</label>
             <S.Input
               placeholder="E-mail"
               type="email"
               {...register('email', {
-                required: 'O e-mail é obrigatório.',
+                required: 'O e-mail e obrigatorio.',
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: 'E-mail inválido.',
+                  message: 'E-mail invalido.',
                 },
               })}
             />
             {errors.email && (
               <S.ErrorMessage>{errors.email.message}</S.ErrorMessage>
             )}
-          </div>
+          </S.Field>
 
-          <div>
-            <label>Telefone </label>
-            <S.Input {...register('telefone', { required: false })} />
-          </div>
+          <S.Field>
+            <label>Telefone</label>
+            <S.Input
+              placeholder="Telefone"
+              {...register('telefone', { required: false })}
+            />
+          </S.Field>
         </S.FieldGroup>
 
-        <div>
+        <S.Field>
           <label>Quantas contas de e-mail?</label>
           <S.Select {...register('quantidade')}>
-            <option>Até 5</option>
+            <option>Ate 5</option>
             <option>6 a 10</option>
             <option>11 a 20</option>
             <option>21 a 50</option>
             <option>Mais de 50</option>
           </S.Select>
-        </div>
+        </S.Field>
 
-        <div>
+        <S.Field>
           <label>Como funciona hoje?</label>
           <S.Select {...register('situacao')}>
-            <option>Selecione uma opção</option>
-            <option>Não tenho e-mail</option>
+            <option>Selecione uma opcao</option>
+            <option>Nao tenho e-mail</option>
             <option>Outlook com dados no computador</option>
             <option>Outlook sincronizado (IMAP)</option>
             <option>Google Workspace / Microsoft</option>
             <option>Gmail gratuito</option>
             <option>Outro</option>
           </S.Select>
-        </div>
+        </S.Field>
 
-        <div>
+        <S.Field>
           <label>Precisa migrar e-mails antigos?</label>
           <S.Select {...register('migracao')}>
-            <option>Selecione uma opção</option>
+            <option>Selecione uma opcao</option>
             <option>Sim</option>
-            <option>Não</option>
-            <option>Não sei</option>
+            <option>Nao</option>
+            <option>Nao sei</option>
           </S.Select>
-        </div>
+        </S.Field>
 
-        <div>
+        <S.Field>
           <label>Principal dificuldade</label>
           <S.TextArea
             rows={3}
-            placeholder="Ex: perda de e-mails, lentidão, backup..."
+            placeholder="Ex: perda de e-mails, lentidao, backup..."
             {...register('problema')}
           />
-        </div>
+        </S.Field>
 
-        <CustomButton type="submit" variant="cta" disabled={isSubmitting}>
-          Quero melhorar meu e-mail
-        </CustomButton>
+        <S.SubmitRow>
+          <CustomButton type="submit" variant="cta" disabled={isSubmitting}>
+            Quero melhorar meu e-mail
+          </CustomButton>
+        </S.SubmitRow>
       </form>
     </S.FormContainer>
   );
