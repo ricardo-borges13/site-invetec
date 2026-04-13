@@ -20,6 +20,11 @@ export const Container = styled.section`
     ${({ theme }) => theme.colors.background.light};
 
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 900px) {
+    flex-direction: column; // 🔥 ESSENCIAL
+    text-align: center;
+  }
 `;
 
 export const TextArea = styled.div`
@@ -65,6 +70,7 @@ export const ImagesArea = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopSmallest}) {
     max-width: 600px;
+    display: none;
 
     img {
       width: clamp(260px, 30vw, 300px);

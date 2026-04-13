@@ -13,20 +13,22 @@ export const sobreData: SectionInfoProps = {
   description: `
     <section>
 
-  <p>
-    A <strong>INVETEC</strong> é especializada em
-    <strong>soluções em tecnologia para empresas</strong>,
-    atuando com <strong>ERP</strong>, infraestrutura,
-    <strong>cloud</strong> e desenvolvimento web.
-  </p>
+ <p>
+  A <strong>INVETEC</strong> não vende apenas tecnologia.
+  Ajuda empresas a tomarem decisões mais seguras sobre como estruturar e evoluir sua operação.
+</p>
+
+<p>
+  Atuamos na escolha e implantação de ERP, infraestrutura, e-mails corporativos, sites e soluções digitais — sempre com foco em organização e resultado.
+</p>
 
   <p class="highlight">
-    <strong>+20 anos ajudando empresas a crescer com tecnologia.</strong>
+    <strong>Mais de 20 anos ajudando empresas a crescer com tecnologia — da forma certa.</strong>
   </p>
 </section>
   `,
   image1,
-  buttonText: 'Saiba mais',
+  buttonText: 'Entenda como trabalhamos',
   path: '/sobre',
 };
 

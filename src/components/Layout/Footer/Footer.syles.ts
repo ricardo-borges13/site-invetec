@@ -23,6 +23,15 @@ export const Content = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     text-align: center;
   }
+
+    @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr); // tablet
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr; // mobile
+    text-align: center;
+  }
 `;
 
 export const Section = styled.div``;

@@ -19,7 +19,7 @@ export const FormContactERP = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { isSubmitting },
   } = useForm<FormInputs>();
 
   const onSubmitMock = async (_data: FormInputs) => {

@@ -6,6 +6,133 @@ export const Container = styled.div`
   padding: 2rem 1.5rem 4rem;
 `;
 
+export const ConversionIntro = styled.section`
+  margin-bottom: 3rem;
+`;
+
+export const ConversionIntroGrid = styled.div`
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.9fr);
+  gap: 24px;
+  align-items: stretch;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const ConversionIntroContent = styled.div`
+  background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 18px 40px rgba(0, 123, 255, 0.08);
+
+  h2 {
+    color: ${({ theme }) => theme.colors.primaryDark};
+    font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    max-width: 640px;
+    margin: 0;
+    line-height: 1.7;
+    color: #334155;
+  }
+`;
+
+export const Eyebrow = styled.span`
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(0, 123, 255, 0.1);
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+`;
+
+export const ConversionList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 0.9rem;
+
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: #1e293b;
+    line-height: 1.5;
+
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: ${({ theme }) => theme.colors.ctaGreen};
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+  }
+`;
+
+export const ConversionActions = styled.div`
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+
+  span {
+    color: #475569;
+    font-size: 0.92rem;
+  }
+`;
+
+export const ConversionIntroAside = styled.aside`
+  background: #f9fafb;
+  border: 1px solid #dbeafe;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+
+  h3 {
+    color: ${({ theme }) => theme.colors.primaryDark};
+    margin-bottom: 1rem;
+  }
+`;
+
+export const ConversionMiniGrid = styled.div`
+  display: grid;
+  gap: 14px;
+`;
+
+export const ConversionMiniCard = styled.div`
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+
+  strong {
+    display: block;
+    color: ${({ theme }) => theme.colors.primaryDark};
+    margin-bottom: 0.35rem;
+  }
+
+  p {
+    margin: 0;
+    color: #475569;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+`;
+
 export const Section = styled.section`
   margin-bottom: 3rem;
   text-align: center;
@@ -41,6 +168,19 @@ export const Grid = styled.div`
   margin-bottom: 3rem;
 `;
 
+export const PainGrid = styled(Grid)`
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
 export const Card = styled.div`
   background: white;
   border: 1px solid ${({ theme }) => theme.colors.primary};
@@ -60,6 +200,31 @@ export const Card = styled.div`
 
   &:hover {
     transform: translateY(-5px);
+  }
+`;
+
+export const PainCard = styled(Card)`
+  padding: 18px 16px;
+
+  h3 {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1100px) {
+    h3 {
+      font-size: 0.98rem;
+    }
+
+    p {
+      font-size: 0.86rem;
+    }
   }
 `;
 
@@ -279,3 +444,9 @@ export const SubHighlight = styled.section`
   margin: 2rem 0;
   text-align: center;
 `;
+
+export const Header = styled.header`
+max-width: 600px;
+margin: 0 auto;
+text-align: center;
+`
