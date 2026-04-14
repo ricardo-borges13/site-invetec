@@ -50,7 +50,7 @@ export const Home = () => {
   }, [navigate]);
 
  const handleInvetecMailClick = useCallback(() => {
-  navigate('/email-corporativo-zimbra');
+  navigate('/servicos/invetec-mail');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }, [navigate]);
 
@@ -94,9 +94,10 @@ export const Home = () => {
         <CTASection
           variant="default"
           badge="VAMOS CRESCER JUNTOS"
-          title="Sua empresa está pronta para crescer com mais tecnologia?"
-          subtitle="Implantação, suporte e soluções completas para otimizar seus processos e reduzir custos"
+          title="Sua empresa está usando a tecnologia certa para crescer?"
+          subtitle="Analisamos sua realidade e indicamos a melhor solução para organizar, reduzir custos e acelerar seus resultados."
           buttonText="Fale com um especialista"
+          onClick={handleSecondaryClick}
         />
 
         <div id="parceiros">

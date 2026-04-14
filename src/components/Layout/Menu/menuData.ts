@@ -10,7 +10,7 @@ export const menuItems = [
       { title: 'Sistemas ERP', path: '/servicos/erp' },
       {
         title: 'E-mail Corporativo',
-        path: '/servicos/email-corporativo-zimbra',
+        path: '/servicos/invetec-mail',
       },
       {
         title: 'Criação de Sites',

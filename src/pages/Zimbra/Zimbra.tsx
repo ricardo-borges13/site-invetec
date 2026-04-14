@@ -31,15 +31,15 @@ export const Zimbra = () => {
   return (
     <>
       <SEO
-        title="E-mail Corporativo Profissional | Organize sua empresa | Invetec"
-        description="Sua empresa ainda usa um e-mail limitado? Tenha uma estrutura profissional com organização, segurança e mais controle sobre a comunicação."
-        image="https://www.invetec.com.br/images/SEO-Zimbra.jpg"
-        url="https://www.invetec.com.br/servicos/email-corporativo-zimbra"
+        title="E-mail Corporativo Zimbra | Mais controle e economia | INVETEC Mail"
+        description="Tenha um e-mail corporativo profissional com tecnologia Zimbra. Mais organização, segurança e controle para sua empresa — sem pagar caro como Google ou Microsoft."
+        image="https://www.invetec.com.br/images/SEO-Invetec-Mail.jpg"
+        url="https://www.invetec.com.br/servicos/invetec-mail"
       />
 
       <PageHeroSection
-        title="E-mail corporativo de verdade para sua empresa"
-        subTitle="Saia do e-mail básico e tenha uma estrutura profissional, segura e preparada para o ritmo da sua equipe"
+        title="Saia do e-mail básico. Tenha um e-mail corporativo de verdade."
+        subTitle="Mais organização, segurança e controle para sua equipe — sem complicação."
         image={heroImage}
       >
         <S.Container>
