@@ -1,6 +1,6 @@
+import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { motion } from 'framer-motion';
 import React from 'react';
-import { CustomButton } from '@/components/CustomButton/CustomButton';
 import * as S from './Hero.styles';
 
 interface HeroProps {
@@ -10,6 +10,7 @@ interface HeroProps {
   secondaryButtonText: string;
   onPrimaryClick?: () => void;
   onSecondaryClick?: () => void;
+  onHighlightClick?: () => void;
   image: string;
 }
 
@@ -21,6 +22,7 @@ export const Hero = React.memo(
     secondaryButtonText,
     onPrimaryClick,
     onSecondaryClick,
+    onHighlightClick,
     image,
   }: HeroProps) => {
     return (
@@ -38,27 +40,46 @@ export const Hero = React.memo(
         <S.Overlay />
 
         <S.HeroContent>
-          <motion.div
+          <S.HeroRow
+            as={motion.div}
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
           >
-            <S.HeroTitle>{title}</S.HeroTitle>
-            <S.HeroSubtitle>{subtitle}</S.HeroSubtitle>
 
-            <S.ButtonGroup>
-              <CustomButton
-                text={primaryButtonText}
-                onClick={onPrimaryClick}
-                variant="primary"
-              />
-              <CustomButton
-                text={secondaryButtonText}
-                onClick={onSecondaryClick}
-                variant="outline-white"
-              />
-            </S.ButtonGroup>
-          </motion.div>
+              <S.Left>
+                <S.HeroTitle>{title}</S.HeroTitle>
+                <S.HeroSubtitle>{subtitle}</S.HeroSubtitle>
+
+                <S.ButtonGroup>
+                  <CustomButton
+                    text={primaryButtonText}
+                    onClick={onPrimaryClick}
+                    variant="primary"
+                  />
+                  <CustomButton
+                    text={secondaryButtonText}
+                    onClick={onSecondaryClick}
+                    variant="outline-white"
+                  />
+                </S.ButtonGroup>
+              </S.Left>
+
+              {/* 🔥 CARD À DIREITA */}
+              <S.Right>
+                <S.HeroHighlight>
+                  <span>📧 Destaque</span>
+                  <h3>INVETEC Mail</h3>
+                  <p>
+                    E-mail corporativo profissional com mais controle, segurança
+                    e suporte próximo.
+                  </p>
+
+                  <S.HighlightButton onClick={onHighlightClick}>Conhecer solução</S.HighlightButton>
+                </S.HeroHighlight>
+              </S.Right>
+
+          </S.HeroRow>
         </S.HeroContent>
       </S.HeroContainer>
     );

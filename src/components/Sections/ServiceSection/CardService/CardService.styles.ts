@@ -46,3 +46,14 @@ export const Subtitle = styled.p`
   color: ${({ theme }) => theme.colors.darkGray};
   line-height: 1.4;
 `;
+
+export const Badge = styled.span`
+  display: inline-block;
+  background: rgba(255, 140, 0, 0.15);
+  color: #ff8c00;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+`;

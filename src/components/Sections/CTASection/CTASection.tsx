@@ -1,31 +1,55 @@
-import { useNavigate } from 'react-router-dom';
 import { CustomButton } from '../../CustomButton/CustomButton';
 import { MotionReveal } from '../../Motion/MotionReveal/MotionReveal';
 import * as S from './CTASection.styles';
 
-export const CTASection = () => {
-  const navigate = useNavigate();
+type CTASectionProps = {
+  variant?: 'default' | 'infrastructure';
+  badge?: string;
+  title: string;
+  subtitle?: string;
+  items?: string[];
+  buttonText?: string;
+  onClick?: () => void;
+};
 
+export const CTASection = ({
+  variant = 'default',
+  badge,
+  title,
+  subtitle,
+  items,
+  buttonText,
+  onClick,
+}: CTASectionProps) => {
   return (
-    <S.Section>
+    <S.Section variant={variant}>
       <S.Content>
         <MotionReveal delay={0.6}>
-          <span>VAMOS CRESCER JUNTOS</span>
-          <h2>
-            Sua empresa está pronta para crescer com mais tecnologia e
-            eficiência?
-          </h2>
-          <h4>
-            Implantação, suporte e soluções completas para otimizar seus
-            processos e reduzir custos
-          </h4>
+          {badge && <span>{badge}</span>}
+          <h2>{title}</h2>
+          {subtitle && <h4>{subtitle}</h4>}
 
-          <CustomButton
-            text="Fale com um especialista"
-            variant="cta"
-            type="submit"
-            onClick={() => navigate('/contato')}
-          />
+          {items && (
+  <S.ListWrapper>
+    <S.List>
+      {items.map((item, index) => (
+        <S.ListItem key={index}>
+          <span>✔</span>
+          {item}
+        </S.ListItem>
+      ))}
+    </S.List>
+  </S.ListWrapper>
+)}
+
+          {buttonText && (
+            <CustomButton
+              text={buttonText}
+              variant="cta"
+              type="button"
+              onClick={onClick}
+            />
+          )}
         </MotionReveal>
       </S.Content>
     </S.Section>

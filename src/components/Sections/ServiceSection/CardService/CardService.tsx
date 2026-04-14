@@ -6,9 +6,10 @@ type CardServiceProps = {
   title: string;
   subtitle: string;
   path?: string;
+  badge?: string;
 };
 
-export const CardService = ({ image, title, subtitle, path }: CardServiceProps) => {
+export const CardService = ({ image, title, subtitle, path, badge }: CardServiceProps) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -22,6 +23,7 @@ export const CardService = ({ image, title, subtitle, path }: CardServiceProps) 
       </S.ImageWrapper>
 
       <S.Content>
+        {badge && <S.Badge>{badge}</S.Badge>}
         <S.Title>{title}</S.Title>
         <S.Subtitle>{subtitle}</S.Subtitle>
       </S.Content>

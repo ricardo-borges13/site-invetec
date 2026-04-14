@@ -1,5 +1,5 @@
 import heroImage from '@/assets/images/PagesHero-Site.jpg';
-import { CustomButton } from '@/components/CustomButton/CustomButton';
+import { FormContactSite } from '@/components/FormContactSite/FormContactSite';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
@@ -40,6 +40,7 @@ export const Site = () => {
               </ul>
             </MotionReveal>
           </S.Section>
+
           <S.Section>
             <MotionReveal>
               <h2>Por que um site profissional precisa gerar clientes?</h2>
@@ -164,14 +165,14 @@ export const Site = () => {
               <p>
                 Com mais de 20 anos de experiência em TI e implantação de
                 sistemas, entendemos o funcionamento real das empresas e
-                construo o site com foco em resultado.
+                construímos o site com foco em resultado.
               </p>
 
               <ul>
-                <li> Entendimento do seu negócio</li>
-                <li> Estrutura pensada para conversão</li>
-                <li> Acompanhamento direto</li>
-                <li> Solução prática, não só visual</li>
+                <li>Entendimento do seu negócio</li>
+                <li>Estrutura pensada para conversão</li>
+                <li>Acompanhamento direto</li>
+                <li>Solução prática, não só visual</li>
               </ul>
             </MotionReveal>
           </S.Warning>
@@ -192,29 +193,6 @@ export const Site = () => {
             </MotionReveal>
           </S.Section>
 
-          {/* 🟠 OBJEÇÃO */}
-          {/* <S.Section>
-          <MotionReveal>
-            <h2>E sobre portfólio?</h2>
-
-            <p>
-              Estou iniciando essa frente de desenvolvimento web, mas com um
-              diferencial importante:
-            </p>
-
-            <p>
-              👉 toda minha experiência prática em TI e implantação de sistemas.
-            </p>
-
-            <p>
-              Isso significa que o foco não é apenas design, mas sim criar uma
-              estrutura funcional que gere resultado real.
-            </p>
-
-            <p>Cada projeto recebe atenção direta, sem ser apenas mais um.</p>
-          </MotionReveal>
-        </S.Section> */}
-
           {/* 🟢 FORMULÁRIO / CTA */}
           <S.FormArea>
             <MotionReveal>
@@ -225,25 +203,7 @@ export const Site = () => {
                 montar a melhor estrutura para o seu site.
               </p>
 
-              <S.Form>
-                <input placeholder="Nome" />
-                <input placeholder="Empresa" />
-                <input placeholder="WhatsApp" />
-                <input placeholder="E-mail" />
-
-                <select>
-                  <option>Qual o objetivo do site?</option>
-                  <option>Gerar contatos</option>
-                  <option>Apresentar empresa</option>
-                  <option>Portfólio</option>
-                </select>
-
-                <textarea placeholder="Tem algum site como referência?" />
-
-                <textarea placeholder="Descreva como você imagina seu site" />
-
-                <CustomButton variant="cta" text="Receber orçamento agora" />
-              </S.Form>
+              <FormContactSite />
             </MotionReveal>
           </S.FormArea>
         </S.Container>

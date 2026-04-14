@@ -81,7 +81,7 @@ export const ConversionList = styled.ul`
     line-height: 1.5;
 
     &::before {
-      content: '•';
+      content: '\2022';
       position: absolute;
       left: 0;
       top: 0;

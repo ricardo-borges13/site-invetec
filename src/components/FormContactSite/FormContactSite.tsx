@@ -1,20 +1,19 @@
-﻿import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
 import { CustomButton } from '../CustomButton/CustomButton';
-import * as S from './FormContactEmail.styles';
+import * as S from './FormContactSite.styles';
 
 type FormInputs = {
   nome: string;
   empresa: string;
-  email: string;
   telefone: string;
-  quantidade: string;
-  situacao: string;
-  migracao: string;
-  problema: string;
+  email: string;
+  objetivo: string;
+  referencia: string;
+  descricao: string;
 };
 
-export const FormContactEmail = () => {
+export const FormContactSite = () => {
   const {
     register,
     handleSubmit,
@@ -25,7 +24,7 @@ export const FormContactEmail = () => {
   const onSubmitMock = async (_data: FormInputs) => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
-      toast.success('Mensagem enviada com sucesso! (MODO TESTE)', {
+      toast.success('Solicitacao enviada com sucesso! (MODO TESTE)', {
         duration: 9000,
       });
       reset();
@@ -36,16 +35,20 @@ export const FormContactEmail = () => {
 
   const onSubmitReal = async (data: FormInputs) => {
     try {
-      const response = await fetch('https://formspree.io/f/xpqkzqaz', {
+      const response = await fetch('https://formspree.io/f/xgorezvp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          origem: 'site-criacao-de-sites',
+        }),
       });
 
       if (response.ok) {
-        toast.success('Mensagem enviada com sucesso! Em breve entraremos em contato.', {
-          duration: 5000,
-        });
+        toast.success(
+          'Recebido! Vou analisar seu projeto e entrar em contato.',
+          { duration: 5000 }
+        );
         reset();
       } else {
         toast.error('Erro ao enviar. Tente novamente.', { duration: 4000 });
@@ -85,7 +88,8 @@ export const FormContactEmail = () => {
       />
 
       <S.IntroText>
-        Seus dados estao seguros e serao usados apenas para retorno comercial.
+        Leva menos de 1 minuto. Com essas informacoes, consigo entender melhor
+        o perfil do seu projeto e te retornar com uma proposta mais alinhada.
       </S.IntroText>
 
       <form onSubmit={handleSubmit(submitHandler)}>
@@ -115,6 +119,17 @@ export const FormContactEmail = () => {
 
         <S.FieldGroup>
           <S.Field>
+            <label>WhatsApp *</label>
+            <S.Input
+              placeholder="WhatsApp"
+              {...register('telefone', { required: 'O WhatsApp e obrigatorio.' })}
+            />
+            {errors.telefone && (
+              <S.ErrorMessage>{errors.telefone.message}</S.ErrorMessage>
+            )}
+          </S.Field>
+
+          <S.Field>
             <label>E-mail *</label>
             <S.Input
               placeholder="E-mail"
@@ -131,62 +146,55 @@ export const FormContactEmail = () => {
               <S.ErrorMessage>{errors.email.message}</S.ErrorMessage>
             )}
           </S.Field>
-
-          <S.Field>
-            <label>Telefone</label>
-            <S.Input
-              placeholder="Telefone"
-              {...register('telefone', { required: false })}
-            />
-          </S.Field>
         </S.FieldGroup>
 
         <S.Field>
-          <label>Quantas contas de e-mail?</label>
-          <S.Select {...register('quantidade')}>
-            <option>Ate 5</option>
-            <option>6 a 10</option>
-            <option>11 a 20</option>
-            <option>21 a 50</option>
-            <option>Mais de 50</option>
-          </S.Select>
-        </S.Field>
-
-        <S.Field>
-          <label>Como funciona hoje?</label>
-          <S.Select {...register('situacao')}>
-            <option>Selecione uma opção</option>
-            <option>Nao tenho e-mail</option>
-            <option>Outlook com dados no computador</option>
-            <option>Outlook sincronizado (IMAP)</option>
-            <option>Google Workspace / Microsoft</option>
-            <option>Gmail gratuito</option>
-            <option>Outro</option>
-          </S.Select>
-        </S.Field>
-
-        <S.Field>
-          <label>Precisa migrar e-mails antigos?</label>
-          <S.Select {...register('migracao')}>
+          <label>Qual o objetivo principal do site?</label>
+          <S.Select {...register('objetivo')}>
             <option>Selecione uma opcao</option>
-            <option>Sim</option>
-            <option>Nao</option>
-            <option>Nao sei</option>
+            <option>Gerar contatos</option>
+            <option>Apresentar a empresa</option>
+            <option>Mostrar portfolio ou servicos</option>
+            <option>Fortalecer a marca</option>
+            <option>Ainda estou definindo</option>
           </S.Select>
         </S.Field>
 
         <S.Field>
-          <label>Principal dificuldade</label>
+          <label>Tem alguma referencia?</label>
           <S.TextArea
             rows={3}
-            placeholder="Ex: perda de e-mails, lentidao, backup..."
-            {...register('problema')}
+            placeholder="Pode ser um site que voce goste, um concorrente ou alguma ideia de estrutura."
+            {...register('referencia')}
           />
         </S.Field>
 
+        <S.Field>
+          <label>Como voce imagina o site ideal para sua empresa?</label>
+          <S.TextArea
+            rows={4}
+            placeholder="Ex: quero um site mais profissional, que explique melhor meus servicos e gere mais contatos."
+            {...register('descricao', {
+              required: 'Descreva brevemente o que voce precisa.',
+              minLength: {
+                value: 8,
+                message: 'Escreva pelo menos 8 caracteres.',
+              },
+            })}
+          />
+          {errors.descricao && (
+            <S.ErrorMessage>{errors.descricao.message}</S.ErrorMessage>
+          )}
+        </S.Field>
+
         <S.SubmitRow>
-          <CustomButton type="submit" variant="cta" disabled={isSubmitting}>
-            Quero melhorar meu e-mail
+          <CustomButton
+            variant="cta"
+            type="submit"
+            disabled={isSubmitting}
+            loading={isSubmitting}
+          >
+            Receber orcamento agora
           </CustomButton>
         </S.SubmitRow>
       </form>

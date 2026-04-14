@@ -41,9 +41,10 @@ export const servicesData = [
   },
   {
     image: email,
-    title: 'E-mail Corporativo',
-    subtitle: 'E-mails profissionais com segurança e comunicação profissional',
+    title: 'INVETEC Mail',
+    subtitle: 'E-mail corporativo profissional com mais controle, segurança e suporte próximo',
     path: '/servicos/email-corporativo-zimbra',
+    badge: '🔥 Mais procurado',
   },
   {
     image: ecommerce,

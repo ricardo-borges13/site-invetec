@@ -1,15 +1,15 @@
-import imgHero from '@/assets/images/BannerPrincipalHero.jpg';
+import imgHero from '@/assets/images/BannerPrincipalHero3.jpg';
 import { BusinessPartner } from '@/components/Sections/BusinessPartner/BusinessPartner';
 import { CTASection } from '@/components/Sections/CTASection/CTASection';
 import { Hero } from '@/components/Sections/Hero/hero';
 import { SectionInfo } from '@/components/Sections/SectionInfo/SectionInfo';
 import { CardService } from '@/components/Sections/ServiceSection/CardService/CardService';
 import { ServiceSection } from '@/components/Sections/ServiceSection/ServiceSection';
+import { SEO } from '@/components/SEO/Seo';
 import { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { servicesData, sobreData } from './Home.data';
 import * as S from './Home.styles';
-import { SEO } from '@/components/SEO/Seo';
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -49,47 +49,60 @@ export const Home = () => {
     navigate('/contato');
   }, [navigate]);
 
+ const handleInvetecMailClick = useCallback(() => {
+  navigate('/email-corporativo-zimbra');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}, [navigate]);
+
   return (
     <>
-     <SEO
+      <SEO
         title="Invetec | ERP, E-mail Corporativo, Sites e Soluções em TI"
         description="Mais de 20 anos ajudando empresas a se organizar e crescer com ERP, e-mail corporativo profissional, sites e soluções digitais. Estrutura, segurança e resultado."
         image="https://www.invetec.com.br/images/SEO-Home.jpg"
         url="https://www.invetec.com.br"
       />
 
-    <S.HomeWrapper>
-      <Hero
-        title="Tecnologia que organiza sua empresa e acelera resultados"
-        subtitle="ERP, e-mail corporativo profissional, sites e soluções digitais para organizar sua empresa e fortalecer sua presença no mercado"
-        primaryButtonText="Ver Serviços"
-        image={imgHero}
-        secondaryButtonText="Fale com um especialista"
-        onPrimaryClick={handlePrimaryClick} // Use memoized handler
-        onSecondaryClick={handleSecondaryClick} // Use memoized handler
-      />
+      <S.HomeWrapper>
+        <Hero
+          title="Tecnologia que organiza sua empresa e acelera resultados"
+          subtitle="ERP, e-mail corporativo profissional, sites e soluções digitais para organizar sua empresa e fortalecer sua presença no mercado"
+          primaryButtonText="Ver Serviços"
+          image={imgHero}
+          secondaryButtonText="Fale com um especialista"
+          onPrimaryClick={handlePrimaryClick} // Use memoized handler
+          onSecondaryClick={handleSecondaryClick} // Use memoized handler
+          onHighlightClick={handleInvetecMailClick }
+        />
 
-      <SectionInfo {...sobreData} />
+        <SectionInfo {...sobreData} />
 
-      <div id="servicos">
-        <ServiceSection title="Nossos Serviços">
-          {servicesData.map(service => (
-            <CardService
-              key={service.title}
-              image={service.image}
-              title={service.title}
-              subtitle={service.subtitle}
-              path={service.path}
-            />
-          ))}
-        </ServiceSection>
-      </div>
-      <CTASection />
+        <div id="servicos">
+          <ServiceSection title="Nossos Serviços">
+            {servicesData.map(service => (
+              <CardService
+                key={service.title}
+                image={service.image}
+                title={service.title}
+                subtitle={service.subtitle}
+                path={service.path}
+                badge={service.badge}
+              />
+            ))}
+          </ServiceSection>
+        </div>
+        <CTASection
+          variant="default"
+          badge="VAMOS CRESCER JUNTOS"
+          title="Sua empresa está pronta para crescer com mais tecnologia?"
+          subtitle="Implantação, suporte e soluções completas para otimizar seus processos e reduzir custos"
+          buttonText="Fale com um especialista"
+        />
 
-      <div id="parceiros">
-        <BusinessPartner />
-      </div>
-    </S.HomeWrapper>
+        <div id="parceiros">
+          <BusinessPartner />
+        </div>
+      </S.HomeWrapper>
     </>
   );
 };
