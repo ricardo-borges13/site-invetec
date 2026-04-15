@@ -269,11 +269,13 @@ export const AccordionWrapper = styled.div`
 `;
 
 export const FormArea = styled.section`
-  margin-top: 2rem;
-  padding: 2.5rem;
-  background: #f9fafb;
+  margin-top: 3rem;
+  background: #c7dbf3;
   border-radius: 16px;
+  padding: 2.5rem;
   text-align: center;
+  border: 2px solid rgba(0,0,0,0.05);
+
 
   h2 {
     margin-bottom: 0.5rem;

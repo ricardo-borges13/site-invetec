@@ -19,31 +19,45 @@ export const FormContactERP = () => {
     register,
     handleSubmit,
     reset,
-    formState: { isSubmitting },
+    formState: { errors, isSubmitting },
   } = useForm<FormInputs>();
 
   const onSubmitMock = async (_data: FormInputs) => {
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    toast.success('Diagnóstico enviado com sucesso! (MODO TESTE)');
-    reset();
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      toast.success('Mensagem enviada com sucesso! (MODO TESTE)', {
+        duration: 9000,
+      });
+      reset();
+    } catch {
+      toast.error('Erro ao enviar (MODO TESTE).', { duration: 4000 });
+    }
   };
 
   const onSubmitReal = async (data: FormInputs) => {
     try {
-      const response = await fetch('https://formspree.io/f/xaqdqqnk', {
+      const response = await fetch('https://formspree.io/f/xojyvlrk', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
 
       if (response.ok) {
-        toast.success('Recebido! Vou analisar e te retornar em breve 🚀');
+        toast.success(
+          'Mensagem enviada com sucesso! Em breve entraremos em contato.',
+          {
+            duration: 5000,
+          }
+        );
         reset();
       } else {
-        toast.error('Erro ao enviar. Tente novamente.');
+        toast.error('Erro ao enviar. Tente novamente.', { duration: 4000 });
       }
-    } catch {
-      toast.error('Erro de conexão.');
+    } catch (error) {
+      toast.error('Erro de conexao. Tente novamente mais tarde.', {
+        duration: 4000,
+      });
+      console.error(error);
     }
   };
 
@@ -52,35 +66,85 @@ export const FormContactERP = () => {
 
   return (
     <S.FormContainer>
-      <Toaster />
+      <Toaster
+        containerStyle={{
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          position: 'fixed',
+          zIndex: 9999,
+        }}
+        toastOptions={{
+          style: {
+            background: '#2a2a2a',
+            color: '#fff',
+            fontSize: '16px',
+            padding: '16px 24px',
+            borderRadius: '12px',
+            maxWidth: '400px',
+            textAlign: 'center',
+          },
+        }}
+      />
 
-      <p>🔒 Leva menos de 1 minuto. Eu analiso seu cenário e te retorno com a melhor solução.</p>
+      <p>
+        🔒 Leva menos de 1 minuto. Eu analiso seu cenário e te retorno com a
+        melhor solução.
+      </p>
 
       <form onSubmit={handleSubmit(submitHandler)}>
         {/* Nome + Empresa */}
         <S.FieldGroup>
-          <div>
+          <S.Field>
             <label>Nome *</label>
-            <S.Input {...register('nome', { required: true })} />
-          </div>
+            <S.Input
+              placeholder="Nome"
+              {...register('nome', { required: 'O nome e obrigatorio.' })}
+            />
+            {errors.nome && (
+              <S.ErrorMessage>{errors.nome.message}</S.ErrorMessage>
+            )}
+          </S.Field>
 
-          <div>
+          <S.Field>
             <label>Empresa *</label>
-            <S.Input {...register('empresa', { required: true })} />
-          </div>
+            <S.Input
+              placeholder="Empresa"
+              {...register('empresa', { required: 'A empresa e obrigatoria.' })}
+            />
+            {errors.empresa && (
+              <S.ErrorMessage>{errors.empresa.message}</S.ErrorMessage>
+            )}
+          </S.Field>
         </S.FieldGroup>
 
         {/* Email + Telefone */}
         <S.FieldGroup>
-          <div>
+          <S.Field>
             <label>E-mail *</label>
-            <S.Input type="email" {...register('email', { required: true })} />
-          </div>
+            <S.Input
+              placeholder="E-mail"
+              type="email"
+              {...register('email', {
+                required: 'O e-mail e obrigatorio.',
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: 'E-mail invalido.',
+                },
+              })}
+            />
+            {errors.email && (
+              <S.ErrorMessage>{errors.email.message}</S.ErrorMessage>
+            )}
+          </S.Field>
 
-          <div>
-            <label>Telefone *</label>
-            <S.Input {...register('telefone', { required: true })} />
-          </div>
+          <S.Field>
+            <label>Telefone</label>
+            <S.Input
+              placeholder="Telefone"
+              {...register('telefone', { required: false })}
+            />
+          </S.Field>
         </S.FieldGroup>
 
         {/* Faturamento */}
@@ -99,6 +163,7 @@ export const FormContactERP = () => {
         <S.Field>
           <label>Número de funcionários</label>
           <S.Select {...register('funcionarios')}>
+            <option>Selecione</option>
             <option>Até 5</option>
             <option>6 a 20</option>
             <option>21 a 50</option>
@@ -110,6 +175,7 @@ export const FormContactERP = () => {
         <S.Field>
           <label>Possui ERP atualmente?</label>
           <S.Select {...register('possuiERP')}>
+            <option>Selecione</option>
             <option>Sim</option>
             <option>Não</option>
           </S.Select>

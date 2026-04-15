@@ -80,8 +80,13 @@ export const FooterCTA = styled.section`
 
 /* 📋 FORMULÁRIO */
 export const FormArea = styled.section`
-  margin-top: 3rem;
+   margin-top: 3rem;
+  background: #c7dbf3;
+  border-radius: 16px;
+  padding: 2.5rem;
   text-align: center;
+  border: 2px solid rgba(0,0,0,0.05);
+
 
   h2 {
     margin-bottom: 1.5rem;

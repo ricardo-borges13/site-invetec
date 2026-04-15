@@ -597,3 +597,21 @@ export const Header = styled.header`
   margin: 0 auto;
   text-align: center;
 `;
+
+export const MeiHelper = styled.div`
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-size: 0.9rem;
+  color: #64748b;
+
+  a {
+    color: ${({ theme }) => theme.colors.primary};
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 4px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+`;

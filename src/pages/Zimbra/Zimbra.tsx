@@ -8,6 +8,7 @@ import { CTASection } from '@/components/Sections/CTASection/CTASection';
 import { SEO } from '@/components/SEO/Seo';
 import { useRef, useState } from 'react';
 import * as S from './Zimbra.styles';
+import { Link } from 'react-router-dom';
 
 export const Zimbra = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -403,20 +404,6 @@ export const Zimbra = () => {
           </MotionReveal>
 
           <MotionReveal>
-            {/* <S.SubHighlight>
-            <h2>Infraestrutura pensada para confiabilidade e segurança</h2>
-            <ul>
-              <li>99,9% de disponibilidade</li>
-              <li>5 data centers TIER III</li>
-              <li>Segurança com ISO 27001</li>
-              <li>Antispam avançado</li>
-              <li>Autenticação em dois fatores</li>
-              <li>Conformidade com LGPD</li>
-              <li>Suporte especializado</li>
-              <li>Plataforma Zimbra NE</li>
-            </ul>
-            </S.SubHighlight> */}
-
             <CTASection
               variant="infrastructure"
               badge="INFRAESTRUTURA DE ALTO NÍVEL"
@@ -445,11 +432,17 @@ export const Zimbra = () => {
 
           <S.FormArea id="email-contact-form" ref={formRef}>
             <MotionReveal>
-              <h2>Solicite uma avaliação do seu ambiente de e-mail</h2>
+              <S.MeiHelper>
+                Trabalha sozinho ou tem poucos e-mails?{' '}
+                <Link to="/servicos/invetec-mail-mei">Veja uma solução mais simples →</Link>
+                
+              </S.MeiHelper>
+              <h2>
+                Descubra quanto custa profissionalizar o e-mail da sua empresa
+              </h2>
               <p>
-                Vamos entender como sua empresa trabalha hoje e indicar a melhor
-                forma de migrar para uma estrutura corporativa mais segura e
-                organizada.
+                Em poucos minutos você recebe uma análise com a melhor solução
+                para o seu cenário.
               </p>
 
               <FormContactEmail />

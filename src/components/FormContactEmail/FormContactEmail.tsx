@@ -186,7 +186,7 @@ export const FormContactEmail = () => {
 
         <S.SubmitRow>
           <CustomButton type="submit" variant="cta" disabled={isSubmitting}>
-            Quero melhorar meu e-mail
+            Ver quanto custa para minha empresa
           </CustomButton>
         </S.SubmitRow>
       </form>
