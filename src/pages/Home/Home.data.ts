@@ -58,12 +58,7 @@ export const servicesData = [
     subtitle: 'Sites institucionais focados em geração de clientes',
     path: '/servicos/criacao-de-sites',
   },
-  {
-    image: digital,
-    title: 'Marketing Digital',
-    subtitle: 'Gestão de redes e campanhas para atrair clientes',
-    path: '/servicos/marketing-digital',
-  },
+
   {
     image: ti,
     title: 'Gestão de TI para Empresas',
@@ -71,3 +66,11 @@ export const servicesData = [
     path: '/servicos/suporte-ti',
   },
 ];
+
+
+  // {
+  //   image: digital,
+  //   title: 'Marketing Digital',
+  //   subtitle: 'Gestão de redes e campanhas para atrair clientes',
+  //   path: '/servicos/marketing-digital',
+  // },

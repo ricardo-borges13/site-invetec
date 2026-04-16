@@ -21,7 +21,6 @@ export const ZimbraMei = () => {
         image={heroImage}
       >
         <S.Container>
-
           {/* 🔥 DOR */}
           <S.Section>
             <MotionReveal>
@@ -40,8 +39,9 @@ export const ZimbraMei = () => {
           <S.SubHighlight>
             <h2>Você não precisa ser uma empresa grande</h2>
             <p>
-              Mesmo trabalhando sozinho, você já pode ter um e-mail profissional,
-              organizado e com a mesma estrutura utilizada por empresas maiores.
+              Mesmo trabalhando sozinho, você já pode ter um e-mail
+              profissional, organizado e com a mesma estrutura utilizada por
+              empresas maiores.
             </p>
           </S.SubHighlight>
 
@@ -50,68 +50,121 @@ export const ZimbraMei = () => {
             <h2>Comece com apenas 1 e-mail — sem complicação</h2>
 
             <p>
-              Você pode começar com uma única conta e ainda assim ter acesso a uma
-              estrutura corporativa completa.
+              Você pode começar com uma única conta e ainda assim ter acesso a
+              uma estrutura corporativa completa.
             </p>
 
             <ul>
-              <li>✔ Ideal para MEI e autônomos</li>
-              <li>✔ Estrutura profissional desde o início</li>
-              <li>✔ Evolua conforme seu negócio cresce</li>
+              <li>Ideal para MEI e autônomos</li>
+              <li>Estrutura profissional desde o início</li>
+              <li>Evolua conforme seu negócio cresce</li>
             </ul>
           </S.Highlight>
 
           {/* 🖥️ FUNCIONALIDADES */}
-          <S.Section>
+          <S.SystemSection>
             <MotionReveal>
               <h2>Você terá a mesma estrutura de empresas maiores</h2>
             </MotionReveal>
-          </S.Section>
+
 
           <S.Grid>
-            <S.Card>
-              <h3>📥 Caixa de entrada organizada</h3>
-              <p>Encontre e-mails rapidamente com filtros e busca</p>
-            </S.Card>
+            <MotionReveal delay={0.04}>
+              <S.Card>
+                <h3>📥 Caixa de entrada organizada</h3>
+                <p>
+                  Use pastas, filtros e busca rápida para localizar informações
+                  sem perder tempo.
+                </p>
+              </S.Card>
+            </MotionReveal>
 
-            <S.Card>
-              <h3>📅 Agenda integrada</h3>
-              <p>Organize compromissos e rotina</p>
-            </S.Card>
+            <MotionReveal delay={0.08}>
+              <S.Card>
+                <h3>📅 Agenda compartilhada</h3>
+                <p>
+                  Coordene compromissos da equipe com mais visibilidade e
+                  sincronização entre dispositivos.
+                </p>
+              </S.Card>
+            </MotionReveal>
 
-            <S.Card>
-              <h3>👥 Contatos organizados</h3>
-              <p>Tenha seus clientes sempre à mão</p>
-            </S.Card>
+            <MotionReveal delay={0.12}>
+              <S.Card>
+                <h3>👥 Contatos centralizados</h3>
+                <p>
+                  Mantenha informações internas e recorrentes organizadas para
+                  agilizar o atendimento.
+                </p>
+              </S.Card>
+            </MotionReveal>
 
-            <S.Card>
-              <h3>✅ Tarefas e lembretes</h3>
-              <p>Controle atividades do dia a dia</p>
-            </S.Card>
+            <MotionReveal delay={0.16}>
+              <S.Card>
+                <h3>✅ Tarefas e lembretes</h3>
+                <p>
+                  Acompanhe atividades ligadas a processos, clientes e
+                  responsabilidades do time.
+                </p>
+              </S.Card>
+            </MotionReveal>
 
-            <S.Card>
-              <h3>📁 Arquivos</h3>
-              <p>Armazene documentos com segurança</p>
-            </S.Card>
+            <MotionReveal delay={0.2}>
+              <S.Card>
+                <h3>📁 Arquivos corporativos</h3>
+                <p>
+                  Compartilhe documentos com mais ordem e menos dependência de
+                  anexos espalhados.
+                </p>
+              </S.Card>
+            </MotionReveal>
 
-            <S.Card>
-              <h3>📱 Acesso em qualquer lugar</h3>
-              <p>Use no celular, computador ou navegador</p>
-            </S.Card>
+            <MotionReveal delay={0.24}>
+              <S.Card>
+                <h3>💬 Comunicação interna mais alinhada</h3>
+                <p>
+                  Reduza a dispersão entre canais e concentre a rotina em um
+                  ambiente corporativo.
+                </p>
+              </S.Card>
+            </MotionReveal>
+
+            <MotionReveal delay={0.28}>
+              <S.Card>
+                <h3>🎥 Recursos integrados para reuniões</h3>
+                <p>
+                  Facilite conversas e alinhamentos sem depender de várias
+                  ferramentas desconectadas.
+                </p>
+              </S.Card>
+            </MotionReveal>
+
+            <MotionReveal delay={0.32}>
+              <S.Card>
+                <h3>🔄 Liberdade de acesso</h3>
+                <p>
+                  Trabalhe pelo navegador, celular ou Outlook, conforme a rotina
+                  da empresa exigir.
+                </p>
+              </S.Card>
+            </MotionReveal>
           </S.Grid>
+
+          </S.SystemSection>
 
           {/* 💰 PREÇO */}
           <S.SubHighlight>
             <h2>Um investimento acessível para profissionalizar seu negócio</h2>
 
             <p>
-              Com cerca de <strong>R$ 16 por mês</strong>, você já pode ter seu e-mail
-              principal com estrutura completa, sem pesar no seu orçamento.
+              Com cerca de <strong>R$ 16 por mês</strong>, você já pode ter seu
+              e-mail principal com estrutura completa, sem pesar no seu
+              orçamento.
             </p>
 
             <p>
-              Conforme sua empresa crescer, você pode adicionar novos e-mails
-              de forma simples.
+              Conforme sua empresa crescer, você pode adicionar novos e-mails de
+              forma simples.
             </p>
           </S.SubHighlight>
 
@@ -134,8 +187,8 @@ export const ZimbraMei = () => {
             <h2>Estrutura profissional sem complexidade</h2>
 
             <p>
-              Grandes empresas utilizam soluções robustas de e-mail.
-              Hoje você também pode ter essa estrutura, de forma simples e acessível.
+              Grandes empresas utilizam soluções robustas de e-mail. Hoje você
+              também pode ter essa estrutura, de forma simples e acessível.
             </p>
           </S.InfoBox>
 
@@ -151,7 +204,6 @@ export const ZimbraMei = () => {
               <FormContactEmail />
             </MotionReveal>
           </S.FormArea>
-
         </S.Container>
       </PageHeroSection>
     </>

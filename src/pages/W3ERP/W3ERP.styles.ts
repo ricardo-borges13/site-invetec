@@ -98,6 +98,14 @@ export const FormArea = styled.section`
     max-width: 600px;
     margin: 0 auto;
   }
+
+      @media (max-width: 768px) {
+    padding: 1rem; /* 🔥 reduz MUITO o lateral */
+  }
+
+    @media (max-width: 500px) {
+    padding: 0.5rem; /* 🔥 reduz MUITO o lateral */
+  }
 `;
 
 export const Grid = styled.div`

@@ -20,7 +20,7 @@ export const menuItems = [
         title: 'E-commerce',
         path: '/servicos/e-commerce',
       },
-      { title: 'Marketing Digital', path: '/servicos/marketing-digital' },
+      // { title: 'Marketing Digital', path: '/servicos/marketing-digital' },
       { title: 'Gestão e Suporte de TI', path: '/servicos/suporte-ti' },
     ],
   },

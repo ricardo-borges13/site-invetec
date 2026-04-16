@@ -26,7 +26,7 @@ export const ContainerCard = styled.div`
   align-items: stretch;
 
   /* Desktop */
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 
   /* Notebook */
   @media (max-width: 1200px) {

@@ -49,7 +49,7 @@ export const Warning = styled.section`
   padding: 2rem;
   margin: 3rem 0;
 
-  h2{
+  h2 {
     color: #1d4ed8;
   }
 `;
@@ -83,7 +83,6 @@ export const Card = styled.div`
   }
 `;
 
-
 export const BeforeAfter = styled.section`
   margin: 4rem 0;
   text-align: center;
@@ -110,11 +109,9 @@ export const CompareGrid = styled.div`
 `;
 
 export const CompareCard = styled.div<{ $highlight?: boolean }>`
-  background: ${({ $highlight }) =>
-    $highlight ? '#ecfdf5' : '#fff7ed'};
+  background: ${({ $highlight }) => ($highlight ? '#ecfdf5' : '#fff7ed')};
 
-  border: 2px solid
-    ${({ $highlight }) => ($highlight ? '#22c55e' : '#fb923c')};
+  border: 2px solid ${({ $highlight }) => ($highlight ? '#22c55e' : '#fb923c')};
 
   border-radius: 16px;
   padding: 20px;
@@ -124,7 +121,7 @@ export const CompareCard = styled.div<{ $highlight?: boolean }>`
     width: 100%;
     border-radius: 10px;
     margin: 15px 0;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
 
   h3 {
@@ -155,7 +152,7 @@ export const Lightbox = styled.div`
     max-width: 90%;
     max-height: 90%;
     border-radius: 10px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   }
 `;
 
@@ -164,7 +161,7 @@ export const CloseButton = styled.button`
   top: 20px;
   right: 20px;
 
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -185,7 +182,6 @@ export const CloseButton = styled.button`
   }
 `;
 
-
 export const SectionTitle = styled.h2`
   font-size: 2rem;
   font-weight: 600;
@@ -194,8 +190,6 @@ export const SectionTitle = styled.h2`
   text-align: center;
 
   position: relative;
-
-
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletMedium}) {
     font-size: 1.6rem;
@@ -212,13 +206,12 @@ export const AccordionWrapper = styled.div`
     overflow: hidden;
     background: ${({ theme }) => theme.colors.white};
     transition: 0.2s;
-
   }
 
-.accordion-item:hover {
-  transition: 0.2s;
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.primary};
-}
+  .accordion-item:hover {
+    transition: 0.2s;
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.primary};
+  }
 
   /* HEADER */
   .accordion-button {
@@ -255,7 +248,6 @@ export const AccordionWrapper = styled.div`
     box-shadow: none;
   }
 
-
   /* BODY */
   .accordion-body {
     font-size: 0.95rem;
@@ -264,8 +256,6 @@ export const AccordionWrapper = styled.div`
     padding: 1rem 1.2rem 1.2rem;
     border-top: 1px solid ${({ theme }) => theme.colors.lightGray};
   }
-
-
 `;
 
 export const FormArea = styled.section`
@@ -274,8 +264,7 @@ export const FormArea = styled.section`
   border-radius: 16px;
   padding: 2.5rem;
   text-align: center;
-  border: 2px solid rgba(0,0,0,0.05);
-
+  border: 2px solid rgba(0, 0, 0, 0.05);
 
   h2 {
     margin-bottom: 0.5rem;
@@ -289,5 +278,13 @@ export const FormArea = styled.section`
   > div {
     max-width: 600px;
     margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem; /* 🔥 reduz MUITO o lateral */
+  }
+
+  @media (max-width: 500px) {
+    padding: 0.5rem; /* 🔥 reduz MUITO o lateral */
   }
 `;

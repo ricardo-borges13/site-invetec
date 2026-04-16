@@ -8,7 +8,7 @@ const CaseJPM = lazy(() => import('@/pages/CaseJPM/CaseJPM').then(module => ({ d
 const Cases = lazy(() => import('@/pages/Cases/Cases').then(module => ({ default: module.Cases })));
 const Contato = lazy(() => import('@/pages/Contato/Contato').then(module => ({ default: module.Contato })));
 const ERP = lazy(() => import('@/pages/ERP/ERP').then(module => ({ default: module.ERP })));
-const MarketingDigital = lazy(() => import('@/pages/MarketingDigital/MarketingDigital').then(module => ({ default: module.MarketingDigital })));
+// const MarketingDigital = lazy(() => import('@/pages/MarketingDigital/MarketingDigital').then(module => ({ default: module.MarketingDigital })));
 const Site = lazy(() => import('@/pages/Site/Site').then(module => ({ default: module.Site })));
 const Sobre = lazy(() => import('@/pages/Sobre/Sobre').then(module => ({ default: module.Sobre })));
 const SuporteTI = lazy(() => import('@/pages/SuporteTI/SuporteTI').then(module => ({ default: module.SuporteTI })));
@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
       { path: '/servicos/criacao-de-sites', element: <Site /> },
       { path: '/servicos/suporte-ti', element: <SuporteTI /> },
       { path: '/servicos/e-commerce', element: <Ecommerce /> },
-      { path: '/servicos/marketing-digital', element: <MarketingDigital /> },
+      // { path: '/servicos/marketing-digital', element: <MarketingDigital /> },
       { path: '*', element: <NotFound /> },
     ],
   },

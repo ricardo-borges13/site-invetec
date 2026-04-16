@@ -6,37 +6,28 @@ export const Container = styled.div`
   padding: 2rem 1.5rem 4rem;
 `;
 
-export const ConversionIntro = styled.section`
-  margin-bottom: 3rem;
-`;
+export const ConversionIntro = styled.div`
+  max-width: 900px;
+  width: 100%;
+  margin: 3rem auto;
 
-export const ConversionIntroGrid = styled.div`
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.9fr);
-  gap: 24px;
-  align-items: stretch;
-
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-export const ConversionIntroContent = styled.div`
   background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
   border: 1px solid ${({ theme }) => theme.colors.primary};
   border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 18px 40px rgba(0, 123, 255, 0.08);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 24px 48px rgba(0, 123, 255, 0.12);
-    border-color: ${({ theme }) => theme.colors.primaryDark};
+  padding: 2.5rem;
+
+  box-shadow: 0 18px 40px rgba(0, 123, 255, 0.08);
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
   }
+`;
+
+
+
+export const ConversionIntroContent = styled.div`
+  max-width: 720px;
 
   h2 {
     color: ${({ theme }) => theme.colors.primaryDark};
@@ -46,12 +37,12 @@ export const ConversionIntroContent = styled.div`
   }
 
   p {
-    max-width: 640px;
     margin: 0;
     line-height: 1.7;
     color: #334155;
   }
 `;
+
 
 export const Eyebrow = styled.span`
   display: inline-flex;
@@ -201,21 +192,29 @@ export const Section = styled.section`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+ @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 `;
 
-export const PainGrid = styled(Grid)`
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+export const PainGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 
-  @media (max-width: 1100px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Tablet */
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Mobile */
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 `;
 
@@ -260,7 +259,7 @@ export const Card = styled.div`
 
 export const PainCard = styled(Card)`
   padding: 20px 18px;
-  min-height: 188px;
+  min-height: 210px;
   border-color: #9fc5ff;
   box-shadow: 0 8px 18px rgba(0, 123, 255, 0.04);
 
@@ -282,20 +281,22 @@ export const PainCard = styled(Card)`
     line-height: 1.6;
   }
 
-  @media (max-width: 1100px) {
-    h3 {
-      font-size: 0.98rem;
-    }
-
-    p {
-      font-size: 0.86rem;
-    }
+  /* Tablet */
+  @media (max-width: 1024px) {
+  min-height: 160px;
   }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+min-height: 100px;
+  }
+
+
 `;
 
 export const Highlight = styled.section`
-  background: #f0fdf4;
-  border: 1px solid ${({ theme }) => theme.colors.ctaGreen};
+  background: #caddf3;
+  border: 1px solid #2f353b;
   border-radius: 16px;
   padding: 2rem;
   margin: 3rem 0;
@@ -306,7 +307,7 @@ export const Highlight = styled.section`
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 18px 36px rgba(34, 197, 94, 0.12);
+    box-shadow: 0 18px 36px rgba(16, 20, 17, 0.12);
   }
 
   h2 {
@@ -596,6 +597,14 @@ export const Header = styled.header`
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
+
+  /* Mobile */
+  @media (max-width: 430px) {
+max-width: 800px;
+    h2{
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 export const MeiHelper = styled.div`

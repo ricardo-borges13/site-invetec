@@ -25,8 +25,8 @@ export const Section = styled.section`
   }
 
   &:not(:first-child) h2 {
-  margin-top: 10px;
-}
+    margin-top: 10px;
+  }
 
   ul {
     margin-top: 1rem;
@@ -41,12 +41,12 @@ export const Section = styled.section`
 `;
 
 export const Highlight = styled.section`
- background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
   border: 1px solid ${({ theme }) => theme.colors.ctaGreen};
   border-radius: 16px;
   padding: 2.5rem;
   margin: 4rem 0;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 `;
 
 export const Warning = styled.section`
@@ -76,7 +76,7 @@ export const Grid = styled.div`
 `;
 
 export const Card = styled.div`
-background: white;
+  background: white;
   border-radius: 12px;
   padding: 20px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
@@ -92,7 +92,7 @@ background: white;
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
   }
 `;
 
@@ -116,7 +116,7 @@ export const FormArea = styled.section`
   background: #c7dbf3;
   border-radius: 16px;
   text-align: center;
-  border: 2px solid rgba(0,0,0,0.05);
+  border: 2px solid rgba(0, 0, 0, 0.05);
 
   h2 {
     margin-bottom: 0.5rem;
@@ -125,6 +125,14 @@ export const FormArea = styled.section`
   p {
     margin-bottom: 1.5rem;
     color: ${({ theme }) => theme.colors.darkGray};
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem; /* 🔥 reduz MUITO o lateral */
+  }
+
+  @media (max-width: 500px) {
+    padding: 0.5rem; /* 🔥 reduz MUITO o lateral */
   }
 `;
 
@@ -148,5 +156,3 @@ export const Form = styled.form`
     resize: vertical;
   }
 `;
-
-

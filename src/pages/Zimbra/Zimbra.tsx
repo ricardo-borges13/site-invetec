@@ -58,7 +58,7 @@ export const Zimbra = () => {
               <S.PainGrid>
                 <MotionReveal delay={0.04}>
                   <S.PainCard>
-                    <h3>❌ Mensagens importantes se perdem</h3>
+                    <h3>❌ E-mails se perdem e são difíceis de encontrar</h3>
                     <p>
                       E-mail misturado, sem organização e com dificuldade para
                       achar o que foi tratado.
@@ -68,7 +68,7 @@ export const Zimbra = () => {
 
                 <MotionReveal delay={0.08}>
                   <S.PainCard>
-                    <h3>❌ Celular, computador e Outlook não conversam bem</h3>
+                    <h3>❌ Informações ficam desencontradas entre dispositivos</h3>
                     <p>
                       A equipe responde em lugares diferentes e a informação
                       fica desencontrada.
@@ -78,7 +78,7 @@ export const Zimbra = () => {
 
                 <MotionReveal delay={0.12}>
                   <S.PainCard>
-                    <h3>❌ A empresa passa imagem pouco profissional</h3>
+                    <h3>❌ Falhas e lentidão afetam a imagem da empresa</h3>
                     <p>
                       Falhas, lentidão e falta de padrão no e-mail afetam a
                       percepção de clientes e parceiros.
@@ -86,19 +86,9 @@ export const Zimbra = () => {
                   </S.PainCard>
                 </MotionReveal>
 
-                <MotionReveal delay={0.16}>
-                  <S.PainCard>
-                    <h3>❌ Troca de máquina vira dor de cabeça</h3>
-                    <p>
-                      Configurações manuais e arquivos locais aumentam o risco
-                      de perda de histórico.
-                    </p>
-                  </S.PainCard>
-                </MotionReveal>
-
                 <MotionReveal delay={0.2}>
                   <S.PainCard>
-                    <h3>❌ Falta controle sobre contas e acessos</h3>
+                    <h3>❌ Sem controle sobre contas e acessos</h3>
                     <p>
                       Quando alguém entra ou sai da empresa, tudo depende de
                       ajustes improvisados.
@@ -106,23 +96,14 @@ export const Zimbra = () => {
                   </S.PainCard>
                 </MotionReveal>
 
-                <MotionReveal delay={0.24}>
-                  <S.PainCard>
-                    <h3>❌ A comunicação da equipe fica espalhada</h3>
-                    <p>
-                      Contatos, agendas e atendimentos ficam sem padrão e sem
-                      continuidade entre setores.
-                    </p>
-                  </S.PainCard>
-                </MotionReveal>
+
               </S.PainGrid>
             </MotionReveal>
           </S.Section>
 
           <S.ConversionIntro>
             <MotionReveal delay={0.05}>
-              <S.ConversionIntroGrid>
-                <MotionReveal direction="left" delay={0.08}>
+
                   <S.ConversionIntroContent>
                     <S.Eyebrow>
                       E-mail corporativo com migração assistida
@@ -165,62 +146,7 @@ export const Zimbra = () => {
                   </S.ConversionIntroContent>
                 </MotionReveal>
 
-                <MotionReveal direction="right" delay={0.14}>
-                  <S.ConversionIntroAside>
-                    <h3>Quando essa solução faz mais sentido</h3>
-
-                    <S.ConversionMiniGrid>
-                      <MotionReveal delay={0.18}>
-                        <S.ConversionMiniCard>
-                          <strong>
-                            Equipe perdendo tempo com caixas confusas
-                          </strong>
-                          <p>
-                            Pastas, filtros, pesquisa e recursos compartilhados
-                            deixam a rotina mais organizada.
-                          </p>
-                        </S.ConversionMiniCard>
-                      </MotionReveal>
-
-                      <MotionReveal delay={0.22}>
-                        <S.ConversionMiniCard>
-                          <strong>
-                            Dependência de Outlook e arquivos locais
-                          </strong>
-                          <p>
-                            Reduza o risco de perder histórico e tenha acesso
-                            mais seguro em qualquer lugar.
-                          </p>
-                        </S.ConversionMiniCard>
-                      </MotionReveal>
-
-                      <MotionReveal delay={0.26}>
-                        <S.ConversionMiniCard>
-                          <strong>
-                            Falta de controle sobre contas e informações
-                          </strong>
-                          <p>
-                            Centralize a administração, padronize o ambiente e
-                            acompanhe o crescimento da empresa.
-                          </p>
-                        </S.ConversionMiniCard>
-                      </MotionReveal>
-                    </S.ConversionMiniGrid>
-                  </S.ConversionIntroAside>
-                </MotionReveal>
-              </S.ConversionIntroGrid>
-            </MotionReveal>
           </S.ConversionIntro>
-
-          <MotionReveal delay={0.04}>
-            <S.SubHighlight>
-              <h2>O problema não é usar e-mail</h2>
-              <p>
-                O problema é continuar operando com uma estrutura limitada para
-                uma empresa que já precisa de controle, histórico e colaboração.
-              </p>
-            </S.SubHighlight>
-          </MotionReveal>
 
           <S.CompareSection>
             <MotionReveal>
@@ -435,7 +361,7 @@ export const Zimbra = () => {
               <S.MeiHelper>
                 Trabalha sozinho ou tem poucos e-mails?{' '}
                 <Link to="/servicos/invetec-mail-mei">Veja uma solução mais simples →</Link>
-                
+
               </S.MeiHelper>
               <h2>
                 Descubra quanto custa profissionalizar o e-mail da sua empresa
