@@ -18,8 +18,21 @@ export const Grid = styled.div`
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* desktop */
+  gap: 24px;
+
   align-items: center;
+  justify-items: center;
+
+  /* tablet */
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* mobile */
+  @media (max-width: 500px) {
+    gap: 16px;
+  }
 `;
 
 export const Link = styled.a`
