@@ -105,7 +105,7 @@ export const FormContact = () => {
               {...register('empresa', { required: 'A empresa é obrigatória.' })}
             />
             {errors.nome && (
-              <S.ErrorMessage>{errors.nome.message}</S.ErrorMessage>
+              <S.ErrorMessage>{errors.empresa?.message}</S.ErrorMessage>
             )}
           </div>
         </S.FieldGroup>

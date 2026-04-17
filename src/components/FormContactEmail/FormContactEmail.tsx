@@ -176,10 +176,10 @@ export const FormContactEmail = () => {
         </S.Field>
 
         <S.Field>
-          <label>Principal dificuldade</label>
+          <label>Qual sua principal dificuldade ou objetivo?</label>
           <S.TextArea
             rows={3}
-            placeholder="Ex: perda de e-mails, lentidao, backup..."
+            placeholder="Ex: perda de e-mails, lentidão, falta de organização ou melhorar controle da equipe..."
             {...register('problema')}
           />
         </S.Field>

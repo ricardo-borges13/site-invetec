@@ -11,7 +11,9 @@ export const Section = styled.section`
   margin-bottom: 3rem;
 
   h2 {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.black};
+    font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 1rem;
   }
 
@@ -19,6 +21,13 @@ export const Section = styled.section`
     max-width: 700px;
     margin: 0 auto 0.5rem;
     line-height: 1.6;
+  }
+
+    /* Mobile */
+  @media (max-width: 430px) {
+    h2 {
+      font-size: 1.5rem;
+    }
   }
 `;
 

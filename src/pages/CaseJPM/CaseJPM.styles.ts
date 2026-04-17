@@ -11,9 +11,10 @@ export const Section = styled.section`
   text-align: center;
 
   h2 {
+    color: ${({ theme }) => theme.colors.black};
     font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 1rem;
-    color: ${({ theme }) => theme.colors.primary};
   }
 
   p {
@@ -30,6 +31,12 @@ export const Section = styled.section`
     li {
       margin-bottom: 0.5rem;
       list-style: none;
+    }
+  }
+
+   @media (max-width: 430px) {
+    h2 {
+      font-size: 1.5rem;
     }
   }
 `;
@@ -185,14 +192,16 @@ export const CloseButton = styled.button`
 export const SectionTitle = styled.h2`
   font-size: 2rem;
   font-weight: 600;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.black};
   margin: 3rem 0 1.5rem;
   text-align: center;
 
   position: relative;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletMedium}) {
-    font-size: 1.6rem;
+   @media (max-width: 430px) {
+    h2 {
+      font-size: 1.5rem;
+    }
   }
 `;
 

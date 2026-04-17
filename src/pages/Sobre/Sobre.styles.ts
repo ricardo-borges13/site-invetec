@@ -8,17 +8,18 @@ export const Container = styled.div`
 
 export const Intro = styled.div`
   max-width: 750px;
-  margin: 0 auto 80px;
+  margin:0 auto 80px;
   text-align: center;
 
   h2 {
-    font-size: 2.4rem;
+    color: ${({ theme }) => theme.colors.black};
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 28px;
+    margin-bottom: 3rem;
   }
 
   p {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     line-height: 1.7;
     color: #4b5563;
   }
@@ -32,6 +33,12 @@ export const Intro = styled.div`
   p:last-child {
     margin-top: 30px;
     font-weight: 600;
+  }
+
+  @media (max-width: 430px) {
+    h2 {
+      font-size: 1.5rem;
+    }
   }
 `;
 export const Highlight = styled.p`
@@ -94,8 +101,15 @@ export const Card = styled.div`
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 
+  height: 100%; /* 🔥 ESSENCIAL */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 🔥 distribui melhor */
+
   h3 {
     margin-bottom: 10px;
+    min-height: 56px; /* 🔥 padroniza altura do título */
   }
 
   p {
@@ -105,10 +119,14 @@ export const Card = styled.div`
 
   transition: 0.3s;
 
-&:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  }
+
+    @media (max-width: 500px) {
+    padding: 6px;
+  }
 `;
 
 export const SolutionCard = styled.div`
@@ -128,6 +146,10 @@ export const SolutionCard = styled.div`
   transform: translateY(-6px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
+
+  @media (max-width: 500px) {
+    padding: 10px;
+  }
 `;
 
 export const CTA = styled.div`

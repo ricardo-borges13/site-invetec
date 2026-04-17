@@ -24,8 +24,6 @@ export const ConversionIntro = styled.div`
   }
 `;
 
-
-
 export const ConversionIntroContent = styled.div`
   max-width: 720px;
 
@@ -42,7 +40,6 @@ export const ConversionIntroContent = styled.div`
     color: #334155;
   }
 `;
-
 
 export const Eyebrow = styled.span`
   display: inline-flex;
@@ -167,9 +164,10 @@ export const Section = styled.section`
   text-align: center;
 
   h2 {
+    color: ${({ theme }) => theme.colors.black};
     font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 1rem;
-    color: ${({ theme }) => theme.colors.primary};
   }
 
   p {
@@ -188,6 +186,13 @@ export const Section = styled.section`
       list-style: none;
     }
   }
+
+  /* Mobile */
+  @media (max-width: 430px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 export const Grid = styled.div`
@@ -195,7 +200,7 @@ export const Grid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 
- @media (max-width: 768px) {
+  @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 12px;
   }
@@ -205,6 +210,8 @@ export const PainGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  margin-top: 20px;
+
 
   /* Tablet */
   @media (max-width: 1024px) {
@@ -221,7 +228,7 @@ export const PainGrid = styled.div`
 export const Card = styled.div`
   background: white;
   border: 1px solid ${({ theme }) => theme.colors.primary};
-  padding: 24px;
+  padding: 24px 24px 4px 10px;
   border-radius: 16px;
   text-align: left;
   display: flex;
@@ -255,6 +262,10 @@ export const Card = styled.div`
     border-color: ${({ theme }) => theme.colors.primaryDark};
     background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   }
+
+   @media (max-width: 430px) {
+   padding: 15px;
+  }
 `;
 
 export const PainCard = styled(Card)`
@@ -283,15 +294,13 @@ export const PainCard = styled(Card)`
 
   /* Tablet */
   @media (max-width: 1024px) {
-  min-height: 160px;
+    min-height: 160px;
   }
 
   /* Mobile */
   @media (max-width: 768px) {
-min-height: 100px;
+    min-height: 100px;
   }
-
-
 `;
 
 export const Highlight = styled.section`
@@ -355,7 +364,14 @@ export const CompareSection = styled.section`
 
   h2 {
     margin-bottom: 2rem;
-    color: ${({ theme }) => theme.colors.primary};
+     font-weight: 700;
+    color: ${({ theme }) => theme.colors.black};
+  }
+
+  @media (max-width: 430px) {
+    h2 {
+      font-size: 1.5rem;
+    }
   }
 `;
 
@@ -379,12 +395,9 @@ export const CompareCard = styled.div<{ type: 'good' | 'bad' }>`
     box-shadow 0.28s ease,
     border-color 0.28s ease;
 
-  background: ${({ type }) =>
-    type === 'good' ? '#ecfdf5' : '#fff7ed'};
+  background: ${({ type }) => (type === 'good' ? '#ecfdf5' : '#fff7ed')};
 
-  border: 1px solid
-    ${({ type }) =>
-      type === 'good' ? '#22c55e' : '#fb923c'};
+  border: 1px solid ${({ type }) => (type === 'good' ? '#22c55e' : '#fb923c')};
 
   h3 {
     margin-bottom: 1rem;
@@ -424,8 +437,13 @@ export const SystemSection = styled.section`
 
   h2 {
     margin-bottom: 1rem;
-    color: ${({ theme }) => theme.colors.primary};
+    color: #1e293b;
   }
+
+  h2 span {
+  color: ${({ theme }) => theme.colors.primary}; /* azul */
+  font-weight: 700;
+}
 
   p {
     max-width: 700px;
@@ -593,19 +611,6 @@ export const SubHighlight = styled.section`
   }
 `;
 
-export const Header = styled.header`
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-
-  /* Mobile */
-  @media (max-width: 430px) {
-max-width: 800px;
-    h2{
-      font-size: 1.5rem;
-    }
-  }
-`;
 
 export const MeiHelper = styled.div`
   text-align: center;

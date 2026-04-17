@@ -179,7 +179,7 @@ export const SubmenuItem = styled.li`
     &:hover {
       background: #eff6ff;
       color: ${({ theme }) => theme.colors.primary};
-      
+
     }
 
     /* 🔥 BARRA LATERAL (UX TOP) */
@@ -196,7 +196,7 @@ export const SubmenuItem = styled.li`
 
     @media (max-width: 774px) {
       white-space: normal;
-      padding: 0.4rem 0;
+      padding: 0.8rem 0;
       color: ${({ theme }) => theme.colors.white};
 
       &:hover {

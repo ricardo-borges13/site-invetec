@@ -16,7 +16,7 @@ export const Container = styled.div`
       font-weight: 700;
       color: ${({ theme }) => theme.colors.primary};
       margin-bottom: 1rem;
-      text-transform: capitalize;
+     
     }
 
     p {

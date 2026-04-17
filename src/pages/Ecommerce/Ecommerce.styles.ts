@@ -11,7 +11,10 @@ export const Section = styled.section`
   text-align: center;
 
   h2 {
-    margin-bottom: 16px;
+     color: ${({ theme }) => theme.colors.black};
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
   }
 
   p {
@@ -19,6 +22,14 @@ export const Section = styled.section`
     margin: 0 auto;
     color: #555;
     text-align: left;
+  }
+
+
+    /* Mobile */
+  @media (max-width: 430px) {
+    h2 {
+      font-size: 1.5rem;
+    }
   }
 `;
 

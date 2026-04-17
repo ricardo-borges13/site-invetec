@@ -46,14 +46,14 @@ export const Zimbra = () => {
         <S.Container>
           <S.Section>
             <MotionReveal>
-              <S.Header>
+
                 <h2>Seu e-mail já começou a atrapalhar a empresa?</h2>
                 <p>
                   Quando o e-mail deixa de acompanhar a rotina do negócio, a
                   empresa perde agilidade, passa menos credibilidade e começa a
                   correr riscos desnecessários no dia a dia.
                 </p>
-              </S.Header>
+
 
               <S.PainGrid>
                 <MotionReveal delay={0.04}>
@@ -150,7 +150,7 @@ export const Zimbra = () => {
 
           <S.CompareSection>
             <MotionReveal>
-              <h2>E-mail básico vs e-mail corporativo com estrutura</h2>
+              <h2>"E-mail Básico" vs "E-mail Corporativo"</h2>
 
               <S.CompareGrid>
                 <MotionReveal direction="left" delay={0.08}>
@@ -204,8 +204,7 @@ export const Zimbra = () => {
           <S.SystemSection>
             <MotionReveal>
               <h2>
-                Mais do que contas de e-mail: uma plataforma de comunicação
-                corporativa
+                Veja como funciona o <span>Invetec Mail</span> na prática
               </h2>
               <p>
                 Sua equipe ganha uma experiência mais profissional e a empresa

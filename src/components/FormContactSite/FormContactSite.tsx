@@ -119,10 +119,10 @@ export const FormContactSite = () => {
 
         <S.FieldGroup>
           <S.Field>
-            <label>WhatsApp *</label>
+            <label>Telefone *</label>
             <S.Input
-              placeholder="WhatsApp"
-              {...register('telefone', { required: 'O WhatsApp e obrigatorio.' })}
+              placeholder="Telefone"
+              {...register('telefone', { required: 'O telefone e obrigatorio.' })}
             />
             {errors.telefone && (
               <S.ErrorMessage>{errors.telefone.message}</S.ErrorMessage>

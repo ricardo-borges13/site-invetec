@@ -3,7 +3,7 @@ import erpImg from '@/assets/images/Card-W3.jpg';
 import email from '@/assets/images/Card-E-mail.jpg';
 import ecommerce from '@/assets/images/Card-E-commerce.jpg';
 import web from '@/assets/images/Card-Web.jpg';
-import digital from '@/assets/images/Card-Digital.jpg';
+// import digital from '@/assets/images/Card-Digital.jpg';
 import ti from '@/assets/images/Card-TI.jpg';
 
 import type { SectionInfoProps } from '../../components/Sections/SectionInfo/SectionInfo';

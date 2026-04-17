@@ -7,12 +7,14 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.section`
-  margin-bottom: 80px;
+  margin-block: 30px 50px;
   text-align: center;
 
   h2 {
-    font-size: 1.8rem;
-    margin-bottom: 16px;
+       color: ${({ theme }) => theme.colors.black};
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
   }
 
   p {
@@ -24,6 +26,13 @@ export const Section = styled.section`
 
    button {
     margin-top: 20px;
+  }
+
+     /* Mobile */
+  @media (max-width: 430px) {
+    h2 {
+      font-size: 1.5rem;
+    }
   }
 `;
 
