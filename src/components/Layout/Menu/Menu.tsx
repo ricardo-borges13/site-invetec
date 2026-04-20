@@ -25,35 +25,46 @@ export const Menu = ({ onLinkClick }: MenuProps) => {
   e: React.MouseEvent,
   item: (typeof menuItems)[0]
 ) {
-  // 👉 SCROLL (funciona em desktop e mobile)
+  // 📱 MOBILE
+  if (isMobile) {
+    if (item.submenu) {
+      e.preventDefault();
+      setOpenSubmenuMobile(prev => (prev === item.id ? null : item.id));
+      return;
+    }
+
+    if (item.scrollTo) {
+      e.preventDefault();
+
+      if (location.pathname === '/') {
+        const section = document.getElementById(item.scrollTo);
+        section?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        navigate('/', { state: { scrollTo: item.scrollTo } });
+      }
+
+      onLinkClick?.();
+      return;
+    }
+
+    onLinkClick?.();
+    return;
+  }
+
+  // 💻 DESKTOP
   if (item.scrollTo) {
     e.preventDefault();
 
     if (location.pathname === '/') {
       const section = document.getElementById(item.scrollTo);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
+      section?.scrollIntoView({ behavior: 'smooth' });
     } else {
       navigate('/', { state: { scrollTo: item.scrollTo } });
     }
 
-    onLinkClick?.(); // fecha menu mobile
     return;
   }
 
-  // 👉 MOBILE (submenu)
-  if (isMobile) {
-    if (item.submenu) {
-      e.preventDefault();
-      setOpenSubmenuMobile(prev => (prev === item.id ? null : item.id));
-    } else {
-      onLinkClick?.();
-    }
-    return;
-  }
-
-  // 👉 NORMAL
   onLinkClick?.();
 }
 
