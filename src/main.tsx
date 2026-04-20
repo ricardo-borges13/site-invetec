@@ -1,14 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { HeadProvider } from 'react-head';
+import { HelmetProvider } from 'react-helmet-async';
 import App from './App.tsx';
 import './version.ts';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <HeadProvider>
+    <HelmetProvider>
       <App />
-    </HeadProvider>
+    </HelmetProvider>
   </StrictMode>
 );

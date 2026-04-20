@@ -1,11 +1,11 @@
-import { Title, Meta, Link } from 'react-head';
+import { Helmet } from 'react-helmet-async';
 
 type SEOProps = {
   title: string;
   description: string;
-  image?: string; // para Open Graph e compartilhamento
-  url?: string; // URL da página atual
-  keywords?: string; // opcional, ajuda no SEO on-page
+  image?: string;
+  url?: string;
+  keywords?: string;
   noindex?: boolean;
   nofollow?: boolean;
 };
@@ -18,36 +18,42 @@ export const SEO = ({
   keywords,
   noindex,
   nofollow,
-}: SEOProps) => (
-  <>
-    {/* Título e descrição principais */}
-    <Title>{title}</Title>
-    <Meta name="description" content={description} />
-    {keywords && <Meta name="keywords" content={keywords} />}
+}: SEOProps) => {
+  const robotsContent =
+    noindex || nofollow
+      ? `${noindex ? 'noindex' : 'index'}, ${nofollow ? 'nofollow' : 'follow'}`
+      : undefined;
 
-    {/* Canonical */}
-    <Link rel="canonical" href={url} />
+  return (
+    <Helmet>
+      {/* Título */}
+      <title>{title}</title>
 
-    {/* Open Graph (Facebook / WhatsApp / LinkedIn) */}
-    <Meta property="og:type" content="website" />
-    <Meta property="og:title" content={title} />
-    <Meta property="og:description" content={description} />
-    <Meta property="og:image" content={image} />
-    <Meta property="og:url" content={url} />
-    <Meta property="og:locale" content="pt_BR" />
+      {/* Básico */}
+      <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
 
-    {/* Twitter Card (mantém compatibilidade com outras redes) */}
-    <Meta name="twitter:card" content="summary_large_image" />
-    <Meta name="twitter:title" content={title} />
-    <Meta name="twitter:description" content={description} />
-    <Meta name="twitter:image" content={image} />
+      {/* Canonical */}
+      <link rel="canonical" href={url} />
 
-    {/* Robots (SEO flags) */}
-    {(noindex || nofollow) && (
-      <Meta
-        name="robots"
-        content={`${noindex ? 'noindex' : ''}${noindex && nofollow ? ', ' : ''}${nofollow ? 'nofollow' : ''}`}
-      />
-    )}
-  </>
-);
+      {/* Open Graph */}
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+      <meta property="og:url" content={url} />
+      <meta property="og:locale" content="pt_BR" />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
+
+      {/* Robots */}
+      {robotsContent && (
+        <meta name="robots" content={robotsContent} />
+      )}
+    </Helmet>
+  );
+};
