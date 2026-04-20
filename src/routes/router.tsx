@@ -13,11 +13,12 @@ const Site = lazy(() => import('@/pages/Site/Site').then(module => ({ default: m
 const Sobre = lazy(() => import('@/pages/Sobre/Sobre').then(module => ({ default: module.Sobre })));
 const SuporteTI = lazy(() => import('@/pages/SuporteTI/SuporteTI').then(module => ({ default: module.SuporteTI })));
 const Ecommerce = lazy(() => import('@/pages/Ecommerce/Ecommerce').then(module => ({ default: module.Ecommerce })));
-const TagPlus = lazy(() => import('@/pages/TagPlus/TagPlus').then(module => ({ default: module.TagPlus })));
 const W3ERP = lazy(() => import('@/pages/W3ERP/W3ERP').then(module => ({ default: module.W3ERP })));
 const Zimbra = lazy(() => import('@/pages/Zimbra/Zimbra').then(module => ({ default: module.Zimbra })));
 const ZimbraMei = lazy(() => import('@/pages/ZimbraMei/ZimbraMei').then(module => ({ default: module.ZimbraMei })));
 const NotFound = lazy(() => import('@/pages/NotFound/NotFound').then(module => ({ default: module.NotFound })));
+const Bling = lazy(() => import('@/pages/Bling/Bling').then(module => ({ default: module.Bling })));
+
 
 
 
@@ -29,7 +30,7 @@ export const router = createBrowserRouter([
       { path: '/sobre', element: <Sobre /> },
       { path: '/contato', element: <Contato /> },
       { path: '/servicos/erp', element: <ERP /> },
-      { path: '/servicos/erp/tagplus', element: <TagPlus /> },
+      { path: '/servicos/erp/bling', element: <Bling /> },
       { path: '/servicos/erp/w3erp', element: <W3ERP /> },
       { path: '/cases', element: <Cases /> },
       { path: '/cases/datron', element: <CaseDatron /> },

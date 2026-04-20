@@ -55,11 +55,11 @@ export const ERP = () => {
             </p>
 
             <S.Grid>
-              {/* TAGPLUS */}
+              {/* BLING */}
               <MotionReveal>
                 <S.Card>
                   <S.Badge>Para quem está começando</S.Badge>
-                  <h3>TagPlus ERP</h3>
+                  <h3>Bling</h3>
 
                   <ul>
                     <li>✔ Simples e fácil de usar</li>
@@ -68,13 +68,13 @@ export const ERP = () => {
                     <li>✔ Ideal para pequenas empresas</li>
                   </ul>
 
-                  <S.Price>Planos a partir de R$ 65,90/mês</S.Price>
+                  <S.Price>Planos a partir de R$ 55,00/mês</S.Price>
 
                   <CustomButton
                     variant="primary"
-                    onClick={() => navigate('/servicos/erp/tagplus')}
+                    onClick={() => navigate('/servicos/erp/bling')}
                   >
-                    Quero começar com TagPlus
+                    Quero começar com Bling
                   </CustomButton>
                 </S.Card>
               </MotionReveal>
