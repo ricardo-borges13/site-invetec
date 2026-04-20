@@ -22,40 +22,40 @@ export const Menu = ({ onLinkClick }: MenuProps) => {
   }, []);
 
   function handleMenuClick(
-    e: React.MouseEvent,
-    item: (typeof menuItems)[0]
-  ) {
-    // 👉 MOBILE
-    if (isMobile) {
-      if (item.submenu) {
-        e.preventDefault();
-        setOpenSubmenuMobile(prev => (prev === item.id ? null : item.id));
-      } else {
-        onLinkClick?.();
+  e: React.MouseEvent,
+  item: (typeof menuItems)[0]
+) {
+  // 👉 SCROLL (funciona em desktop e mobile)
+  if (item.scrollTo) {
+    e.preventDefault();
+
+    if (location.pathname === '/') {
+      const section = document.getElementById(item.scrollTo);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
       }
-      return;
+    } else {
+      navigate('/', { state: { scrollTo: item.scrollTo } });
     }
 
-    // 👉 SCROLL PARA SEÇÕES (Serviços / Parceiros / etc)
-    if (item.scrollTo) {
-      e.preventDefault();
-
-      if (location.pathname === '/') {
-        const section = document.getElementById(item.scrollTo);
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
-      } else {
-        navigate('/', { state: { scrollTo: item.scrollTo } });
-      }
-
-      onLinkClick?.();
-      return;
-    }
-
-    // 👉 NORMAL (rotas)
-    onLinkClick?.();
+    onLinkClick?.(); // fecha menu mobile
+    return;
   }
+
+  // 👉 MOBILE (submenu)
+  if (isMobile) {
+    if (item.submenu) {
+      e.preventDefault();
+      setOpenSubmenuMobile(prev => (prev === item.id ? null : item.id));
+    } else {
+      onLinkClick?.();
+    }
+    return;
+  }
+
+  // 👉 NORMAL
+  onLinkClick?.();
+}
 
   function handleMouseEnter(id: number) {
     if (!isMobile) setOpenMenu(id);

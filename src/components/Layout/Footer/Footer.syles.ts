@@ -116,12 +116,19 @@ export const Social = styled.div`
   a {
     font-size: 2rem;
     color: ${({ theme }) => theme.colors.primary};
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
 
     &:hover {
-      color: ${({ theme }) => theme.colors.whatsappGreen};
       transform: scale(1.15);
     }
+  }
+
+  a.whatsapp:hover {
+    color: ${({ theme }) => theme.colors.whatsappGreen};
+  }
+
+  a.instagram:hover {
+    color: #E1306C;
   }
 `;
 

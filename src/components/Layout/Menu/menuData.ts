@@ -27,7 +27,7 @@ export const menuItems = [
   {
     id: 3,
     title: 'Parceiros',
-    path: '/parceiros',
+    path: '/',
     scrollTo: 'parceiros',
     showInFooter: false,
   },

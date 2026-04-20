@@ -2,7 +2,7 @@ import logo from '@/assets/images/Logo-Invetec-branco.png';
 import { menuItems, type MenuItem } from '@/components/Layout/Menu/menuData';
 import type { ContactInfo } from '@/pages/Contato/contactData';
 import { BiSolidPhoneOutgoing } from 'react-icons/bi';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import * as S from './Footer.syles';
@@ -11,6 +11,7 @@ export const Footer = ({ phone, email }: ContactInfo) => {
   const footerItems = menuItems.filter(item => item.showInFooter);
   const navigate = useNavigate();
   const location = useLocation();
+  const instagramHref = 'https://www.instagram.com/invetec_mail/';
 
   const getCleanPhone = (p: string) => p.replace(/\D/g, '');
 
@@ -41,7 +42,7 @@ export const Footer = ({ phone, email }: ContactInfo) => {
           <S.Text>
             Tecnologia que organiza sua empresa e impulsiona resultados.
           </S.Text>
-          
+
           <S.Text>
             Soluções em ERP, infraestrutura, e-commerce e presença digital para
             estruturar e fazer seu negócio crescer.
@@ -84,8 +85,19 @@ export const Footer = ({ phone, email }: ContactInfo) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Falar no WhatsApp"
+                className="whatsapp"
               >
                 <FaWhatsapp />
+              </a>
+
+              <a
+                href={instagramHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Instagram"
+                className="instagram"
+              >
+                <FaInstagram />
               </a>
             </S.Social>
           </S.ContactItem>
