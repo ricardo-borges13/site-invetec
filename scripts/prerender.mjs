@@ -1,79 +1,43 @@
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const rootDir = path.resolve(__dirname, '..');
-const distDir = path.join(rootDir, 'dist');
-const serverEntryPath = path.join(distDir, 'server', 'entry-server.js');
-const templatePath = path.join(distDir, 'index.html');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const { render, prerenderRoutes } = await import(pathToFileURL(serverEntryPath).href);
+const distPath = path.resolve(__dirname, '../dist');
+const template = fs.readFileSync(path.join(distPath, 'index.html'), 'utf-8');
 
-const template = await readFile(templatePath, 'utf-8');
+const { render, prerenderRoutes } = await import('../dist/server/entry-server.js');
 
-const injectHtmlAttributes = (html, attributes) =>
-  attributes ? html.replace('<html', `<html ${attributes}`) : html;
+for (const route of prerenderRoutes) {
+  const { appHtml, helmet } = render(route);
 
-const injectBodyAttributes = (html, attributes) =>
-  attributes ? html.replace('<body', `<body ${attributes}`) : html;
+const html = template
+  // injeta o HTML da página
+  .replace(`<!--app-html-->`, appHtml)
 
-const extractHeadTagsFromAppHtml = html => {
-  const tagPattern =
-    /^(<title\b[^>]*>[\s\S]*?<\/title>|<style\b[^>]*>[\s\S]*?<\/style>|<script\b[^>]*>[\s\S]*?<\/script>|<(?:meta|link|base)\b[^>]*\/?>)/i;
-  let remainingHtml = html;
-  let headTags = '';
-
-  while (true) {
-    const match = remainingHtml.match(tagPattern);
-
-    if (!match) {
-      break;
+  // 🔥 REMOVE META/TITLE SOMENTE DO BODY (dentro do #root)
+  .replace(
+    /<div id="root">([\s\S]*?)<\/div>/,
+    (match) => {
+      return match
+        .replace(/<title>.*<\/title>/g, '')
+        .replace(/<meta[^>]+>/g, '')
+        .replace(/<link rel="canonical"[^>]+>/g, '');
     }
+  )
 
-    headTags += match[0];
-    remainingHtml = remainingHtml.slice(match[0].length);
-  }
+  // 🔥 INJETA SEO NO HEAD
+  .replace(`</head>`, `
+    ${helmet?.title?.toString() || ''}
+    ${helmet?.meta?.toString() || ''}
+    ${helmet?.link?.toString() || ''}
+  </head>`);
 
-  return {
-    headTags,
-    appHtml: remainingHtml,
-  };
-};
+  const filePath = path.join(distPath, route, 'index.html');
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
 
-const renderPage = url => {
-  const { appHtml, helmet } = render(url);
-  const { headTags: extractedHeadTags, appHtml: cleanedAppHtml } =
-    extractHeadTagsFromAppHtml(appHtml);
-  const helmetTags = [
-    extractedHeadTags,
-    helmet?.title?.toString() ?? '',
-    helmet?.priority?.toString() ?? '',
-    helmet?.meta?.toString() ?? '',
-    helmet?.link?.toString() ?? '',
-    helmet?.style?.toString() ?? '',
-    helmet?.script?.toString() ?? '',
-  ].join('');
+  fs.writeFileSync(filePath, html);
+}
 
-  let html = template.replace('<div id="root"></div>', `<div id="root">${cleanedAppHtml}</div>`);
-  html = html.replace('</head>', `${helmetTags}</head>`);
-  html = injectHtmlAttributes(html, helmet?.htmlAttributes?.toString());
-  html = injectBodyAttributes(html, helmet?.bodyAttributes?.toString());
-
-  return html;
-};
-
-const ensureRouteFile = async route => {
-  const html = renderPage(route);
-  const outputPath =
-    route === '/'
-      ? path.join(distDir, 'index.html')
-      : path.join(distDir, route.replace(/^\//, ''), 'index.html');
-
-  await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, html, 'utf-8');
-};
-
-await Promise.all(prerenderRoutes.map(ensureRouteFile));
-await rm(path.join(distDir, 'server'), { recursive: true, force: true });
+console.log('✅ Prerender finalizado com SEO!');

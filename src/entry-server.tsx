@@ -1,14 +1,10 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router';
-import { HelmetProvider, type HelmetServerState } from 'react-helmet-async';
+import { StaticRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
-import { prerenderRoutes } from './routes/router';
 
 export const render = (url: string) => {
-  const helmetContext: {
-    helmet?: HelmetServerState | null;
-  } = {};
+  const helmetContext: any = {};
 
   const appHtml = renderToString(
     <HelmetProvider context={helmetContext}>
@@ -18,10 +14,10 @@ export const render = (url: string) => {
     </HelmetProvider>
   );
 
+  console.log('HELMET:', helmetContext);
+
   return {
     appHtml,
     helmet: helmetContext.helmet,
   };
 };
-
-export { prerenderRoutes };

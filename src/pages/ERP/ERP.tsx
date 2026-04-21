@@ -9,6 +9,7 @@ import * as S from './ERP.styles';
 
 export const ERP = () => {
   const navigate = useNavigate();
+  console.log('SEO RENDEROU');
 
   return (
     <>

@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { StrictMode } from 'react';
-import { createRoot, hydrateRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
@@ -22,8 +22,4 @@ const app = (
   </StrictMode>
 );
 
-if (rootElement.hasChildNodes()) {
-  hydrateRoot(rootElement, app);
-} else {
-  createRoot(rootElement).render(app);
-}
+createRoot(rootElement).render(app);
