@@ -1,4 +1,4 @@
-import image1 from '@/assets/images/Escudo-IT-500x500.png';
+import image1 from '@/assets/images/Escudo-IT.png';
 import erpImg from '@/assets/images/Card-W3.jpg';
 import email from '@/assets/images/Card-E-mail.jpg';
 import ecommerce from '@/assets/images/Card-E-commerce.jpg';

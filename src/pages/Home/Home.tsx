@@ -1,4 +1,4 @@
-import imgHero from '@/assets/images/BannerPrincipalHero3.jpg';
+import imgHero from '@/assets/images/BannerPrincipalHero.jpg';
 import { BusinessPartner } from '@/components/Sections/BusinessPartner/BusinessPartner';
 import { CTASection } from '@/components/Sections/CTASection/CTASection';
 import { Hero } from '@/components/Sections/Hero/hero';

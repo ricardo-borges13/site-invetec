@@ -1,7 +1,6 @@
 import { GlobalStyle } from '@/assets/style/global';
-import { router } from '@/routes/router';
+import { AppRoutes } from '@/routes/router';
 import { Suspense } from 'react';
-import { RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme/theme';
 
@@ -10,7 +9,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Suspense fallback={<div>Carregando...</div>}>
-        <RouterProvider router={router} />
+        <AppRoutes />
       </Suspense>
     </ThemeProvider>
   );

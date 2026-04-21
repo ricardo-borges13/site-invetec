@@ -1,5 +1,6 @@
 ﻿import heroImage from '@/assets/images/PagesHero-Email.jpg';
-import imageZimbra from '@/assets/images/Zimbra-Painel.jpg';
+import imageZimbraFull from '@/assets/images/Zimbra-Full.jpg';
+import imageZimbraPreview from '@/assets/images/Zimbra-Leve.jpg';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { FormContactEmail } from '@/components/FormContactEmail/FormContactEmail';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
@@ -7,8 +8,8 @@ import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { CTASection } from '@/components/Sections/CTASection/CTASection';
 import { SEO } from '@/components/SEO/Seo';
 import { useRef, useState } from 'react';
-import * as S from './Zimbra.styles';
 import { Link } from 'react-router-dom';
+import * as S from './Zimbra.styles';
 
 export const Zimbra = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -46,14 +47,12 @@ export const Zimbra = () => {
         <S.Container>
           <S.Section>
             <MotionReveal>
-
-                <h2>Seu e-mail já começou a atrapalhar a empresa?</h2>
-                <p>
-                  Quando o e-mail deixa de acompanhar a rotina do negócio, a
-                  empresa perde agilidade, passa menos credibilidade e começa a
-                  correr riscos desnecessários no dia a dia.
-                </p>
-
+              <h2>Seu e-mail já começou a atrapalhar a empresa?</h2>
+              <p>
+                Quando o e-mail deixa de acompanhar a rotina do negócio, a
+                empresa perde agilidade, passa menos credibilidade e começa a
+                correr riscos desnecessários no dia a dia.
+              </p>
 
               <S.PainGrid>
                 <MotionReveal delay={0.04}>
@@ -68,7 +67,9 @@ export const Zimbra = () => {
 
                 <MotionReveal delay={0.08}>
                   <S.PainCard>
-                    <h3>❌ Informações ficam desencontradas entre dispositivos</h3>
+                    <h3>
+                      ❌ Informações ficam desencontradas entre dispositivos
+                    </h3>
                     <p>
                       A equipe responde em lugares diferentes e a informação
                       fica desencontrada.
@@ -95,57 +96,48 @@ export const Zimbra = () => {
                     </p>
                   </S.PainCard>
                 </MotionReveal>
-
-
               </S.PainGrid>
             </MotionReveal>
           </S.Section>
 
           <S.ConversionIntro>
             <MotionReveal delay={0.05}>
+              <S.ConversionIntroContent>
+                <S.Eyebrow>E-mail corporativo com migração assistida</S.Eyebrow>
+                <h2>
+                  Profissionalize o e-mail da sua empresa sem travar a operação
+                </h2>
+                <p>
+                  Organize contas, centralize a comunicação da equipe e ganhe
+                  mais controle sobre segurança, histórico e acessos com apoio
+                  técnico para configuração, migração e implantação.
+                </p>
 
-                  <S.ConversionIntroContent>
-                    <S.Eyebrow>
-                      E-mail corporativo com migração assistida
-                    </S.Eyebrow>
-                    <h2>
-                      Profissionalize o e-mail da sua empresa sem travar a
-                      operação
-                    </h2>
-                    <p>
-                      Organize contas, centralize a comunicação da equipe e
-                      ganhe mais controle sobre segurança, histórico e acessos
-                      com apoio técnico para configuração, migração e
-                      implantação.
-                    </p>
+                <S.ConversionList>
+                  <li>
+                    Diagnóstico do ambiente atual e recomendação do melhor
+                    formato
+                  </li>
+                  <li>
+                    Migração planejada para preservar histórico, contatos e
+                    continuidade
+                  </li>
+                  <li>
+                    Acesso por navegador, celular e Outlook quando fizer sentido
+                  </li>
+                </S.ConversionList>
 
-                    <S.ConversionList>
-                      <li>
-                        Diagnóstico do ambiente atual e recomendação do melhor
-                        formato
-                      </li>
-                      <li>
-                        Migração planejada para preservar histórico, contatos e
-                        continuidade
-                      </li>
-                      <li>
-                        Acesso por navegador, celular e Outlook quando fizer
-                        sentido
-                      </li>
-                    </S.ConversionList>
-
-                    <S.ConversionActions>
-                      <CustomButton variant="cta" onClick={scrollToForm}>
-                        Quero um diagnóstico do meu e-mail
-                      </CustomButton>
-                      <span>
-                        Análise consultiva para empresas que querem sair do
-                        improviso
-                      </span>
-                    </S.ConversionActions>
-                  </S.ConversionIntroContent>
-                </MotionReveal>
-
+                <S.ConversionActions>
+                  <CustomButton variant="cta" onClick={scrollToForm}>
+                    Quero um diagnóstico do meu e-mail
+                  </CustomButton>
+                  <span>
+                    Análise consultiva para empresas que querem sair do
+                    improviso
+                  </span>
+                </S.ConversionActions>
+              </S.ConversionIntroContent>
+            </MotionReveal>
           </S.ConversionIntro>
 
           <S.CompareSection>
@@ -214,9 +206,10 @@ export const Zimbra = () => {
 
             <S.SystemImage>
               <img
-                src={imageZimbra}
+                src={imageZimbraPreview}
                 alt="Interface do Zimbra"
-                onClick={() => setSelectedImage(imageZimbra)}
+                loading="lazy"
+                onClick={() => setSelectedImage(imageZimbraFull)}
                 style={{ cursor: 'zoom-in' }}
               />
             </S.SystemImage>
@@ -359,8 +352,9 @@ export const Zimbra = () => {
             <MotionReveal>
               <S.MeiHelper>
                 Trabalha sozinho ou tem poucos e-mails?{' '}
-                <Link to="/servicos/invetec-mail-mei">Veja uma solução mais simples →</Link>
-
+                <Link to="/servicos/invetec-mail-mei">
+                  Veja uma solução mais simples →
+                </Link>
               </S.MeiHelper>
               <h2>
                 Descubra quanto custa profissionalizar o e-mail da sua empresa
