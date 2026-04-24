@@ -171,7 +171,7 @@ export const Zimbra = () => {
 
                 <MotionReveal direction="right" delay={0.14}>
                   <S.CompareCard type="good">
-                    <h3>✅ E-mail corporativo com a Invetec</h3>
+                    <h3>✅ E-mail corporativo com a INVETEC Mail</h3>
                     <ul>
                       <li>
                         Comunicação organizada por usuário, equipe e processo
@@ -193,7 +193,7 @@ export const Zimbra = () => {
            <S.SystemSection>
             <MotionReveal>
               <h2>
-                Veja como funciona o <span>Invetec Mail</span> na prática
+                Veja como funciona o <span>INVETEC Mail</span> na prática
               </h2>
               <p>
                 Sua equipe passa a trabalhar com mais organização, menos

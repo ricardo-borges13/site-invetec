@@ -160,7 +160,7 @@ export const FormContactEmail = () => {
         <S.Field>
           <label>Como é o e-mail da sua empresa hoje?</label>
           <S.Select {...register('situacao', { required: true })}>
-            <option>Selecione uma opção</option>
+            <option value="">Selecione uma opção</option>
             <option>Nao tenho e-mail</option>
             <option>Outlook sincronizado</option>
             <option>Google Workspace / Microsoft</option>

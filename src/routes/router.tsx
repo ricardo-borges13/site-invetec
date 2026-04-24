@@ -18,6 +18,8 @@ const Zimbra = lazy(() => import('@/pages/Zimbra/Zimbra').then(module => ({ defa
 const ZimbraMei = lazy(() => import('@/pages/ZimbraMei/ZimbraMei').then(module => ({ default: module.ZimbraMei })));
 const NotFound = lazy(() => import('@/pages/NotFound/NotFound').then(module => ({ default: module.NotFound })));
 const Bling = lazy(() => import('@/pages/Bling/Bling').then(module => ({ default: module.Bling })));
+const FerramentasUteis = lazy(() => import('@/pages/FerramentasUteis/FerramentasUteis').then(module => ({ default: module.FerramentasUteis })));
+const ProRata = lazy(() => import('@/pages/ProRata/ProRata').then(module => ({ default: module.ProRata })));
 
 
 
@@ -40,6 +42,8 @@ export const router = createBrowserRouter([
       { path: '/servicos/criacao-de-sites', element: <Site /> },
       { path: '/servicos/suporte-ti', element: <SuporteTI /> },
       { path: '/servicos/e-commerce', element: <Ecommerce /> },
+      { path: '/servicos/ferramentas-uteis', element: <FerramentasUteis /> },
+      { path: '/servicos/ferramentas-uteis/pro-rata', element: <ProRata /> },
       // { path: '/servicos/marketing-digital', element: <MarketingDigital /> },
       { path: '*', element: <NotFound /> },
     ],

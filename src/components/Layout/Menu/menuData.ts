@@ -22,6 +22,11 @@ export const menuItems = [
       },
       // { title: 'Marketing Digital', path: '/servicos/marketing-digital' },
       { title: 'Gestão e Suporte de TI', path: '/servicos/suporte-ti' },
+      {
+        title: 'Ferramentas Úteis',
+        path: '/servicos/ferramentas-uteis',
+        showInFooter: true,
+      },
     ],
   },
   {
