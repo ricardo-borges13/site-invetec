@@ -24,13 +24,16 @@ export const ZimbraMei = () => {
           {/* 🔥 DOR */}
           <S.Section>
             <MotionReveal>
-              <h2>Você ainda usa e-mail pessoal para trabalhar?</h2>
+              <h2>
+                Usar e-mail pessoal no trabalho pode estar te fazendo perder
+                clientes
+              </h2>
 
               <ul>
-                <li>❌ Passa menos credibilidade para clientes</li>
-                <li>❌ Mistura vida pessoal com trabalho</li>
-                <li>❌ Falta organização nas conversas</li>
-                <li>❌ Dificulta o atendimento e histórico</li>
+                <li>❌ Passa menos credibilidade para quem entra em contato</li>
+                <li>❌ Mistura mensagens pessoais com clientes</li>
+                <li>❌ Dificulta encontrar conversas importantes</li>
+                <li>❌ Falta organização no atendimento</li>
               </ul>
             </MotionReveal>
           </S.Section>
@@ -40,8 +43,8 @@ export const ZimbraMei = () => {
             <h2>Você não precisa ser uma empresa grande</h2>
             <p>
               Mesmo trabalhando sozinho, você já pode ter um e-mail
-              profissional, organizado e com a mesma estrutura utilizada por
-              empresas maiores.
+              profissional, organizado e com a mesma estrutura que empresas usam
+              para atender clientes.
             </p>
           </S.SubHighlight>
 
@@ -50,8 +53,9 @@ export const ZimbraMei = () => {
             <h2>Comece com apenas 1 e-mail — sem complicação</h2>
 
             <p>
-              Você pode começar com uma única conta e ainda assim ter acesso a
-              uma estrutura corporativa completa.
+              Você não precisa contratar vários e-mails ou montar estrutura
+              complexa. Comece com uma única conta e tenha um ambiente
+              profissional desde o primeiro cliente.
             </p>
 
             <ul>
@@ -67,89 +71,87 @@ export const ZimbraMei = () => {
               <h2>Você terá a mesma estrutura de empresas maiores</h2>
             </MotionReveal>
 
+            <S.Grid>
+              <MotionReveal delay={0.04}>
+                <S.Card>
+                  <h3>📥 Caixa de entrada organizada</h3>
+                  <p>
+                    Use pastas, filtros e busca rápida para localizar
+                    informações sem perder tempo.
+                  </p>
+                </S.Card>
+              </MotionReveal>
 
-          <S.Grid>
-            <MotionReveal delay={0.04}>
-              <S.Card>
-                <h3>📥 Caixa de entrada organizada</h3>
-                <p>
-                  Use pastas, filtros e busca rápida para localizar informações
-                  sem perder tempo.
-                </p>
-              </S.Card>
-            </MotionReveal>
+              <MotionReveal delay={0.08}>
+                <S.Card>
+                  <h3>📅 Agenda compartilhada</h3>
+                  <p>
+                    Coordene compromissos da equipe com mais visibilidade e
+                    sincronização entre dispositivos.
+                  </p>
+                </S.Card>
+              </MotionReveal>
 
-            <MotionReveal delay={0.08}>
-              <S.Card>
-                <h3>📅 Agenda compartilhada</h3>
-                <p>
-                  Coordene compromissos da equipe com mais visibilidade e
-                  sincronização entre dispositivos.
-                </p>
-              </S.Card>
-            </MotionReveal>
+              <MotionReveal delay={0.12}>
+                <S.Card>
+                  <h3>👥 Contatos centralizados</h3>
+                  <p>
+                    Mantenha informações internas e recorrentes organizadas para
+                    agilizar o atendimento.
+                  </p>
+                </S.Card>
+              </MotionReveal>
 
-            <MotionReveal delay={0.12}>
-              <S.Card>
-                <h3>👥 Contatos centralizados</h3>
-                <p>
-                  Mantenha informações internas e recorrentes organizadas para
-                  agilizar o atendimento.
-                </p>
-              </S.Card>
-            </MotionReveal>
+              <MotionReveal delay={0.16}>
+                <S.Card>
+                  <h3>✅ Tarefas e lembretes</h3>
+                  <p>
+                    Acompanhe atividades ligadas a processos, clientes e
+                    responsabilidades do time.
+                  </p>
+                </S.Card>
+              </MotionReveal>
 
-            <MotionReveal delay={0.16}>
-              <S.Card>
-                <h3>✅ Tarefas e lembretes</h3>
-                <p>
-                  Acompanhe atividades ligadas a processos, clientes e
-                  responsabilidades do time.
-                </p>
-              </S.Card>
-            </MotionReveal>
+              <MotionReveal delay={0.2}>
+                <S.Card>
+                  <h3>📁 Arquivos corporativos</h3>
+                  <p>
+                    Compartilhe documentos com mais ordem e menos dependência de
+                    anexos espalhados.
+                  </p>
+                </S.Card>
+              </MotionReveal>
 
-            <MotionReveal delay={0.2}>
-              <S.Card>
-                <h3>📁 Arquivos corporativos</h3>
-                <p>
-                  Compartilhe documentos com mais ordem e menos dependência de
-                  anexos espalhados.
-                </p>
-              </S.Card>
-            </MotionReveal>
+              <MotionReveal delay={0.24}>
+                <S.Card>
+                  <h3>💬 Comunicação interna mais alinhada</h3>
+                  <p>
+                    Reduza a dispersão entre canais e concentre a rotina em um
+                    ambiente corporativo.
+                  </p>
+                </S.Card>
+              </MotionReveal>
 
-            <MotionReveal delay={0.24}>
-              <S.Card>
-                <h3>💬 Comunicação interna mais alinhada</h3>
-                <p>
-                  Reduza a dispersão entre canais e concentre a rotina em um
-                  ambiente corporativo.
-                </p>
-              </S.Card>
-            </MotionReveal>
+              <MotionReveal delay={0.28}>
+                <S.Card>
+                  <h3>🎥 Recursos integrados para reuniões</h3>
+                  <p>
+                    Facilite conversas e alinhamentos sem depender de várias
+                    ferramentas desconectadas.
+                  </p>
+                </S.Card>
+              </MotionReveal>
 
-            <MotionReveal delay={0.28}>
-              <S.Card>
-                <h3>🎥 Recursos integrados para reuniões</h3>
-                <p>
-                  Facilite conversas e alinhamentos sem depender de várias
-                  ferramentas desconectadas.
-                </p>
-              </S.Card>
-            </MotionReveal>
-
-            <MotionReveal delay={0.32}>
-              <S.Card>
-                <h3>🔄 Liberdade de acesso</h3>
-                <p>
-                  Trabalhe pelo navegador, celular ou Outlook, conforme a rotina
-                  da empresa exigir.
-                </p>
-              </S.Card>
-            </MotionReveal>
-          </S.Grid>
-
+              <MotionReveal delay={0.32}>
+                <S.Card>
+                  <h3>🔄 Liberdade de acesso</h3>
+                  <p>
+                    Trabalhe pelo navegador, celular ou Outlook, conforme a
+                    rotina da empresa exigir.
+                  </p>
+                </S.Card>
+              </MotionReveal>
+            </S.Grid>
           </S.SystemSection>
 
           {/* 💰 PREÇO */}
@@ -157,9 +159,9 @@ export const ZimbraMei = () => {
             <h2>Um investimento acessível para profissionalizar seu negócio</h2>
 
             <p>
-              Com cerca de <strong>R$ 16 por mês</strong>, você já pode ter seu
-              e-mail principal com estrutura completa, sem pesar no seu
-              orçamento.
+              Por cerca de <strong>R$ 16 por mês</strong>, você já tem um e-mail
+              profissional com estrutura completa — sem precisar investir alto
+              no início.
             </p>
 
             <p>
@@ -169,33 +171,40 @@ export const ZimbraMei = () => {
           </S.SubHighlight>
 
           {/* 🌐 DOMÍNIO */}
-          <S.Highlight>
-            <h2>Tenha seu próprio domínio profissional</h2>
+          <S.DomainHighlight>
+            <h2>Seu e-mail com o nome da sua empresa</h2>
 
-            <p>Tenha um e-mail com o nome da sua empresa, como:</p>
-
-            <strong>contato@suaempresa.com.br</strong>
-
-            <p>
-              Nós cuidamos de todo o processo de registro e configuração para
-              você começar sem complicação.
+            <p className="sub">
+              Passe mais credibilidade com um e-mail profissional desde o
+              início.
             </p>
-          </S.Highlight>
+
+            <div className="example">contato@suaempresa.com.br</div>
+
+            <p className="desc">
+              Nós cuidamos de tudo para você — registro do domínio, configuração
+              e ativação. Você não precisa se preocupar com parte técnica.
+            </p>
+
+            <span className="badge">✔ Configuração completa incluída</span>
+          </S.DomainHighlight>
 
           {/* 🧠 ANCORAGEM */}
-          <S.InfoBox>
-            <h2>Estrutura profissional sem complexidade</h2>
-
+          <S.ValueHighlight>
+            <h2>
+              Você não compra só e-mail — você tem acompanhamento completo
+            </h2>
+            <p>Diferente de serviços comuns, aqui você não fica sozinho.</p>
             <p>
-              Grandes empresas utilizam soluções robustas de e-mail. Hoje você
-              também pode ter essa estrutura, de forma simples e acessível.
+              Você recebe acompanhamento desde a criação até o uso no dia a dia
+              —<strong>sem custo de mão de obra</strong>.
             </p>
-          </S.InfoBox>
+          </S.ValueHighlight>
 
           {/* 📋 FORM */}
           <S.FormArea>
             <MotionReveal>
-              <h2>Criar meu e-mail profissional</h2>
+              <h2>Quero criar meu e-mail profissional</h2>
               <p>
                 Leva menos de 1 minuto. Vou te orientar na criação do seu e-mail
                 com domínio próprio.

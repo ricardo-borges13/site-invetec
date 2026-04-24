@@ -10,14 +10,12 @@ export const ConversionIntro = styled.div`
   max-width: 900px;
   width: 100%;
   margin: 3rem auto;
-
   background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
   border: 1px solid ${({ theme }) => theme.colors.primary};
   border-radius: 20px;
-
   padding: 2.5rem;
-
   box-shadow: 0 18px 40px rgba(0, 123, 255, 0.08);
+  border-left: 5px solid ${({ theme }) => theme.colors.primary};
 
   @media (max-width: 768px) {
     padding: 1.5rem;
@@ -38,6 +36,7 @@ export const ConversionIntroContent = styled.div`
     margin: 0;
     line-height: 1.7;
     color: #334155;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -61,6 +60,7 @@ export const ConversionList = styled.ul`
   margin: 1.5rem 0 0;
   display: grid;
   gap: 0.9rem;
+  font-weight: 700;
 
   li {
     position: relative;
@@ -69,7 +69,7 @@ export const ConversionList = styled.ul`
     line-height: 1.5;
 
     &::before {
-      content: '\2022';
+      content: '✓';
       position: absolute;
       left: 0;
       top: 0;
@@ -90,72 +90,6 @@ export const ConversionActions = styled.div`
   span {
     color: #475569;
     font-size: 0.92rem;
-  }
-`;
-
-export const ConversionIntroAside = styled.aside`
-  background: #f9fafb;
-  border: 1px solid #dbeafe;
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 22px 46px rgba(15, 23, 42, 0.08);
-    border-color: #bfdbfe;
-  }
-
-  h3 {
-    color: ${({ theme }) => theme.colors.primaryDark};
-    margin-bottom: 1rem;
-  }
-`;
-
-export const ConversionMiniGrid = styled.div`
-  display: grid;
-  gap: 14px;
-`;
-
-export const ConversionMiniCard = styled.div`
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 1rem 1.1rem;
-  min-height: 124px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease,
-    background-color 0.25s ease;
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.06);
-    border-color: #bfdbfe;
-    background: #fdfefe;
-  }
-
-  strong {
-    display: block;
-    color: ${({ theme }) => theme.colors.primaryDark};
-    margin-bottom: 0.35rem;
-    line-height: 1.4;
-  }
-
-  p {
-    margin: 0;
-    color: #475569;
-    font-size: 0.92rem;
-    line-height: 1.55;
   }
 `;
 
@@ -200,6 +134,10 @@ export const Grid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -211,7 +149,6 @@ export const PainGrid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-top: 20px;
-
 
   /* Tablet */
   @media (max-width: 1024px) {
@@ -263,8 +200,8 @@ export const Card = styled.div`
     background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   }
 
-   @media (max-width: 430px) {
-   padding: 15px;
+  @media (max-width: 430px) {
+    padding: 15px;
   }
 `;
 
@@ -364,7 +301,7 @@ export const CompareSection = styled.section`
 
   h2 {
     margin-bottom: 2rem;
-     font-weight: 700;
+    font-weight: 700;
     color: ${({ theme }) => theme.colors.black};
   }
 
@@ -419,18 +356,6 @@ export const CompareCard = styled.div<{ type: 'good' | 'bad' }>`
   }
 `;
 
-export const Warning = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #fff7ed;
-  border: 1px solid #fb923c;
-  border-radius: 16px;
-  padding: 2rem;
-  margin: 3rem 0;
-`;
-
 export const SystemSection = styled.section`
   margin: 4rem 0;
   text-align: center;
@@ -441,9 +366,9 @@ export const SystemSection = styled.section`
   }
 
   h2 span {
-  color: ${({ theme }) => theme.colors.primary}; /* azul */
-  font-weight: 700;
-}
+    color: ${({ theme }) => theme.colors.primary}; /* azul */
+    font-weight: 700;
+  }
 
   p {
     max-width: 700px;
@@ -467,33 +392,6 @@ export const SystemImage = styled.div`
       transform: translateY(-4px) scale(1.01);
       box-shadow: 0 26px 50px rgba(0, 0, 0, 0.14);
     }
-  }
-`;
-
-export const SystemFeatures = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-export const Feature = styled.div`
-  background: #f9fafb;
-  padding: 16px;
-  border-radius: 12px;
-  text-align: left;
-
-  h3 {
-    margin-bottom: 6px;
-  }
-
-  p {
-    font-size: 0.9rem;
   }
 `;
 
@@ -562,55 +460,92 @@ export const InfoBox = styled.section`
   }
 `;
 
-export const SubHighlight = styled.section`
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 2rem;
-  margin: 2rem 0;
+export const ValueHighlight = styled.section`
+  position: relative;
+
+  background: linear-gradient(135deg, #f8fafc, #eef4ff);
+  border: 1px solid #cfe0ff;
+  border-radius: 18px;
+
+  padding: 2.2rem 2rem;
+  margin: 2.5rem 0;
+
   text-align: center;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+
+  box-shadow: 0 18px 40px rgba(0, 123, 255, 0.08);
+
+  transition: all 0.3s ease;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 34px rgba(15, 23, 42, 0.06);
-    border-color: #dbe5f1;
+    transform: translateY(-6px);
+    box-shadow: 0 25px 55px rgba(0, 123, 255, 0.12);
+    border-color: #9ec5ff;
+  }
+
+  /* 🔵 Linha lateral de destaque */
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    height: 60%;
+    width: 6px;
+    background: linear-gradient(180deg, #007bff, #4dabf7);
+    border-radius: 0 6px 6px 0;
   }
 
   h2 {
-    margin-bottom: 0.75rem;
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    margin-bottom: 0.8rem;
+    color: #0f172a;
   }
 
   p {
-    max-width: 760px;
+    max-width: 720px;
     margin: 0 auto;
     line-height: 1.7;
     color: #475569;
+    font-size: 1rem;
   }
 
-  ul {
-    margin: 1rem auto 0;
-    padding: 0;
-    display: grid;
-    gap: 0.75rem;
-    max-width: 540px;
-    text-align: left;
+  /* 🔥 Destaque do "sem custo" */
+  strong {
+    background: #d1fae5;
+    color: #065f46;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
 
-    li {
-      list-style: none;
-      padding: 0.9rem 1rem;
-      border-radius: 12px;
-      background: white;
-      border: 1px solid #e5e7eb;
-      color: #334155;
-      line-height: 1.5;
+  /* 💡 Versão alternativa usando classe */
+  .highlight-free {
+    display: inline-block;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-left: 6px;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.6rem 1.2rem;
+
+    &::before {
+      display: none;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      font-size: 0.95rem;
     }
   }
 `;
-
 
 export const MeiHelper = styled.div`
   text-align: center;

@@ -75,12 +75,12 @@ export const Content = styled.div`
   }
 
   h4 {
-    font-size: clamp(1rem, 1.2vw, 1.3rem);
-    max-width: 800px;
-    margin: 0 auto 32px;
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 400;
-    line-height: 1.6;
+     font-size: 1rem;
+  font-weight: 600;
+  color: #c1c3c7;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
   }
 `;
 
