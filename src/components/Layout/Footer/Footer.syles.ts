@@ -11,6 +11,7 @@ export const Container = styled.footer`
   background: linear-gradient(180deg, #0f3d63, #0a2540);
   color: ${({ theme }) => theme.colors.white};
   padding: 30px 24px 20px;
+  user-select: none;
 `;
 
 export const Content = styled.div`

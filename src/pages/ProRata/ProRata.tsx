@@ -120,7 +120,7 @@ export const ProRata = () => {
 
             <S.FormSection>
               <S.TitleForm>
-                <h3>Cáculo Pro Rata</h3>
+                <h3>Cálculo Pro Rata</h3>
               </S.TitleForm>
 
               <S.Field>

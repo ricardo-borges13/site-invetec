@@ -4,6 +4,7 @@ export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 60px 20px;
+  user-select: none;
 `;
 
 export const Section = styled.section`

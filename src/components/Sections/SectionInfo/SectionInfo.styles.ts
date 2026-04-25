@@ -8,7 +8,7 @@ export const Container = styled.section`
   padding: 5rem 8%;
   max-width: ${({ theme }) => theme.breakpoints.largeDesktop};
   margin: 3rem auto;
-
+  user-select: none;
   border-radius: 20px;
 
   background:
@@ -61,7 +61,6 @@ export const ImagesArea = styled.div`
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
-
   }
 
   img:first-child {
@@ -116,8 +115,7 @@ export const LogoWrapper = styled.div`
 
   transition: all 0.3s ease;
 
-&:hover {
-  transform: translateY(-5px) scale(1.03);
-}
+  &:hover {
+    transform: translateY(-5px) scale(1.03);
+  }
 `;
-
