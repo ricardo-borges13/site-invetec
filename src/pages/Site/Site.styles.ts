@@ -164,3 +164,19 @@ export const Form = styled.form`
     resize: vertical;
   }
 `;
+
+export const QuestionBox = styled.div`
+background: #f8fafc;
+border-left: 5px solid #2563eb;
+padding: 2rem;
+border-radius: 8px;
+max-width: 700px;
+margin: 0 auto 2rem;
+margin-bottom: 1.5rem;
+
+span {
+  color: #ef4444;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+`

@@ -103,19 +103,21 @@ export const CardHeader = styled.div`
     transform: scale(1.2);
   }
 `;
-
 export const AccordionContent = styled.div<{ $open: boolean }>`
-  max-height: ${({ $open }) => ($open ? '220px' : '0')};
+  max-height: ${({ $open }) => ($open ? '1000px' : '0')};
   overflow: hidden;
 
   opacity: ${({ $open }) => ($open ? 1 : 0)};
   transform: ${({ $open }) => ($open ? 'translateY(0)' : 'translateY(-5px)')};
 
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
+
+  padding-top: ${({ $open }) => ($open ? '10px' : '0')};
 
   p {
     margin: 12px 0;
     color: #475569;
+    line-height: 1.6;
   }
 `;
 

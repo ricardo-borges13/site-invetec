@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const linkStyle = `
   color: #cbd5e1;
@@ -140,4 +141,17 @@ export const Copy = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.85rem;
   color: #94a3b8;
+`;
+
+export const BackLink = styled(Link)`
+  display: inline-block;
+  color: #cbd5e1;
+   font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+      color: ${({ theme }) => theme.colors.primary};
+      transform: translateX(4px);
+    }
 `;

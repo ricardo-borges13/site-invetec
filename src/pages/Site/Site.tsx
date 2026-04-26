@@ -9,8 +9,8 @@ export const Site = () => {
   return (
     <>
       <SEO
-        title="Criação de Sites que Geram Clientes | Sites Profissionais para Empresas | Invetec"
-        description="Seu site não gera clientes? Criação de sites profissionais com foco em conversão, presença no Google e estratégias para atrair contatos."
+        title="Criação de Sites Profissionais | Sites que Geram Clientes | Invetec"
+        description="Seu site não gera clientes? Criação de sites profissionais para empresas que querem gerar clientes. Sites rápidos, otimizados para o Google e focados em resultado."
         image="https://www.invetec.com.br/images/SEO-Site.jpg"
         url="https://www.invetec.com.br/servicos/criacao-de-sites"
       />
@@ -25,11 +25,20 @@ export const Site = () => {
           {/* 🟠 DOR */}
           <S.Section>
             <MotionReveal>
-              <h2>Seu site traz clientes… ou só ocupa espaço?</h2>
+              <h2>Criação de Sites Profissionais que Geram Clientes</h2>
+              <S.QuestionBox>
+                <span>🤔</span>
+                <h2>
+                  Seu site traz clientes…
+                  <br />
+                  <span>ou só ocupa espaço?</span>
+                </h2>
+               A maioria dos sites institucionais não foi feita para gerar clientes — por isso não traz resultado.
+              </S.QuestionBox>
+
               <p>
-                A maioria dos sites institucionais não gera resultado. São
-                bonitos, mas não recebem contatos, não explicam bem o serviço e
-                não ajudam a vender.
+                São bonitos, mas não recebem contatos, não explicam bem o
+                serviço e não ajudam a vender.
               </p>
 
               <ul>

@@ -188,7 +188,7 @@ export const ProRata = () => {
           </MotionReveal>
 
           {resultado !== null && (
-            <MotionReveal delay={0.1}>
+
               <S.Result>
                 <S.ResultCard>
                   <S.ResultPeriod>
@@ -258,7 +258,7 @@ export const ProRata = () => {
                   <S.CopyButton onClick={copiar}>{textButCopiar}</S.CopyButton>
                 </S.UsageBox>
               </S.Result>
-            </MotionReveal>
+         
           )}
 
           <S.Divider />

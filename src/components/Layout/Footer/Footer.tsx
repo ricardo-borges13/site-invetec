@@ -61,6 +61,9 @@ export const Footer = ({ phone, email }: ContactInfo) => {
               </li>
             ))}
           </S.NavList>
+          <S.BackLink to="/servicos/ferramentas-uteis">
+            Ferramentas Úteis
+          </S.BackLink>
         </S.Section>
 
         {/* Contato */}
