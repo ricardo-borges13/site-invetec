@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
  import { lazy } from "react";
 import { Layout } from '@/components/Layout/Layout';
 import Home from '@/pages/Home';
+import { CalculadoraData } from '@/pages/CalculadoraData/CalculadoraData';
 
 const CaseDatron = lazy(() => import('@/pages/CaseDatron/CaseDatron').then(module => ({ default: module.CaseDatron })));
 const CaseJPM = lazy(() => import('@/pages/CaseJPM/CaseJPM').then(module => ({ default: module.CaseJPM })));
@@ -44,6 +45,7 @@ export const router = createBrowserRouter([
       { path: '/servicos/e-commerce', element: <Ecommerce /> },
       { path: '/servicos/ferramentas-uteis', element: <FerramentasUteis /> },
       { path: '/servicos/ferramentas-uteis/pro-rata', element: <ProRata /> },
+      { path: '/servicos/ferramentas-uteis/calculadora-de-datas', element: <CalculadoraData /> },
       // { path: '/servicos/marketing-digital', element: <MarketingDigital /> },
       { path: '*', element: <NotFound /> },
     ],

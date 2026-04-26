@@ -3,7 +3,39 @@ import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as S from './ProRata.styles';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'O que é cálculo pró-rata?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'O cálculo pró-rata é a divisão proporcional de um valor mensal com base na quantidade de dias utilizados.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Como calcular pró-rata?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'text: "O cálculo de pró-rata é feito dividindo o valor mensal por 30 dias e multiplicando pelo número de dias utilizados dentro do período, garantindo uma cobrança proporcional correta."',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Quando usar cálculo pró-rata?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'O pró-rata é utilizado em contratos de locação, serviços iniciados no meio do mês, cancelamentos antecipados e ajustes de cobrança.',
+      },
+    },
+  ],
+};
 
 export const ProRata = () => {
   const [segmento, setSegmento] = useState<'locacao' | 'servico' | 'outro'>(
@@ -88,15 +120,16 @@ export const ProRata = () => {
   return (
     <>
       <SEO
-        title="Cálculo Pro Rata | Invetec"
-        description="Calcule valores proporcionais de contratos de forma rápida e precisa."
+        title="Cálculo Pro Rata Online | Calculadora de Pró-Rata Grátis - Invetec"
+        description="Faça cálculo pró-rata online de forma rápida e precisa. Calcule valores proporcionais por período, contratos, locação e serviços. Ferramenta gratuita e fácil de usar."
         image="https://www.invetec.com.br/images/SEO-Pro-Rata.jpg"
         url="https://www.invetec.com.br/servicos/ferramentas-uteis/pro-rata"
+        schema={faqSchema}
       />
 
       <PageHeroSection
-        title="Cálculo Pro Rata"
-        subTitle="Calcule valores proporcionais de forma rápida e sem erros"
+        title="Calculadora de Pró-Rata Online"
+        subTitle="Calcule valores proporcionais por período de forma rápida, precisa e sem erros para contratos, locações e serviços"
         image={imageProRata}
       >
         <S.BackLink to="/servicos/ferramentas-uteis">
@@ -105,22 +138,18 @@ export const ProRata = () => {
         <S.Container>
           <MotionReveal>
             <S.InfoBox>
-              <h2>Calcule valores proporcionais com precisão</h2>
+              <h2>Como calcular pró-rata online de forma correta e sem erros</h2>
               <p>
-                O cálculo de pró-rata é essencial para contratos de locação,
-                serviços recorrentes e faturamentos proporcionais.
+                Utilize nossa calculadora de pró-rata para calcular valores
+                proporcionais com base em datas e períodos. Ideal para contratos
+                de locação, serviços recorrentes, faturamento proporcional e
+                ajustes contratuais.
               </p>
-
-              {/* <ul>
-                <li> Evite erros de cobrança</li>
-                <li> Ganhe agilidade no faturamento</li>
-                <li> Tenha um cálculo padronizado e confiável</li>
-              </ul> */}
             </S.InfoBox>
 
             <S.FormSection>
               <S.TitleForm>
-                <h3>Cálculo Pro Rata</h3>
+                <h3>Calcular pró-rata online</h3>
               </S.TitleForm>
 
               <S.Field>
@@ -246,7 +275,9 @@ export const ProRata = () => {
               {openIndex === 0 && (
                 <p>
                   É o cálculo proporcional de um valor mensal com base na
-                  quantidade de dias utilizados dentro de um período.
+                  quantidade de dias utilizados dentro de um período. Muito
+                  utilizado em contratos de locação, serviços recorrentes e
+                  faturamentos proporcionais.
                 </p>
               )}
             </S.Item>
@@ -256,13 +287,14 @@ export const ProRata = () => {
                 onClick={() => setOpenIndex(openIndex === 1 ? null : 1)}
               >
                 Como o cálculo é feito?
-                <span>{openIndex === 0 ? '−' : '+'}</span>
+                <span>{openIndex === 1 ? '−' : '+'}</span>
               </S.Header>
 
               {openIndex === 1 && (
                 <p>
-                  Calculamos a quantidade de dias entre a data inicial e final e
-                  aplicamos a proporção sobre o valor mensal:
+                  O cálculo de pró-rata é feito dividindo o valor mensal por 30
+                  dias e multiplicando pelo número de dias utilizados no
+                  período.
                   <br />
                   <br />
                   <strong>Valor ÷ 30 × dias utilizados</strong>
@@ -275,7 +307,7 @@ export const ProRata = () => {
                 onClick={() => setOpenIndex(openIndex === 2 ? null : 2)}
               >
                 Quando usar?
-                <span>{openIndex === 0 ? '−' : '+'}</span>
+                <span>{openIndex === 2 ? '−' : '+'}</span>
               </S.Header>
 
               {openIndex === 2 && (
@@ -286,12 +318,23 @@ export const ProRata = () => {
                   <br />
                   • Cancelamentos antecipados
                   <br />• Ajustes de contrato
+                  <br />• Cobranças proporcionais
+                  <br />• Faturamento parcial
                 </p>
               )}
             </S.Item>
           </S.Accordion>
+
+          <S.Highlight>
+            <h3>Precisa automatizar esse processo?</h3>
+            <p>
+              Além do cálculo pró-rata, oferecemos soluções completas para
+              organizar e estruturar sua operação.
+            </p>
+            <Link to="/contato">Falar com especialista</Link>
+          </S.Highlight>
         </S.Container>
-         <S.BackLink to="/servicos/ferramentas-uteis">
+        <S.BackLink to="/servicos/ferramentas-uteis">
           ← Voltar para Ferramentas Úteis
         </S.BackLink>
       </PageHeroSection>

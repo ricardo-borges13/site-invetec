@@ -4,13 +4,17 @@ export const Container = styled.div`
   max-width: ${({ theme }) => theme.breakpoints.largeDesktop};
   margin: 0 auto;
   padding: 0 ${({ theme }) => theme.spacing.medium};
-user-select: none;
+  user-select: none;
 `;
 
 export const Section = styled.section`
   text-align: center;
   margin-bottom: 2.5rem;
-
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  padding: 40px 20px;
+  border-radius: 20px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 40px;
 
   h2 {
     margin-bottom: 0.5rem;
@@ -28,6 +32,12 @@ export const Grid = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin-bottom: 3rem;
+  background: #ffffff;
+  border: 1px solid #dbeafe;
+  box-shadow: 0 20px 40px rgba(22, 119, 255, 0.08);
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 60px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -137,6 +147,8 @@ export const Highlight = styled.section`
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
+  background: linear-gradient(135deg, #1677ff, #0b5ed7);
+  color: white;
 
   h2 {
     margin-bottom: 0.5rem;
@@ -145,6 +157,22 @@ export const Highlight = styled.section`
   p {
     max-width: 600px;
     margin: 0 auto;
-    color: #475569;
+    p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  a {
+    display: inline-block;
+    background: #22c55e;
+    padding: 14px 30px;
+    border-radius: 999px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+  }
+
+  a:hover {
+    background: #16a34a;
   }
 `;

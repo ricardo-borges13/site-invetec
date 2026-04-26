@@ -5,6 +5,7 @@ export const HeaderContainer = styled.header<{ $isScrolled: boolean }>`
   top: 0;
   left: 0;
   width: 100%;
+  user-select: none;
   background: ${({ theme }) => theme.colors.white};
   border-bottom: 1px solid #e5e7eb;
   box-shadow: 0 4px 20px

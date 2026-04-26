@@ -90,8 +90,7 @@ export const CopyButton = styled.button`
 
 
 export const InfoBox = styled.div`
-  max-width: 700px;
-  margin: 0 auto 40px;
+  max-width: 700px;;
   text-align: center;
 
   h2 {
@@ -101,28 +100,6 @@ export const InfoBox = styled.div`
   p {
     color: #475569;
     margin-bottom: 15px;
-  }
-
-  ul {
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-
-
-      gap: 1px;
-    list-style: none;
-    padding: 0;
-
-    li {
-      margin-bottom: 1px;
-      color: #1e293b;
-
-        &:before {
-          content: '✔';
-          color: #10b981;
-        }
-    }
   }
 `;
 
@@ -138,6 +115,7 @@ export const Divider = styled.hr`
 export const Accordion = styled.div`
   max-width: 700px;
   margin: 40px auto 0;
+  margin-bottom: 60px;
 `;
 
 
@@ -171,6 +149,8 @@ export const Header = styled.h5`
 `;
 
 export const FormSection = styled.section`
+position: relative;
+top: -20px;
  gap: 20px;
   background: linear-gradient(180deg, #f0f7ff 0%, #e6f0ff 100%);
   border: 1px solid #cfe2ff;
@@ -304,5 +284,41 @@ export const BackLink = styled(Link)`
 
   &:hover {
     text-decoration: underline;
+  }
+`;
+
+export const Highlight = styled.section`
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #1677ff, #0b5ed7);
+  color: white;
+
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 0 auto;
+    p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  a {
+    display: inline-block;
+    background: #22c55e;
+    padding: 14px 30px;
+    border-radius: 999px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+  }
+
+  a:hover {
+    background: #16a34a;
   }
 `;
