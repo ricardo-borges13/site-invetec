@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const HeroWrapper = styled.section<{ $image: string }>`
   position: relative;
   width: 100%;
-
+ user-select: none;
   min-height: clamp(400px, 55vh, 500px);
 
   background-image: url(${({ $image }) => $image});

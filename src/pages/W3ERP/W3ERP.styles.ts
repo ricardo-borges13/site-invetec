@@ -4,6 +4,7 @@ export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 0.1rem 1.5rem 4rem;
+  user-select: none;
 `;
 
 /* 🔹 SECTIONS PADRÃO */

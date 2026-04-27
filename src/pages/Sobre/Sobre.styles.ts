@@ -4,6 +4,7 @@ export const Container = styled.div`
   max-width: ${({ theme }) => theme.breakpoints.desktop};
   margin: 60px auto;
   padding: 0 ${({ theme }) => theme.spacing.medium};
+  user-select: none;
 `;
 
 export const Intro = styled.div`

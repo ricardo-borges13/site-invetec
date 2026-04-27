@@ -5,6 +5,7 @@ export const Section = styled.section`
   padding: 80px 24px;
   background: ${({ theme }) => theme.colors.background.global};
   text-align: center;
+user-select: none;
 `;
 
 export const Title = styled.h2`

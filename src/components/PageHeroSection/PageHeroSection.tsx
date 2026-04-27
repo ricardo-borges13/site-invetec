@@ -20,35 +20,36 @@ export const PageHeroSection = ({
 
 }: PageHeroSectionProps) => {
   return (
-    <>
-    <S.HeroWrapper $image={image}>
+    <main>
+    <S.HeroWrapper $image={image} as="header">
       <S.Overlay $opacity={overlayOpacity} />
 
       <S.Content $color={textColor}>
-        <motion.h1
+        <motion.div
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          {title}
-        </motion.h1>
+          <h1>{title}</h1>
+        </motion.div>
 
         {subTitle && (
-          <motion.p
+          <motion.div
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            {subTitle}
-          </motion.p>
+            <p>{subTitle}</p>
+          </motion.div>
         )}
       </S.Content>
     </S.HeroWrapper>
-        {children && (
-      <S.ChildrenContent>
+
+    {children && (
+      <S.ChildrenContent as="section">
         {children}
       </S.ChildrenContent>
     )}
-</>
+  </main>
   );
 };

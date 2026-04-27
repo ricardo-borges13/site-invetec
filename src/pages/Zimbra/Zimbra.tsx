@@ -1,6 +1,6 @@
 ﻿import heroImage from '@/assets/images/PagesHero-Email.jpg';
-import imageZimbraFull from '@/assets/images/Zimbra-Full.jpg';
-import imageZimbraPreview from '@/assets/images/Zimbra-Leve.jpg';
+import imageZimbraFull from '@/assets/images/Zimbra-Full.jpg'; // pesada (~200kb+)
+import imageZimbra from '@/assets/images/Zimbra-Leve.jpg'; // leve (~60–100kb)
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { FormContactEmail } from '@/components/FormContactEmail/FormContactEmail';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
@@ -40,24 +40,24 @@ export const Zimbra = () => {
       />
 
       <PageHeroSection
-        title="Saia do e-mail básico. Tenha um e-mail corporativo de verdade."
-        subTitle="Mais organização, segurança e controle para sua equipe — sem complicação."
+        title="Pare de improvisar no e-mail da sua empresa"
+        subTitle="Tenha um e-mail corporativo com organização, segurança e suporte real para sua empresa funcionar sem riscos."
         image={heroImage}
       >
         <S.Container>
           <S.Section>
             <MotionReveal>
-              <h2>Seu e-mail já começou a atrapalhar a empresa?</h2>
+              <h2>Seu e-mail já começou a causar problemas na empresa?</h2>
               <p>
                 Quando o e-mail deixa de acompanhar a rotina do negócio, a
                 empresa perde agilidade, passa menos credibilidade e começa a
-                correr riscos desnecessários no dia a dia.
+                ter falhas no atendimento.
               </p>
 
               <S.PainGrid>
                 <MotionReveal delay={0.04}>
                   <S.PainCard>
-                    <h3>❌ E-mails se perdem e são difíceis de encontrar</h3>
+                    <h3>❌ E-mails se perdem e atrasam o atendimento</h3>
                     <p>
                       E-mail misturado, sem organização e com dificuldade para
                       achar o que foi tratado.
@@ -105,12 +105,17 @@ export const Zimbra = () => {
               <S.ConversionIntroContent>
                 <S.Eyebrow>E-mail corporativo com migração assistida</S.Eyebrow>
                 <h2>
-                  Profissionalize o e-mail da sua empresa sem travar a operação
+                  Profissionalize o e-mail da sua empresa sem parar a operação
                 </h2>
                 <p>
-                  Organize contas, centralize a comunicação da equipe e ganhe
-                  mais controle sobre segurança, histórico e acessos com apoio
-                  técnico para configuração, migração e implantação.
+                  Você não precisa trocar tudo de uma vez ou correr riscos.
+                  Cuidamos da migração e organização do seu e-mail com
+                  acompanhamento técnico do início ao funcionamento, sem
+                  interromper a rotina da empresa.
+                </p>
+                <p>
+                  Assim, sua empresa ganha mais controle, organização e
+                  segurança na comunicação do dia a dia.
                 </p>
 
                 <S.ConversionList>
@@ -129,7 +134,7 @@ export const Zimbra = () => {
 
                 <S.ConversionActions>
                   <CustomButton variant="cta" onClick={scrollToForm}>
-                    Quero um diagnóstico do meu e-mail
+                    Quero melhorar o e-mail da minha empresa
                   </CustomButton>
                   <span>
                     Análise consultiva para empresas que querem sair do
@@ -142,8 +147,15 @@ export const Zimbra = () => {
 
           <S.CompareSection>
             <MotionReveal>
-              <h2>"E-mail Básico" vs "E-mail Corporativo"</h2>
-
+              <h2>E-mail básico vs corporativo (Zimbra)</h2>
+              <p>
+                Uma estrutura profissional com tecnologia Zimbra pensada para
+                empresas.
+              </p>
+              <p>
+                A maioria das empresas usa e-mail simples sem perceber os
+                riscos. Veja a diferença na prática:
+              </p>
               <S.CompareGrid>
                 <MotionReveal direction="left" delay={0.08}>
                   <S.CompareCard type="bad">
@@ -159,7 +171,7 @@ export const Zimbra = () => {
 
                 <MotionReveal direction="right" delay={0.14}>
                   <S.CompareCard type="good">
-                    <h3>✅ E-mail corporativo com a Invetec</h3>
+                    <h3>✅ E-mail corporativo com a INVETEC Mail</h3>
                     <ul>
                       <li>
                         Comunicação organizada por usuário, equipe e processo
@@ -178,35 +190,20 @@ export const Zimbra = () => {
             </MotionReveal>
           </S.CompareSection>
 
-          <MotionReveal>
-            <S.Highlight>
-              <h2>Quando a empresa cresce, o e-mail precisa evoluir junto</h2>
-              <p>
-                O e-mail deixa de ser apenas um canal de mensagens e passa a
-                fazer parte da operação comercial, administrativa e financeira
-                da empresa.
-              </p>
-              <p>
-                Com a estrutura certa, sua equipe trabalha com mais rapidez,
-                mais previsibilidade e menos dependência de improviso.
-              </p>
-            </S.Highlight>
-          </MotionReveal>
-
-          <S.SystemSection>
+           <S.SystemSection>
             <MotionReveal>
               <h2>
-                Veja como funciona o <span>Invetec Mail</span> na prática
+                Veja como funciona o <span>INVETEC Mail</span> na prática
               </h2>
               <p>
-                Sua equipe ganha uma experiência mais profissional e a empresa
-                passa a contar com recursos que ajudam na rotina operacional.
+                Sua equipe passa a trabalhar com mais organização, menos
+                retrabalho e mais controle sobre as informações.
               </p>
             </MotionReveal>
 
             <S.SystemImage>
               <img
-                src={imageZimbraPreview}
+                src={imageZimbra}
                 alt="Interface do Zimbra"
                 loading="lazy"
                 onClick={() => setSelectedImage(imageZimbraFull)}
@@ -298,36 +295,24 @@ export const Zimbra = () => {
           </S.SystemSection>
 
           <MotionReveal>
-            <S.SubHighlight>
-              <h2>
-                Você não precisa ser uma grande empresa para ter estrutura
-                profissional
-              </h2>
-              <p>
-                Pequenas e médias empresas também precisam de segurança,
-                organização e padrão para crescer com menos risco.
-              </p>
-            </S.SubHighlight>
-          </MotionReveal>
-
-          <MotionReveal>
             <S.InfoBox>
-              <h2>Uma alternativa corporativa com suporte próximo</h2>
+              <h2>Uma estrutura corporativa com suporte próximo</h2>
               <p>
-                Sua empresa pode contar com uma estrutura robusta de e-mail
-                corporativo, sem ficar presa a uma solução cara ou distante da
-                sua realidade operacional.
+                Sua empresa pode contar com uma estrutura robusta de e-mail corporativo, com suporte próximo e acompanhamento técnico — sem depender de soluções genéricas ou caras demais para sua realidade.
               </p>
             </S.InfoBox>
           </MotionReveal>
+
 
           <MotionReveal>
             <CTASection
               variant="infrastructure"
               badge="INFRAESTRUTURA DE ALTO NÍVEL"
               title="Infraestrutura pensada para confiabilidade e segurança"
+              subtitle="Essa é a base que garante segurança, estabilidade e confiança no dia a dia da sua empresa — sem você precisar se preocupar com infraestrutura."
               items={[
                 '99,9% de disponibilidade',
+                '+ de 1.600 empresas atendidas',
                 '5 data centers TIER III',
                 'Segurança certificada ISO 27001',
                 'Antispam avançado',
@@ -339,13 +324,16 @@ export const Zimbra = () => {
           </MotionReveal>
 
           <MotionReveal>
-            <S.SubHighlight>
-              <h2>Migração planejada para reduzir impacto na rotina</h2>
+            <S.ValueHighlight>
+              <h2>
+                Você não compra só e-mail — você tem acompanhamento completo
+              </h2>
+              <p>Diferente de serviços comuns, aqui você não fica sozinho.</p>
               <p>
-                Conduzimos o processo com cuidado para preservar histórico,
-                orientar a equipe e evitar paradas desnecessárias.
+                Você recebe acompanhamento desde a implantação até o uso no dia
+                a dia —<strong>sem custo de mão de obra</strong>.
               </p>
-            </S.SubHighlight>
+            </S.ValueHighlight>
           </MotionReveal>
 
           <S.FormArea id="email-contact-form" ref={formRef}>
@@ -356,12 +344,10 @@ export const Zimbra = () => {
                   Veja uma solução mais simples →
                 </Link>
               </S.MeiHelper>
-              <h2>
-                Descubra quanto custa profissionalizar o e-mail da sua empresa
-              </h2>
+              <h2>Vamos organizar o e-mail da sua empresa</h2>
               <p>
-                Em poucos minutos você recebe uma análise com a melhor solução
-                para o seu cenário.
+                Em poucos minutos você recebe uma orientação clara do que
+                precisa ser feito.
               </p>
 
               <FormContactEmail />

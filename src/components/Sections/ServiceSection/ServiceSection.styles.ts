@@ -5,7 +5,7 @@ export const SectionWrapper = styled.section`
   margin: 0 auto;
   background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
   padding: 40px 24px; /* 🔥 resolve lateral */
-
+  user-select: none;
   display: flex;
   flex-direction: column;
   align-items: center;
