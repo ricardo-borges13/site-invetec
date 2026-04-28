@@ -89,8 +89,8 @@ export const ConversionActions = styled.div`
   gap: 1rem;
 
   span {
-    color: #475569;
-    font-size: 0.92rem;
+    color: #64748b;
+    font-size: 0.9rem;
   }
 `;
 
@@ -241,32 +241,6 @@ export const PainCard = styled(Card)`
   }
 `;
 
-export const Highlight = styled.section`
-  background: #caddf3;
-  border: 1px solid #2f353b;
-  border-radius: 16px;
-  padding: 2rem;
-  margin: 3rem 0;
-  text-align: center;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 36px rgba(16, 20, 17, 0.12);
-  }
-
-  h2 {
-    margin-bottom: 1rem;
-  }
-
-  p {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-`;
-
 export const FormArea = styled.section`
   margin-top: 3rem;
   background: linear-gradient(180deg, #d4e5f7 0%, #c7dbf3 100%);
@@ -301,9 +275,22 @@ export const CompareSection = styled.section`
   text-align: center;
 
   h2 {
-    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .vs {
+    background: linear-gradient(135deg, #ef4444, #22c55e);
+    color: white;
+    font-size: 0.8rem;
     font-weight: 700;
-    color: ${({ theme }) => theme.colors.black};
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: 1px;
   }
 
   @media (max-width: 430px) {
@@ -329,10 +316,9 @@ export const CompareCard = styled.div<{ type: 'good' | 'bad' }>`
   text-align: left;
   min-height: 100%;
   transition:
-    transform 0.28s ease,
-    box-shadow 0.28s ease,
-    border-color 0.28s ease;
-
+  transform 0.28s ease,
+  box-shadow 0.28s ease,
+  border-color 0.28s ease;
   background: ${({ type }) => (type === 'good' ? '#ecfdf5' : '#fff7ed')};
 
   border: 1px solid ${({ type }) => (type === 'good' ? '#22c55e' : '#fb923c')};
@@ -354,6 +340,30 @@ export const CompareCard = styled.div<{ type: 'good' | 'bad' }>`
       margin-bottom: 0.5rem;
       line-height: 1.6;
     }
+  }
+
+  .highlight-bad {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #7f1d1d;
+    background: linear-gradient(135deg, #fee2e2, #fff1f2);
+    border: 1px solid rgba(239, 68, 68, 0.12);
+    padding: 8px 14px;
+    border-radius: 999px;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .highlight-good {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #166534;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.12);
+    padding: 8px 14px;
+    border-radius: 999px;
+    margin: 0.5rem 0 1rem;
   }
 `;
 
@@ -417,20 +427,16 @@ export const CloseButton = styled.button`
   position: absolute;
   top: 20px;
   right: 20px;
-
   background: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 50%;
   width: 40px;
   height: 40px;
-
   font-size: 20px;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   transition: 0.2s;
 
   &:hover {
@@ -447,8 +453,8 @@ export const InfoBox = styled.section`
   margin: 2rem 0;
   text-align: center;
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transform 0.3s ease,
+  box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-4px);
@@ -461,20 +467,77 @@ export const InfoBox = styled.section`
   }
 `;
 
+export const HeaderRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px; // menor gap
+  margin-bottom: 1.2rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+`;
+
+export const Logo = styled.img`
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+
+  @media (max-width: 600px) {
+    height: 44px;
+  }
+`;
+
+export const Price = styled.p`
+  font-size: 1rem;
+  margin-top: 1.2rem;
+  color: #1e293b;
+
+  strong {
+    background: #dcfce7;
+    color: #166534;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+  }
+
+  span {
+    color: #64748b;
+    margin-left: 8px;
+    font-size: 0.9rem;
+  }
+`;
+
+export const MeiHelper = styled.div`
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-size: 0.9rem;
+  color: #64748b;
+
+  a {
+    color: ${({ theme }) => theme.colors.primary};
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 4px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+`;
+
 export const ValueHighlight = styled.section`
   position: relative;
-
   background: linear-gradient(135deg, #f8fafc, #eef4ff);
   border: 1px solid #cfe0ff;
   border-radius: 18px;
-
   padding: 2.2rem 2rem;
   margin: 2.5rem 0;
-
   text-align: center;
-
   box-shadow: 0 18px 40px rgba(0, 123, 255, 0.08);
-
   transition: all 0.3s ease;
 
   &:hover {
@@ -495,40 +558,54 @@ export const ValueHighlight = styled.section`
     border-radius: 0 6px 6px 0;
   }
 
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 0;
+    gap: 10px;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+    color: #1e293b;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* 🔥 Ícone estilo SaaS */
+  li::before {
+    content: '✔';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 50%;
+
+    background: #dcfce7; // fundo verde claro
+    color: #16a34a; // check verde
+    font-size: 13px;
+    font-weight: bold;
+
+    margin-top: 2px;
+  }
+
   h2 {
     font-size: clamp(1.4rem, 2vw, 1.8rem);
-    margin-bottom: 0.8rem;
-    color: #0f172a;
+    margin-bottom: 1rem;
+    color: #1e293b;
   }
 
   p {
-    max-width: 720px;
-    margin: 0 auto;
-    line-height: 1.7;
     color: #475569;
-    font-size: 1rem;
-  }
-
-  /* 🔥 Destaque do "sem custo" */
-  strong {
-    background: #d1fae5;
-    color: #065f46;
-    padding: 4px 10px;
-    border-radius: 8px;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-
-  /* 💡 Versão alternativa usando classe */
-  .highlight-free {
-    display: inline-block;
-    background: linear-gradient(135deg, #22c55e, #16a34a);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 10px;
-    font-weight: 700;
-    margin-left: 6px;
-    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
   }
 
   @media (max-width: 768px) {
@@ -545,23 +622,5 @@ export const ValueHighlight = styled.section`
     p {
       font-size: 0.95rem;
     }
-  }
-`;
-
-export const MeiHelper = styled.div`
-  text-align: center;
-  margin-bottom: 1.2rem;
-  font-size: 0.9rem;
-  color: #64748b;
-
-  a {
-    color: ${({ theme }) => theme.colors.primary};
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 4px;
-  }
-
-  a:hover {
-    text-decoration: underline;
   }
 `;

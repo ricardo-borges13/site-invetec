@@ -113,7 +113,6 @@ export const Highlight = styled.section`
     list-style: none; /* remove bolinha padrão */
     padding: 0;
     margin: 0;
-
     display: inline-block; /* centraliza bloco */
     text-align: left; /* alinha texto corretamente */
 
@@ -138,27 +137,8 @@ export const Highlight = styled.section`
 `;
 
 export const SubHighlight = styled.section`
-
   background: #f9fafb;
   border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 2rem;
-  margin: 2rem 0;
-  text-align: center;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 36px rgba(0, 123, 255, 0.08);
-  }
-`;
-
-export const InfoBox = styled.section`
-  background: #eff6ff;
-  border: 1px solid ${({ theme }) => theme.colors.primary};
   border-radius: 16px;
   padding: 2rem;
   margin: 2rem 0;
@@ -360,5 +340,26 @@ export const DomainHighlight = styled.section`
       font-size: 1rem;
       padding: 8px 14px;
     }
+  }
+`;
+
+
+export const Price = styled.p`
+  font-size: 1rem;
+  margin-top: 1.2rem;
+  color: #1e293b;
+
+  strong {
+    background: #dcfce7;
+    color: #166534;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+  }
+
+  span {
+    color: #64748b;
+    margin-left: 8px;
+    font-size: 0.9rem;
   }
 `;

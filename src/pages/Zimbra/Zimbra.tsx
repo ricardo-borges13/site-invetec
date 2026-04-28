@@ -1,4 +1,5 @@
-﻿import heroImage from '@/assets/images/PagesHero-Email.jpg';
+﻿import logoInvetecMail from '@/assets/images/INVETEC-Mail-site.png';
+import heroImage from '@/assets/images/PagesHero-Email.jpg';
 import imageZimbraFull from '@/assets/images/Zimbra-Full.jpg'; // pesada (~200kb+)
 import imageZimbra from '@/assets/images/Zimbra-Leve.jpg'; // leve (~60–100kb)
 import { CustomButton } from '@/components/CustomButton/CustomButton';
@@ -101,56 +102,57 @@ export const Zimbra = () => {
           </S.Section>
 
           <S.ConversionIntro>
-            <MotionReveal delay={0.05}>
-              <S.ConversionIntroContent>
-                <S.Eyebrow>E-mail corporativo com migração assistida</S.Eyebrow>
-                <h2>
-                  Profissionalize o e-mail da sua empresa sem parar a operação
-                </h2>
-                <p>
-                  Você não precisa trocar tudo de uma vez ou correr riscos.
-                  Cuidamos da migração e organização do seu e-mail com
-                  acompanhamento técnico do início ao funcionamento, sem
-                  interromper a rotina da empresa.
-                </p>
-                <p>
-                  Assim, sua empresa ganha mais controle, organização e
-                  segurança na comunicação do dia a dia.
-                </p>
+            <S.ConversionIntroContent>
+              <S.HeaderRow>
+                <S.Logo src={logoInvetecMail} alt="Invetec Mail" />
+                <S.Eyebrow>E-mail corporativo profissional</S.Eyebrow>
+              </S.HeaderRow>
+              <h2>
+                Você não contrata só e-mail —<br />
+                organiza a comunicação da sua empresa
+              </h2>
 
-                <S.ConversionList>
-                  <li>
-                    Diagnóstico do ambiente atual e recomendação do melhor
-                    formato
-                  </li>
-                  <li>
-                    Migração planejada para preservar histórico, contatos e
-                    continuidade
-                  </li>
-                  <li>
-                    Acesso por navegador, celular e Outlook quando fizer sentido
-                  </li>
-                </S.ConversionList>
+              <p>
+                Antes de implementar, entendemos como sua empresa trabalha e
+                configuramos o e-mail da forma correta, utilizando todos os
+                recursos para melhorar a organização e os processos internos.
+              </p>
 
-                <S.ConversionActions>
-                  <CustomButton variant="cta" onClick={scrollToForm}>
-                    Quero melhorar o e-mail da minha empresa
-                  </CustomButton>
-                  <span>
-                    Análise consultiva para empresas que querem sair do
-                    improviso
-                  </span>
-                </S.ConversionActions>
-              </S.ConversionIntroContent>
-            </MotionReveal>
+              <p>
+                Implantação, suporte e acompanhamento já estão inclusos — você
+                não fica sozinho.
+              </p>
+
+              <S.ConversionList>
+                <li>Implantação completa e configuração personalizada</li>
+                <li>Organização de e-mails, pastas e usuários</li>
+                <li>Agenda e recursos compartilhados entre equipes</li>
+                <li>Suporte direto e acompanhamento no dia a dia</li>
+              </S.ConversionList>
+
+              <S.ConversionActions>
+                <S.Price>
+                  Planos a partir de <strong>R$ 14,90</strong> por usuário
+                  <span>* Implantação e suporte já inclusos</span>
+                </S.Price>
+                <CustomButton variant="cta" onClick={scrollToForm}>
+                  Quero organizar o e-mail da minha empresa
+                </CustomButton>
+                <span>Resposta rápida • Sem compromisso</span>{' '}
+              </S.ConversionActions>
+            </S.ConversionIntroContent>
           </S.ConversionIntro>
 
           <S.CompareSection>
             <MotionReveal>
-              <h2>E-mail básico vs corporativo (Zimbra)</h2>
+              <h2>
+                E-mail básico
+                <span className="vs">VS</span>
+                E-mail corporativo profissional (Zimbra)
+              </h2>
               <p>
-                Uma estrutura profissional com tecnologia Zimbra pensada para
-                empresas.
+                Uma estrutura profissional com tecnologia Zimbra e suporte
+                INVETEC.
               </p>
               <p>
                 A maioria das empresas usa e-mail simples sem perceber os
@@ -160,11 +162,25 @@ export const Zimbra = () => {
                 <MotionReveal direction="left" delay={0.08}>
                   <S.CompareCard type="bad">
                     <h3>❌ E-mail comum de hospedagem</h3>
+                    <p className="highlight-bad">
+                      <strong>
+                        Funciona… mas não acompanha o crescimento da empresa
+                      </strong>
+                    </p>
                     <ul>
-                      <li>Focado apenas em enviar e receber mensagens</li>
-                      <li>Poucos recursos para organização e colaboração</li>
-                      <li>Maior dependência de configurações locais</li>
-                      <li>Baixo controle administrativo e de segurança</li>
+                      <li>
+                        Interface Web simples e limitada (serve só para enviar e
+                        receber)
+                      </li>
+                      <li>Falta de organização entre usuários e equipes </li>
+                      <li>
+                        Pouco controle sobre acessos, permissões e segurança
+                      </li>
+                      <li>Dificuldade para padronizar o uso na empresa </li>
+                      <li>Perda de tempo com e-mails desorganizados </li>
+                      <li>
+                        Informações importantes se perdem no meio dos e-mails
+                      </li>
                     </ul>
                   </S.CompareCard>
                 </MotionReveal>
@@ -172,17 +188,22 @@ export const Zimbra = () => {
                 <MotionReveal direction="right" delay={0.14}>
                   <S.CompareCard type="good">
                     <h3>✅ E-mail corporativo com a INVETEC Mail</h3>
+                    <p className="highlight-good">
+                      Mais controle, organização e ganho real de produtividade
+                    </p>
                     <ul>
+                      <li>Equipes mais organizadas e comunicação sem ruído</li>
                       <li>
-                        Comunicação organizada por usuário, equipe e processo
+                        Acesso de qualquer lugar (web, celular ou computador)
                       </li>
                       <li>
-                        Acesso web, mobile e desktop com mais flexibilidade
+                        Gestão centralizada de contas, permissões e segurança
                       </li>
                       <li>
-                        Gestão centralizada de contas, políticas e acessos
+                        Recursos compartilhados que aumentam a produtividade
                       </li>
-                      <li>Recursos compartilhados para ganhar produtividade</li>
+                      <li>Estrutura pronta para crescer junto com a empresa</li>
+                      <li>Suporte humano - não é atendimento robotizado </li>
                     </ul>
                   </S.CompareCard>
                 </MotionReveal>
@@ -190,7 +211,7 @@ export const Zimbra = () => {
             </MotionReveal>
           </S.CompareSection>
 
-           <S.SystemSection>
+          <S.SystemSection>
             <MotionReveal>
               <h2>
                 Veja como funciona o <span>INVETEC Mail</span> na prática
@@ -298,11 +319,13 @@ export const Zimbra = () => {
             <S.InfoBox>
               <h2>Uma estrutura corporativa com suporte próximo</h2>
               <p>
-                Sua empresa pode contar com uma estrutura robusta de e-mail corporativo, com suporte próximo e acompanhamento técnico — sem depender de soluções genéricas ou caras demais para sua realidade.
+                Sua empresa pode contar com uma estrutura robusta de e-mail
+                corporativo, com suporte próximo e acompanhamento técnico — sem
+                depender de soluções genéricas ou caras demais para sua
+                realidade.
               </p>
             </S.InfoBox>
           </MotionReveal>
-
 
           <MotionReveal>
             <CTASection
@@ -326,13 +349,42 @@ export const Zimbra = () => {
           <MotionReveal>
             <S.ValueHighlight>
               <h2>
-                Você não compra só e-mail — você tem acompanhamento completo
+                Não é só e-mail — antes de contratar, entendemos o seu processo
               </h2>
-              <p>Diferente de serviços comuns, aqui você não fica sozinho.</p>
+
               <p>
-                Você recebe acompanhamento desde a implantação até o uso no dia
-                a dia —<strong>sem custo de mão de obra</strong>.
+                Cada empresa usa e-mail de um jeito. Por isso, não fazemos
+                configuração padrão.
               </p>
+
+              <p>
+                Antes de criar qualquer conta, analisamos como sua empresa
+                trabalha e estruturamos o ambiente para melhorar a comunicação,
+                o controle e a rotina da equipe.
+              </p>
+
+              <p>
+                <strong>Na prática, isso significa:</strong>
+              </p>
+
+              <ul>
+                <li>
+                  Estudamos como sua empresa utiliza o e-mail no dia a dia
+                </li>
+                <li>
+                  Configuramos tudo conforme sua realidade (acesso remoto ou
+                  local)
+                </li>
+                <li> Organizamos usuários, pastas e fluxos de comunicação</li>
+                <li>
+                  Implantamos padrões para evitar bagunça e perda de informação
+                </li>
+                <li>
+                  {' '}
+                  Suporte humano, próximo e contínuo — não é atendimento
+                  automático
+                </li>
+              </ul>
             </S.ValueHighlight>
           </MotionReveal>
 
