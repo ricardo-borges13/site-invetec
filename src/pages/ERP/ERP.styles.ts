@@ -4,7 +4,6 @@ export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 1px 20px;
-  user-select: none;
 `;
 
 export const Section = styled.section`
@@ -12,7 +11,7 @@ export const Section = styled.section`
   text-align: center;
 
   h2 {
-       color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.black};
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -25,11 +24,11 @@ export const Section = styled.section`
     color: #555;
   }
 
-   button {
+  button {
     margin-top: 20px;
   }
 
-     /* Mobile */
+  /* Mobile */
   @media (max-width: 430px) {
     h2 {
       font-size: 1.5rem;
@@ -54,9 +53,7 @@ export const Grid = styled.div`
 
 export const Card = styled.div<{ $highlight?: boolean }>`
   background: ${({ $highlight }) =>
-    $highlight
-      ? 'linear-gradient(180deg, #f0f7ff, #ffffff)'
-      : '#f9fdf9'};
+    $highlight ? 'linear-gradient(180deg, #f0f7ff, #ffffff)' : '#f9fdf9'};
 
   border-radius: 16px;
   padding: 30px;
@@ -66,8 +63,7 @@ export const Card = styled.div<{ $highlight?: boolean }>`
   border: ${({ $highlight }) =>
     $highlight ? '2px solid #2563eb' : '1px solid #e5e7eb'};
 
-  transform: ${({ $highlight }) =>
-    $highlight ? 'scale(1.03)' : 'scale(1)'};
+  transform: ${({ $highlight }) => ($highlight ? 'scale(1.03)' : 'scale(1)')};
 
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
@@ -85,8 +81,8 @@ export const Card = styled.div<{ $highlight?: boolean }>`
   }
 
   &:hover h3 {
-  color: ${({ theme }) => theme.colors.primary};
-}
+    color: ${({ theme }) => theme.colors.primary};
+  }
 
   ul {
     list-style: none;
@@ -114,8 +110,6 @@ export const Price = styled.p`
   font-size: 1.1rem;
 `;
 
-
-
 /* 📋 FORMULÁRIO */
 export const FormArea = styled.section`
   margin-top: 3rem;
@@ -123,7 +117,7 @@ export const FormArea = styled.section`
   border-radius: 16px;
   padding: 2.5rem;
   text-align: center;
-  border: 2px solid rgba(0,0,0,0.05);
+  border: 2px solid rgba(0, 0, 0, 0.05);
 
   h2 {
     margin-bottom: 1.5rem;
@@ -135,12 +129,11 @@ export const FormArea = styled.section`
     margin: 0 auto;
   }
 
-      @media (max-width: 768px) {
+  @media (max-width: 768px) {
     padding: 1rem; /* 🔥 reduz MUITO o lateral */
   }
 
-    @media (max-width: 500px) {
+  @media (max-width: 500px) {
     padding: 0.5rem; /* 🔥 reduz MUITO o lateral */
   }
 `;
-

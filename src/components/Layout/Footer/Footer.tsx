@@ -36,7 +36,7 @@ export const Footer = ({ phone, email }: ContactInfo) => {
     <S.Container>
       <S.Content>
         {/* Empresa */}
-        <S.Section>
+        <S.SectionLogo>
           <S.LogoImage src={logo} alt="Invetec" />
 
           <S.Text>
@@ -47,7 +47,7 @@ export const Footer = ({ phone, email }: ContactInfo) => {
             Soluções em ERP, infraestrutura, e-commerce e presença digital para
             estruturar e fazer seu negócio crescer.
           </S.Text>
-        </S.Section>
+        </S.SectionLogo>
 
         {/* Links Rápidos */}
         <S.Section>

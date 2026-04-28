@@ -1,6 +1,6 @@
+import BLING from '@/assets/images/BLING.jpg';
 import MOOVIN from '@/assets/images/moovin.jpg';
 import PENSO from '@/assets/images/PENSO.jpg';
-import BLING from '@/assets/images/BLING.jpg';
 import W3ERP from '@/assets/images/w3erp.jpg';
 import * as S from './BusinessPartner.styles';
 

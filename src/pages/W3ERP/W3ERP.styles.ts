@@ -4,7 +4,6 @@ export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 0.1rem 1.5rem 4rem;
-  user-select: none;
 `;
 
 /* 🔹 SECTIONS PADRÃO */
@@ -53,7 +52,7 @@ export const Section = styled.section`
     }
   }
 
-    @media (max-width: 430px) {
+  @media (max-width: 430px) {
     h2 {
       font-size: 1.5rem;
     }
@@ -92,7 +91,7 @@ export const FormArea = styled.section`
   border-radius: 16px;
   padding: 2.5rem;
   text-align: center;
-  border: 2px solid rgba(0,0,0,0.05);
+  border: 2px solid rgba(0, 0, 0, 0.05);
 
   margin-bottom: 3rem;
   text-align: center;
@@ -107,18 +106,18 @@ export const FormArea = styled.section`
     margin: 0 auto;
   }
 
-      @media (max-width: 768px) {
+  @media (max-width: 768px) {
     padding: 1rem; /* 🔥 reduz MUITO o lateral */
   }
 
-    @media (max-width: 500px) {
+  @media (max-width: 500px) {
     padding: 0.5rem; /* 🔥 reduz MUITO o lateral */
   }
 `;
 
 export const Grid = styled.div`
   display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
   align-items: stretch;
 
@@ -149,11 +148,11 @@ export const Card = styled.div`
     line-height: 1.2;
     font-size: 1.4rem;
 
-  word-break: break-word;       // 🔥 quebra palavras grandes
-  overflow-wrap: break-word;    // 🔥 fallback moderno
-  hyphens: auto;                // 🔥 melhora quebra (quando possível)
+    word-break: break-word; // 🔥 quebra palavras grandes
+    overflow-wrap: break-word; // 🔥 fallback moderno
+    hyphens: auto; // 🔥 melhora quebra (quando possível)
 
-  text-align: center;
+    text-align: center;
   }
 
   p {
@@ -169,7 +168,7 @@ export const Warning = styled.section`
   padding: 2rem;
   margin: 3rem 0;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
   h2 {
     color: #ea580c;
@@ -182,7 +181,6 @@ export const Warning = styled.section`
     line-height: 1.6;
   }
 `;
-
 
 export const Case = styled.section`
   background: #f0f7ff;
@@ -210,7 +208,6 @@ export const ButtonGroup = styled.div`
   gap: 12px;
   flex-wrap: wrap;
 `;
-
 
 export const VideoWrapper = styled.div`
   margin-top: 2rem;

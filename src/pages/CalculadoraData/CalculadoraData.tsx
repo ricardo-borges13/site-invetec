@@ -129,7 +129,9 @@ export const CalculadoraData = () => {
         </S.BackLink>
         <S.Container>
           <S.InfoBox>
-            <h2>Como calcular datas futuras online de forma simples e rápida</h2>
+            <h2>
+              Como calcular datas futuras online de forma simples e rápida
+            </h2>
             <p>
               Utilize nossa calculadora de datas online para somar dias a uma
               data inicial e descobrir prazos futuros com precisão. Ideal para
@@ -167,6 +169,8 @@ export const CalculadoraData = () => {
               </S.ResultCard>
             </S.FormSection>
           </MotionReveal>
+
+          <S.Divider />
 
           <S.Accordion>
             <S.Item>

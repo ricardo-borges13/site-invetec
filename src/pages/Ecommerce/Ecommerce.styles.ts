@@ -4,7 +4,6 @@ export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 60px 20px;
-  user-select: none;
 `;
 
 export const Section = styled.section`
@@ -12,7 +11,7 @@ export const Section = styled.section`
   text-align: center;
 
   h2 {
-     color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.black};
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -25,8 +24,7 @@ export const Section = styled.section`
     text-align: left;
   }
 
-
-    /* Mobile */
+  /* Mobile */
   @media (max-width: 430px) {
     h2 {
       font-size: 1.5rem;
@@ -39,16 +37,15 @@ export const Grid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 
+  grid-template-columns: repeat(3, 1fr);
 
- grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-@media (max-width: 900px) {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-@media (max-width: 600px) {
-  grid-template-columns: 1fr;
-}
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Card = styled.div`
@@ -61,7 +58,7 @@ export const Card = styled.div`
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   }
 
   h3 {
@@ -75,7 +72,7 @@ export const Card = styled.div`
 
 export const Highlight = styled.div`
   background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   padding: 40px;
   border-radius: 16px;
   text-align: center;
@@ -181,25 +178,23 @@ export const CarouselWrapper = styled.div`
   }
 
   .carousel-control-prev,
-.carousel-control-next {
-  width: 60px;
-  opacity: 1;
-}
+  .carousel-control-next {
+    width: 60px;
+    opacity: 1;
+  }
 
-.carousel-indicators [data-bs-target] {
-  background-color: #000; /* 🔥 cor visível */
-  opacity: 0.5;
-  height: 4px;
-  width: 30px;
-  border-radius: 4px;
-}
+  .carousel-indicators [data-bs-target] {
+    background-color: #000; /* 🔥 cor visível */
+    opacity: 0.5;
+    height: 4px;
+    width: 30px;
+    border-radius: 4px;
+  }
 
-.carousel-indicators .active {
-  opacity: 1;
-  background-color: ${({ theme }) => theme.colors.primary};
-}
-
-
+  .carousel-indicators .active {
+    opacity: 1;
+    background-color: ${({ theme }) => theme.colors.primary};
+  }
 
   @media (max-width: 768px) {
     .carousel-img {

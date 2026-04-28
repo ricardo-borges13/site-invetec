@@ -3,15 +3,12 @@ import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
-import { FiThumbsUp, FiZap, FiDollarSign } from 'react-icons/fi';
+import { FiDollarSign, FiThumbsUp, FiZap } from 'react-icons/fi';
 import * as S from './Bling.styles';
 
 export const Bling = () => {
   const handleStart = () => {
-    window.open(
-      'https://www.bling.com.br/planos-e-precos/INVETEC',
-      '_blank'
-    );
+    window.open('https://www.bling.com.br/planos-e-precos/INVETEC', '_blank');
   };
 
   const handleHelp = () => {
@@ -39,14 +36,17 @@ export const Bling = () => {
         image={heroImage}
       >
         <S.Container>
-
           {/* 🔥 INTRO */}
           <S.Section>
             <MotionReveal>
-              <h2>O sistema ideal para quem quer profissionalizar a empresa de verdade</h2>
+              <h2>
+                O sistema ideal para quem quer profissionalizar a empresa de
+                verdade
+              </h2>
               <p>
-                O <strong>Bling</strong> é um ERP completo e acessível, ideal para empresas que precisam
-                organizar processos, emitir notas fiscais e ter controle real do negócio sem complicação.
+                O <strong>Bling</strong> é um ERP completo e acessível, ideal
+                para empresas que precisam organizar processos, emitir notas
+                fiscais e ter controle real do negócio sem complicação.
               </p>
             </MotionReveal>
           </S.Section>
@@ -56,27 +56,36 @@ export const Bling = () => {
             <S.Grid>
               <MotionReveal>
                 <S.Card>
-                  <h3><FiThumbsUp /> Fácil de usar</h3>
+                  <h3>
+                    <FiThumbsUp /> Fácil de usar
+                  </h3>
                   <p>
-                    Interface intuitiva para você controlar sua empresa sem depender de conhecimento técnico.
+                    Interface intuitiva para você controlar sua empresa sem
+                    depender de conhecimento técnico.
                   </p>
                 </S.Card>
               </MotionReveal>
 
               <MotionReveal delay={0.1}>
                 <S.Card>
-                  <h3><FiZap /> Comece rápido</h3>
+                  <h3>
+                    <FiZap /> Comece rápido
+                  </h3>
                   <p>
-                    Crie sua conta e comece a usar em poucos minutos com estrutura pronta.
+                    Crie sua conta e comece a usar em poucos minutos com
+                    estrutura pronta.
                   </p>
                 </S.Card>
               </MotionReveal>
 
               <MotionReveal delay={0.2}>
                 <S.Card>
-                  <h3><FiDollarSign /> Excelente custo-benefício</h3>
+                  <h3>
+                    <FiDollarSign /> Excelente custo-benefício
+                  </h3>
                   <p>
-                    Mais recursos por um custo acessível, ideal para pequenas e médias empresas.
+                    Mais recursos por um custo acessível, ideal para pequenas e
+                    médias empresas.
                   </p>
                 </S.Card>
               </MotionReveal>
@@ -89,8 +98,8 @@ export const Bling = () => {
               <h2>Comece sozinho ou com acompanhamento desde o início</h2>
 
               <p>
-                Você pode criar sua conta e começar sozinho.
-                Mas se quiser fazer da forma certa desde o início, eu te ajudo na configuração.
+                Você pode criar sua conta e começar sozinho. Mas se quiser fazer
+                da forma certa desde o início, eu te ajudo na configuração.
               </p>
 
               <ul>
@@ -125,7 +134,6 @@ export const Bling = () => {
               </CustomButton>
             </MotionReveal>
           </S.CTA>
-
         </S.Container>
       </PageHeroSection>
     </>

@@ -4,7 +4,6 @@ export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
-  user-select: none;
 `;
 
 export const Section = styled.section`
@@ -35,7 +34,7 @@ export const Section = styled.section`
     }
   }
 
-    @media (max-width: 430px) {
+  @media (max-width: 430px) {
     h2 {
       font-size: 1.5rem;
     }

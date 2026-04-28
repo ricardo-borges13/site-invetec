@@ -63,7 +63,9 @@ export const SuporteTI = () => {
           {/* 🟢 SOLUÇÃO */}
           <S.Highlight>
             <MotionReveal>
-              <h2>Mais do que suporte: uma estrutura de TI organizada e previsível</h2>
+              <h2>
+                Mais do que suporte: uma estrutura de TI organizada e previsível
+              </h2>
 
               <p>O objetivo não é apenas resolver problemas.</p>
 
@@ -113,7 +115,10 @@ export const SuporteTI = () => {
               <S.Grid>
                 <S.Card>
                   <h3>🖥️ Servidores</h3>
-                  <p>Ambiente organizado e estável para sua operação funcionar sem falhas</p>
+                  <p>
+                    Ambiente organizado e estável para sua operação funcionar
+                    sem falhas
+                  </p>
                 </S.Card>
 
                 <S.Card>
@@ -123,7 +128,9 @@ export const SuporteTI = () => {
 
                 <S.Card>
                   <h3>🔐 Segurança</h3>
-                  <p>Proteção contra acessos indevidos e riscos para o negócio</p>
+                  <p>
+                    Proteção contra acessos indevidos e riscos para o negócio
+                  </p>
                 </S.Card>
 
                 <S.Card>

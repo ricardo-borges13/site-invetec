@@ -8,7 +8,6 @@ export const Container = styled.section`
   padding: 5rem 8%;
   max-width: ${({ theme }) => theme.breakpoints.largeDesktop};
   margin: 3rem auto;
-  user-select: none;
   border-radius: 20px;
 
   background:

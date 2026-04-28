@@ -24,9 +24,9 @@ export const FormContainer = styled.div`
     caret-color: transparent;
   }
 
-  p{
+  p {
     color: #6b7280;
-    font-Size: 0.85rem;
+    font-size: 0.85rem;
     margin-bottom: 20px;
     opacity: 0.7;
   }
@@ -47,8 +47,8 @@ export const Input = styled.input`
   padding: 0.8rem;
   border: none;
   border-radius: 8px;
-    font-size: 0.95rem;
-    border: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+  border: 1px solid #e5e7eb;
 
   &:focus {
     outline: none;

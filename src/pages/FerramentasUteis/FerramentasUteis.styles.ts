@@ -4,7 +4,6 @@ export const Container = styled.div`
   max-width: ${({ theme }) => theme.breakpoints.largeDesktop};
   margin: 0 auto;
   padding: 0 ${({ theme }) => theme.spacing.medium};
-  user-select: none;
 `;
 
 export const Section = styled.section`
@@ -38,6 +37,7 @@ export const Grid = styled.div`
   padding: 25px;
   border-radius: 20px;
   margin-bottom: 60px;
+  user-select: none;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;

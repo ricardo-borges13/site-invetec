@@ -49,10 +49,10 @@ export const Home = () => {
     navigate('/contato');
   }, [navigate]);
 
- const handleInvetecMailClick = useCallback(() => {
-  navigate('/servicos/invetec-mail');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}, [navigate]);
+  const handleInvetecMailClick = useCallback(() => {
+    navigate('/servicos/invetec-mail');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [navigate]);
 
   return (
     <>
@@ -72,7 +72,7 @@ export const Home = () => {
           secondaryButtonText="Fale com um especialista"
           onPrimaryClick={handlePrimaryClick} // Use memoized handler
           onSecondaryClick={handleSecondaryClick} // Use memoized handler
-          onHighlightClick={handleInvetecMailClick }
+          onHighlightClick={handleInvetecMailClick}
         />
 
         <SectionInfo {...sobreData} />

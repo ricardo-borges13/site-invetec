@@ -40,7 +40,8 @@ export const Nav = styled.nav`
     align-items: flex-start;
     gap: 1.2rem;
     background-color: ${({ theme }) => theme.colors.primary};
-    padding: ${({ theme }) => theme.spacing.medium} ${({ theme }) => theme.spacing.medium};
+    padding: ${({ theme }) => theme.spacing.medium}
+      ${({ theme }) => theme.spacing.medium};
     color: ${({ theme }) => theme.colors.white};
     width: 100%;
   }
@@ -59,7 +60,7 @@ export const MenuItem = styled.div`
   display: inline-block;
   padding-bottom: 10px;
 
-   &:hover > a::before {
+  &:hover > a::before {
     width: 100%;
   }
 
@@ -159,7 +160,6 @@ export const Submenu = styled.ul<{ $isOpen?: boolean }>`
 export const SubmenuItem = styled.li`
   padding: 0;
 
-
   a {
     display: block;
     padding: 12px 20px;
@@ -169,7 +169,10 @@ export const SubmenuItem = styled.li`
 
     font-weight: 600;
 
-    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
 
     position: relative;
 
@@ -179,7 +182,6 @@ export const SubmenuItem = styled.li`
     &:hover {
       background: #eff6ff;
       color: ${({ theme }) => theme.colors.primary};
-
     }
 
     /* 🔥 BARRA LATERAL (UX TOP) */

@@ -4,7 +4,6 @@ export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
-  user-select: none;
 `;
 
 export const Section = styled.section`
@@ -40,7 +39,7 @@ export const Section = styled.section`
     }
   }
 
-    /* Mobile */
+  /* Mobile */
   @media (max-width: 430px) {
     h2 {
       font-size: 1.5rem;
@@ -166,17 +165,17 @@ export const Form = styled.form`
 `;
 
 export const QuestionBox = styled.div`
-background: #f8fafc;
-border-left: 5px solid #2563eb;
-padding: 2rem;
-border-radius: 8px;
-max-width: 700px;
-margin: 0 auto 2rem;
-margin-bottom: 1.5rem;
+  background: #f8fafc;
+  border-left: 5px solid #2563eb;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  margin-bottom: 1.5rem;
 
-span {
-  color: #ef4444;
-  font-weight: 700;
-  font-size: 1.3rem;
-}
-`
+  span {
+    color: #ef4444;
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+`;

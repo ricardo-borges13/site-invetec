@@ -4,7 +4,6 @@ export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 60px 20px;
-  user-select: none;
 `;
 
 export const Section = styled.section`
@@ -12,7 +11,7 @@ export const Section = styled.section`
   text-align: center;
 
   h2 {
-     color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.black};
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -36,7 +35,7 @@ export const Grid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
 
-  h3{
+  h3 {
     font-size: 1.5rem;
   }
 
@@ -53,20 +52,19 @@ export const Card = styled.div`
   background: #f8fafc;
   padding: 24px;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
-   border: 1px solid ${({ theme }) => theme.colors.primary}20;
+  border: 1px solid ${({ theme }) => theme.colors.primary}20;
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 35px rgba(0,0,0,0.08);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
     border-color: ${({ theme }) => theme.colors.primary};
   }
 
   h3 {
     margin-bottom: 10px;
   }
-
 
   p {
     font-size: 0.95rem;

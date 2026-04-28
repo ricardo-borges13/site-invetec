@@ -1,8 +1,8 @@
-import { SEO } from "@/components/SEO/Seo";
-import { Container, Content, Title, Subtitle, Button } from "./NotFound.styles";
-import { useNavigate } from "react-router-dom";
+import { SEO } from '@/components/SEO/Seo';
+import { useNavigate } from 'react-router-dom';
+import { Button, Container, Content, Subtitle, Title } from './NotFound.styles';
 
-export  const NotFound = () => {
+export const NotFound = () => {
   const navigate = useNavigate();
 
   return (
@@ -16,22 +16,18 @@ export  const NotFound = () => {
         nofollow={true} // 🔹 Impede o Google de seguir links desta página
       />
 
-    <Container>
-      <Content>
-        <Title>404</Title>
-        <Subtitle>Página não encontrada</Subtitle>
+      <Container>
+        <Content>
+          <Title>404</Title>
+          <Subtitle>Página não encontrada</Subtitle>
 
-        <p>
-          O conteúdo que você está tentando acessar não existe ou foi movido.
-        </p>
+          <p>
+            O conteúdo que você está tentando acessar não existe ou foi movido.
+          </p>
 
-        <Button onClick={() => navigate("/")}>
-          Voltar para o início
-        </Button>
-      </Content>
-    </Container>
+          <Button onClick={() => navigate('/')}>Voltar para o início</Button>
+        </Content>
+      </Container>
     </>
   );
-}
-
-
+};

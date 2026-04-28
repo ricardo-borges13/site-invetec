@@ -30,17 +30,17 @@ export const CTASection = ({
           {subtitle && <h4>{subtitle}</h4>}
 
           {items && (
-  <S.ListWrapper>
-    <S.List>
-      {items.map((item, index) => (
-        <S.ListItem key={index}>
-          <span>✔</span>
-          {item}
-        </S.ListItem>
-      ))}
-    </S.List>
-  </S.ListWrapper>
-)}
+            <S.ListWrapper>
+              <S.List>
+                {items.map((item, index) => (
+                  <S.ListItem key={index}>
+                    <span>✔</span>
+                    {item}
+                  </S.ListItem>
+                ))}
+              </S.List>
+            </S.ListWrapper>
+          )}
 
           {buttonText && (
             <CustomButton

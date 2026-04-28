@@ -4,7 +4,7 @@ export const FormContainer = styled.div`
   background: linear-gradient(180deg, #f8fafc, #eef2f7);
   padding: 30px;
   border-radius: 16px;
-   box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
   border: 1px solid #e5e7eb;
 
   form {
@@ -64,7 +64,7 @@ export const Select = styled.select`
 `;
 
 export const TextArea = styled.textarea`
-width: 100%;
+  width: 100%;
   padding: 0.7rem;
   border-radius: 8px;
   border: 1px solid #e5e7eb;

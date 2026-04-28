@@ -4,7 +4,6 @@ export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
-  user-select: none;
 `;
 
 export const Section = styled.section`
@@ -29,7 +28,7 @@ export const Section = styled.section`
     }
   }
 
-   @media (max-width: 430px) {
+  @media (max-width: 430px) {
     h2 {
       font-size: 1.5rem;
     }
@@ -41,11 +40,11 @@ export const Grid = styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 
-@media (max-width: 1024px) {
-  grid-template-columns: repeat(2, 1fr);
-}
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
- @media (max-width: 768px) {
+  @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 12px;
   }
@@ -122,7 +121,7 @@ export const Highlight = styled.section`
       padding-left: 22px;
 
       &::before {
-        content: "✔";
+        content: '✔';
         position: absolute;
         left: 0;
         color: ${({ theme }) => theme.colors.ctaGreen};
@@ -160,11 +159,11 @@ export const FormArea = styled.section`
   padding: 2.5rem;
   text-align: center;
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     padding: 1rem; /* 🔥 reduz MUITO o lateral */
   }
 
-    @media (max-width: 500px) {
+  @media (max-width: 500px) {
     padding: 0.5rem; /* 🔥 reduz MUITO o lateral */
   }
 `;
@@ -183,7 +182,6 @@ export const SystemSection = styled.section`
     margin: 0 auto 2rem;
   }
 `;
-
 
 export const ValueHighlight = styled.section`
   position: relative;
@@ -342,7 +340,6 @@ export const DomainHighlight = styled.section`
     }
   }
 `;
-
 
 export const Price = styled.p`
   font-size: 1rem;

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   max-width: 600px;
@@ -41,22 +41,15 @@ export const Field = styled.div`
 `;
 export const Button = styled.button`
   margin-top: 10px;
-
   width: 100%;
-
   padding: 14px;
-
   background: linear-gradient(135deg, #1677ff, #0b5ed7);
   color: white;
-
   border: none;
   border-radius: 12px;
-
   font-weight: 600;
   font-size: 1rem;
-
   cursor: pointer;
-
   transition: 0.2s;
 
   &:hover {
@@ -88,9 +81,8 @@ export const CopyButton = styled.button`
   }
 `;
 
-
 export const InfoBox = styled.div`
-  max-width: 700px;;
+  max-width: 700px;
   text-align: center;
 
   h2 {
@@ -110,14 +102,15 @@ export const Divider = styled.hr`
   margin: 3rem auto;
   width: 80%;
   border-radius: 2px;
+  user-select: none;
 `;
 
 export const Accordion = styled.div`
   max-width: 700px;
   margin: 40px auto 0;
   margin-bottom: 60px;
+  user-select: none;
 `;
-
 
 export const Item = styled.div`
   border: 1px solid #e5e7eb;
@@ -149,25 +142,21 @@ export const Header = styled.h5`
 `;
 
 export const FormSection = styled.section`
-position: relative;
-top: -20px;
- gap: 20px;
+  position: relative;
+  top: -20px;
+  gap: 20px;
   background: linear-gradient(180deg, #f0f7ff 0%, #e6f0ff 100%);
   border: 1px solid #cfe2ff;
-
   border-radius: 20px;
-
   max-width: 760px;
   margin: 50px auto;
-
   padding: 32px 28px;
-
   box-shadow: 0 20px 40px rgba(13, 110, 253, 0.08);
 
   h3 {
-  margin-bottom: 10px;
-  color: #0b3c7c;
-}
+    margin-bottom: 10px;
+    color: #0b3c7c;
+  }
 
   @media (max-width: 768px) {
     padding: 22px 18px;
@@ -176,9 +165,10 @@ top: -20px;
 `;
 
 export const TitleForm = styled.div`
-display: flex;
-justify-content: center;
-`
+  display: flex;
+  justify-content: center;
+  user-select: none;
+`;
 
 export const divValor = styled.div`
   display: flex;
@@ -188,17 +178,17 @@ export const divValor = styled.div`
   margin-top: 25px;
 
   /* Remove as setas em navegadores baseados em WebKit (Chrome, Safari, Edge) */
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
   /* Remove as setas no Firefox */
-  input[type="number"] {
+  input[type='number'] {
     -moz-appearance: textfield;
   }
-`
+`;
 
 export const RadioGroup = styled.div`
   display: flex;
@@ -213,7 +203,6 @@ export const RadioGroup = styled.div`
   }
 `;
 
-
 export const UsageBox = styled.div`
   margin-top: 25px;
 
@@ -223,7 +212,7 @@ export const UsageBox = styled.div`
   border: 1px solid #e2e8f0;
   border-radius: 14px;
 
-  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
 
   display: flex;
   flex-direction: column;
@@ -248,7 +237,6 @@ export const ResultCard = styled.div`
   gap: 10px;
 `;
 
-
 export const ResultPeriod = styled.p`
   font-size: 1.4rem;
   color: #64748b;
@@ -263,7 +251,7 @@ export const ResultValue = styled.h2`
   font-size: 2.6rem;
   font-weight: 800;
   color: #0b5ed7;
-text-shadow: 0 2px 10px rgba(11, 94, 215, 0.15);
+  text-shadow: 0 2px 10px rgba(11, 94, 215, 0.15);
 
   background: linear-gradient(135deg, #1677ff, #10b981);
   -webkit-background-clip: text;
@@ -316,6 +304,7 @@ export const Highlight = styled.section`
     font-weight: bold;
     text-decoration: none;
     margin-top: 20px;
+    user-select: none;
   }
 
   a:hover {

@@ -9,7 +9,7 @@ export const CardContainer = styled.div<{ $clickable?: boolean }>`
   min-height: 220px;
   height: 100%; /* 🔥 importante */
   text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 
   display: flex; /* 🔥 */
@@ -17,11 +17,10 @@ export const CardContainer = styled.div<{ $clickable?: boolean }>`
   justify-content: space-between; /* 🔥 */
 
   &:hover {
-    transform: ${({ $clickable }) => ($clickable ? 'translateY(-6px)' : 'none')};
+    transform: ${({ $clickable }) =>
+      $clickable ? 'translateY(-6px)' : 'none'};
     box-shadow: ${({ theme }) => theme.shadows.medium};
   }
-
-
 `;
 
 export const ImageWrapper = styled.div``;

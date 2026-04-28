@@ -90,7 +90,6 @@ export const Sobre = () => {
                 crescimento.
               </S.Highlight>
             </MotionReveal>
-
           </S.Intro>
 
           {/* EXPERIÊNCIA */}

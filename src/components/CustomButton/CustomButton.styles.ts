@@ -11,6 +11,7 @@ type ButtonVariant =
 export const StyledButton = styled.button<{
   $variant: ButtonVariant;
 }>`
+  user-select: none;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;

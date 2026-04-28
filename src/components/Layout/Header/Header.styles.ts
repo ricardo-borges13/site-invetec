@@ -26,7 +26,8 @@ export const HeaderContent = styled.div`
   align-items: center;
   max-width: ${({ theme }) => theme.breakpoints.largeDesktop};
   margin: 0 auto;
-  padding: ${({ theme }) => theme.spacing.small} ${({ theme }) => theme.spacing.large};
+  padding: ${({ theme }) => theme.spacing.small}
+    ${({ theme }) => theme.spacing.large};
   width: 100%;
   box-sizing: border-box;
 `;

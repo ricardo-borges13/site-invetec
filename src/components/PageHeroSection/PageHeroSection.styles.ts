@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const HeroWrapper = styled.section<{ $image: string }>`
   position: relative;
   width: 100%;
- user-select: none;
+  user-select: none;
   min-height: clamp(400px, 55vh, 500px);
 
   background-image: url(${({ $image }) => $image});
@@ -36,7 +36,7 @@ export const Overlay = styled.div<{ $opacity?: number }>`
   inset: 0;
 
   /* 🔥 overlay MUITO mais leve */
-background: linear-gradient(
+  background: linear-gradient(
     to bottom,
     rgba(10, 37, 64, ${({ $opacity }) => $opacity ?? 0.5}),
     rgba(10, 37, 64, ${({ $opacity }) => ($opacity ?? 0.5) - 0.2})
@@ -73,9 +73,9 @@ export const Content = styled.div<{ $color?: string }>`
 
     /* 🔥 MOBILE */
     @media (max-width: 768px) {
-       display: flex;
-  align-items: center;
-  justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.8rem;
       line-height: 1.3;
     }

@@ -88,8 +88,8 @@ export const FormContactSite = () => {
       />
 
       <S.IntroText>
-        Leva menos de 1 minuto. Com essas informacoes, consigo entender melhor
-        o perfil do seu projeto e te retornar com uma proposta mais alinhada.
+        Leva menos de 1 minuto. Com essas informacoes, consigo entender melhor o
+        perfil do seu projeto e te retornar com uma proposta mais alinhada.
       </S.IntroText>
 
       <form onSubmit={handleSubmit(submitHandler)}>
@@ -122,7 +122,9 @@ export const FormContactSite = () => {
             <label>Telefone *</label>
             <S.Input
               placeholder="Telefone"
-              {...register('telefone', { required: 'O telefone e obrigatorio.' })}
+              {...register('telefone', {
+                required: 'O telefone e obrigatorio.',
+              })}
             />
             {errors.telefone && (
               <S.ErrorMessage>{errors.telefone.message}</S.ErrorMessage>

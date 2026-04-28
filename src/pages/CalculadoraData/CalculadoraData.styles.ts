@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   max-width: 700px;
@@ -9,14 +9,10 @@ export const Container = styled.div`
 export const FormSection = styled.section`
   background: linear-gradient(180deg, #eef6ff 0%, #ffffff 100%);
   border: 1px solid #dbeafe;
-
   border-radius: 20px;
-
   padding: 30px;
   margin-top: 40px;
-
   box-shadow: 0 20px 40px rgba(13, 110, 253, 0.08);
-
   text-align: center;
 
   h3 {
@@ -98,7 +94,7 @@ export const BackLink = styled(Link)`
 `;
 
 export const InfoBox = styled.div`
-  max-width: 700px;;
+  max-width: 700px;
   text-align: center;
 
   h2 {
@@ -115,8 +111,8 @@ export const Accordion = styled.div`
   max-width: 700px;
   margin: 40px auto 0;
   margin-bottom: 60px;
+  user-select: none;
 `;
-
 
 export const Item = styled.div`
   border: 1px solid #e5e7eb;
@@ -176,6 +172,7 @@ export const Highlight = styled.section`
     font-weight: bold;
     text-decoration: none;
     margin-top: 20px;
+    user-select: none;
   }
 
   a:hover {
@@ -183,3 +180,12 @@ export const Highlight = styled.section`
   }
 `;
 
+export const Divider = styled.hr`
+  border: none;
+  height: 4px;
+  background: linear-gradient(to right, transparent, #1677ff, transparent);
+  margin: 3rem auto;
+  width: 80%;
+  border-radius: 2px;
+  user-select: none;
+`;

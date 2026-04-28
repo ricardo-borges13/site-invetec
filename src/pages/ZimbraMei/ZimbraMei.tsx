@@ -159,8 +159,11 @@ export const ZimbraMei = () => {
             <h2>Um investimento acessível para profissionalizar seu negócio</h2>
 
             <p>
-             <S.Price>Planos a partir de <strong>R$ 14,90</strong> por usuário você já tem um e-mail
-              profissional com estrutura completa — sem precisar investir alto</S.Price>  
+              <S.Price>
+                Planos a partir de <strong>R$ 14,90</strong> por usuário você já
+                tem um e-mail profissional com estrutura completa — sem precisar
+                investir alto
+              </S.Price>
             </p>
 
             <p>

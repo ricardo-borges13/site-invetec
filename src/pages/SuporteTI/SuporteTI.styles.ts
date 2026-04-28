@@ -4,7 +4,6 @@ export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
-  user-select: none;
 `;
 
 export const Section = styled.section`
@@ -36,7 +35,7 @@ export const Section = styled.section`
     }
   }
 
-    /* Mobile */
+  /* Mobile */
   @media (max-width: 430px) {
     h2 {
       font-size: 1.5rem;
@@ -46,7 +45,7 @@ export const Section = styled.section`
 
 export const Highlight = styled.section`
   background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   border: 1px solid ${({ theme }) => theme.colors.ctaGreen};
   border-radius: 16px;
   padding: 2rem;
@@ -59,7 +58,7 @@ export const Warning = styled.section`
   border-radius: 16px;
   padding: 2rem;
   margin: 3rem 0;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
   h2 {
     color: #1d4ed8;
@@ -96,10 +95,10 @@ export const Card = styled.div`
 
   transition: all 0.3s ease;
 
-&:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-}
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  }
 `;
 
 export const FormArea = styled.section`

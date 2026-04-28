@@ -33,7 +33,8 @@ export const Site = () => {
                   <br />
                   <span>ou só ocupa espaço?</span>
                 </h2>
-               A maioria dos sites institucionais não foi feita para gerar clientes — por isso não traz resultado.
+                A maioria dos sites institucionais não foi feita para gerar
+                clientes — por isso não traz resultado.
               </S.QuestionBox>
 
               <p>

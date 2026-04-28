@@ -4,7 +4,6 @@ export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
-  user-select: none;
 `;
 
 export const ConversionIntro = styled.div`
@@ -316,9 +315,9 @@ export const CompareCard = styled.div<{ type: 'good' | 'bad' }>`
   text-align: left;
   min-height: 100%;
   transition:
-  transform 0.28s ease,
-  box-shadow 0.28s ease,
-  border-color 0.28s ease;
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
   background: ${({ type }) => (type === 'good' ? '#ecfdf5' : '#fff7ed')};
 
   border: 1px solid ${({ type }) => (type === 'good' ? '#22c55e' : '#fb923c')};
@@ -453,8 +452,8 @@ export const InfoBox = styled.section`
   margin: 2rem 0;
   text-align: center;
   transition:
-  transform 0.3s ease,
-  box-shadow 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-4px);

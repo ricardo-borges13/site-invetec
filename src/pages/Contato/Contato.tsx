@@ -26,7 +26,9 @@ export const Contato = () => {
               Explique rapidamente sua necessidade e eu analiso o cenário para
               indicar a melhor solução.
             </p>
-            <p><strong>Resposta rápida e sem compromisso.</strong></p>
+            <p>
+              <strong>Resposta rápida e sem compromisso.</strong>
+            </p>
           </header>
         </S.Container>
 

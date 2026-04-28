@@ -12,7 +12,9 @@ export const Menu = ({ onLinkClick }: MenuProps) => {
   const navigate = useNavigate();
   const [openMenu, setOpenMenu] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [openSubmenuMobile, setOpenSubmenuMobile] = useState<number | null>(null);
+  const [openSubmenuMobile, setOpenSubmenuMobile] = useState<number | null>(
+    null
+  );
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 1038);
@@ -21,18 +23,34 @@ export const Menu = ({ onLinkClick }: MenuProps) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  function handleMenuClick(
-  e: React.MouseEvent,
-  item: (typeof menuItems)[0]
-) {
-  // 📱 MOBILE
-  if (isMobile) {
-    if (item.submenu) {
-      e.preventDefault();
-      setOpenSubmenuMobile(prev => (prev === item.id ? null : item.id));
+  function handleMenuClick(e: React.MouseEvent, item: (typeof menuItems)[0]) {
+    // 📱 MOBILE
+    if (isMobile) {
+      if (item.submenu) {
+        e.preventDefault();
+        setOpenSubmenuMobile(prev => (prev === item.id ? null : item.id));
+        return;
+      }
+
+      if (item.scrollTo) {
+        e.preventDefault();
+
+        if (location.pathname === '/') {
+          const section = document.getElementById(item.scrollTo);
+          section?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          navigate('/', { state: { scrollTo: item.scrollTo } });
+        }
+
+        onLinkClick?.();
+        return;
+      }
+
+      onLinkClick?.();
       return;
     }
 
+    // 💻 DESKTOP
     if (item.scrollTo) {
       e.preventDefault();
 
@@ -43,30 +61,11 @@ export const Menu = ({ onLinkClick }: MenuProps) => {
         navigate('/', { state: { scrollTo: item.scrollTo } });
       }
 
-      onLinkClick?.();
       return;
     }
 
     onLinkClick?.();
-    return;
   }
-
-  // 💻 DESKTOP
-  if (item.scrollTo) {
-    e.preventDefault();
-
-    if (location.pathname === '/') {
-      const section = document.getElementById(item.scrollTo);
-      section?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/', { state: { scrollTo: item.scrollTo } });
-    }
-
-    return;
-  }
-
-  onLinkClick?.();
-}
 
   function handleMouseEnter(id: number) {
     if (!isMobile) setOpenMenu(id);

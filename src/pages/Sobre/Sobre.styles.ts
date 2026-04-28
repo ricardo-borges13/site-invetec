@@ -4,12 +4,11 @@ export const Container = styled.div`
   max-width: ${({ theme }) => theme.breakpoints.desktop};
   margin: 60px auto;
   padding: 0 ${({ theme }) => theme.spacing.medium};
-  user-select: none;
 `;
 
 export const Intro = styled.div`
   max-width: 750px;
-  margin:0 auto 80px;
+  margin: 0 auto 80px;
   text-align: center;
 
   h2 {
@@ -26,10 +25,10 @@ export const Intro = styled.div`
   }
 
   p.lead {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #371f32;
-}
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #371f32;
+  }
 
   p:last-child {
     margin-top: 30px;
@@ -86,7 +85,7 @@ export const List = styled.ul`
 `;
 
 export const Grid3 = styled.div`
-    display: grid;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 
@@ -122,10 +121,10 @@ export const Card = styled.div`
 
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   }
 
-    @media (max-width: 500px) {
+  @media (max-width: 500px) {
     padding: 6px;
   }
 `;
@@ -143,10 +142,10 @@ export const SolutionCard = styled.div`
 
   transition: 0.3s;
 
-&:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
 
   @media (max-width: 500px) {
     padding: 10px;

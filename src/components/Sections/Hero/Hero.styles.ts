@@ -26,7 +26,7 @@ export const HeroContainer = styled.section`
 `;
 
 /* Imagem de fundo real */
-export const BackgroundImage = styled.img <{ $fetchPriority?: string }>`
+export const BackgroundImage = styled.img<{ $fetchPriority?: string }>`
   position: absolute;
   inset: 0;
   width: 100%;
@@ -81,11 +81,9 @@ export const HeroTitle = styled.h1`
     font-size: 2rem;
   }
 
-   @media (max-width: 900px) {
+  @media (max-width: 900px) {
     font-size: 1.4rem;
   }
-
-
 
   @media (max-width: 414px) {
     font-size: 1.3rem;
@@ -150,10 +148,9 @@ export const HeroHighlight = styled.div`
     margin-bottom: 0.8rem;
     line-height: 1.4;
   }
-@media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-  padding: 1.2rem;
-}
-
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 1.2rem;
+  }
 `;
 
 export const HighlightButton = styled.button`
@@ -176,7 +173,7 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
-display: flex;
+  display: flex;
   justify-content: flex-end;
   width: 100%;
   max-width: 420px;
@@ -187,8 +184,6 @@ display: flex;
     margin-top: 1.5rem;
     max-width: 100%;
   }
-
-
 `;
 
 export const HeroRow = styled.div`

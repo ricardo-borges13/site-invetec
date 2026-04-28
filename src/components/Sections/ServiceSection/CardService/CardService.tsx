@@ -9,7 +9,13 @@ type CardServiceProps = {
   badge?: string;
 };
 
-export const CardService = ({ image, title, subtitle, path, badge }: CardServiceProps) => {
+export const CardService = ({
+  image,
+  title,
+  subtitle,
+  path,
+  badge,
+}: CardServiceProps) => {
   const navigate = useNavigate();
 
   const handleClick = () => {

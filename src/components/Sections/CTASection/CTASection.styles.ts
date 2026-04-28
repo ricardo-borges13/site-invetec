@@ -34,17 +34,15 @@ export const Section = styled.section<SectionProps>`
   /* 🔥 Parallax controlado */
   background-attachment: fixed;
 
+  @media (max-width: 1400px) {
+    min-height: 420px;
+    padding: 40px 20px;
+  }
 
-
-@media (max-width: 1400px) {
-  min-height: 420px;
-  padding: 40px 20px;
-}
-
-@media (max-width: 768px) {
-  min-height: 350px;
-  padding: 30px 20px;
-}
+  @media (max-width: 768px) {
+    min-height: 350px;
+    padding: 30px 20px;
+  }
 `;
 
 export const Content = styled.div`
@@ -75,12 +73,12 @@ export const Content = styled.div`
   }
 
   h4 {
-     font-size: 1rem;
-  font-weight: 600;
-  color: #c1c3c7;
-  max-width: 700px;
-  margin: 0 auto 1.5rem;
-  line-height: 1.6;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #c1c3c7;
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
   }
 `;
 

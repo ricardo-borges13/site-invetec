@@ -191,17 +191,25 @@ export const W3ERP = () => {
 
                 <S.Card>
                   <h3>Tradução técnica</h3>
-                  <p>Transformo o sistema em algo claro e aplicável ao seu negócio.</p>
+                  <p>
+                    Transformo o sistema em algo claro e aplicável ao seu
+                    negócio.
+                  </p>
                 </S.Card>
 
                 <S.Card>
                   <h3>Intermediação com a W3</h3>
-                  <p>Evita ruídos e garante que tudo seja configurado corretamente.</p>
+                  <p>
+                    Evita ruídos e garante que tudo seja configurado
+                    corretamente.
+                  </p>
                 </S.Card>
 
                 <S.Card>
                   <h3>Acompanhamento contínuo</h3>
-                  <p>Suporte durante toda a implantação para garantir resultado.</p>
+                  <p>
+                    Suporte durante toda a implantação para garantir resultado.
+                  </p>
                 </S.Card>
               </S.Grid>
             </MotionReveal>

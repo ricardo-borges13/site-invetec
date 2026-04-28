@@ -1,8 +1,8 @@
-import image1 from '@/assets/images/Escudo-IT.png';
-import erpImg from '@/assets/images/Card-W3.jpg';
-import email from '@/assets/images/Card-E-mail.jpg';
 import ecommerce from '@/assets/images/Card-E-commerce.jpg';
+import email from '@/assets/images/Card-E-mail.jpg';
+import erpImg from '@/assets/images/Card-W3.jpg';
 import web from '@/assets/images/Card-Web.jpg';
+import image1 from '@/assets/images/Escudo-IT.png';
 // import digital from '@/assets/images/Card-Digital.jpg';
 import ti from '@/assets/images/Card-TI.jpg';
 
@@ -42,7 +42,8 @@ export const servicesData = [
   {
     image: email,
     title: 'INVETEC Mail',
-    subtitle: 'E-mail corporativo profissional com mais controle, segurança e suporte próximo',
+    subtitle:
+      'E-mail corporativo profissional com mais controle, segurança e suporte próximo',
     path: '/servicos/invetec-mail',
     badge: '🔥 Mais procurado',
   },
@@ -67,10 +68,9 @@ export const servicesData = [
   },
 ];
 
-
-  // {
-  //   image: digital,
-  //   title: 'Marketing Digital',
-  //   subtitle: 'Gestão de redes e campanhas para atrair clientes',
-  //   path: '/servicos/marketing-digital',
-  // },
+// {
+//   image: digital,
+//   title: 'Marketing Digital',
+//   subtitle: 'Gestão de redes e campanhas para atrair clientes',
+//   path: '/servicos/marketing-digital',
+// },

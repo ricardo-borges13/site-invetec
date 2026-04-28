@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const linkStyle = `
   color: #cbd5e1;
@@ -12,7 +12,6 @@ export const Container = styled.footer`
   background: linear-gradient(180deg, #0f3d63, #0a2540);
   color: ${({ theme }) => theme.colors.white};
   padding: 30px 24px 20px;
-  user-select: none;
 `;
 
 export const Content = styled.div`
@@ -26,7 +25,7 @@ export const Content = styled.div`
     text-align: center;
   }
 
-    @media (max-width: 900px) {
+  @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr); // tablet
   }
 
@@ -36,6 +35,9 @@ export const Content = styled.div`
   }
 `;
 
+export const SectionLogo = styled.div`
+  user-select: none;
+`;
 export const Section = styled.div``;
 
 export const LogoImage = styled.img`
@@ -48,6 +50,7 @@ export const Title = styled.h3`
   font-weight: 600;
   margin-bottom: 16px;
   letter-spacing: 0.5px;
+  user-select: none;
 `;
 
 export const Text = styled.p`
@@ -130,7 +133,7 @@ export const Social = styled.div`
   }
 
   a.instagram:hover {
-    color: #E1306C;
+    color: #e1306c;
   }
 `;
 
@@ -146,12 +149,12 @@ export const Copy = styled.div`
 export const BackLink = styled(Link)`
   display: inline-block;
   color: #cbd5e1;
-   font-size: 0.95rem;
+  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
 
   &:hover {
-      color: ${({ theme }) => theme.colors.primary};
-      transform: translateX(4px);
-    }
+    color: ${({ theme }) => theme.colors.primary};
+    transform: translateX(4px);
+  }
 `;

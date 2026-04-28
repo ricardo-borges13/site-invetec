@@ -1,11 +1,11 @@
 import logo from '@/assets/images/Logo-Invetec.png';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
+import { contactData } from '@/pages/Contato/contactData';
 import { useEffect, useState } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { Menu } from '../Menu/Menu';
-import { contactData } from '@/pages/Contato/contactData';
 import * as S from './Header.styles';
 
 export const HeaderMain = () => {

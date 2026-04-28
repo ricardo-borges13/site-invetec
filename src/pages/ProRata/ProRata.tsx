@@ -138,7 +138,9 @@ export const ProRata = () => {
         <S.Container>
           <MotionReveal>
             <S.InfoBox>
-              <h2>Como calcular pró-rata online de forma correta e sem erros</h2>
+              <h2>
+                Como calcular pró-rata online de forma correta e sem erros
+              </h2>
               <p>
                 Utilize nossa calculadora de pró-rata para calcular valores
                 proporcionais com base em datas e períodos. Ideal para contratos
@@ -188,77 +190,75 @@ export const ProRata = () => {
           </MotionReveal>
 
           {resultado !== null && (
+            <S.Result>
+              <S.ResultCard>
+                <S.ResultPeriod>
+                  Período: <strong>{dias} dias</strong>
+                </S.ResultPeriod>
 
-              <S.Result>
-                <S.ResultCard>
-                  <S.ResultPeriod>
-                    Período: <strong>{dias} dias</strong>
-                  </S.ResultPeriod>
+                <S.ResultValue>
+                  R$ {resultado.toFixed(2).replace('.', ',')}
+                </S.ResultValue>
+              </S.ResultCard>
+              <S.UsageBox>
+                <S.Field>
+                  <label>Tipo de uso</label>
 
-                  <S.ResultValue>
-                    R$ {resultado.toFixed(2).replace('.', ',')}
-                  </S.ResultValue>
-                </S.ResultCard>
-                <S.UsageBox>
+                  <S.RadioGroup>
+                    <label>
+                      <input
+                        type="radio"
+                        checked={segmento === 'locacao'}
+                        onChange={() => setSegmento('locacao')}
+                      />
+                      Locação
+                    </label>
+
+                    <label>
+                      <input
+                        type="radio"
+                        checked={segmento === 'servico'}
+                        onChange={() => setSegmento('servico')}
+                      />
+                      Serviço
+                    </label>
+
+                    <label>
+                      <input
+                        type="radio"
+                        checked={segmento === 'outro'}
+                        onChange={() => setSegmento('outro')}
+                      />
+                      Outros
+                    </label>
+                  </S.RadioGroup>
+                </S.Field>
+
+                {segmento === 'locacao' && (
                   <S.Field>
-                    <label>Tipo de uso</label>
-
-                    <S.RadioGroup>
-                      <label>
-                        <input
-                          type="radio"
-                          checked={segmento === 'locacao'}
-                          onChange={() => setSegmento('locacao')}
-                        />
-                        Locação
-                      </label>
-
-                      <label>
-                        <input
-                          type="radio"
-                          checked={segmento === 'servico'}
-                          onChange={() => setSegmento('servico')}
-                        />
-                        Serviço
-                      </label>
-
-                      <label>
-                        <input
-                          type="radio"
-                          checked={segmento === 'outro'}
-                          onChange={() => setSegmento('outro')}
-                        />
-                        Outros
-                      </label>
-                    </S.RadioGroup>
+                    <label>Quantidade de equipamentos (opcional)</label>
+                    <input
+                      type="number"
+                      value={quantidade}
+                      onChange={e => setQuantidade(e.target.value)}
+                    />
                   </S.Field>
+                )}
 
-                  {segmento === 'locacao' && (
-                    <S.Field>
-                      <label>Quantidade de equipamentos (opcional)</label>
-                      <input
-                        type="number"
-                        value={quantidade}
-                        onChange={e => setQuantidade(e.target.value)}
-                      />
-                    </S.Field>
-                  )}
+                {segmento !== 'locacao' && (
+                  <S.Field>
+                    <label>Descrição (opcional)</label>
+                    <input
+                      type="text"
+                      value={descricao}
+                      onChange={e => setDescricao(e.target.value)}
+                    />
+                  </S.Field>
+                )}
 
-                  {segmento !== 'locacao' && (
-                    <S.Field>
-                      <label>Descrição (opcional)</label>
-                      <input
-                        type="text"
-                        value={descricao}
-                        onChange={e => setDescricao(e.target.value)}
-                      />
-                    </S.Field>
-                  )}
-
-                  <S.CopyButton onClick={copiar}>{textButCopiar}</S.CopyButton>
-                </S.UsageBox>
-              </S.Result>
-         
+                <S.CopyButton onClick={copiar}>{textButCopiar}</S.CopyButton>
+              </S.UsageBox>
+            </S.Result>
           )}
 
           <S.Divider />

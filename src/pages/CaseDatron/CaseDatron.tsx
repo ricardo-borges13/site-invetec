@@ -117,7 +117,7 @@ export const CaseDatron = () => {
                   <p>Todas as operações continuaram funcionando normalmente.</p>
                 </S.Card>
 
-                 <S.Card>
+                <S.Card>
                   <h3>📄 Melhor gestão de contratos</h3>
                   <p>
                     W3ERP atendeu melhor que o sistema anterior nesse ponto.
@@ -144,8 +144,6 @@ export const CaseDatron = () => {
                     sem burocracia.
                   </p>
                 </S.Card>
-
-
               </S.Grid>
             </MotionReveal>
           </S.Highlight>

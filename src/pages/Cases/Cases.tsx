@@ -59,7 +59,7 @@ export const Cases = () => {
                 <li>❌ Financeiro manual</li>
                 <li>❌ Estoque sem integração</li>
               </ul>
-                <p>👉 Resultado: mais controle e integração entre setores</p>
+              <p>👉 Resultado: mais controle e integração entre setores</p>
               <S.ButtonGroup>
                 <CustomButton
                   variant="primary"
@@ -78,7 +78,6 @@ export const Cases = () => {
                 Operação já estruturada, mas com alto custo de infraestrutura e
                 complexidade.
               </p>
-
 
               <ul>
                 <li>💰 Alto custo com servidores e licenças</li>

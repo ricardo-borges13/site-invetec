@@ -27,40 +27,40 @@ export const Content = styled.div`
 `;
 
 export const InfoArea = styled.div`
-.contact {
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+  .contact {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-.contact p {
-   display: flex;
-  align-items: center;
-  gap: 12px;
+  .contact p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-  background: rgba(255, 255, 255, 0.08);
-  padding: 10px 14px;
-  border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 10px 14px;
+    border-radius: 10px;
 
-  width: fit-content;
-}
+    width: fit-content;
+  }
 
-.contact svg {
-  font-size: 18px;
-  opacity: 0.9;
-}
-
-.contact a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-
-  &:hover {
-    text-decoration: underline;
+  .contact svg {
+    font-size: 18px;
     opacity: 0.9;
   }
-}
+
+  .contact a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.9;
+    }
+  }
 `;
 
 export const FormWrapper = styled.div`
