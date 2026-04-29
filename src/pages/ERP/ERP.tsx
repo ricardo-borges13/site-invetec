@@ -42,7 +42,7 @@ export const ERP = () => {
               <p>
                 Após mais de 20 anos atuando na área de TI e gestão empresarial,
                 implementei sistemas robustos como TOTVS e atualmente trabalho
-                com soluções modernas e eficientes como W3ERP e TagPlus.
+                com soluções modernas e eficientes como W3ERP e Bling.
               </p>
             </MotionReveal>
           </S.Section>

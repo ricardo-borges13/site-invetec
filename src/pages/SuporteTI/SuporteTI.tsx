@@ -93,7 +93,7 @@ export const SuporteTI = () => {
               </p>
 
               <ul>
-                <li> ERP (W3ERP, TAGPLUS, TOTVS e processos empresariais)</li>
+                <li> ERP (W3ERP, BLING, TOTVS e processos empresariais)</li>
                 <li> Redes e servidores</li>
                 <li> Segurança da informação</li>
                 <li> Integração entre setores</li>

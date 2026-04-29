@@ -109,7 +109,7 @@ export const Sobre = () => {
             </MotionReveal>
 
             <S.List>
-              <li>Implantação e gestão de ERP (TOTVS, W3ERP e TagPlus)</li>
+              <li>Implantação e gestão de ERP (TOTVS, W3ERP e Bling)</li>
 
               <li>Organização e suporte completo da infraestrutura de TI</li>
 

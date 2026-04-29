@@ -32,7 +32,7 @@ export const Grid = styled.div`
 
   /* mobile */
   @media (max-width: 500px) {
-    gap: 16px;
+    gap: 30px;
   }
 `;
 
@@ -46,12 +46,9 @@ export const Logo = styled.img`
   max-width: 150px;
   height: auto;
   object-fit: contain;
-
-  filter: grayscale(100%) opacity(0.7);
   transition: all 0.3s ease;
 
   &:hover {
-    filter: grayscale(0%) opacity(1);
-    transform: scale(1.05);
+    transform: scale(1.2);
   }
 `;
