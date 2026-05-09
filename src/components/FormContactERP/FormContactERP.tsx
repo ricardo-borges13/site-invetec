@@ -44,9 +44,9 @@ export const FormContactERP = () => {
 
       if (response.ok) {
         toast.success(
-          'Mensagem enviada com sucesso! Em breve entraremos em contato.',
+            'Perfeito! Em breve vou te orientar com a melhor solução.',
           {
-            duration: 5000,
+            duration: 4000,
           }
         );
         reset();

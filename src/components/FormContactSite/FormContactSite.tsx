@@ -47,7 +47,7 @@ export const FormContactSite = () => {
       if (response.ok) {
         toast.success(
           'Recebido! Vou analisar seu projeto e entrar em contato.',
-          { duration: 5000 }
+          { duration: 4000 }
         );
         reset();
       } else {

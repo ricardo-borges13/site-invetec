@@ -26,7 +26,7 @@ export const FormContactEmail = () => {
   const onSubmitMock = async (_data: FormInputs) => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
-      toast.success('Mensagem enviada com sucesso! (MODO TESTE)', {
+      toast.success('Perfeito! Em breve vou te orientar com a melhor solução.', {
         duration: 9000,
       });
       reset();
@@ -45,9 +45,9 @@ export const FormContactEmail = () => {
 
       if (response.ok) {
         toast.success(
-          'Perfeito. Já entendi seu cenário. Vou te orientar com a melhor solução para sua empresa em breve.',
+            'Perfeito! Em breve vou te orientar com a melhor solução.',
           {
-            duration: 5000,
+            duration: 4000,
           }
         );
         reset();
@@ -159,7 +159,7 @@ export const FormContactEmail = () => {
 
         <S.Field>
           <label>Como é o e-mail da sua empresa hoje?</label>
-          <S.Select {...register('situacao', { required: true })}>
+          <S.Select {...register('situacao', { required: 'Campo obrigatorio' })}>
             <option value="">Selecione uma opção</option>
             <option>Nao tenho e-mail</option>
             <option>Outlook sincronizado</option>
@@ -168,26 +168,29 @@ export const FormContactEmail = () => {
             <option>e-mail de hospedagem (tipo Locaweb)</option>
             <option>Outro</option>
           </S.Select>
+          <S.ErrorMessage>{errors.situacao?.message}</S.ErrorMessage>
         </S.Field>
 
         <S.Field>
           <label>Precisa migrar e-mails antigos?</label>
-          <S.Select {...register('migracao', { required: true })}>
+          <S.Select {...register('migracao', { required: 'Campo obrigatorio' })}>
             <option value="">Selecione uma opcao</option>
             <option>Sim</option>
             <option>Nao</option>
             <option>Nao sei</option>
           </S.Select>
+          <S.ErrorMessage>{errors.migracao?.message}</S.ErrorMessage>
         </S.Field>
 
         <S.Field>
           <label>Quando você precisa resolver isso?</label>
-          <S.Select {...register('prioridade', { required: true })}>
+          <S.Select {...register('prioridade', { required: 'Campo obrigatorio' })}>
             <option value="">Selecione uma opcao</option>
             <option>Urgente (essa semana)</option>
             <option>Em breve</option>
             <option>Só estou pesquisando</option>
           </S.Select>
+          <S.ErrorMessage>{errors.prioridade?.message}</S.ErrorMessage>
         </S.Field>
 
         <S.Field>
