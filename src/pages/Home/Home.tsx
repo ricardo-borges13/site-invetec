@@ -1,4 +1,3 @@
-import imgHero from '../../../public/images/BannerPrincipalHero.jpg';
 import { BusinessPartner } from '@/components/Sections/BusinessPartner/BusinessPartner';
 import { CTASection } from '@/components/Sections/CTASection/CTASection';
 import { Hero } from '@/components/Sections/Hero/hero';
@@ -10,6 +9,8 @@ import { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { servicesData, sobreData } from './Home.data';
 import * as S from './Home.styles';
+
+const imgHero = "/images/BannerPrincipalHero.jpg";
 
 export const Home = () => {
   const navigate = useNavigate();
