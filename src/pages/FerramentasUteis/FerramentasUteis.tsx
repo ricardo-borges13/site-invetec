@@ -37,7 +37,7 @@ export const FerramentasUteis = () => {
       title: 'Converter PDF para Word',
       description:
         'Converta arquivos PDF em documentos Word editáveis mantendo a formatação. Ideal para edição e reaproveitamento de conteúdo.',
-      link: 'https://www.onlineocr.net/pt/',
+      link: 'https://www.onlineocr.net/pt/pdftoword',
       external: true,
     },
   ];
