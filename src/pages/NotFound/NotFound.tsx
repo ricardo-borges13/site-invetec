@@ -13,6 +13,7 @@ export const NotFound = () => {
         image="https://www.invetec.com.br/images/SEO-NotFound.jpg"
         url="https://www.invetec.com.br/404"
         noindex={true}
+        includeUrl={false}
       />
 
       <Container>

@@ -3,21 +3,64 @@
   RewriteBase /
 
   # ==========================
+  # CERTIFICADO SSL / ACME
+  # ==========================
+
+  # Preserva as validações automáticas de certificado SSL.
+  RewriteRule ^\.well-known/acme-challenge/ - [L]
+
+  # ==========================
   # REDIRECIONAMENTOS ANTIGOS
   # ==========================
 
+  # Página antiga Zimbra
   RewriteRule ^servicos/zimbra/?$ https://www.invetec.com.br/servicos/invetec-mail [R=301,L]
 
+  # Página antiga E-mail Corporativo Zimbra
   RewriteRule ^servicos/email-corporativo-zimbra/?$ https://www.invetec.com.br/servicos/invetec-mail [R=301,L]
 
+  # Página antiga Pró-Rata
   RewriteRule ^prorata/?$ https://www.invetec.com.br/servicos/ferramentas-uteis/pro-rata [R=301,L]
 
+  # Rota interna antiga Pró-Rata
   RewriteRule ^prorata/pro-rata/?$ https://www.invetec.com.br/servicos/ferramentas-uteis/pro-rata [R=301,L]
 
+  # Calculadora de datas antiga
   RewriteRule ^prorata/calculadora-data/?$ https://www.invetec.com.br/servicos/ferramentas-uteis/calculadora-de-datas [R=301,L]
 
   # ==========================
-  # ARQUIVOS REAIS
+  # DOMÍNIO CANÔNICO
+  # ==========================
+
+  # Forçar o domínio com www.
+  # Também envia diretamente para HTTPS.
+  RewriteCond %{HTTP_HOST} !^www\.invetec\.com\.br$ [NC]
+  RewriteRule ^ https://www.invetec.com.br%{REQUEST_URI} [R=301,L]
+
+  # Forçar HTTPS quando a requisição passar pela Cloudflare.
+  RewriteCond %{HTTP:X-Forwarded-Proto} !^$ [NC]
+  RewriteCond %{HTTP:X-Forwarded-Proto} !^https$ [NC]
+  RewriteRule ^ https://www.invetec.com.br%{REQUEST_URI} [R=301,L]
+
+  # Forçar HTTPS em acesso direto ao servidor,
+  # quando não existir o cabeçalho X-Forwarded-Proto.
+  RewriteCond %{HTTP:X-Forwarded-Proto} ^$
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://www.invetec.com.br%{REQUEST_URI} [R=301,L]
+
+  # ==========================
+  # PADRONIZAÇÃO DAS URLS
+  # ==========================
+
+  # Remover barra final das páginas internas.
+  # A Home permanece normalmente com "/".
+  # Diretórios físicos, como assets e images, não são alterados.
+  RewriteCond %{REQUEST_URI} !^/$
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ https://www.invetec.com.br/$1 [R=301,L]
+
+  # ==========================
+  # ARQUIVOS E DIRETÓRIOS REAIS
   # ==========================
 
   RewriteRule ^index\.html$ - [L]
@@ -33,8 +76,12 @@
   RewriteCond %{REQUEST_URI} ^/(sobre|contato|cases(?:/(datron|jpm))?|servicos/(erp(?:/(bling|w3erp))?|invetec-mail(?:-mei)?|criacao-de-sites|suporte-ti|e-commerce|ferramentas-uteis(?:/(pro-rata|calculadora-de-datas))?))/?$ [NC]
   RewriteRule ^ /index.html [L]
 
-  # URLs desconhecidas continuam com status HTTP 404.
-  # O React recebe o index.html e exibe o componente NotFound.
+  # ==========================
+  # PÁGINA 404
+  # ==========================
+
+  # URLs desconhecidas retornam status HTTP 404.
+  # O index.html é carregado para que o React exiba o componente NotFound.
   ErrorDocument 404 /index.html
 </IfModule>
 

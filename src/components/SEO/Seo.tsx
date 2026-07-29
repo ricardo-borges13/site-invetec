@@ -7,6 +7,7 @@ type SEOProps = {
   url?: string;
   keywords?: string;
   noindex?: boolean;
+  includeUrl?: boolean;
   schema?: object;
 };
 
@@ -17,6 +18,7 @@ export const SEO = ({
   url = 'https://www.invetec.com.br/',
   keywords,
   noindex,
+  includeUrl = true,
   schema,
 }: SEOProps) => {
   const robotsContent = noindex ? 'noindex, follow' : 'index, follow';
@@ -28,13 +30,13 @@ export const SEO = ({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
 
-      <link rel="canonical" href={url} />
+      {includeUrl && <link rel="canonical" href={url} />}
 
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:url" content={url} />
+      {includeUrl && <meta property="og:url" content={url} />}
       <meta property="og:locale" content="pt_BR" />
 
       <meta name="twitter:card" content="summary_large_image" />
