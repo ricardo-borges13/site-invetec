@@ -22,7 +22,7 @@ export const FormContactERP = () => {
     formState: { errors, isSubmitting },
   } = useForm<FormInputs>();
 
-  const onSubmitMock = async (_data: FormInputs) => {
+  const onSubmitMock = async () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       toast.success('Mensagem enviada com sucesso! (MODO TESTE)', {
@@ -96,24 +96,36 @@ export const FormContactERP = () => {
         {/* Nome + Empresa */}
         <S.FieldGroup>
           <S.Field>
-            <label>Nome *</label>
+            <label htmlFor="erp-nome">Nome *</label>
             <S.Input
+              id="erp-nome"
               placeholder="Nome"
+              aria-required="true"
+              aria-invalid={Boolean(errors.nome)}
+              aria-describedby={errors.nome ? 'erp-nome-erro' : undefined}
               {...register('nome', { required: 'O nome e obrigatorio.' })}
             />
             {errors.nome && (
-              <S.ErrorMessage>{errors.nome.message}</S.ErrorMessage>
+              <S.ErrorMessage id="erp-nome-erro" role="alert">
+                {errors.nome.message}
+              </S.ErrorMessage>
             )}
           </S.Field>
 
           <S.Field>
-            <label>Empresa *</label>
+            <label htmlFor="erp-empresa">Empresa *</label>
             <S.Input
+              id="erp-empresa"
               placeholder="Empresa"
+              aria-required="true"
+              aria-invalid={Boolean(errors.empresa)}
+              aria-describedby={errors.empresa ? 'erp-empresa-erro' : undefined}
               {...register('empresa', { required: 'A empresa e obrigatoria.' })}
             />
             {errors.empresa && (
-              <S.ErrorMessage>{errors.empresa.message}</S.ErrorMessage>
+              <S.ErrorMessage id="erp-empresa-erro" role="alert">
+                {errors.empresa.message}
+              </S.ErrorMessage>
             )}
           </S.Field>
         </S.FieldGroup>
@@ -121,10 +133,14 @@ export const FormContactERP = () => {
         {/* Email + Telefone */}
         <S.FieldGroup>
           <S.Field>
-            <label>E-mail *</label>
+            <label htmlFor="erp-email">E-mail *</label>
             <S.Input
+              id="erp-email"
               placeholder="E-mail"
               type="email"
+              aria-required="true"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? 'erp-email-erro' : undefined}
               {...register('email', {
                 required: 'O e-mail e obrigatorio.',
                 pattern: {
@@ -134,13 +150,16 @@ export const FormContactERP = () => {
               })}
             />
             {errors.email && (
-              <S.ErrorMessage>{errors.email.message}</S.ErrorMessage>
+              <S.ErrorMessage id="erp-email-erro" role="alert">
+                {errors.email.message}
+              </S.ErrorMessage>
             )}
           </S.Field>
 
           <S.Field>
-            <label>Telefone</label>
+            <label htmlFor="erp-telefone">Telefone</label>
             <S.Input
+              id="erp-telefone"
               placeholder="Telefone"
               {...register('telefone', { required: false })}
             />
@@ -149,8 +168,8 @@ export const FormContactERP = () => {
 
         {/* Faturamento */}
         <S.Field>
-          <label>Faturamento mensal</label>
-          <S.Select {...register('faturamento')}>
+          <label htmlFor="erp-faturamento">Faturamento mensal</label>
+          <S.Select id="erp-faturamento" {...register('faturamento')}>
             <option>Selecione</option>
             <option>Até R$100k</option>
             <option>R$100k a R$500k</option>
@@ -161,8 +180,8 @@ export const FormContactERP = () => {
 
         {/* Funcionários */}
         <S.Field>
-          <label>Número de funcionários</label>
-          <S.Select {...register('funcionarios')}>
+          <label htmlFor="erp-funcionarios">Número de funcionários</label>
+          <S.Select id="erp-funcionarios" {...register('funcionarios')}>
             <option>Selecione</option>
             <option>Até 5</option>
             <option>6 a 20</option>
@@ -173,8 +192,8 @@ export const FormContactERP = () => {
 
         {/* Possui ERP */}
         <S.Field>
-          <label>Possui ERP atualmente?</label>
-          <S.Select {...register('possuiERP')}>
+          <label htmlFor="erp-possui">Possui ERP atualmente?</label>
+          <S.Select id="erp-possui" {...register('possuiERP')}>
             <option>Selecione</option>
             <option>Sim</option>
             <option>Não</option>
@@ -183,8 +202,9 @@ export const FormContactERP = () => {
 
         {/* Dificuldade */}
         <S.Field>
-          <label>Qual seu objetivo com o ERP?</label>
+          <label htmlFor="erp-dificuldade">Qual seu objetivo com o ERP?</label>
           <S.TextArea
+            id="erp-dificuldade"
             rows={3}
             placeholder="Ex: organizar financeiro, controlar estoque, faturamento, integrar setores..."
             {...register('dificuldade')}

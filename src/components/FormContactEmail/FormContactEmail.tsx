@@ -23,7 +23,7 @@ export const FormContactEmail = () => {
     formState: { errors, isSubmitting },
   } = useForm<FormInputs>();
 
-  const onSubmitMock = async (_data: FormInputs) => {
+  const onSubmitMock = async () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       toast.success('Perfeito! Em breve vou te orientar com a melhor solução.', {
@@ -96,34 +96,50 @@ export const FormContactEmail = () => {
       <form onSubmit={handleSubmit(submitHandler)}>
         <S.FieldGroup>
           <S.Field>
-            <label>Nome *</label>
+            <label htmlFor="email-nome">Nome *</label>
             <S.Input
+              id="email-nome"
               placeholder="Seu nome"
+              aria-required="true"
+              aria-invalid={Boolean(errors.nome)}
+              aria-describedby={errors.nome ? 'email-nome-erro' : undefined}
               {...register('nome', { required: 'O nome e obrigatorio.' })}
             />
             {errors.nome && (
-              <S.ErrorMessage>{errors.nome.message}</S.ErrorMessage>
+              <S.ErrorMessage id="email-nome-erro" role="alert">
+                {errors.nome.message}
+              </S.ErrorMessage>
             )}
           </S.Field>
 
           <S.Field>
-            <label>Empresa *</label>
+            <label htmlFor="email-empresa">Empresa *</label>
             <S.Input
+              id="email-empresa"
               placeholder="Nome da empresa"
+              aria-required="true"
+              aria-invalid={Boolean(errors.empresa)}
+              aria-describedby={errors.empresa ? 'email-empresa-erro' : undefined}
               {...register('empresa', { required: 'A empresa e obrigatoria.' })}
             />
             {errors.empresa && (
-              <S.ErrorMessage>{errors.empresa.message}</S.ErrorMessage>
+              <S.ErrorMessage id="email-empresa-erro" role="alert">
+                {errors.empresa.message}
+              </S.ErrorMessage>
             )}
           </S.Field>
         </S.FieldGroup>
 
         <S.FieldGroup>
           <S.Field>
-            <label>E-mail *</label>
+            <label htmlFor="email-email">E-mail *</label>
             <S.Input
+              id="email-email"
               placeholder="E-mail"
               type="email"
+              aria-required="true"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? 'email-email-erro' : undefined}
               {...register('email', {
                 required: 'O e-mail e obrigatorio.',
                 pattern: {
@@ -133,13 +149,16 @@ export const FormContactEmail = () => {
               })}
             />
             {errors.email && (
-              <S.ErrorMessage>{errors.email.message}</S.ErrorMessage>
+              <S.ErrorMessage id="email-email-erro" role="alert">
+                {errors.email.message}
+              </S.ErrorMessage>
             )}
           </S.Field>
 
           <S.Field>
-            <label>Telefone (WhatsApp)</label>
+            <label htmlFor="email-telefone">Telefone (WhatsApp)</label>
             <S.Input
+              id="email-telefone"
               placeholder="Telefone"
               {...register('telefone', { required: false })}
             />
@@ -147,8 +166,8 @@ export const FormContactEmail = () => {
         </S.FieldGroup>
 
         <S.Field>
-          <label>Quantas contas de e-mail sua empresa utiliza hoje?</label>
-          <S.Select {...register('quantidade')}>
+          <label htmlFor="email-quantidade">Quantas contas de e-mail sua empresa utiliza hoje?</label>
+          <S.Select id="email-quantidade" {...register('quantidade')}>
             <option>Ate 5</option>
             <option>6 a 10</option>
             <option>11 a 20</option>
@@ -158,8 +177,14 @@ export const FormContactEmail = () => {
         </S.Field>
 
         <S.Field>
-          <label>Como é o e-mail da sua empresa hoje?</label>
-          <S.Select {...register('situacao', { required: 'Campo obrigatorio' })}>
+          <label htmlFor="email-situacao">Como é o e-mail da sua empresa hoje?</label>
+          <S.Select
+            id="email-situacao"
+            aria-required="true"
+            aria-invalid={Boolean(errors.situacao)}
+            aria-describedby={errors.situacao ? 'email-situacao-erro' : undefined}
+            {...register('situacao', { required: 'Campo obrigatorio' })}
+          >
             <option value="">Selecione uma opção</option>
             <option>Nao tenho e-mail</option>
             <option>Outlook sincronizado</option>
@@ -168,34 +193,59 @@ export const FormContactEmail = () => {
             <option>e-mail de hospedagem (tipo Locaweb)</option>
             <option>Outro</option>
           </S.Select>
-          <S.ErrorMessage>{errors.situacao?.message}</S.ErrorMessage>
+          {errors.situacao && (
+            <S.ErrorMessage id="email-situacao-erro" role="alert">
+              {errors.situacao.message}
+            </S.ErrorMessage>
+          )}
         </S.Field>
 
         <S.Field>
-          <label>Precisa migrar e-mails antigos?</label>
-          <S.Select {...register('migracao', { required: 'Campo obrigatorio' })}>
+          <label htmlFor="email-migracao">Precisa migrar e-mails antigos?</label>
+          <S.Select
+            id="email-migracao"
+            aria-required="true"
+            aria-invalid={Boolean(errors.migracao)}
+            aria-describedby={errors.migracao ? 'email-migracao-erro' : undefined}
+            {...register('migracao', { required: 'Campo obrigatorio' })}
+          >
             <option value="">Selecione uma opcao</option>
             <option>Sim</option>
             <option>Nao</option>
             <option>Nao sei</option>
           </S.Select>
-          <S.ErrorMessage>{errors.migracao?.message}</S.ErrorMessage>
+          {errors.migracao && (
+            <S.ErrorMessage id="email-migracao-erro" role="alert">
+              {errors.migracao.message}
+            </S.ErrorMessage>
+          )}
         </S.Field>
 
         <S.Field>
-          <label>Quando você precisa resolver isso?</label>
-          <S.Select {...register('prioridade', { required: 'Campo obrigatorio' })}>
+          <label htmlFor="email-prioridade">Quando você precisa resolver isso?</label>
+          <S.Select
+            id="email-prioridade"
+            aria-required="true"
+            aria-invalid={Boolean(errors.prioridade)}
+            aria-describedby={errors.prioridade ? 'email-prioridade-erro' : undefined}
+            {...register('prioridade', { required: 'Campo obrigatorio' })}
+          >
             <option value="">Selecione uma opcao</option>
             <option>Urgente (essa semana)</option>
             <option>Em breve</option>
             <option>Só estou pesquisando</option>
           </S.Select>
-          <S.ErrorMessage>{errors.prioridade?.message}</S.ErrorMessage>
+          {errors.prioridade && (
+            <S.ErrorMessage id="email-prioridade-erro" role="alert">
+              {errors.prioridade.message}
+            </S.ErrorMessage>
+          )}
         </S.Field>
 
         <S.Field>
-          <label>O que você quer resolver no seu e-mail?</label>
+          <label htmlFor="email-problema">O que você quer resolver no seu e-mail?</label>
           <S.TextArea
+            id="email-problema"
             rows={3}
             placeholder="Ex: perda de e-mails, lentidão, falta de organização ou melhorar controle da equipe..."
             {...register('problema')}

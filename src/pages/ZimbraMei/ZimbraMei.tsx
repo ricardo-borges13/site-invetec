@@ -11,8 +11,8 @@ export const ZimbraMei = () => {
       <SEO
         title="E-mail profissional para MEI | Seu domínio e mais credibilidade | Invetec"
         description="Tenha um e-mail profissional com seu domínio, mais organização e credibilidade para seu negócio. Ideal para MEI e autônomos."
-        image="https://www.invetec.com.br/images/email-mei.jpg"
-        url="https://www.invetec.com.br/servicos/email-profissional-mei"
+        image="https://www.invetec.com.br/images/SEO-Invetec-Mail.jpg"
+        url="https://www.invetec.com.br/servicos/invetec-mail-mei"
       />
 
       <PageHeroSection

@@ -34,16 +34,28 @@ export const HeaderMain = () => {
   return (
     <S.HeaderContainer $isScrolled={isScrolled}>
       <S.HeaderContent>
-        <Link to="/">
-          <S.Image src={logo} alt="Invetec" $isScrolled={isScrolled} />
+        <Link to="/" aria-label="Página inicial da INVETEC">
+          <S.Image
+            src={logo}
+            alt="Logotipo da INVETEC"
+            width={400}
+            height={120}
+            $isScrolled={isScrolled}
+          />
         </Link>
 
         <S.MenuWrapper>
-          <S.MenuToggle onClick={() => setMenuOpen(!menuOpen)}>
+          <S.MenuToggle
+            type="button"
+            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={menuOpen}
+            aria-controls="menu-principal"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             {menuOpen ? <FiX /> : <FiMenu />}
           </S.MenuToggle>
 
-          <S.MenuContainer $open={menuOpen}>
+          <S.MenuContainer id="menu-principal" $open={menuOpen}>
             <Menu onLinkClick={() => setMenuOpen(false)} />
           </S.MenuContainer>
 

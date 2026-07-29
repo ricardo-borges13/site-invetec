@@ -21,7 +21,7 @@ export const FormContact = () => {
   } = useForm<FormInputs>();
 
   // Toast de teste (simulação)
-  const onSubmitMock = async (_data: FormInputs) => {
+  const onSubmitMock = async () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       toast.success('Mensagem enviada com sucesso! (MODO TESTE)', {
@@ -88,24 +88,36 @@ export const FormContact = () => {
       <form onSubmit={handleSubmit(submitHandler)}>
         <S.FieldGroup>
           <div style={{ flex: 1 }}>
-            <label>Nome *</label>
+            <label htmlFor="contato-nome">Nome *</label>
             <S.Input
+              id="contato-nome"
               placeholder="Nome"
+              aria-required="true"
+              aria-invalid={Boolean(errors.nome)}
+              aria-describedby={errors.nome ? 'contato-nome-erro' : undefined}
               {...register('nome', { required: 'O nome é obrigatório.' })}
             />
             {errors.nome && (
-              <S.ErrorMessage>{errors.nome.message}</S.ErrorMessage>
+              <S.ErrorMessage id="contato-nome-erro" role="alert">
+                {errors.nome.message}
+              </S.ErrorMessage>
             )}
           </div>
 
           <div style={{ flex: 1 }}>
-            <label>* Empresa</label>
+            <label htmlFor="contato-empresa">* Empresa</label>
             <S.Input
+              id="contato-empresa"
               placeholder="Empresa"
+              aria-required="true"
+              aria-invalid={Boolean(errors.empresa)}
+              aria-describedby={errors.empresa ? 'contato-empresa-erro' : undefined}
               {...register('empresa', { required: 'A empresa é obrigatória.' })}
             />
-            {errors.nome && (
-              <S.ErrorMessage>{errors.empresa?.message}</S.ErrorMessage>
+            {errors.empresa && (
+              <S.ErrorMessage id="contato-empresa-erro" role="alert">
+                {errors.empresa.message}
+              </S.ErrorMessage>
             )}
           </div>
         </S.FieldGroup>
@@ -113,15 +125,23 @@ export const FormContact = () => {
         {/* Telefone e Email */}
         <S.FieldGroup>
           <div style={{ flex: 1 }}>
-            <label>Telefone</label>
-            <S.Input placeholder="Telefone" {...register('telefone')} />
+            <label htmlFor="contato-telefone">Telefone</label>
+            <S.Input
+              id="contato-telefone"
+              placeholder="Telefone"
+              {...register('telefone')}
+            />
           </div>
 
           <div style={{ flex: 1 }}>
-            <label>E-mail *</label>
+            <label htmlFor="contato-email">E-mail *</label>
             <S.Input
+              id="contato-email"
               placeholder="E-mail"
               type="email"
+              aria-required="true"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? 'contato-email-erro' : undefined}
               {...register('email', {
                 required: 'O e-mail é obrigatório.',
                 pattern: {
@@ -131,29 +151,41 @@ export const FormContact = () => {
               })}
             />
             {errors.email && (
-              <S.ErrorMessage>{errors.email.message}</S.ErrorMessage>
+              <S.ErrorMessage id="contato-email-erro" role="alert">
+                {errors.email.message}
+              </S.ErrorMessage>
             )}
           </div>
         </S.FieldGroup>
 
         {/* Assunto */}
         <S.Assunto>
-          <label>Assunto *</label>
+          <label htmlFor="contato-assunto">Assunto *</label>
           <S.Input
+            id="contato-assunto"
             placeholder="Assunto"
+            aria-required="true"
+            aria-invalid={Boolean(errors.assunto)}
+            aria-describedby={errors.assunto ? 'contato-assunto-erro' : undefined}
             {...register('assunto', { required: 'O Assunto é obrigatório' })}
           />
           {errors.assunto && (
-            <S.ErrorMessage>{errors.assunto.message}</S.ErrorMessage>
+            <S.ErrorMessage id="contato-assunto-erro" role="alert">
+              {errors.assunto.message}
+            </S.ErrorMessage>
           )}
         </S.Assunto>
 
         {/* Mensagem */}
         <S.Mensagem>
-          <label>Mensagem *</label>
+          <label htmlFor="contato-mensagem">Mensagem *</label>
           <S.TextArea
+            id="contato-mensagem"
             placeholder="Mensagem"
             rows={4}
+            aria-required="true"
+            aria-invalid={Boolean(errors.mensagem)}
+            aria-describedby={errors.mensagem ? 'contato-mensagem-erro' : undefined}
             {...register('mensagem', {
               required: 'A mensagem é obrigatória.',
               minLength: {
@@ -163,7 +195,9 @@ export const FormContact = () => {
             })}
           />
           {errors.mensagem && (
-            <S.ErrorMessage>{errors.mensagem.message}</S.ErrorMessage>
+            <S.ErrorMessage id="contato-mensagem-erro" role="alert">
+              {errors.mensagem.message}
+            </S.ErrorMessage>
           )}
         </S.Mensagem>
 

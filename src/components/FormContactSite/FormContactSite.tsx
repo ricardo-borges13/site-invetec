@@ -21,7 +21,7 @@ export const FormContactSite = () => {
     formState: { errors, isSubmitting },
   } = useForm<FormInputs>();
 
-  const onSubmitMock = async (_data: FormInputs) => {
+  const onSubmitMock = async () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       toast.success('Solicitacao enviada com sucesso! (MODO TESTE)', {
@@ -95,47 +95,69 @@ export const FormContactSite = () => {
       <form onSubmit={handleSubmit(submitHandler)}>
         <S.FieldGroup>
           <S.Field>
-            <label>Nome *</label>
+            <label htmlFor="site-nome">Nome *</label>
             <S.Input
+              id="site-nome"
               placeholder="Nome"
+              aria-required="true"
+              aria-invalid={Boolean(errors.nome)}
+              aria-describedby={errors.nome ? 'site-nome-erro' : undefined}
               {...register('nome', { required: 'O nome e obrigatorio.' })}
             />
             {errors.nome && (
-              <S.ErrorMessage>{errors.nome.message}</S.ErrorMessage>
+              <S.ErrorMessage id="site-nome-erro" role="alert">
+                {errors.nome.message}
+              </S.ErrorMessage>
             )}
           </S.Field>
 
           <S.Field>
-            <label>Empresa *</label>
+            <label htmlFor="site-empresa">Empresa *</label>
             <S.Input
+              id="site-empresa"
               placeholder="Empresa"
+              aria-required="true"
+              aria-invalid={Boolean(errors.empresa)}
+              aria-describedby={errors.empresa ? 'site-empresa-erro' : undefined}
               {...register('empresa', { required: 'A empresa e obrigatoria.' })}
             />
             {errors.empresa && (
-              <S.ErrorMessage>{errors.empresa.message}</S.ErrorMessage>
+              <S.ErrorMessage id="site-empresa-erro" role="alert">
+                {errors.empresa.message}
+              </S.ErrorMessage>
             )}
           </S.Field>
         </S.FieldGroup>
 
         <S.FieldGroup>
           <S.Field>
-            <label>Telefone *</label>
+            <label htmlFor="site-telefone">Telefone *</label>
             <S.Input
+              id="site-telefone"
               placeholder="Telefone"
+              aria-required="true"
+              aria-invalid={Boolean(errors.telefone)}
+              aria-describedby={errors.telefone ? 'site-telefone-erro' : undefined}
               {...register('telefone', {
                 required: 'O telefone e obrigatorio.',
               })}
             />
             {errors.telefone && (
-              <S.ErrorMessage>{errors.telefone.message}</S.ErrorMessage>
+              <S.ErrorMessage id="site-telefone-erro" role="alert">
+                {errors.telefone.message}
+              </S.ErrorMessage>
             )}
           </S.Field>
 
           <S.Field>
-            <label>E-mail *</label>
+            <label htmlFor="site-email">E-mail *</label>
             <S.Input
+              id="site-email"
               placeholder="E-mail"
               type="email"
+              aria-required="true"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? 'site-email-erro' : undefined}
               {...register('email', {
                 required: 'O e-mail e obrigatorio.',
                 pattern: {
@@ -145,14 +167,16 @@ export const FormContactSite = () => {
               })}
             />
             {errors.email && (
-              <S.ErrorMessage>{errors.email.message}</S.ErrorMessage>
+              <S.ErrorMessage id="site-email-erro" role="alert">
+                {errors.email.message}
+              </S.ErrorMessage>
             )}
           </S.Field>
         </S.FieldGroup>
 
         <S.Field>
-          <label>Qual o objetivo principal do site?</label>
-          <S.Select {...register('objetivo')}>
+          <label htmlFor="site-objetivo">Qual o objetivo principal do site?</label>
+          <S.Select id="site-objetivo" {...register('objetivo')}>
             <option>Selecione uma opcao</option>
             <option>Gerar contatos</option>
             <option>Apresentar a empresa</option>
@@ -163,8 +187,9 @@ export const FormContactSite = () => {
         </S.Field>
 
         <S.Field>
-          <label>Tem alguma referencia?</label>
+          <label htmlFor="site-referencia">Tem alguma referencia?</label>
           <S.TextArea
+            id="site-referencia"
             rows={3}
             placeholder="Pode ser um site que voce goste, um concorrente ou alguma ideia de estrutura."
             {...register('referencia')}
@@ -172,9 +197,13 @@ export const FormContactSite = () => {
         </S.Field>
 
         <S.Field>
-          <label>Como voce imagina o site ideal para sua empresa?</label>
+          <label htmlFor="site-descricao">Como voce imagina o site ideal para sua empresa?</label>
           <S.TextArea
+            id="site-descricao"
             rows={4}
+            aria-required="true"
+            aria-invalid={Boolean(errors.descricao)}
+            aria-describedby={errors.descricao ? 'site-descricao-erro' : undefined}
             placeholder="Ex: quero um site mais profissional, que explique melhor meus servicos e gere mais contatos."
             {...register('descricao', {
               required: 'Descreva brevemente o que voce precisa.',
@@ -185,7 +214,9 @@ export const FormContactSite = () => {
             })}
           />
           {errors.descricao && (
-            <S.ErrorMessage>{errors.descricao.message}</S.ErrorMessage>
+              <S.ErrorMessage id="site-descricao-erro" role="alert">
+                {errors.descricao.message}
+              </S.ErrorMessage>
           )}
         </S.Field>
 

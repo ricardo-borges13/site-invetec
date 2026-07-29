@@ -79,12 +79,27 @@ export const FerramentasUteis = () => {
             {ferramentas.map((item, index) => (
               <MotionReveal key={index} delay={index * 0.05}>
                 <S.Card>
-                  <S.CardHeader onClick={() => toggleAccordion(index)}>
+                  <S.CardHeader
+                    role="button"
+                    tabIndex={0}
+                    aria-expanded={openIndex === index}
+                    aria-controls={`ferramenta-conteudo-${index}`}
+                    onClick={() => toggleAccordion(index)}
+                    onKeyDown={event => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        toggleAccordion(index);
+                      }
+                    }}
+                  >
                     <h3>{item.title}</h3>
                     <span>{openIndex === index ? '−' : '+'}</span>
                   </S.CardHeader>
 
-                  <S.AccordionContent $open={openIndex === index}>
+                  <S.AccordionContent
+                    id={`ferramenta-conteudo-${index}`}
+                    $open={openIndex === index}
+                  >
                     <p>{item.description}</p>
 
                     {item.external ? (

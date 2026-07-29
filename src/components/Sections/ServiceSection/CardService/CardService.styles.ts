@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.div<{ $clickable?: boolean }>`
   cursor: ${({ $clickable }) => ($clickable ? 'pointer' : 'default')};
+  color: inherit;
+  text-decoration: none;
 
   background: ${({ theme }) => theme.colors.white};
   border-radius: 12px;

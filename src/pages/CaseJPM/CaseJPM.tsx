@@ -228,7 +228,18 @@ export const CaseJPM = () => {
                   <img
                     src={beforeImage}
                     alt="Controle em Planilha"
+                    width={1000}
+                    height={400}
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Ampliar imagem do controle em planilha"
                     onClick={() => setSelectedImage(beforeImage)}
+                    onKeyDown={event => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        setSelectedImage(beforeImage);
+                      }
+                    }}
                     style={{ cursor: 'zoom-in' }}
                   />
 
@@ -247,7 +258,18 @@ export const CaseJPM = () => {
                   <img
                     src={afterImage}
                     alt="Sistema W3ERP Integrado"
+                    width={1000}
+                    height={400}
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Ampliar imagem do sistema W3ERP integrado"
                     onClick={() => setSelectedImage(afterImage)}
+                    onKeyDown={event => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        setSelectedImage(afterImage);
+                      }
+                    }}
                     style={{ cursor: 'zoom-in' }}
                   />
 
@@ -300,12 +322,21 @@ export const CaseJPM = () => {
         </S.Container>
 
         {selectedImage && (
-          <S.Lightbox>
-            <S.CloseButton onClick={() => setSelectedImage(null)}>
+          <S.Lightbox role="dialog" aria-modal="true" aria-label="Imagem ampliada do caso JPM">
+            <S.CloseButton
+              type="button"
+              aria-label="Fechar imagem ampliada"
+              onClick={() => setSelectedImage(null)}
+            >
               ✕
             </S.CloseButton>
 
-            <img src={selectedImage} alt="Preview" />
+            <img
+              src={selectedImage}
+              alt="Imagem ampliada do estudo de caso JPM"
+              width={1000}
+              height={400}
+            />
           </S.Lightbox>
         )}
       </PageHeroSection>

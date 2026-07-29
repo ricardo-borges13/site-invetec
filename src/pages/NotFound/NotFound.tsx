@@ -12,8 +12,7 @@ export const NotFound = () => {
         description="A página que você procura não foi encontrada. Acesse a Invetec e conheça soluções em ERP, TI, sites e e-mail corporativo para empresas."
         image="https://www.invetec.com.br/images/SEO-NotFound.jpg"
         url="https://www.invetec.com.br/404"
-        noindex={true} // 🔹 Impede o Google de indexar
-        nofollow={true} // 🔹 Impede o Google de seguir links desta página
+        noindex={true}
       />
 
       <Container>

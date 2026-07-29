@@ -226,8 +226,19 @@ export const Zimbra = () => {
               <img
                 src={imageZimbra}
                 alt="Interface do Zimbra"
+                width={900}
+                height={506}
                 loading="lazy"
+                role="button"
+                tabIndex={0}
+                aria-label="Ampliar interface do Zimbra"
                 onClick={() => setSelectedImage(imageZimbraFull)}
+                onKeyDown={event => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setSelectedImage(imageZimbraFull);
+                  }
+                }}
                 style={{ cursor: 'zoom-in' }}
               />
             </S.SystemImage>
@@ -408,11 +419,20 @@ export const Zimbra = () => {
         </S.Container>
 
         {selectedImage && (
-          <S.Lightbox onClick={() => setSelectedImage(null)}>
-            <S.CloseButton onClick={() => setSelectedImage(null)}>
+          <S.Lightbox
+            role="dialog"
+            aria-modal="true"
+            aria-label="Interface do Zimbra ampliada"
+            onClick={() => setSelectedImage(null)}
+          >
+            <S.CloseButton
+              type="button"
+              aria-label="Fechar imagem ampliada"
+              onClick={() => setSelectedImage(null)}
+            >
               x
             </S.CloseButton>
-            <img src={selectedImage} alt="Preview" />
+            <img src={selectedImage} alt="Interface do Zimbra ampliada" />
           </S.Lightbox>
         )}
       </PageHeroSection>

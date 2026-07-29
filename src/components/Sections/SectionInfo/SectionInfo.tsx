@@ -37,7 +37,12 @@ export const SectionInfo = ({
       <MotionReveal delay={0.5}>
         <S.ImagesArea>
           <S.LogoWrapper>
-            <img src={image1} alt="Invetec" />
+            <img
+              src={image1}
+              alt="Escudo de tecnologia da INVETEC"
+              width={300}
+              height={300}
+            />
           </S.LogoWrapper>
         </S.ImagesArea>
       </MotionReveal>

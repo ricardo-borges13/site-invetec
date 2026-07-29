@@ -68,9 +68,3 @@ export const servicesData = [
   },
 ];
 
-// {
-//   image: digital,
-//   title: 'Marketing Digital',
-//   subtitle: 'Gestão de redes e campanhas para atrair clientes',
-//   path: '/servicos/marketing-digital',
-// },

@@ -177,7 +177,12 @@ export const Site = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={projectImage} alt="Projeto desenvolvido" />
+                  <img
+                    src={projectImage}
+                    alt="Site institucional desenvolvido para o Grupo JPM"
+                    width={720}
+                    height={1150}
+                  />
                 </S.ProjectImageLink>
 
                 <div>

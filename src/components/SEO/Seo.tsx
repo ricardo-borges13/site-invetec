@@ -7,7 +7,6 @@ type SEOProps = {
   url?: string;
   keywords?: string;
   noindex?: boolean;
-  nofollow?: boolean;
   schema?: object;
 };
 
@@ -18,13 +17,9 @@ export const SEO = ({
   url = 'https://www.invetec.com.br/',
   keywords,
   noindex,
-  nofollow,
   schema,
 }: SEOProps) => {
-  const robotsContent =
-    noindex || nofollow
-      ? `${noindex ? 'noindex' : 'index'}, ${nofollow ? 'nofollow' : 'follow'}`
-      : undefined;
+  const robotsContent = noindex ? 'noindex, follow' : 'index, follow';
 
   return (
     <Helmet>
@@ -47,7 +42,7 @@ export const SEO = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
 
-      {robotsContent && <meta name="robots" content={robotsContent} />}
+      <meta name="robots" content={robotsContent} />
 
       {/* 👇 NOVO */}
       {schema && (

@@ -174,13 +174,25 @@ export const CalculadoraData = () => {
 
           <S.Accordion>
             <S.Item>
-              <S.Header onClick={() => toggleAccordion(0)}>
+              <S.Header
+                role="button"
+                tabIndex={0}
+                aria-expanded={openIndex === 0}
+                aria-controls="calculadora-data-faq-0"
+                onClick={() => toggleAccordion(0)}
+                onKeyDown={event => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleAccordion(0);
+                  }
+                }}
+              >
                 O que é uma calculadora de datas?
                 <span>{openIndex === 0 ? '−' : '+'}</span>
               </S.Header>
 
               {openIndex === 0 && (
-                <p>
+                <p id="calculadora-data-faq-0">
                   É uma ferramenta que permite somar ou subtrair dias de uma
                   data, facilitando o cálculo de prazos, vencimentos e períodos
                   futuros.
@@ -189,13 +201,25 @@ export const CalculadoraData = () => {
             </S.Item>
 
             <S.Item>
-              <S.Header onClick={() => toggleAccordion(1)}>
+              <S.Header
+                role="button"
+                tabIndex={0}
+                aria-expanded={openIndex === 1}
+                aria-controls="calculadora-data-faq-1"
+                onClick={() => toggleAccordion(1)}
+                onKeyDown={event => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleAccordion(1);
+                  }
+                }}
+              >
                 Como calcular uma data futura?
                 <span>{openIndex === 1 ? '−' : '+'}</span>
               </S.Header>
 
               {openIndex === 1 && (
-                <p>
+                <p id="calculadora-data-faq-1">
                   Basta informar uma data inicial e a quantidade de dias
                   desejada. O sistema realiza o cálculo automaticamente e
                   apresenta a data final.
@@ -204,13 +228,25 @@ export const CalculadoraData = () => {
             </S.Item>
 
             <S.Item>
-              <S.Header onClick={() => toggleAccordion(2)}>
+              <S.Header
+                role="button"
+                tabIndex={0}
+                aria-expanded={openIndex === 2}
+                aria-controls="calculadora-data-faq-2"
+                onClick={() => toggleAccordion(2)}
+                onKeyDown={event => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleAccordion(2);
+                  }
+                }}
+              >
                 Para que serve a calculadora de datas?
                 <span>{openIndex === 2 ? '−' : '+'}</span>
               </S.Header>
 
               {openIndex === 2 && (
-                <p>
+                <p id="calculadora-data-faq-2">
                   • Controle de prazos contratuais • Cálculo de vencimentos •
                   Planejamento de atividades • Gestão de entregas e projetos
                 </p>
@@ -218,13 +254,25 @@ export const CalculadoraData = () => {
             </S.Item>
 
             <S.Item>
-              <S.Header onClick={() => toggleAccordion(3)}>
+              <S.Header
+                role="button"
+                tabIndex={0}
+                aria-expanded={openIndex === 3}
+                aria-controls="calculadora-data-faq-3"
+                onClick={() => toggleAccordion(3)}
+                onKeyDown={event => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleAccordion(3);
+                  }
+                }}
+              >
                 É possível calcular datas para contratos e prazos?
                 <span>{openIndex === 3 ? '−' : '+'}</span>
               </S.Header>
 
               {openIndex === 3 && (
-                <p>
+                <p id="calculadora-data-faq-3">
                   Sim, a calculadora de datas é ideal para contratos, permitindo
                   calcular prazos de vencimento, períodos de locação, serviços e
                   datas futuras com precisão.

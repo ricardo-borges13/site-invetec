@@ -37,7 +37,11 @@ export const Footer = ({ phone, email }: ContactInfo) => {
       <S.Content>
         {/* Empresa */}
         <S.SectionLogo>
-          <S.LogoImage src={logo} alt="Invetec" />
+          <S.LogoImage
+            src={logo}
+            alt="Logotipo da INVETEC"
+            
+          />
 
           <S.Text>
             Tecnologia aplicada ao crescimento do seu negócio.

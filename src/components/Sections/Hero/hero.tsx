@@ -30,7 +30,7 @@ export const Hero = React.memo(
         {/* Imagem real no DOM */}
         <S.BackgroundImage
           src={image}
-          alt="Banner principal"
+          alt={`INVETEC: ${title}`}
           loading="eager"
           $fetchPriority="high"
           decoding="async"

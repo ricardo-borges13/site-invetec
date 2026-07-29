@@ -266,14 +266,24 @@ export const ProRata = () => {
           <S.Accordion>
             <S.Item>
               <S.Header
+                role="button"
+                tabIndex={0}
+                aria-expanded={openIndex === 0}
+                aria-controls="pro-rata-faq-0"
                 onClick={() => setOpenIndex(openIndex === 0 ? null : 0)}
+                onKeyDown={event => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setOpenIndex(openIndex === 0 ? null : 0);
+                  }
+                }}
               >
                 O que é cálculo pró-rata?
                 <span>{openIndex === 0 ? '−' : '+'}</span>
               </S.Header>
 
               {openIndex === 0 && (
-                <p>
+                <p id="pro-rata-faq-0">
                   É o cálculo proporcional de um valor mensal com base na
                   quantidade de dias utilizados dentro de um período. Muito
                   utilizado em contratos de locação, serviços recorrentes e
@@ -284,14 +294,24 @@ export const ProRata = () => {
 
             <S.Item>
               <S.Header
+                role="button"
+                tabIndex={0}
+                aria-expanded={openIndex === 1}
+                aria-controls="pro-rata-faq-1"
                 onClick={() => setOpenIndex(openIndex === 1 ? null : 1)}
+                onKeyDown={event => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setOpenIndex(openIndex === 1 ? null : 1);
+                  }
+                }}
               >
                 Como o cálculo é feito?
                 <span>{openIndex === 1 ? '−' : '+'}</span>
               </S.Header>
 
               {openIndex === 1 && (
-                <p>
+                <p id="pro-rata-faq-1">
                   O cálculo de pró-rata é feito dividindo o valor mensal por 30
                   dias e multiplicando pelo número de dias utilizados no
                   período.
@@ -304,14 +324,24 @@ export const ProRata = () => {
 
             <S.Item>
               <S.Header
+                role="button"
+                tabIndex={0}
+                aria-expanded={openIndex === 2}
+                aria-controls="pro-rata-faq-2"
                 onClick={() => setOpenIndex(openIndex === 2 ? null : 2)}
+                onKeyDown={event => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setOpenIndex(openIndex === 2 ? null : 2);
+                  }
+                }}
               >
                 Quando usar?
                 <span>{openIndex === 2 ? '−' : '+'}</span>
               </S.Header>
 
               {openIndex === 2 && (
-                <p>
+                <p id="pro-rata-faq-2">
                   • Locação de equipamentos
                   <br />
                   • Serviços iniciados no meio do mês

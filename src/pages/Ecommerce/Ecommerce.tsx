@@ -113,21 +113,46 @@ export const Ecommerce = () => {
               <S.CarouselWrapper>
                 <Carousel interval={3000} controls indicators>
                   <Carousel.Item>
-                    <img src={image1} alt="Loja virtual exemplo 1" />
+                    <img
+                      src={image1}
+                      alt="Exemplo de loja virtual de bebidas"
+                      width={720}
+                      height={1150}
+                    />
                   </Carousel.Item>
 
                   <Carousel.Item>
-                    <img src={image2} alt="Loja virtual exemplo 2" />
+                    <img
+                      src={image2}
+                      alt="Exemplo de loja virtual de roupas"
+                      width={720}
+                      height={1150}
+                    />
                   </Carousel.Item>
 
                   <Carousel.Item>
-                    <img src={image3} alt="Loja virtual exemplo 3" />
+                    <img
+                      src={image3}
+                      alt="Exemplo de loja virtual de joias"
+                      width={720}
+                      height={1150}
+                    />
                   </Carousel.Item>
                   <Carousel.Item>
-                    <img src={image4} alt="Loja virtual exemplo 3" />
+                    <img
+                      src={image4}
+                      alt="Exemplo de loja virtual de moda"
+                      width={720}
+                      height={1150}
+                    />
                   </Carousel.Item>
                   <Carousel.Item>
-                    <img src={image5} alt="Loja virtual exemplo 3" />
+                    <img
+                      src={image5}
+                      alt="Exemplo de loja virtual de alimentos"
+                      width={720}
+                      height={1150}
+                    />
                   </Carousel.Item>
                 </Carousel>
               </S.CarouselWrapper>

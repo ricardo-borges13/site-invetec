@@ -92,13 +92,18 @@ export const Menu = ({ onLinkClick }: MenuProps) => {
         >
           <MenuLink
             to={item.path ?? '#'}
+            aria-haspopup={item.submenu ? 'true' : undefined}
+            aria-expanded={item.submenu ? (!isMobile && openMenu === item.id) || (isMobile && openSubmenuMobile === item.id) : undefined}
+            aria-controls={item.submenu ? `submenu-${item.id}` : undefined}
             onClick={e => handleMenuClick(e, item)}
+            onFocus={() => handleMouseEnter(item.id)}
           >
             {item.title}
           </MenuLink>
 
           {item.submenu && (
             <Submenu
+              id={`submenu-${item.id}`}
               $isOpen={
                 (!isMobile && openMenu === item.id) ||
                 (isMobile && openSubmenuMobile === item.id)
