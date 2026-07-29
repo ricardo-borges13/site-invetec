@@ -1,0 +1,46 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # ==========================
+  # REDIRECIONAMENTOS ANTIGOS
+  # ==========================
+
+  RewriteRule ^servicos/zimbra/?$ https://www.invetec.com.br/servicos/invetec-mail [R=301,L]
+
+  RewriteRule ^servicos/email-corporativo-zimbra/?$ https://www.invetec.com.br/servicos/invetec-mail [R=301,L]
+
+  RewriteRule ^prorata/?$ https://www.invetec.com.br/servicos/ferramentas-uteis/pro-rata [R=301,L]
+
+  RewriteRule ^prorata/pro-rata/?$ https://www.invetec.com.br/servicos/ferramentas-uteis/pro-rata [R=301,L]
+
+  RewriteRule ^prorata/calculadora-data/?$ https://www.invetec.com.br/servicos/ferramentas-uteis/calculadora-de-datas [R=301,L]
+
+  # ==========================
+  # ARQUIVOS REAIS
+  # ==========================
+
+  RewriteRule ^index\.html$ - [L]
+
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # ==========================
+  # ROTAS VÁLIDAS DO REACT
+  # ==========================
+
+  RewriteCond %{REQUEST_URI} ^/(sobre|contato|cases(?:/(datron|jpm))?|servicos/(erp(?:/(bling|w3erp))?|invetec-mail(?:-mei)?|criacao-de-sites|suporte-ti|e-commerce|ferramentas-uteis(?:/(pro-rata|calculadora-de-datas))?))/?$ [NC]
+  RewriteRule ^ /index.html [L]
+
+  # URLs desconhecidas continuam com status HTTP 404.
+  # O React recebe o index.html e exibe o componente NotFound.
+  ErrorDocument 404 /index.html
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php74” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php74 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
