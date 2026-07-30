@@ -991,24 +991,106 @@ export const ProcessStep = styled.li`
 `;
 
 export const FaqList = styled.div`
-  max-width: 850px;
+  max-width: 880px;
   margin: auto;
   display: grid;
-  gap: 0.7rem;
-  details { border: 1px solid #dbe7f4; border-radius: 10px; background: #fff; }
-  summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.15rem; color: #17365d; font-weight: 700; cursor: pointer; }
-  summary svg { flex: 0 0 auto; transition: transform 0.2s ease; }
-  details[open] summary svg { transform: rotate(90deg); }
-  p { margin: 0; padding: 0 1.15rem 1.15rem; color: #526a82; line-height: 1.7; }
+  gap: 0.6rem;
+
+  details {
+    border: 1px solid #d5e4f1;
+    border-radius: 10px;
+    background: #fff;
+    transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  summary {
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    color: #17365d;
+    font-size: 0.98rem;
+    font-weight: 700;
+    line-height: 1.4;
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker { display: none; }
+    &::marker { content: ''; }
+    &:focus-visible { outline: 3px solid #1e6fac; outline-offset: -3px; border-radius: 9px; }
+  }
+
+  summary svg {
+    flex: 0 0 auto;
+    font-size: 1.05rem;
+    transition: transform 180ms ease, color 180ms ease;
+  }
+
+  details[open] {
+    border-color: #9ec7e6;
+    background: #f7fbff;
+    box-shadow: 0 0.25rem 0.8rem rgba(14, 48, 79, 0.055);
+
+    summary svg { transform: rotate(90deg); color: ${({ theme }) => theme.colors.primary}; }
+  }
+
+  details > div {
+    padding: 0.1rem 1rem 0.9rem;
+    border-top: 1px solid #dceaf5;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    details:hover {
+      transform: translateY(-1px);
+      border-color: #a9cde8;
+      background: #f7fbff;
+      box-shadow: 0 0.25rem 0.7rem rgba(14, 48, 79, 0.045);
+    }
+  }
+
+  @media (max-width: 600px) {
+    gap: 0.5rem;
+
+    summary {
+      min-height: 48px;
+      padding: 0.72rem 0.9rem;
+      font-size: 0.94rem;
+    }
+
+    details > div { padding: 0.1rem 0.9rem 0.85rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    details, summary svg { transition: none; }
+  }
+`;
+
+export const FaqHeading = styled(SectionHeading)`
+  margin-bottom: 1.7rem;
+
+  h2 {
+    font-size: clamp(1.8rem, 2.8vw, 2.45rem);
+    line-height: 1.16;
+  }
+
+  @media (max-width: 600px) {
+    margin-bottom: 1.25rem;
+    h2 { font-size: clamp(1.65rem, 6vw, 2rem); }
+  }
 `;
 
 export const FaqAnswer = styled.div`
   p {
     margin: 0;
+    color: #526a82;
+    font-size: 0.91rem;
+    line-height: 1.65;
   }
 
   p + p {
-    margin-top: 0.85rem;
+    margin-top: 0.75rem;
   }
 `;
 

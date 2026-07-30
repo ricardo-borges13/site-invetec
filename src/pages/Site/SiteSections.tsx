@@ -651,38 +651,48 @@ export const ProcessTimeline = () => (
   </S.Section>
 );
 
-export const SiteFaq = () => (
-  <S.Section id="site-faq">
-    <MotionReveal distance={80} duration={0.45}>
-      <S.SectionHeading>
+export const SiteFaq = () => {
+  const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+
+  return (
+    <S.Section id="site-faq">
+      <MotionReveal distance={20} duration={0.45}>
+        <S.FaqHeading>
         <span>DÚVIDAS FREQUENTES</span>
         <h2>Perguntas frequentes</h2>
-      </S.SectionHeading>
-    </MotionReveal>
-    <MotionReveal delay={0.08} distance={20} duration={0.45}>
-    <S.FaqList>
-  {siteFaqs.map(({ question, answer }) => (
-    <details key={question}>
-      <summary>
-        {question}
-        <FiArrowRight aria-hidden="true" />
-      </summary>
+        </S.FaqHeading>
+      </MotionReveal>
+      <MotionReveal delay={0.08} distance={20} duration={0.45}>
+        <S.FaqList>
+          {siteFaqs.map(({ question, answer }) => (
+            <details
+              key={question}
+              open={openQuestion === question}
+              onToggle={event =>
+                setOpenQuestion(event.currentTarget.open ? question : null)
+              }
+            >
+              <summary>
+                {question}
+                <FiArrowRight aria-hidden="true" />
+              </summary>
 
-      <S.FaqAnswer>
-        {Array.isArray(answer) ? (
-          answer.map((paragraph, index) => (
-            <p key={`${question}-${index}`}>{paragraph}</p>
-          ))
-        ) : (
-          <p>{answer}</p>
-        )}
-      </S.FaqAnswer>
-    </details>
-  ))}
-</S.FaqList>
-    </MotionReveal>
-  </S.Section>
-);
+              <S.FaqAnswer>
+                {Array.isArray(answer) ? (
+                  answer.map((paragraph, index) => (
+                    <p key={`${question}-${index}`}>{paragraph}</p>
+                  ))
+                ) : (
+                  <p>{answer}</p>
+                )}
+              </S.FaqAnswer>
+            </details>
+          ))}
+        </S.FaqList>
+      </MotionReveal>
+    </S.Section>
+  );
+};
 
 export const SiteBudgetForm = () => (
   <S.FormArea id="site-orcamento">
