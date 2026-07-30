@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
 import { CustomButton } from '../CustomButton/CustomButton';
@@ -9,6 +10,8 @@ type FormInputs = {
   telefone: string;
   email: string;
   objetivo: string;
+  hasWebsite: string;
+  websiteUrl?: string;
   referencia: string;
   descricao: string;
 };
@@ -18,8 +21,11 @@ export const FormContactSite = () => {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors, isSubmitting },
-  } = useForm<FormInputs>();
+  } = useForm<FormInputs>({ shouldUnregister: true });
+
+  const [hasWebsite, setHasWebsite] = useState('');
 
   const onSubmitMock = async () => {
     try {
@@ -28,6 +34,7 @@ export const FormContactSite = () => {
         duration: 9000,
       });
       reset();
+      setHasWebsite('');
     } catch {
       toast.error('Erro ao enviar (MODO TESTE).', { duration: 4000 });
     }
@@ -50,6 +57,7 @@ export const FormContactSite = () => {
           { duration: 4000 }
         );
         reset();
+        setHasWebsite('');
       } else {
         toast.error('Erro ao enviar. Tente novamente.', { duration: 4000 });
       }
@@ -88,8 +96,9 @@ export const FormContactSite = () => {
       />
 
       <S.IntroText>
-        Leva menos de 1 minuto. Com essas informacoes, consigo entender melhor o
-        perfil do seu projeto e te retornar com uma proposta mais alinhada.
+        Leva menos de 1 minuto. Com essas informações, conseguimos entender
+        melhor o perfil do seu projeto e retornar com uma proposta mais
+        alinhada.
       </S.IntroText>
 
       <form onSubmit={handleSubmit(submitHandler)}>
@@ -174,23 +183,75 @@ export const FormContactSite = () => {
           </S.Field>
         </S.FieldGroup>
 
-        <S.Field>
-          <label htmlFor="site-objetivo">Qual o objetivo principal do site?</label>
-          <S.Select id="site-objetivo" {...register('objetivo')}>
-            <option>Selecione uma opcao</option>
-            <option>Gerar contatos</option>
-            <option>Apresentar a empresa</option>
-            <option>Mostrar portfolio ou servicos</option>
-            <option>Fortalecer a marca</option>
-            <option>Ainda estou definindo</option>
-          </S.Select>
-        </S.Field>
+        <S.FieldGroup>
+          <S.Field>
+            <label htmlFor="site-objetivo">Qual o objetivo principal do site?</label>
+            <S.Select id="site-objetivo" {...register('objetivo')}>
+              <option>Selecione uma opcao</option>
+              <option>Gerar contatos</option>
+              <option>Apresentar a empresa</option>
+              <option>Mostrar portfolio ou servicos</option>
+              <option>Fortalecer a marca</option>
+              <option>Ainda estou definindo</option>
+            </S.Select>
+          </S.Field>
+
+          <S.Field>
+            <label htmlFor="site-has-website">Sua empresa já possui um site?</label>
+            <S.Select
+              id="site-has-website"
+              {...register('hasWebsite', {
+                onChange: event => {
+                  setHasWebsite(event.target.value);
+
+                  if (event.target.value !== 'sim') {
+                    setValue('websiteUrl', '');
+                  }
+                },
+              })}
+            >
+              <option value="">Selecione uma opção</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+              <option value="em-desenvolvimento">Está em desenvolvimento</option>
+            </S.Select>
+          </S.Field>
+        </S.FieldGroup>
+
+        {hasWebsite === 'sim' && (
+          <S.Field>
+            <label htmlFor="site-website-url">Qual é o endereço do site atual?</label>
+            <S.Input
+              id="site-website-url"
+              type="url"
+              placeholder="https://www.suaempresa.com.br"
+              aria-required="true"
+              aria-invalid={Boolean(errors.websiteUrl)}
+              aria-describedby={errors.websiteUrl ? 'site-website-url-erro' : 'site-website-url-ajuda'}
+              {...register('websiteUrl', {
+                required: 'Informe o endereço do site atual.',
+                pattern: {
+                  value: /^https?:\/\/\S+$/i,
+                  message: 'Informe uma URL válida, começando com http:// ou https://.',
+                },
+              })}
+            />
+            <S.HelperText id="site-website-url-ajuda">
+              Usaremos esse endereço apenas para entender melhor a estrutura atual da empresa.
+            </S.HelperText>
+            {errors.websiteUrl && (
+              <S.ErrorMessage id="site-website-url-erro" role="alert">
+                {errors.websiteUrl.message}
+              </S.ErrorMessage>
+            )}
+          </S.Field>
+        )}
 
         <S.Field>
           <label htmlFor="site-referencia">Tem alguma referencia?</label>
           <S.TextArea
             id="site-referencia"
-            rows={3}
+            rows={2}
             placeholder="Pode ser um site que voce goste, um concorrente ou alguma ideia de estrutura."
             {...register('referencia')}
           />
@@ -200,7 +261,7 @@ export const FormContactSite = () => {
           <label htmlFor="site-descricao">Como voce imagina o site ideal para sua empresa?</label>
           <S.TextArea
             id="site-descricao"
-            rows={4}
+            rows={3}
             aria-required="true"
             aria-invalid={Boolean(errors.descricao)}
             aria-describedby={errors.descricao ? 'site-descricao-erro' : undefined}

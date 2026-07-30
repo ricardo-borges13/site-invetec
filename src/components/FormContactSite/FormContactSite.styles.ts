@@ -2,45 +2,45 @@ import styled, { css } from 'styled-components';
 
 export const FormContainer = styled.div`
   background: linear-gradient(180deg, #f8fafc, #eef4fb);
-  padding: 30px;
+  padding: 1.5rem;
   border-radius: 18px;
   border: 1px solid #d8e4f2;
   box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08);
   width: 100%;
-  max-width: 680px;
+  max-width: 760px;
   margin: 0 auto;
 
   form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 0.8rem;
   }
 
   label {
     display: inline-block;
-    margin-bottom: 6px;
+    margin-bottom: 0.35rem;
     color: ${({ theme }) => theme.colors.black};
     font-weight: 600;
     text-align: left;
   }
 
   @media (max-width: 768px) {
-    padding: 20px 16px;
+    padding: 1.15rem 1rem;
     border-radius: 16px;
   }
 `;
 
 export const IntroText = styled.p`
-  margin: 0 0 1rem;
+  margin: 0 0 0.8rem;
   color: #64748b;
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.5;
   text-align: left;
 `;
 
 export const FieldGroup = styled.div`
   display: flex;
-  gap: 14px;
+  gap: 0.75rem;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -57,7 +57,7 @@ export const Field = styled.div`
 const sharedFieldStyles = css`
   width: 100%;
   min-height: 48px;
-  padding: 0.8rem 0.95rem;
+  padding: 0.72rem 0.85rem;
   border-radius: 12px;
   border: 1px solid #dbe2ea;
   background: #fff;
@@ -85,14 +85,14 @@ export const Select = styled.select`
 
 export const TextArea = styled.textarea`
   ${sharedFieldStyles}
-  min-height: 110px;
+  min-height: 88px;
   resize: vertical;
 `;
 
 export const SubmitRow = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 0.5rem;
+  padding-top: 0.3rem;
 
   button {
     min-width: min(100%, 320px);
@@ -110,4 +110,13 @@ export const ErrorMessage = styled.span`
   font-size: 0.82rem;
   margin-top: 0.35rem;
   display: block;
+`;
+
+export const HelperText = styled.small`
+  display: block;
+  margin-top: 0.3rem;
+  color: #64748b;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  text-align: left;
 `;

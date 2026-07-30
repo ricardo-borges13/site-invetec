@@ -1,4 +1,6 @@
-import projectImage from '@/assets/images/SITE-JPM.jpg';
+import imageDatron from '@/assets/images/site-datron.webp';
+import imageRevele from '@/assets/images/site-revele.webp';
+import imageJPM from '@/assets/images/site-jpm.webp';
 
 export type Project = {
   name: string;
@@ -15,8 +17,8 @@ export const projects: Project[] = [
     name: 'Grupo JPM',
     segment: 'Indústria',
     description:
-      'Site institucional desenvolvido para organizar a apresentação da empresa, seus produtos e serviços, fortalecendo o posicionamento profissional e a geração de contatos.',
-    image: projectImage,
+      'Site institucional desenvolvido para apresentar as soluções industriais da JPM, organizar seu portfólio de produtos e facilitar o contato com potenciais clientes.',
+    image: imageJPM,
     url: 'https://grupojpm.com.br/',
     highlights: [
       'Arquitetura de páginas',
@@ -24,21 +26,23 @@ export const projects: Project[] = [
       'SEO técnico',
       'Performance',
       'Formulário e WhatsApp',
+      'React'
     ],
   },
   {
     name: 'Datron Tecnologia',
     segment: 'Radiocomunicação',
     description:
-      'Site institucional desenvolvido para apresentar os serviços de locação de rádios comunicadores, produtos, atuação regional e solicitação de orçamento.',
-    image: projectImage,
-    url: 'https://www.datrontecnologia.com.br/',
+      'Site institucional desenvolvido para apresentar as soluções de radiocomunicação da Datron, fortalecer sua presença digital e facilitar a solicitação de orçamentos por empresas de todo o Brasil.',
+    image: imageDatron,
+    url: 'https://datron.invetec.com.br/',
     highlights: [
       'Arquitetura institucional',
       'Responsividade',
       'SEO por página',
       'Formulário de orçamento',
       'Integração com WhatsApp',
+      'Next.js e React',
     ],
   },
   {
@@ -46,7 +50,7 @@ export const projects: Project[] = [
     segment: 'Moda e acessórios',
     description:
       'Site institucional desenvolvido para apresentar a marca, seus produtos e canais de atendimento, com foco em presença profissional, navegação simples e contato direto pelo WhatsApp.',
-    image: projectImage,
+    image: imageRevele,
     url: 'https://revelesemijoias.com.br/',
     highlights: [
       'Site institucional',
