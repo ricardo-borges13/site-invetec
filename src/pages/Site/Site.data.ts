@@ -75,9 +75,14 @@ export const siteFaqs = [
       'Sim. Os projetos são desenvolvidos com responsividade para computadores, tablets e celulares.',
   },
   {
+    question: 'O que é SEO em um site?',
+    answer:
+      'SEO é o conjunto de ajustes técnicos e de conteúdo que ajuda o Google a entender, organizar e apresentar as páginas do site nas pesquisas. Isso inclui títulos, descrições, estrutura das páginas, URLs, imagens, velocidade e qualidade do conteúdo.',
+  },
+  {
     question: 'O projeto já inclui SEO?',
     answer:
-      'O site recebe uma estrutura técnica de SEO, incluindo organização de títulos, descrições, headings, URLs, imagens e páginas. Posicionamento orgânico também depende de conteúdo, concorrência e continuidade da estratégia.',
+      'Sim. O site recebe uma estrutura técnica de SEO, com organização de títulos, descrições, páginas, URLs, imagens e conteúdo. Isso prepara o site para ser encontrado pelo Google, mas o posicionamento também depende da concorrência, da qualidade do conteúdo e da continuidade da estratégia.',
   },
   {
     question: 'A INVETEC pode ajudar com textos e imagens?',
@@ -94,14 +99,27 @@ export const siteFaqs = [
     answer:
       'Sim. O formato e o período de acompanhamento são definidos na proposta comercial.',
   },
+{
+  question: 'O que é Google Ads?',
+  answer: [
+    'Google Ads é a plataforma de anúncios pagos do Google. Por meio dela, sua empresa pode aparecer para pessoas que estão pesquisando produtos ou serviços relacionados ao seu negócio.',
+
+    'Os anúncios podem ser direcionados por região, palavras-chave, público e orçamento. Ou seja, sua empresa investe um valor para aumentar a visibilidade e ter a possibilidade de aparecer em posições de destaque nos resultados de pesquisa.',
+  ],
+},
+{
+  question: 'Como funciona o bônus de Google Ads?',
+  answer: [
+    'Na contratação do site, caso sua empresa opte por iniciar anúncios no Google Ads, a INVETEC oferecerá uma consultoria inicial e fará a configuração básica da conta e de uma campanha inicial. Nessa etapa, será definido um produto ou serviço principal para divulgação, além das palavras-chave, regiões de atendimento e orçamento inicial.',
+
+    'A campanha será entregue configurada para iniciar a divulgação do novo site, incluindo a preparação da medição dos contatos gerados. O valor investido nos anúncios é definido pela empresa e pago diretamente ao Google.',
+
+    'O bônus contempla somente essa implantação inicial de uma campanha. Novos produtos ou serviços, outras campanhas, alterações posteriores, acompanhamento de resultados, otimizações e gestão contínua não estão incluídos e podem ser contratados separadamente.',
+  ],
+},
   {
-    question: 'Como funciona o bônus de Google Ads?',
-    answer:
-      'Na contratação do site, a INVETEC pode realizar a consultoria e configuração inicial da conta e da conversão principal. O investimento em anúncios e a gestão contínua são serviços separados.',
-  },
-  {
-    question: 'A INVETEC atende empresas fora de Minas Gerais?',
-    answer:
-      'Sim. O desenvolvimento pode ser realizado para empresas em todo o Brasil, com atendimento remoto.',
-  },
+  question: 'A INVETEC atende empresas em todo o Brasil?',
+  answer:
+    'Sim. A INVETEC desenvolve sites para empresas de todo o Brasil. O planejamento, as reuniões, o desenvolvimento e as aprovações podem ser realizados de forma remota, com acompanhamento durante todas as etapas do projeto.',
+},
 ];

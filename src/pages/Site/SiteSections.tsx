@@ -11,7 +11,6 @@ import {
 import { createPortal } from 'react-dom';
 import { FaReact } from 'react-icons/fa';
 import {
-  FiActivity,
   FiArrowLeft,
   FiArrowRight,
   FiBarChart2,
@@ -62,24 +61,48 @@ const benefits = [
 ];
 
 const problems = [
-  'Visual antigo ou pouco profissional',
-  'Carregamento lento',
-  'Experiência ruim no celular',
-  'Serviços difíceis de entender',
-  'Ausência de formulário ou WhatsApp',
-  'Estrutura fraca para aparecer no Google',
+  {
+    icon: FiMonitor,
+    title: 'Visual pouco profissional',
+    description: 'Reduz a confiança na empresa.',
+  },
+  {
+    icon: FiZap,
+    title: 'Carregamento lento',
+    description: 'Faz o visitante abandonar a página.',
+  },
+  {
+    icon: FiSmartphone,
+    title: 'Experiência ruim no celular',
+    description: 'Prejudica a navegação e o contato.',
+  },
+  {
+    icon: FiLayout,
+    title: 'Serviços pouco claros',
+    description: 'O cliente não entende rapidamente a oferta.',
+  },
+  {
+    icon: FiMessageCircle,
+    title: 'Contato difícil',
+    description: 'A oportunidade comercial é perdida.',
+  },
+  {
+    icon: FiSearch,
+    title: 'Pouca visibilidade no Google',
+    description: 'A empresa não aparece para quem está procurando.',
+  },
 ];
 
 const deliverables = [
   {
     icon: FiLayout,
     title: 'Planejamento da estrutura',
-    text: 'Páginas, serviços, conteúdo e chamadas para ação organizados.',
+    text: 'Páginas, serviços, conteúdo e chamadas para ação organizados conforme os objetivos da empresa.',
   },
   {
     icon: FiMonitor,
     title: 'Design profissional',
-    text: 'Layout personalizado e coerente com a identidade da empresa.',
+    text: 'Layout personalizado e coerente com a identidade e o posicionamento da empresa.',
   },
   {
     icon: FiSmartphone,
@@ -89,7 +112,7 @@ const deliverables = [
   {
     icon: FiSearch,
     title: 'SEO técnico',
-    text: 'Titles, descriptions, headings, URLs e conteúdo organizados.',
+    text: 'Títulos, descrições, páginas e conteúdo organizados para facilitar a leitura do Google.',
   },
   {
     icon: FiZap,
@@ -99,17 +122,17 @@ const deliverables = [
   {
     icon: FiMessageCircle,
     title: 'Geração de contatos',
-    text: 'Formulários, WhatsApp e chamadas para orçamento.',
+    text: 'Formulários, WhatsApp e chamadas para facilitar pedidos de orçamento.',
   },
   {
     icon: FiBarChart2,
     title: 'Integração com o Google',
-    text: 'Preparação para medição, conforme o escopo contratado.',
+    text: 'Preparação para Analytics, Tag Manager, Search Console e medição de contatos, conforme o escopo.',
   },
   {
     icon: FiGlobe,
     title: 'Publicação e acompanhamento',
-    text: 'Domínio, rotas, formulários e indexação validados.',
+    text: 'Domínio, rotas, formulários, indexação e funcionamento validados.',
   },
 ];
 
@@ -140,15 +163,15 @@ const whyItems = [
   },
 ];
 
-export const HeroActions = () => {
-  const scrollToSection = (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    document.querySelector(event.currentTarget.hash)?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  };
+const scrollToSection = (event: MouseEvent<HTMLAnchorElement>) => {
+  event.preventDefault();
+  document.querySelector(event.currentTarget.hash)?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+};
 
+export const HeroActions = () => {
   return (
     <MotionReveal distance={20} duration={1.45} direction="left">
       <S.HeroActions>
@@ -436,26 +459,36 @@ export const ProjectsCarousel = () => {
 
 export const ProblemsSection = () => (
   <S.ProblemsSection>
-    <MotionReveal>
+    <MotionReveal direction="left" distance={20} duration={0.45}>
       <S.ProblemsCopy>
         <span>SEU SITE ATUAL</span>
-        <h2>Seu site está ajudando sua empresa a crescer?</h2>
+        <h2>
+          Seu site gera oportunidades — ou apenas ocupa espaço na internet?
+        </h2>
         <p>
-          Um site profissional precisa explicar claramente o que sua empresa
-          faz, transmitir confiança e facilitar o contato de potenciais
-          clientes.
+          Ter um site não significa ter uma presença digital eficiente. Ele
+          precisa explicar claramente o que sua empresa faz, transmitir
+          confiança, funcionar bem no celular e facilitar o contato de
+          potenciais clientes.
+        </p>
+        <p>
+          Quando isso não acontece, o visitante sai sem entender a proposta da
+          empresa e a oportunidade comercial é perdida.
         </p>
         <S.TextAnchor href="#site-orcamento">
-          Quero modernizar meu site <FiArrowRight aria-hidden="true" />
+          Quero transformar meu site <FiArrowRight aria-hidden="true" />
         </S.TextAnchor>
       </S.ProblemsCopy>
     </MotionReveal>
-    <MotionReveal delay={0.1}>
+    <MotionReveal direction="right" delay={0.08} distance={20} duration={0.45}>
       <S.ProblemList>
-        {problems.map(problem => (
-          <li key={problem}>
-            <FiActivity aria-hidden="true" />
-            {problem}
+        {problems.map(({ icon: Icon, title, description }) => (
+          <li key={title}>
+            <Icon aria-hidden="true" />
+            <div>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </div>
           </li>
         ))}
       </S.ProblemList>
@@ -465,23 +498,29 @@ export const ProblemsSection = () => (
 
 export const DeliverablesSection = () => (
   <S.Section id="site-incluido">
-    <S.SectionHeading>
+    <MotionReveal distance={20} duration={0.45}>
+    <S.DeliverablesHeading>
       <span>ESTRUTURA COMPLETA</span>
       <h2>
         Tudo que sua empresa precisa para ter uma presença digital profissional
       </h2>
-    </S.SectionHeading>
+    </S.DeliverablesHeading>
+    </MotionReveal>
     <S.DeliverablesGrid>
-      {deliverables.map(({ icon: Icon, title, text }) => (
-        <MotionReveal key={title}>
-          <S.DeliverableCard>
+      {deliverables.map(({ icon: Icon, title, text }, index) => (
+        <MotionReveal key={title} delay={(index % 4) * 0.05} distance={20} duration={0.45}>
+          <S.DeliverableCard tabIndex={0}>
             <Icon aria-hidden="true" />
-            <h3>{title}</h3>
-            <p>{text}</p>
+            <div><h3>{title}</h3><p>{text}</p></div>
           </S.DeliverableCard>
         </MotionReveal>
       ))}
     </S.DeliverablesGrid>
+    <MotionReveal delay={0.1} distance={20} duration={0.45}>
+      <S.DeliverablesCta href="#site-orcamento" onClick={scrollToSection}>
+        Quero transformar meu site <FiArrowRight aria-hidden="true" />
+      </S.DeliverablesCta>
+    </MotionReveal>
   </S.Section>
 );
 
@@ -523,8 +562,9 @@ export const GoogleAdsBonus = () => (
       </S.GoogleAdsBadge>
       <h2 id="google-ads-bonus-title">Bônus exclusivo na contratação</h2>
       <p>
-        Consultoria inicial e configuração da conta Google Ads para ajudar sua
-        empresa a começar a divulgar o novo site e medir os contatos gerados.
+        Consultoria inicial e configuração da conta Google Ads para divulgar o
+        novo site e alcançar pessoas que já estão procurando pelos seus produtos
+        ou serviços no Google.
       </p>
       <S.BonusCard>
         <ul>
@@ -554,11 +594,11 @@ export const GoogleAdsBonus = () => (
 export const WhyInvetec = () => (
   <S.Section>
     <MotionReveal distance={20} duration={0.45}>
-      <S.SectionHeading>
+      <S.WhyHeading>
         <span>PARCERIA DE NEGÓCIO</span>
         <h2>Mais do que desenvolvimento de sites</h2>
         <p>Aqui você não contrata apenas alguém para montar páginas.</p>
-      </S.SectionHeading>
+      </S.WhyHeading>
     </MotionReveal>
     <S.WhyGrid>
       {whyItems.map(({ icon: Icon, title, text }, index) => (
@@ -581,22 +621,32 @@ export const WhyInvetec = () => (
 
 export const ProcessTimeline = () => (
   <S.Section id="site-processo">
-    <MotionReveal distance={80} duration={0.45}>
-      <S.SectionHeading>
+    <MotionReveal distance={20} duration={0.45}>
+      <S.ProcessHeading>
         <span>PROCESSO CLARO</span>
         <h2>Como funciona o desenvolvimento do seu site</h2>
-      </S.SectionHeading>
+      </S.ProcessHeading>
     </MotionReveal>
-    <MotionReveal delay={0.08} distance={20} duration={0.45}>
-      <S.ProcessGrid>
-        {processSteps.map(([title, text], index) => (
+    <S.ProcessGrid>
+      {processSteps.map(([title, text], index) => (
+        <MotionReveal
+          key={title}
+          delay={index * 0.05}
+          distance={20}
+          duration={0.45}
+        >
           <S.ProcessStep key={title}>
             <span>{String(index + 1).padStart(2, '0')}</span>
             <h3>{title}</h3>
             <p>{text}</p>
           </S.ProcessStep>
-        ))}
-      </S.ProcessGrid>
+        </MotionReveal>
+      ))}
+    </S.ProcessGrid>
+    <MotionReveal delay={0.1} distance={20} duration={0.45}>
+      <S.DeliverablesCta href="#site-orcamento" onClick={scrollToSection}>
+        Quero transformar meu site <FiArrowRight aria-hidden="true" />
+      </S.DeliverablesCta>
     </MotionReveal>
   </S.Section>
 );
@@ -610,17 +660,26 @@ export const SiteFaq = () => (
       </S.SectionHeading>
     </MotionReveal>
     <MotionReveal delay={0.08} distance={20} duration={0.45}>
-      <S.FaqList>
-        {siteFaqs.map(({ question, answer }) => (
-          <details key={question}>
-            <summary>
-              {question}
-              <FiArrowRight aria-hidden="true" />
-            </summary>
-            <p>{answer}</p>
-          </details>
-        ))}
-      </S.FaqList>
+    <S.FaqList>
+  {siteFaqs.map(({ question, answer }) => (
+    <details key={question}>
+      <summary>
+        {question}
+        <FiArrowRight aria-hidden="true" />
+      </summary>
+
+      <S.FaqAnswer>
+        {Array.isArray(answer) ? (
+          answer.map((paragraph, index) => (
+            <p key={`${question}-${index}`}>{paragraph}</p>
+          ))
+        ) : (
+          <p>{answer}</p>
+        )}
+      </S.FaqAnswer>
+    </details>
+  ))}
+</S.FaqList>
     </MotionReveal>
   </S.Section>
 );
