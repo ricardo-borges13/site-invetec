@@ -5,6 +5,7 @@ export type Project = {
   segment: string;
   description: string;
   image: string;
+  fullImage?: string;
   url?: string;
   highlights: string[];
 };

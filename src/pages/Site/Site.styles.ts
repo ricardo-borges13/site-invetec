@@ -216,6 +216,7 @@ export const ProjectImage = styled.div`
   width: 100%;
   min-width: 0;
   min-height: 0;
+  height: 100%;
   overflow: hidden;
   background: #edf3f9;
 
@@ -227,6 +228,7 @@ export const ProjectImage = styled.div`
     height: 100%;
     object-fit: cover;
     object-position: top center;
+    transition: transform 0.2s ease;
   }
 
   @media (max-width: 700px) {
@@ -237,6 +239,104 @@ export const ProjectImage = styled.div`
       position: absolute;
     }
   }
+`;
+
+export const ProjectImageButton = styled.button`
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+
+  &:hover img { transform: scale(1.025); }
+  &:focus-visible { outline: 3px solid ${({ theme }) => theme.colors.primary}; outline-offset: 3px; }
+`;
+
+export const ProjectZoomIcon = styled.span`
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(13, 41, 69, 0.86);
+  color: #fff;
+  font-size: 1rem;
+  pointer-events: none;
+`;
+
+export const LightboxOverlay = styled.div`
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 5vh 3vw;
+  background: rgba(6, 18, 31, 0.88);
+  backdrop-filter: blur(4px);
+`;
+
+export const LightboxDialog = styled.div`
+  width: min(1200px, 94vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+
+  @media (max-width: 600px) {
+    width: 96vw;
+    max-height: 93vh;
+    border-radius: 12px;
+  }
+`;
+
+export const LightboxHeader = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 58px;
+  padding: 0.7rem 0.85rem 0.7rem 1.1rem;
+  border-bottom: 1px solid #dbe7f4;
+  background: #fff;
+
+  h2 { margin: 0; color: #17365d; font-size: 1rem; }
+`;
+
+export const LightboxClose = styled.button`
+  display: grid;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid #c9d9ea;
+  border-radius: 50%;
+  background: #fff;
+  color: #17365d;
+  cursor: pointer;
+  font-size: 1.7rem;
+  line-height: 1;
+
+  &:focus-visible { outline: 3px solid ${({ theme }) => theme.colors.primary}; outline-offset: 2px; }
+`;
+
+export const LightboxImageWrap = styled.div`
+  padding: 1rem;
+`;
+
+export const LightboxImage = styled.img`
+  display: block;
+  width: 100%;
+  height: auto;
 `;
 export const ProjectContent = styled.div`
   min-width: 0;
@@ -385,21 +485,46 @@ export const DeliverableCard = styled.article`
 `;
 
 export const TechnologyHighlight = styled.section`
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(180px, 0.45fr) minmax(0, 1.55fr);
-  gap: clamp(1.5rem, 5vw, 4rem);
+  gap: clamp(1.25rem, 3vw, 2.75rem);
   align-items: center;
-  margin-bottom: 5.5rem;
-  padding: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 4.5rem;
+  padding: clamp(1.5rem, 3.5vw, 3rem);
   border-radius: 20px;
-  background: #0d2945;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(83, 176, 233, 0.14), transparent 34%),
+    #0d2945;
   color: #fff;
   scroll-margin-top: 120px;
 
+  &::before {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(125, 211, 252, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(125, 211, 252, 0.045) 1px, transparent 1px);
+    background-size: 34px 34px;
+    content: '';
+    pointer-events: none;
+  }
+
+  > div { position: relative; z-index: 1; }
   > div > div > span { color: #7dd3fc; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; }
-  h2 { margin: 0.55rem 0 0.85rem; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.2; }
-  p { color: #d8e8f6; line-height: 1.7; }
-  @media (max-width: 700px) { grid-template-columns: 1fr; margin-bottom: 4rem; }
+  > div:last-child > div { max-width: 720px; }
+  h2 { margin: 0.5rem 0 0.6rem; font-size: clamp(1.65rem, 2.4vw, 2.25rem); line-height: 1.18; }
+  p { margin: 0.7rem 0 0; color: #d8e8f6; line-height: 1.62; }
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+    padding: 1.75rem 1.4rem;
+  }
 `;
 
 export const TechnologyVisual = styled.div`

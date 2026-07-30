@@ -1,6 +1,14 @@
 import { FormContactSite } from '@/components/FormContactSite/FormContactSite';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
-import { useCallback, useEffect, useRef, useState, type MouseEvent } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type KeyboardEvent,
+  type MouseEvent,
+} from 'react';
+import { createPortal } from 'react-dom';
 import { FaReact } from 'react-icons/fa';
 import {
   FiActivity,
@@ -10,6 +18,7 @@ import {
   FiCheck,
   FiGlobe,
   FiLayout,
+  FiMaximize2,
   FiMessageCircle,
   FiMonitor,
   FiSearch,
@@ -20,7 +29,7 @@ import {
   FiZap,
 } from 'react-icons/fi';
 import { SiNextdotjs } from 'react-icons/si';
-import { projects, siteFaqs } from './Site.data';
+import { projects, siteFaqs, type Project } from './Site.data';
 import * as S from './Site.styles';
 
 const benefits = [
@@ -183,7 +192,10 @@ export const BenefitsBar = () => (
 export const ProjectsCarousel = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const openerRef = useRef<HTMLButtonElement | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const hasMultipleProjects = projects.length > 1;
 
@@ -231,7 +243,7 @@ export const ProjectsCarousel = () => {
     if (!hasMultipleProjects || isPaused) return;
 
     const reducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
+      '(prefers-reduced-motion: reduce)'
     ).matches;
 
     if (reducedMotion) return;
@@ -246,6 +258,42 @@ export const ProjectsCarousel = () => {
       }
     };
   }, [hasMultipleProjects, isPaused, scrollProjects]);
+
+  const openProjectImage = (project: Project, trigger: HTMLButtonElement) => {
+    openerRef.current = trigger;
+    setIsPaused(true);
+    setSelectedProject(project);
+  };
+
+  const closeProjectImage = () => {
+    setSelectedProject(null);
+    setIsPaused(false);
+    window.requestAnimationFrame(() => openerRef.current?.focus());
+  };
+
+  useEffect(() => {
+    if (!selectedProject) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    closeButtonRef.current?.focus();
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [selectedProject]);
+
+  const handleLightboxKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape') {
+      closeProjectImage();
+      return;
+    }
+
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      closeButtonRef.current?.focus();
+    }
+  };
 
   return (
     <S.Section id="site-projetos">
@@ -285,15 +333,26 @@ export const ProjectsCarousel = () => {
           >
             {projects.map(project => (
               <S.ProjectCard key={project.name}>
-                <S.ProjectImage>
-                  <img
-                    src={project.image}
-                    alt={`Site institucional desenvolvido para ${project.name}`}
-                    width={720}
-                    height={1150}
-                    loading="lazy"
-                  />
-                </S.ProjectImage>
+                <S.ProjectImageButton
+                  type="button"
+                  onClick={event =>
+                    openProjectImage(project, event.currentTarget)
+                  }
+                  aria-label={`Ampliar imagem do projeto ${project.name}`}
+                >
+                  <S.ProjectImage>
+                    <img
+                      src={project.image}
+                      alt={`Prévia do site desenvolvido para ${project.name}`}
+                      width={720}
+                      height={1150}
+                      loading="lazy"
+                    />
+                    <S.ProjectZoomIcon aria-hidden="true">
+                      <FiMaximize2 />
+                    </S.ProjectZoomIcon>
+                  </S.ProjectImage>
+                </S.ProjectImageButton>
 
                 <S.ProjectContent>
                   <span>{project.segment}</span>
@@ -335,6 +394,42 @@ export const ProjectsCarousel = () => {
           )}
         </S.CarouselWrap>
       </MotionReveal>
+      {selectedProject &&
+        createPortal(
+          <S.LightboxOverlay
+            onMouseDown={event =>
+              event.target === event.currentTarget && closeProjectImage()
+            }
+          >
+            <S.LightboxDialog
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="project-lightbox-title"
+              onKeyDown={handleLightboxKeyDown}
+              onMouseDown={event => event.stopPropagation()}
+            >
+              <S.LightboxHeader>
+                <h2 id="project-lightbox-title">{selectedProject.name}</h2>
+                <S.LightboxClose
+                  ref={closeButtonRef}
+                  type="button"
+                  onClick={closeProjectImage}
+                  aria-label="Fechar visualização ampliada"
+                >
+                  ×
+                </S.LightboxClose>
+              </S.LightboxHeader>
+              <S.LightboxImageWrap>
+                <S.LightboxImage
+                  src={selectedProject.fullImage ?? selectedProject.image}
+                  alt={`Visualização ampliada do site desenvolvido para ${selectedProject.name}`}
+                  loading="eager"
+                />
+              </S.LightboxImageWrap>
+            </S.LightboxDialog>
+          </S.LightboxOverlay>,
+          document.body
+        )}
     </S.Section>
   );
 };
@@ -403,28 +498,17 @@ export const TechnologyHighlight = () => (
         <span>TECNOLOGIA INVETEC</span>
         <h2>Tecnologia moderna para um site preparado para evoluir</h2>
         <p>
-          A INVETEC desenvolve projetos com React e, conforme as necessidades do
-          site, Next.js. São tecnologias modernas utilizadas na construção de
-          produtos digitais rápidos, escaláveis e preparados para evolução.
+          A INVETEC desenvolve seus projetos principalmente com React e Next.js,
+          tecnologias modernas utilizadas para criar sites rápidos, organizados
+          e preparados para crescer junto com a empresa.
         </p>
         <p>
           O React foi criado pela Meta e é utilizado em produtos digitais como
-          Facebook e Instagram. O Next.js é um framework baseado em React,
-          indicado para projetos que exigem performance, organização técnica e
-          recursos avançados de SEO.
+          Facebook e Instagram. Já o Next.js complementa essa base com recursos
+          voltados a performance, organização e SEO. Quando o projeto exige uma
+          solução específica ou uma administração mais simples de conteúdo,
+          outras tecnologias, como WordPress, também podem ser consideradas.
         </p>
-        <S.TechnologyTags>
-          {[
-            'Tecnologia moderna',
-            'Código organizado',
-            'Alta performance',
-            'Estrutura escalável',
-            'Facilidade de evolução',
-            'SEO técnico',
-          ].map(tag => (
-            <span key={tag}>{tag}</span>
-          ))}
-        </S.TechnologyTags>
       </div>
     </MotionReveal>
   </S.TechnologyHighlight>
