@@ -53,19 +53,23 @@ export const Content = styled.div<{ $color?: string }>`
   text-align: center;
   color: ${({ $color }) => $color || '#fff'};
 
-  max-width: 1100px;
+  width: 100%;
+  max-width: 1260px;
 
   /* 🔥 MOBILE */
   @media (max-width: 768px) {
-    max-width: 90%;
+    max-width: none;
   }
 
   h1 {
-    font-size: clamp(2rem, 3vw, 3.2rem);
+    max-width: 1240px;
+    margin-inline: auto;
+    font-size: clamp(2.5rem, 3.25vw, 3.25rem);
     font-weight: 700;
     margin-bottom: 12px;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
+    letter-spacing: -0.015em;
+    line-height: 1.12;
+    text-wrap: balance;
 
     text-shadow:
       0 2px 8px rgba(0, 0, 0, 0.6),
@@ -73,11 +77,10 @@ export const Content = styled.div<{ $color?: string }>`
 
     /* 🔥 MOBILE */
     @media (max-width: 768px) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      line-height: 1.3;
+      max-width: 100%;
+      font-size: clamp(1.8rem, 5vw, 2.35rem);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
     }
   }
 

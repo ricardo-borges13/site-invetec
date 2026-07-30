@@ -227,7 +227,7 @@ export const FormContactSite = () => {
             disabled={isSubmitting}
             loading={isSubmitting}
           >
-            Receber orcamento agora
+            Solicitar análise e orçamento
           </CustomButton>
         </S.SubmitRow>
       </form>
