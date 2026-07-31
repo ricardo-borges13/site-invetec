@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
 import { CustomButton } from '../../components/CustomButton/CustomButton';
+import { PrivacyNotice } from '../PrivacyNotice/PrivacyNotice';
 import * as S from './FormContact.styles';
 
 type FormInputs = {
@@ -201,6 +202,7 @@ export const FormContact = () => {
           )}
         </S.Mensagem>
 
+        <PrivacyNotice />
         <CustomButton
           text="Enviar Mensagem"
           variant="cta"

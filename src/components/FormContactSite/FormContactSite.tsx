@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
 import { CustomButton } from '../CustomButton/CustomButton';
+import { PrivacyNotice } from '../PrivacyNotice/PrivacyNotice';
 import * as S from './FormContactSite.styles';
 
 type FormInputs = {
@@ -281,6 +282,7 @@ export const FormContactSite = () => {
           )}
         </S.Field>
 
+        <PrivacyNotice  />
         <S.SubmitRow>
           <CustomButton
             variant="cta"

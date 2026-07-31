@@ -132,7 +132,7 @@ export const Zimbra = () => {
 
               <S.ConversionActions>
                 <S.Price>
-                  Planos a partir de <strong>R$ 14,90</strong> por usuário
+                  Planos a partir de <strong>R$ 9,90</strong> por usuário
                   <span>* Implantação e suporte já inclusos</span>
                 </S.Price>
                 <CustomButton variant="cta" onClick={scrollToForm}>

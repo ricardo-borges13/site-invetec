@@ -282,9 +282,11 @@ export const W3ERP = () => {
 
             <S.VideoWrapper>
               <iframe
-                src="https://www.youtube.com/embed/-ljZXEjkMpE"
-                title="W3ERP"
+                src="https://www.youtube-nocookie.com/embed/-ljZXEjkMpE"
+                title="Vídeo institucional do W3ERP"
                 frameBorder="0"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
             </S.VideoWrapper>

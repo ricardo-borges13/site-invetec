@@ -1,6 +1,7 @@
 ﻿import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
 import { CustomButton } from '../CustomButton/CustomButton';
+import { PrivacyNotice } from '../PrivacyNotice/PrivacyNotice';
 import * as S from './FormContactEmail.styles';
 
 type FormInputs = {
@@ -252,6 +253,7 @@ export const FormContactEmail = () => {
           />
         </S.Field>
 
+        <PrivacyNotice />
         <S.SubmitRow>
           <CustomButton type="submit" variant="cta" disabled={isSubmitting}>
             Quero uma solução para meu e-mail

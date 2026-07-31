@@ -73,7 +73,7 @@
   # ROTAS VÁLIDAS DO REACT
   # ==========================
 
-  RewriteCond %{REQUEST_URI} ^/(sobre|contato|cases(?:/(datron|jpm))?|servicos/(erp(?:/(bling|w3erp))?|invetec-mail(?:-mei)?|criacao-de-sites|suporte-ti|e-commerce|ferramentas-uteis(?:/(pro-rata|calculadora-de-datas))?))/?$ [NC]
+  RewriteCond %{REQUEST_URI} ^/(sobre|contato|politica-de-privacidade|cases(?:/(datron|jpm))?|servicos/(erp(?:/(bling|w3erp))?|invetec-mail(?:-mei)?|criacao-de-sites|suporte-ti|e-commerce|ferramentas-uteis(?:/(pro-rata|calculadora-de-datas))?))/?$ [NC]
   RewriteRule ^ /index.html [L]
 
   # ==========================

@@ -2,7 +2,7 @@ import logo from '@/assets/images/Logo-Invetec-branco.png';
 import { menuItems, type MenuItem } from '@/components/Layout/Menu/menuData';
 import type { ContactInfo } from '@/pages/Contato/contactData';
 import { BiSolidPhoneOutgoing } from 'react-icons/bi';
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import * as S from './Footer.syles';
@@ -12,6 +12,7 @@ export const Footer = ({ phone, email }: ContactInfo) => {
   const navigate = useNavigate();
   const location = useLocation();
   const instagramHref = 'https://www.instagram.com/invetec_mail/';
+  const facebookHref = 'https://www.facebook.com/invetecbr';
 
   const getCleanPhone = (p: string) => p.replace(/\D/g, '');
 
@@ -105,6 +106,16 @@ export const Footer = ({ phone, email }: ContactInfo) => {
               >
                 <FaInstagram />
               </a>
+              <a
+                href={facebookHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Facebook da INVETEC"
+                aria-label="Facebook da INVETEC"
+                className="facebook"
+              >
+                <FaFacebookF />
+              </a>
             </S.Social>
           </S.ContactItem>
         </S.Section>
@@ -113,6 +124,9 @@ export const Footer = ({ phone, email }: ContactInfo) => {
       <S.Copy>
         © {new Date().getFullYear()} Invetec • CNPJ: 46.261.182/0001-55 •
         Atendimento em todo o Brasil
+        <S.PrivacyLink to="/politica-de-privacidade">
+          Política de Privacidade
+        </S.PrivacyLink>
       </S.Copy>
     </S.Container>
   );

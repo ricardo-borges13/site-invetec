@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import toast, { Toaster } from 'react-hot-toast';
 import { CustomButton } from '../../components/CustomButton/CustomButton';
+import { PrivacyNotice } from '../PrivacyNotice/PrivacyNotice';
 import * as S from './FormContactERP.styles';
 
 type FormInputs = {
@@ -211,6 +212,7 @@ export const FormContactERP = () => {
           />
         </S.Field>
 
+        <PrivacyNotice  />
         <CustomButton
           variant="cta"
           type="submit"

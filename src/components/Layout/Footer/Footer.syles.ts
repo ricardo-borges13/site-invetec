@@ -135,6 +135,10 @@ export const Social = styled.div`
   a.instagram:hover {
     color: #e1306c;
   }
+
+  a.facebook:hover {
+    color: #1877f2;
+  }
 `;
 
 export const Copy = styled.div`
@@ -144,6 +148,25 @@ export const Copy = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.85rem;
   color: #94a3b8;
+`;
+
+export const PrivacyLink = styled(Link)`
+  display: inline-block;
+  margin-left: 0.75rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    display: block;
+    width: fit-content;
+    margin: 0.65rem auto 0;
+  }
 `;
 
 export const BackLink = styled(Link)`

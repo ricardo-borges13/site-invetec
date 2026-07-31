@@ -70,6 +70,11 @@ const ProRata = lazy(() =>
     default: module.ProRata,
   }))
 );
+const PoliticaPrivacidade = lazy(() =>
+  import('@/pages/PoliticaPrivacidade/PoliticaPrivacidade').then(module => ({
+    default: module.PoliticaPrivacidade,
+  }))
+);
 
 export const router = createBrowserRouter([
   {
@@ -78,6 +83,7 @@ export const router = createBrowserRouter([
       { path: '/', element: <Home /> },
       { path: '/sobre', element: <Sobre /> },
       { path: '/contato', element: <Contato /> },
+      { path: '/politica-de-privacidade', element: <PoliticaPrivacidade /> },
       { path: '/servicos/erp', element: <ERP /> },
       { path: '/servicos/erp/bling', element: <Bling /> },
       { path: '/servicos/erp/w3erp', element: <W3ERP /> },
