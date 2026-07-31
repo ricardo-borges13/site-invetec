@@ -21,11 +21,17 @@ export const HeaderMain = ({ onMobileMenuChange }: HeaderMainProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      const isMobile = window.innerWidth <= 1038;
+      setIsScrolled(!isMobile && window.scrollY > 30);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   useEffect(() => {

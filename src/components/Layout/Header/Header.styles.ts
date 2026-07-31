@@ -16,7 +16,7 @@ export const HeaderContainer = styled.header<{ $isScrolled: boolean }>`
   height: ${({ $isScrolled }) => ($isScrolled ? '70px' : '110px')};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    height: ${({ $isScrolled }) => ($isScrolled ? '100px' : '110px')};
+    height: 110px;
   }
 `;
 
@@ -39,7 +39,7 @@ export const Image = styled.img<{ $isScrolled: boolean }>`
   transition: height 0.3s ease;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    height: ${({ $isScrolled }) => ($isScrolled ? '45px' : '60px')};
+    height: 60px;
   }
 `;
 
