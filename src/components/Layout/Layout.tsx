@@ -11,6 +11,7 @@ export const Layout = () => {
     phone?: string;
     message?: string;
   }>({});
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     fetch('/whatsApp.json')
@@ -22,12 +23,13 @@ export const Layout = () => {
   return (
     <>
       <ScrollToTop />
-      <HeaderMain />
+      <HeaderMain onMobileMenuChange={setMobileMenuOpen} />
       <Outlet />
       {whatsApp.phone && (
         <WhatsAppButton
           phone={whatsApp.phone}
           message={whatsApp.message || ''}
+          hidden={mobileMenuOpen}
         />
       )}
       <Footer {...contactData} />

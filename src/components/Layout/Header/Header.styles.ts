@@ -56,33 +56,27 @@ export const MenuToggle = styled.button`
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 10px;
+
+  &:focus-visible {
+    outline: 3px solid ${({ theme }) => theme.hexToRgba(theme.colors.primary, 0.35)};
+    outline-offset: 2px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
     display: block;
   }
 `;
 
-export const MenuContainer = styled.div<{ $open: boolean }>`
+export const MenuContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: ${({ theme }) => theme.colors.white};
-    flex-direction: column;
-    width: 100vw;
-    padding: ${({ theme }) => theme.spacing.medium} 0;
-    gap: ${({ theme }) => theme.spacing.medium};
-    box-shadow: 0 4px 10px
-      ${({ theme }) => theme.hexToRgba(theme.colors.black, 0.1)};
-
-    transform: ${({ $open }) =>
-      $open ? 'translateY(0)' : 'translateY(-150%)'};
-    opacity: ${({ $open }) => ($open ? 1 : 0)};
-    pointer-events: ${({ $open }) => ($open ? 'auto' : 'none')};
-    transition: all 0.3s ease;
+    display: none;
   }
 `;

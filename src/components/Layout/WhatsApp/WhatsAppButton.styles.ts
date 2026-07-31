@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.a`
+export const Container = styled.a<{ $hidden: boolean }>`
   position: fixed;
-  bottom: 20px;
+  bottom: max(20px, calc(env(safe-area-inset-bottom) + 12px));
   right: 20px;
   background-color: ${({ theme }) => theme.colors.whatsappGreen};
   color: ${({ theme }) => theme.colors.white};
@@ -16,6 +16,9 @@ export const Container = styled.a`
     ${({ theme }) => theme.hexToRgba(theme.colors.black, 0.25)};
   z-index: 999;
   transition: all 0.3s ease;
+  opacity: ${({ $hidden }) => ($hidden ? 0 : 1)};
+  visibility: ${({ $hidden }) => ($hidden ? 'hidden' : 'visible')};
+  pointer-events: ${({ $hidden }) => ($hidden ? 'none' : 'auto')};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.whatsappGreenDark};
