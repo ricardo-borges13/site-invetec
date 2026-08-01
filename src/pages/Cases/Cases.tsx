@@ -17,9 +17,9 @@ const solutions = [
   'ERP e gestão',
   'Infraestrutura de TI',
   'INVETEC Mail',
-  'File Server em Nuvem',
+  'Cloud',
   'Criação de sites',
-  'SEO e presença digital',
+  'Presença digital',
 ];
 
 const cases = [
@@ -32,9 +32,10 @@ const cases = [
     items: [
       'ERP e organização da operação',
       'Infraestrutura de TI',
-      'INVETEC Mail e File Server em Nuvem',
-      'Novo site institucional',
-      'SEO e presença digital',
+      'INVETEC Mail',
+      'File Server em Nuvem',
+      'Criação do novo site institucional',
+      'SEO e preparação para Google Ads',
     ],
   },
   {
@@ -42,13 +43,14 @@ const cases = [
     path: '/cases/jpm',
     image: jpmImage,
     description:
-      'Projeto integrado para organizar processos, modernizar a estrutura tecnológica e fortalecer a presença digital da empresa.',
+      'Projeto integrado para organizar processos, modernizar a estrutura tecnológica e melhorar o site institucional da empresa.',
     items: [
       'ERP e integração de processos',
       'Gestão e suporte de TI',
-      'INVETEC Mail e Backup em Nuvem',
+      'INVETEC Mail',
+      'File Server e Backup em Nuvem',
       'Modernização do site institucional',
-      'SEO e Google Ads',
+      'SEO e organização do conteúdo',
     ],
   },
 ];
@@ -79,7 +81,7 @@ export const Cases = () => (
         </S.Intro>
         <MotionReveal delay={0.08}>
           <S.Solutions aria-label="Soluções presentes nestes projetos">
-            <p>Soluções presentes nestes projetos</p>
+            <p>Soluções aplicadas nestes projetos</p>
             <S.Chips>
               {solutions.map(solution => (
                 <span key={solution}>{solution}</span>
