@@ -1,22 +1,22 @@
 import heroImage from '@/assets/images/PagesHero-Datron.jpg';
-import { FormContactERP } from '@/components/FormContactERP/FormContactERP';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
+import { Link } from 'react-router-dom';
 import * as S from './CaseDatron.styles';
 
 export const CaseDatron = () => {
   return (
     <>
       <SEO
-        title="Case ERP: Como a DATRON Reduziu Custos e Simplificou a Operação | Invetec"
-        description="Veja como a DATRON reduziu custos com ERP ao migrar da TOTVS para o W3ERP, mantendo controle e simplificando a operação."
+        title="Case Datron Tecnologia: soluções integradas | INVETEC"
+        description="Conheça o projeto integrado da Datron Tecnologia, com ERP, infraestrutura, INVETEC Mail, File Server em Nuvem e presença digital."
         image="https://www.invetec.com.br/images/SEO-Case-Datron.jpg"
         url="https://www.invetec.com.br/cases/datron"
       />
       <PageHeroSection
-        title="Como a DATRON reduziu custos sem perder o controle da operação"
-        subTitle="Migração estratégica de um ERP TOTVS robusto para uma solução mais simples e eficiente"
+        title="Datron Tecnologia: um projeto integrado para a operação"
+        subTitle="ERP, infraestrutura, comunicação corporativa e presença digital aplicados conforme as necessidades da empresa"
         image={heroImage}
       >
         <S.Container>
@@ -29,6 +29,13 @@ export const CaseDatron = () => {
                 baseada em controle de equipamentos, contratos recorrentes,
                 faturamento e gestão financeira.
               </p>
+            </MotionReveal>
+          </S.Section>
+
+          <S.Section>
+            <MotionReveal>
+              <h2>Soluções aplicadas</h2>
+              <p>O projeto reuniu ERP e gestão, infraestrutura de TI, INVETEC Mail, File Server em Nuvem e uma nova presença digital para apoiar diferentes pontos da operação.</p>
             </MotionReveal>
           </S.Section>
 
@@ -76,7 +83,7 @@ export const CaseDatron = () => {
           {/* ⚙️ SOLUÇÃO */}
           <S.Section>
             <MotionReveal>
-              <h2>A decisão estratégica</h2>
+              <h2>ERP e gestão</h2>
 
               <ul>
                 <li>✔ Migração para um sistema 100% web</li>
@@ -87,10 +94,31 @@ export const CaseDatron = () => {
             </MotionReveal>
           </S.Section>
 
+          <S.Section>
+            <MotionReveal>
+              <h2>Infraestrutura e TI</h2>
+              <p>A atualização do cenário anterior exigiria investimentos em infraestrutura, servidores e licenças. A solução web reduziu essa dependência e simplificou a operação.</p>
+            </MotionReveal>
+          </S.Section>
+
+          <S.Section>
+            <MotionReveal>
+              <h2>INVETEC Mail e File Server em Nuvem</h2>
+              <p>A Datron utiliza INVETEC Mail e File Server em Nuvem para apoiar a comunicação corporativa e o acesso centralizado ao compartilhamento de arquivos.</p>
+            </MotionReveal>
+          </S.Section>
+
+          <S.Section>
+            <MotionReveal>
+              <h2>Site e presença digital</h2>
+              <p>O novo site institucional foi estruturado com páginas por segmento, organização das informações, responsividade, SEO, formulário de orçamento e preparação para integração com Google Ads.</p>
+            </MotionReveal>
+          </S.Section>
+
           {/* 📊 RESULTADOS */}
           <S.Highlight>
             <MotionReveal>
-              <h2>Resultados reais após a migração</h2>
+                <h2>Melhorias alcançadas</h2>
               <p>Veja o impacto direto na operação:</p>
 
               <S.Grid>
@@ -184,7 +212,7 @@ export const CaseDatron = () => {
                   é, precisa ser feita da forma certa.
                 </p>
 
-                <FormContactERP />
+                <Link to="/contato">Entre em contato</Link>
               </MotionReveal>
             </S.FormArea>
           </S.CTA>

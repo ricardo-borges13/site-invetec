@@ -284,10 +284,7 @@ export const FormArea = styled.section`
     color: ${({ theme }) => theme.colors.darkGray};
   }
 
-  > div {
-    max-width: 600px;
-    margin: 0 auto;
-  }
+  a { display: inline-block; background: ${({ theme }) => theme.colors.ctaGreen}; color: white; border-radius: 8px; padding: .8rem 1.25rem; font-weight: 700; text-decoration: none; }
 
   @media (max-width: 768px) {
     padding: 1rem; /* 🔥 reduz MUITO o lateral */

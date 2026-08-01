@@ -1,12 +1,12 @@
 import beforeImage from '@/assets/images/ControlePedido_JPM.jpg';
 import heroImage from '@/assets/images/PagesHeroJPM.jpg';
 import afterImage from '@/assets/images/PedidoVenda_JPM.jpg';
-import { FormContactERP } from '@/components/FormContactERP/FormContactERP';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
 import { useState } from 'react';
 import { Accordion } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import * as S from './CaseJPM.styles';
 
 export const CaseJPM = () => {
@@ -14,14 +14,14 @@ export const CaseJPM = () => {
   return (
     <>
       <SEO
-        title="Case JPM: Implantação de ERP e organização da empresa | Invetec"
-        description="Veja como a JPM saiu do controle manual com planilhas e organizou toda operação com ERP: estoque, vendas, financeiro e faturamento integrados."
+        title="Case Grupo JPM: projeto integrado de tecnologia | INVETEC"
+        description="Conheça o projeto da Grupo JPM, envolvendo ERP, suporte de TI, INVETEC Mail, File Server em Nuvem e presença digital."
         image="https://www.invetec.com.br/images/SEO-Case-JPM.jpg"
         url="https://www.invetec.com.br/cases/jpm"
       />
       <PageHeroSection
-        title="Como a JPM saiu do controle manual e organizou a operação com ERP"
-        subTitle="Mais controle, menos erros e decisões mais seguras no dia a dia"
+        title="Grupo JPM: tecnologia integrada para organizar a operação"
+        subTitle="ERP, gestão de TI, comunicação corporativa e presença digital em um projeto alinhado à empresa"
         image={heroImage}
       >
         <S.Container>
@@ -111,11 +111,32 @@ export const CaseJPM = () => {
             </Accordion>
           </S.AccordionWrapper>
 
+          <S.Section>
+            <MotionReveal>
+              <h2>Gestão e suporte de TI</h2>
+              <p>O projeto inclui acompanhamento e suporte tecnológico para manter a estrutura alinhada às necessidades da operação.</p>
+            </MotionReveal>
+          </S.Section>
+
+          <S.Section>
+            <MotionReveal>
+              <h2>INVETEC Mail e File Server em Nuvem</h2>
+              <p>A Grupo JPM utiliza INVETEC Mail e File Server em Nuvem, apoiando a comunicação corporativa, a organização e o acesso compartilhado aos arquivos.</p>
+            </MotionReveal>
+          </S.Section>
+
+          <S.Section>
+            <MotionReveal>
+              <h2>Site e presença digital</h2>
+              <p>O site institucional foi modernizado com reorganização de produtos e eventos, melhorias de SEO, responsividade, navegação mais clara e estrutura para geração de contatos.</p>
+            </MotionReveal>
+          </S.Section>
+
           {/* 📊 RESULTADOS */}
           <S.Highlight>
             <MotionReveal>
-              <h2>Resultados reais após a implantação</h2>
-              <p>Resultados reais após a implantação</p>
+              <h2>Melhorias alcançadas</h2>
+              <p>As melhorias reforçaram a organização dos processos e a apresentação institucional da empresa.</p>
 
               <S.Grid>
                 <S.Card>
@@ -310,13 +331,13 @@ export const CaseJPM = () => {
 
           <S.FormArea>
             <MotionReveal>
-              <h2>Quer esse nível de controle na sua empresa?</h2>
+              <h2>Sua empresa também pode evoluir com tecnologia</h2>
               <p>
-                Preencha o diagnóstico e eu analiso seu cenário para mostrar
-                como aplicar isso na sua realidade.
+                Converse com a INVETEC para entender quais soluções podem apoiar
+                a operação, a infraestrutura ou a presença digital da sua empresa.
               </p>
 
-              <FormContactERP />
+              <Link to="/contato">Entre em contato</Link>
             </MotionReveal>
           </S.FormArea>
         </S.Container>

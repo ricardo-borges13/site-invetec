@@ -1,115 +1,17 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
-`;
-
-export const Section = styled.section`
-  text-align: center;
-  margin-bottom: 3rem;
-
-  h2 {
-    color: ${({ theme }) => theme.colors.black};
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    max-width: 700px;
-    margin: 0 auto 0.5rem;
-    line-height: 1.6;
-  }
-
-  /* Mobile */
-  @media (max-width: 430px) {
-    h2 {
-      font-size: 1.5rem;
-    }
-  }
-`;
-
-export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-export const Card = styled.div`
-  background: white;
-  border: 1px solid ${({ theme }) => theme.colors.primary};
-  border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
-
-  h3 {
-    margin-bottom: 1rem;
-  }
-
-  p {
-    margin-bottom: 1rem;
-    line-height: 1.5;
-  }
-
-  ul {
-    text-align: left;
-    margin: 1rem 0;
-    display: inline-block;
-
-    li {
-      margin-bottom: 0.4rem;
-      font-size: 0.95rem;
-    }
-  }
-`;
-
-export const ButtonGroup = styled.div`
-  margin-top: 1.5rem;
-`;
-
-export const FooterCTA = styled.section`
-  margin-top: 4rem;
-  text-align: center;
-
-  h2 {
-    margin-bottom: 1rem;
-  }
-
-  p {
-    margin-bottom: 1.5rem;
-  }
-`;
-
-/* 📋 FORMULÁRIO */
-export const FormArea = styled.section`
-  margin-top: 3rem;
-  background: #c7dbf3;
-  border-radius: 16px;
-  padding: 2.5rem;
-  text-align: center;
-  border: 2px solid rgba(0, 0, 0, 0.05);
-
-  h2 {
-    margin-bottom: 1.5rem;
-    color: ${({ theme }) => theme.colors.primary};
-  }
-
-  > div {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 768px) {
-    padding: 1rem; /* 🔥 reduz MUITO o lateral */
-  }
-
-  @media (max-width: 500px) {
-    padding: 0.5rem; /* 🔥 reduz MUITO o lateral */
-  }
-`;
+export const Container = styled.div`max-width:1180px;margin:0 auto;padding:3.5rem 1.5rem 4.5rem;`;
+export const Intro = styled.section`max-width:740px;margin:0 0 2.5rem; span{color:${({theme})=>theme.colors.primary};font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.08em} h2{margin:.45rem 0 1rem;color:${({theme})=>theme.colors.black};font-size:2rem} p{line-height:1.65;margin:0}@media(max-width:430px){h2{font-size:1.55rem}}`;
+export const Solutions = styled.section`margin-bottom:2.25rem;p{font-weight:700;margin:0 0 .8rem;color:${({theme})=>theme.colors.black}}`;
+export const Chips = styled.div`display:flex;flex-wrap:wrap;gap:.65rem;span{padding:.5rem .85rem;border-radius:999px;background:#eff6ff;color:${({theme})=>theme.colors.primary};font-size:.9rem;font-weight:600}`;
+export const CaseGrid = styled.div`display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;align-items:stretch;>div{height:100%}@media(max-width:800px){grid-template-columns:1fr}`;
+export const CaseCard = styled.article`height:100%;overflow:hidden;background:#fff;border:1px solid #e2e8f0;border-radius:18px;box-shadow:0 10px 30px rgba(15,23,42,.06);img{display:block;width:100%;aspect-ratio:16/8;object-fit:cover}`;
+export const CardContent = styled.div`display:flex;flex-direction:column;height:calc(100% - auto);padding:1.5rem;h2{font-size:1.4rem;color:${({theme})=>theme.colors.black};margin:0 0 .7rem}p{margin:0;line-height:1.55}ul{padding:0;margin:1.25rem 0 1.5rem;list-style:none;display:grid;gap:.65rem}li{display:flex;align-items:flex-start;gap:.55rem;line-height:1.35;font-size:.94rem}svg{color:${({theme})=>theme.colors.primary};flex:none;margin-top:.1rem}`;
+export const CardLink = styled(Link)`margin-top:auto;align-self:flex-start;padding:.7rem 1rem;border:1px solid ${({theme})=>theme.colors.primary};border-radius:8px;color:${({theme})=>theme.colors.primary};font-weight:700;text-decoration:none;transition:.2s;&:hover,&:focus-visible{background:${({theme})=>theme.colors.primary};color:#fff}`;
+export const Institutional = styled.section`margin:3rem 0;background:#eff6ff;border:1px solid #bfdbfe;border-radius:18px;padding:2rem;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:2rem;h2{font-size:1.45rem;color:${({theme})=>theme.colors.black};margin:0 0 .75rem}p{margin:0;line-height:1.6}@media(max-width:700px){grid-template-columns:1fr;padding:1.5rem}`;
+export const Benefits = styled.div`display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;@media(max-width:430px){grid-template-columns:1fr}`;
+export const Benefit = styled.div`display:flex;gap:.65rem;align-items:flex-start;font-size:.92rem;line-height:1.35;svg{color:${({theme})=>theme.colors.primary};font-size:1.45rem;flex:none}`;
+export const FinalCTA = styled.section`border-radius:18px;padding:2.25rem 3rem;background:linear-gradient(120deg,#06377a,#0755ab);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:2rem;h2{font-size:1.65rem;margin:0 0 .65rem}p{line-height:1.55;margin:0;max-width:610px}@media(max-width:700px){padding:1.75rem;display:block}`;
+export const CTAActions = styled.div`display:flex;flex-direction:column;gap:.8rem;align-items:center;flex:none;@media(max-width:700px){align-items:flex-start;margin-top:1.5rem}`;
+export const ContactLink = styled(Link)`background:${({theme})=>theme.colors.ctaGreen};color:#fff;border-radius:8px;padding:.85rem 1.35rem;font-weight:700;text-decoration:none;white-space:nowrap;&:hover,&:focus-visible{filter:brightness(.94)}`;

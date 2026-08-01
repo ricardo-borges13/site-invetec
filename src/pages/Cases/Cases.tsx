@@ -1,110 +1,169 @@
-import heroImage from '@/assets/images/PagesHero-Case.jpg';
-import { CustomButton } from '@/components/CustomButton/CustomButton';
-import { FormContactERP } from '@/components/FormContactERP/FormContactERP';
+import heroImage from '@/assets/images/PagesHero-Case-v2.jpg';
+import datronImage from '@/assets/images/PagesHero-Datron.jpg';
+import jpmImage from '@/assets/images/case-jpm.jpg';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
-import { useNavigate } from 'react-router-dom';
+import {
+  FiBarChart2,
+  FiCheckCircle,
+  FiMail,
+  FiShield,
+  FiTrendingUp,
+} from 'react-icons/fi';
 import * as S from './Cases.styles';
 
-export const Cases = () => {
-  const navigate = useNavigate();
+const solutions = [
+  'ERP e gestão',
+  'Infraestrutura de TI',
+  'INVETEC Mail',
+  'File Server em Nuvem',
+  'Criação de sites',
+  'SEO e presença digital',
+];
 
-  return (
-    <>
-      <SEO
-        title="Casos de Sucesso com ERP | Empresas que Ganharam Controle e Organização | Invetec"
-        description="Veja exemplos reais de empresas que saíram do controle manual ou reduziram custos com ERP. Descubra qual solução faz sentido para o seu cenário."
-        image="https://www.invetec.com.br/images/SEO-Case.jpg"
-        url="https://www.invetec.com.br/cases"
-      />
-      <PageHeroSection
-        title="Casos reais de empresas que organizaram sua gestão com ERP"
-        subTitle="Veja na prática como diferentes cenários foram resolvidos"
-        image={heroImage}
-        overlayOpacity={0.7}
-      >
-        <S.Container>
-          {/* 🧠 INTRO */}
-          <S.Section>
-            <MotionReveal>
-              <h2>Nem toda empresa precisa da mesma solução</h2>
+const cases = [
+  {
+    name: 'Datron Tecnologia',
+    path: '/cases/datron',
+    image: datronImage,
+    description:
+      'Soluções integradas para melhorar a gestão, a infraestrutura de TI e a presença digital da empresa.',
+    items: [
+      'ERP e organização da operação',
+      'Infraestrutura de TI',
+      'INVETEC Mail e File Server em Nuvem',
+      'Novo site institucional',
+      'SEO e presença digital',
+    ],
+  },
+  {
+    name: 'Grupo JPM',
+    path: '/cases/jpm',
+    image: jpmImage,
+    description:
+      'Projeto integrado para organizar processos, modernizar a estrutura tecnológica e fortalecer a presença digital da empresa.',
+    items: [
+      'ERP e integração de processos',
+      'Gestão e suporte de TI',
+      'INVETEC Mail e Backup em Nuvem',
+      'Modernização do site institucional',
+      'SEO e Google Ads',
+    ],
+  },
+];
 
-              <p>
-                Algumas empresas precisam sair do controle manual e organizar a
-                operação. Outras já têm um sistema estruturado, mas precisam
-                reduzir custos e simplificar.
-              </p>
-
-              <p>
-                Veja abaixo exemplos reais de cada cenário e como foram
-                resolvidos.
-              </p>
+export const Cases = () => (
+  <>
+    <SEO
+      title="Casos reais de tecnologia para empresas | INVETEC"
+      description="Conheça projetos da INVETEC envolvendo ERP, infraestrutura de TI, INVETEC Mail, File Server em Nuvem, criação de sites e SEO."
+      image="https://www.invetec.com.br/images/SEO-Case.jpg"
+      url="https://www.invetec.com.br/cases"
+    />
+    <PageHeroSection
+      title="Tecnologia aplicada em empresas reais"
+      subTitle="Conheça projetos em que a INVETEC integrou sistemas, infraestrutura e presença digital para melhorar operações e apoiar o crescimento de empresas."
+      image={heroImage}
+      overlayOpacity={0.7}
+    >
+      <S.Container>
+        <S.Intro>
+          <MotionReveal>
+            <span>Casos reais</span>
+            <h2>Cada empresa tem necessidades diferentes</h2>
+            <p>
+              Cada projeto combina soluções diferentes, definidas de acordo com a operação, a estrutura e os objetivos de cada empresa.
+            </p>
+          </MotionReveal>
+        </S.Intro>
+        <MotionReveal delay={0.08}>
+          <S.Solutions aria-label="Soluções presentes nestes projetos">
+            <p>Soluções presentes nestes projetos</p>
+            <S.Chips>
+              {solutions.map(solution => (
+                <span key={solution}>{solution}</span>
+              ))}
+            </S.Chips>
+          </S.Solutions>
+        </MotionReveal>
+        <S.CaseGrid>
+          {cases.map((caseItem, index) => (
+            <MotionReveal
+              key={caseItem.name}
+              direction={index === 0 ? 'left' : 'right'}
+              delay={index * 0.08}
+            >
+              <S.CaseCard>
+                <img
+                  src={caseItem.image}
+                  alt={`Projeto realizado para ${caseItem.name}`}
+                />
+                <S.CardContent>
+                  <h2>{caseItem.name}</h2>
+                  <p>{caseItem.description}</p>
+                  <ul>
+                    {caseItem.items.map(item => (
+                      <li key={item}>
+                        <FiCheckCircle aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <S.CardLink to={caseItem.path}>
+                    Ver o case completo <span aria-hidden="true">→</span>
+                  </S.CardLink>
+                </S.CardContent>
+              </S.CaseCard>
             </MotionReveal>
-          </S.Section>
-
-          {/* 🔥 CENÁRIOS */}
-          <S.Grid>
-            {/* 🟥 JPM */}
-            <S.Card>
-              <h3>Empresa sem sistema integrado (controle manual)</h3>
-
+          ))}
+        </S.CaseGrid>
+        <MotionReveal>
+          <S.Institutional>
+            <div>
+              <h2>Cada empresa tem um cenário único. A solução também.</h2>
               <p>
-                Operação baseada em planilhas, retrabalho entre setores e falta
-                de controle financeiro.
+                A INVETEC analisa a operação, identifica as necessidades reais e
+                combina as soluções adequadas para melhorar organização,
+                segurança, comunicação e presença digital.
               </p>
-
-              <ul>
-                <li>❌ Pedidos em Excel</li>
-                <li>❌ Financeiro manual</li>
-                <li>❌ Estoque sem integração</li>
-              </ul>
-              <p>👉 Resultado: mais controle e integração entre setores</p>
-              <S.ButtonGroup>
-                <CustomButton
-                  variant="primary"
-                  onClick={() => navigate('/cases/jpm')}
-                >
-                  Ver como foi resolvido
-                </CustomButton>
-              </S.ButtonGroup>
-            </S.Card>
-
-            {/* 🟦 DATRON */}
-            <S.Card>
-              <h3>Empresa com sistema robusto e alto custo</h3>
-
+            </div>
+            <S.Benefits>
+              <S.Benefit>
+                <FiBarChart2 />
+                <span>Mais organização e controle</span>
+              </S.Benefit>
+              <S.Benefit>
+                <FiShield />
+                <span>Infraestrutura mais segura</span>
+              </S.Benefit>
+              <S.Benefit>
+                <FiMail />
+                <span>Comunicação profissional</span>
+              </S.Benefit>
+              <S.Benefit>
+                <FiTrendingUp />
+                <span>Mais eficiência e capacidade de crescimento</span>
+              </S.Benefit>
+            </S.Benefits>
+          </S.Institutional>
+        </MotionReveal>
+        <MotionReveal>
+          <S.FinalCTA>
+            <div>
+              <h2>Sua empresa também pode evoluir com tecnologia</h2>
               <p>
-                Operação já estruturada, mas com alto custo de infraestrutura e
-                complexidade.
+                Converse com a INVETEC para entender quais soluções podem
+                melhorar a operação, a infraestrutura ou a presença digital da
+                sua empresa.
               </p>
-
-              <ul>
-                <li>💰 Alto custo com servidores e licenças</li>
-                <li>⚙️ Manutenção constante</li>
-                <li>🖥️ Dependência de estrutura local</li>
-              </ul>
-              <p>👉 Resultado: redução de custo e simplificação da operação</p>
-              <S.ButtonGroup>
-                <CustomButton
-                  variant="primary"
-                  onClick={() => navigate('/cases/datron')}
-                >
-                  Ver como foi resolvido
-                </CustomButton>
-              </S.ButtonGroup>
-            </S.Card>
-          </S.Grid>
-
-          {/* 📋 FORM */}
-          <S.FormArea>
-            <MotionReveal>
-              <h2>Solicitar diagnóstico</h2>
-              <FormContactERP />
-            </MotionReveal>
-          </S.FormArea>
-        </S.Container>
-      </PageHeroSection>
-    </>
-  );
-};
+            </div>
+            <S.CTAActions>
+              <S.ContactLink to="/contato">Entre em contato</S.ContactLink>
+            </S.CTAActions>
+          </S.FinalCTA>
+        </MotionReveal>
+      </S.Container>
+    </PageHeroSection>
+  </>
+);
