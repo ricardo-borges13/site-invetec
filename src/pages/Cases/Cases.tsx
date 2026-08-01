@@ -64,8 +64,8 @@ export const Cases = () => (
       url="https://www.invetec.com.br/cases"
     />
     <PageHeroSection
-      title="Tecnologia aplicada em empresas reais"
-      subTitle="Conheça projetos em que a INVETEC integrou sistemas, infraestrutura e presença digital para melhorar operações e apoiar o crescimento de empresas."
+      title="Casos reais de empresas que confiaram na INVETEC"
+      subTitle="Conheça projetos em que aplicamos tecnologia para organizar processos, melhorar a infraestrutura e fortalecer a presença digital de empresas."
       image={heroImage}
       overlayOpacity={0.7}
     >
@@ -145,7 +145,7 @@ export const Cases = () => (
               </S.Benefit>
               <S.Benefit>
                 <FiTrendingUp />
-                <span>Mais eficiência e capacidade de crescimento</span>
+                <span>Mais eficiência operacional</span>
               </S.Benefit>
             </S.Benefits>
           </S.Institutional>
@@ -153,11 +153,10 @@ export const Cases = () => (
         <MotionReveal>
           <S.FinalCTA>
             <div>
-              <h2>Sua empresa também pode evoluir com tecnologia</h2>
+              <h2>Qual é o próximo desafio da sua empresa?</h2>
               <p>
-                Converse com a INVETEC para entender quais soluções podem
-                melhorar a operação, a infraestrutura ou a presença digital da
-                sua empresa.
+                Converse com a INVETEC para avaliar quais soluções podem melhorar
+                sua operação, infraestrutura ou presença digital.
               </p>
             </div>
             <S.CTAActions>

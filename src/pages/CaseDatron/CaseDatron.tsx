@@ -83,7 +83,7 @@ export const CaseDatron = () => {
           {/* ⚙️ SOLUÇÃO */}
           <S.Section>
             <MotionReveal>
-              <h2>ERP e gestão</h2>
+              <h2>A decisão estratégica</h2>
 
               <ul>
                 <li>✔ Migração para um sistema 100% web</li>
