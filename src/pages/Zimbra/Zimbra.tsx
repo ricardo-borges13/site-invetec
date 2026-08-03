@@ -1,36 +1,351 @@
-﻿import logoInvetecMail from '@/assets/images/INVETEC-Mail-site.png';
-import heroImage from '@/assets/images/PagesHero-Email.jpg';
-import imageZimbraFull from '@/assets/images/Zimbra-Full.jpg'; // pesada (~200kb+)
-import imageZimbra from '@/assets/images/Zimbra-Leve.jpg'; // leve (~60–100kb)
+import infrastructureImage from '@/assets/images/CTA2.jpg';
+import logoInvetecMail from '@/assets/images/INVETEC-Mail-site.png';
+import heroImage from '@/assets/images/PagesHero-Email-InvetecMail.png';
+import supportImage from '@/assets/images/PagesHero-Suporte.jpg';
+import imageZimbraFull from '@/assets/images/Zimbra-Full.jpg';
+import imageZimbra from '@/assets/images/Zimbra-Leve.jpg';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { FormContactEmail } from '@/components/FormContactEmail/FormContactEmail';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
-import { CTASection } from '@/components/Sections/CTASection/CTASection';
 import { SEO } from '@/components/SEO/Seo';
-import { useRef, useState } from 'react';
+import { type MouseEvent, useEffect, useRef, useState } from 'react';
+import {
+  FiArrowLeft,
+  FiArrowRight,
+  FiCheck,
+  FiChevronDown,
+  FiHeadphones,
+  FiKey,
+  FiLock,
+  FiRotateCcw,
+  FiSearch,
+  FiServer,
+  FiShield,
+  FiUsers,
+} from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import * as S from './Zimbra.styles';
 
+type ComparisonOption = {
+  title: string;
+  tone: 'personal' | 'hosting' | 'invetec';
+  badge?: string;
+  items: string[];
+};
+type SupportItem = { title: string; text: string };
+type FeatureSlide = {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  benefits: string[];
+  image: string;
+  availabilityNote?: string;
+};
+type ControlFeature = {
+  title: string;
+  text: string;
+  tag: string;
+  icon: typeof FiShield;
+};
+type FaqItem = { question: string; answer: string };
+
+const comparisonOptions: ComparisonOption[] = [
+  {
+    title: 'E-mail gratuito ou pessoal',
+    tone: 'personal',
+    items: [
+      'Domínio genérico e pouca identificação com a empresa',
+      'Uso voltado principalmente a contas individuais',
+      'Sem administração centralizada dos usuários',
+      'Pouco controle sobre acessos e desligamentos',
+      'Suporte não orientado à rotina empresarial',
+    ],
+  },
+  {
+    title: 'E-mail comum de hospedagem',
+    tone: 'hosting',
+    items: [
+      'Envio e recebimento de mensagens',
+      'Webmail e recursos normalmente mais simples',
+      'Poucos recursos de colaboração entre equipes',
+      'Administração limitada de contas e permissões',
+      'Suporte geralmente restrito ao serviço de hospedagem',
+    ],
+  },
+  {
+    title: 'INVETEC Mail',
+    tone: 'invetec',
+    badge: 'Melhor equilíbrio para empresas',
+    items: [
+      'E-mails com o domínio da empresa',
+      'Plataforma com tecnologia Zimbra',
+      'E-mail, agenda, contatos e tarefas',
+      'Gestão centralizada de contas e acessos',
+      'Implantação e migração assistidas',
+      'Suporte técnico da INVETEC',
+    ],
+  },
+];
+const supportItems: SupportItem[] = [
+  {
+    title: 'Diagnóstico do ambiente atual',
+    text: 'Analisamos domínio, quantidade de usuários, dispositivos e serviço utilizado atualmente.',
+  },
+  {
+    title: 'Implantação personalizada',
+    text: 'Criamos contas, grupos, aliases, permissões e padrões de uso conforme a rotina da empresa.',
+  },
+  {
+    title: 'Migração assistida',
+    text: 'Planejamos a transferência das mensagens e configurações do serviço anterior.',
+  },
+  {
+    title: 'Configuração dos dispositivos',
+    text: 'Apoiamos o acesso pelo navegador, celular e programas de e-mail compatíveis.',
+  },
+  {
+    title: 'Suporte humanizado',
+    text: 'Quando necessário e autorizado, o técnico pode acessar remotamente o computador do usuário para configurar ou resolver a solicitação.',
+  },
+];
+const featureSlides: FeatureSlide[] = [
+  {
+    id: 'email',
+    label: 'E-mail',
+    title: 'Caixa de entrada organizada',
+    description:
+      'Organize mensagens com pastas, filtros, marcadores e recursos de busca.',
+    benefits: [
+      'Interface corporativa e organizada',
+      'Busca rápida de mensagens',
+      'Filtros e pastas para reduzir retrabalho',
+    ],
+    image: imageZimbra,
+  },
+  {
+    id: 'calendario',
+    label: 'Calendário',
+    title: 'Calendários compartilhados',
+    description:
+      'Organize compromissos, convites e agendas da equipe em um único ambiente.',
+    benefits: [
+      'Agendas individuais e compartilhadas',
+      'Convites e lembretes',
+      'Mais visibilidade sobre os compromissos',
+    ],
+    image: imageZimbra,
+  },
+  {
+    id: 'contatos',
+    label: 'Contatos',
+    title: 'Contatos centralizados',
+    description:
+      'Mantenha contatos pessoais, corporativos e listas organizados para facilitar a comunicação.',
+    benefits: [
+      'Catálogos de contatos',
+      'Listas de distribuição',
+      'Informações acessíveis à equipe',
+    ],
+    image: imageZimbra,
+  },
+  {
+    id: 'tarefas',
+    label: 'Tarefas',
+    title: 'Tarefas e lembretes',
+    description:
+      'Acompanhe atividades, responsabilidades e prazos relacionados à rotina da empresa.',
+    benefits: [
+      'Organização de atividades',
+      'Controle de prazos',
+      'Acompanhamento de responsabilidades',
+    ],
+    image: imageZimbra,
+  },
+  {
+    id: 'arquivos',
+    label: 'Arquivos',
+    title: 'Arquivos e compartilhamentos',
+    description:
+      'Compartilhe documentos com mais organização e menos dependência de anexos espalhados.',
+    benefits: [
+      'Documentos centralizados',
+      'Compartilhamento controlado',
+      'Menos versões dispersas',
+    ],
+    image: imageZimbra,
+  },
+  {
+    id: 'chat',
+    label: 'Chat',
+    title: 'Chat e comunicação interna',
+    description:
+      'Facilite conversas rápidas e alinhamentos entre os usuários do ambiente corporativo.',
+    benefits: [
+      'Comunicação mais direta',
+      'Menos dispersão entre ferramentas',
+      'Integração com a rotina de trabalho',
+    ],
+    image: imageZimbra,
+    availabilityNote:
+      'Disponibilidade conforme o plano e a configuração contratada.',
+  },
+  {
+    id: 'reunioes',
+    label: 'Reuniões',
+    title: 'Integrações para reuniões online',
+    description:
+      'Possibilidade de integrar recursos de reunião e videoconferência à rotina da equipe.',
+    benefits: [
+      'Convites vinculados à agenda',
+      'Organização dos compromissos',
+      'Integração com ferramentas compatíveis',
+    ],
+    image: imageZimbra,
+    availabilityNote:
+      'Disponibilidade conforme o plano, integração e configuração contratada.',
+  },
+  {
+    id: 'administracao',
+    label: 'Administração',
+    title: 'Administração de contas e acessos',
+    description:
+      'Tenha mais controle sobre usuários, senhas, aliases, grupos e permissões.',
+    benefits: [
+      'Criação e bloqueio de contas',
+      'Redefinição de senhas',
+      'Organização de grupos e permissões',
+    ],
+    image: imageZimbra,
+  },
+];
+const controlFeatures: ControlFeature[] = [
+  {
+    title: 'Proteção antispam e antivírus',
+    text: 'Filtros para reduzir mensagens indesejadas e ameaças recebidas por e-mail.',
+    tag: 'Disponível',
+    icon: FiShield,
+  },
+  {
+    title: 'Gestão centralizada de contas',
+    text: 'Criação, bloqueio, redefinição de senhas e organização dos usuários.',
+    tag: 'Disponível',
+    icon: FiUsers,
+  },
+  {
+    title: 'Autenticação em dois fatores',
+    text: 'Camada adicional de proteção para o acesso às contas corporativas.',
+    tag: 'Conforme o plano',
+    icon: FiLock,
+  },
+  {
+    title: 'Backup e recuperação',
+    text: 'Recursos de proteção e recuperação conforme a configuração contratada.',
+    tag: 'Conforme o plano',
+    icon: FiRotateCcw,
+  },
+  {
+    title: 'Logs e auditoria',
+    text: 'Acompanhamento de atividades para empresas que precisam de maior controle.',
+    tag: 'Opcional',
+    icon: FiSearch,
+  },
+  {
+    title: 'Políticas de acesso',
+    text: 'Regras e permissões ajustadas à necessidade e à estrutura da empresa.',
+    tag: 'Conforme o plano',
+    icon: FiKey,
+  },
+];
+const implementationSteps = [
+  [
+    'Entendimento do cenário',
+    'Levantamos quantidade de contas, domínio, dispositivos, serviço atual e objetivos.',
+  ],
+  [
+    'Planejamento',
+    'Definimos a estrutura, os acessos e a estratégia de implantação e migração.',
+  ],
+  [
+    'Implantação e migração',
+    'Criamos o ambiente, configuramos as contas e realizamos a migração planejada.',
+  ],
+  [
+    'Suporte contínuo',
+    'Orientamos os usuários e prestamos atendimento técnico quando necessário.',
+  ],
+] as const;
+const faqItems: FaqItem[] = [
+  {
+    question: 'O e-mail utiliza o domínio da minha empresa?',
+    answer:
+      'Sim. As contas podem utilizar o domínio da empresa, como nome@suaempresa.com.br, reforçando a identidade profissional da comunicação.',
+  },
+  {
+    question: 'É possível migrar os e-mails antigos?',
+    answer:
+      'Sim. A INVETEC avalia o serviço atual, o volume de dados e a estrutura das contas para definir a estratégia de migração mais adequada.',
+  },
+  {
+    question: 'Posso acessar pelo celular e por programas como Outlook?',
+    answer:
+      'O acesso pode ser realizado pelo navegador, celular e programas de e-mail compatíveis. A configuração disponível depende do plano, do dispositivo e do cliente utilizado.',
+  },
+  {
+    question: 'Qual é a diferença para o e-mail comum da hospedagem?',
+    answer:
+      'O INVETEC Mail oferece uma plataforma corporativa com tecnologia Zimbra, recursos de colaboração, administração centralizada, implantação assistida e suporte técnico da INVETEC.',
+  },
+  {
+    question: 'O que está incluído no suporte da INVETEC?',
+    answer:
+      'O suporte pode envolver implantação, configuração, orientação aos usuários e atendimento remoto autorizado para resolver solicitações relacionadas ao serviço contratado.',
+  },
+  {
+    question: 'Existe proteção contra spam e mensagens maliciosas?',
+    answer:
+      'A plataforma utiliza filtros antispam e recursos de proteção. Essas ferramentas reduzem riscos, mas nenhuma solução elimina completamente todas as mensagens ou ameaças.',
+  },
+  {
+    question: 'Como o valor do serviço é calculado?',
+    answer:
+      'A proposta considera quantidade de contas, recursos necessários, espaço, estrutura atual e eventual necessidade de migração.',
+  },
+  {
+    question: 'Quais recursos estão disponíveis além do e-mail?',
+    answer:
+      'Conforme o plano, a solução pode oferecer calendário, contatos, tarefas, arquivos, chat, administração centralizada e integrações para colaboração.',
+  },
+];
+
 export const Zimbra = () => {
+  const [slideIndex, setSlideIndex] = useState(0);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
   const formRef = useRef<HTMLElement | null>(null);
-
-  const scrollToForm = () => {
-    if (!formRef.current) return;
-
-    const headerOffset = 24;
-    const formTop =
-      formRef.current.getBoundingClientRect().top +
-      window.scrollY -
-      headerOffset;
-
-    window.scrollTo({
-      top: formTop,
-      behavior: 'smooth',
-    });
+  const resourcesRef = useRef<HTMLElement | null>(null);
+  const currentSlide = featureSlides[slideIndex];
+  const scrollTo = (element: HTMLElement | null) =>
+    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const scrollToForm = () => scrollTo(formRef.current);
+  const scrollToFormFromHero = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    scrollToForm();
   };
-
+  const scrollToResources = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    scrollTo(resourcesRef.current);
+  };
+  const changeSlide = (next: number) =>
+    setSlideIndex((next + featureSlides.length) % featureSlides.length);
+  useEffect(() => {
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSelectedImage(null);
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, []);
   return (
     <>
       <SEO
@@ -39,390 +354,337 @@ export const Zimbra = () => {
         image="https://www.invetec.com.br/images/SEO-Invetec-Mail.jpg"
         url="https://www.invetec.com.br/servicos/invetec-mail"
       />
-
       <PageHeroSection
-        title="Pare de improvisar no e-mail da sua empresa"
-        subTitle="Tenha um e-mail corporativo com organização, segurança e suporte real para sua empresa funcionar sem riscos."
+        title="INVETEC Mail: e‑mail corporativo profissional com mais controle e suporte"
+        subTitle="Tenha e‑mails com o domínio da sua empresa, tecnologia Zimbra e acesso pelo navegador, celular ou programas de e‑mail, com implantação, migração e suporte técnico da INVETEC."
         image={heroImage}
+        overlayOpacity={0.74}
+        heroContent={
+          <MotionReveal direction="up" delay={0.08}>
+            <S.HeroActions>
+              <S.HeroPrimaryButton
+                href="#email-contact-form"
+                onClick={scrollToFormFromHero}
+              >
+                Solicitar proposta
+              </S.HeroPrimaryButton>
+              <S.HeroSecondaryLink
+                href="#invetec-mail-recursos"
+                onClick={scrollToResources}
+              >
+                Ver recursos do INVETEC Mail
+              </S.HeroSecondaryLink>
+              <S.HeroTrust>
+                Domínio próprio <span>•</span> Implantação e migração assistidas{' '}
+                <span>•</span> Suporte técnico humanizado
+              </S.HeroTrust>
+            </S.HeroActions>
+          </MotionReveal>
+        }
       >
         <S.Container>
-          <S.Section>
-            <MotionReveal>
-              <h2>Seu e-mail já começou a causar problemas na empresa?</h2>
-              <p>
-                Quando o e-mail deixa de acompanhar a rotina do negócio, a
-                empresa perde agilidade, passa menos credibilidade e começa a
-                ter falhas no atendimento.
-              </p>
-
-              <S.PainGrid>
-                <MotionReveal delay={0.04}>
-                  <S.PainCard>
-                    <h3>❌ E-mails se perdem e atrasam o atendimento</h3>
-                    <p>
-                      E-mail misturado, sem organização e com dificuldade para
-                      achar o que foi tratado.
-                    </p>
-                  </S.PainCard>
-                </MotionReveal>
-
-                <MotionReveal delay={0.08}>
-                  <S.PainCard>
-                    <h3>
-                      ❌ Informações ficam desencontradas entre dispositivos
-                    </h3>
-                    <p>
-                      A equipe responde em lugares diferentes e a informação
-                      fica desencontrada.
-                    </p>
-                  </S.PainCard>
-                </MotionReveal>
-
-                <MotionReveal delay={0.12}>
-                  <S.PainCard>
-                    <h3>❌ Falhas e lentidão afetam a imagem da empresa</h3>
-                    <p>
-                      Falhas, lentidão e falta de padrão no e-mail afetam a
-                      percepção de clientes e parceiros.
-                    </p>
-                  </S.PainCard>
-                </MotionReveal>
-
-                <MotionReveal delay={0.2}>
-                  <S.PainCard>
-                    <h3>❌ Sem controle sobre contas e acessos</h3>
-                    <p>
-                      Quando alguém entra ou sai da empresa, tudo depende de
-                      ajustes improvisados.
-                    </p>
-                  </S.PainCard>
-                </MotionReveal>
-              </S.PainGrid>
+          <MotionReveal>
+            <S.Positioning>
+              <S.SectionHeading>
+                <span>ESCOLHA A ESTRUTURA CERTA</span>
+                <h2>Do e-mail básico para uma estrutura profissional</h2>
+                <p>
+                  Entenda onde o INVETEC Mail se posiciona e qual estrutura faz
+                  sentido para a rotina da sua empresa.
+                </p>
+              </S.SectionHeading>
+              <S.ComparisonGrid>
+                {comparisonOptions.map(option => (
+                  <S.ComparisonCard key={option.title} $tone={option.tone}>
+                    <h3>{option.title}</h3>
+                    {option.badge && <S.Badge>{option.badge}</S.Badge>}
+                    <ul>
+                      {option.items.map(item => (
+                        <li key={item}>
+                          <FiCheck />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </S.ComparisonCard>
+                ))}
+              </S.ComparisonGrid>
+              <S.PositioningNote>
+                Para empresas que precisam de suítes completas de aplicativos,
+                existem soluções como Google Workspace e Microsoft 365. O
+                INVETEC Mail é indicado para quem busca uma estrutura
+                profissional de e-mail e colaboração, com suporte próximo e
+                investimento ajustado à sua necessidade.
+              </S.PositioningNote>
+            </S.Positioning>
+          </MotionReveal>
+          <S.SupportSection>
+            <MotionReveal direction="left">
+              <S.SupportVisual>
+                <img
+                  src={supportImage}
+                  alt="Profissional de suporte técnico em ambiente de tecnologia"
+                  loading="lazy"
+                />
+                <div>
+                  <img src={logoInvetecMail} alt="INVETEC Mail" />
+                  <FiHeadphones />
+                  <strong>Suporte humano de verdade</strong>
+                </div>
+              </S.SupportVisual>
             </MotionReveal>
-          </S.Section>
-
-          <S.ConversionIntro>
-            <S.ConversionIntroContent>
-              <S.HeaderRow>
-                <S.Logo src={logoInvetecMail} alt="Invetec Mail" />
-                <S.Eyebrow>E-mail corporativo profissional</S.Eyebrow>
-              </S.HeaderRow>
-              <h2>
-                Você não contrata só e-mail —<br />
-                organiza a comunicação da sua empresa
-              </h2>
-
-              <p>
-                Antes de implementar, entendemos como sua empresa trabalha e
-                configuramos o e-mail da forma correta, utilizando todos os
-                recursos para melhorar a organização e os processos internos.
-              </p>
-
-              <p>
-                Implantação, suporte e acompanhamento já estão inclusos — você
-                não fica sozinho.
-              </p>
-
-              <S.ConversionList>
-                <li>Implantação completa e configuração personalizada</li>
-                <li>Organização de e-mails, pastas e usuários</li>
-                <li>Agenda e recursos compartilhados entre equipes</li>
-                <li>Suporte direto e acompanhamento no dia a dia</li>
-              </S.ConversionList>
-
-              <S.ConversionActions>
-                <S.Price>
-                  Planos a partir de <strong>R$ 9,90</strong> por usuário
-                  <span>* Implantação e suporte já inclusos</span>
-                </S.Price>
+            <MotionReveal direction="right" delay={0.08}>
+              <S.SupportContent>
+                <span>IMPLANTAÇÃO, MIGRAÇÃO E SUPORTE DA INVETEC</span>
+                <h2>
+                  Você não recebe apenas contas de e-mail. Recebe uma
+                  implantação acompanhada pela INVETEC.
+                </h2>
+                <p>
+                  Antes de configurar o ambiente, entendemos como sua empresa
+                  utiliza o e-mail, quais dispositivos precisam ser preparados e
+                  como a migração pode ser realizada com o menor impacto
+                  possível.
+                </p>
+                <S.SupportList>
+                  {supportItems.map(item => (
+                    <li key={item.title}>
+                      <FiCheck />
+                      <div>
+                        <h3>{item.title}</h3>
+                        <p>{item.text}</p>
+                      </div>
+                    </li>
+                  ))}
+                </S.SupportList>
+                <S.PriceBand>
+                  <strong>Planos a partir de R$ 9,90 por usuário/mês*</strong>
+                  <small>
+                    *Valor inicial de referência. Recursos, quantidade mínima,
+                    implantação e condições de migração podem variar conforme o
+                    cenário da empresa.
+                  </small>
+                </S.PriceBand>
                 <CustomButton variant="cta" onClick={scrollToForm}>
-                  Quero organizar o e-mail da minha empresa
+                  Solicitar uma avaliação
                 </CustomButton>
-                <span>Resposta rápida • Sem compromisso</span>{' '}
-              </S.ConversionActions>
-            </S.ConversionIntroContent>
-          </S.ConversionIntro>
-
-          <S.CompareSection>
-            <MotionReveal>
-              <h2>
-                E-mail básico
-                <span className="vs">VS</span>
-                E-mail corporativo profissional (Zimbra)
-              </h2>
-              <p>
-                Uma estrutura profissional com tecnologia Zimbra e suporte
-                INVETEC.
-              </p>
-              <p>
-                A maioria das empresas usa e-mail simples sem perceber os
-                riscos. Veja a diferença na prática:
-              </p>
-              <S.CompareGrid>
-                <MotionReveal direction="left" delay={0.08}>
-                  <S.CompareCard type="bad">
-                    <h3>❌ E-mail comum de hospedagem</h3>
-                    <p className="highlight-bad">
-                      <strong>
-                        Funciona… mas não acompanha o crescimento da empresa
-                      </strong>
-                    </p>
-                    <ul>
-                      <li>
-                        Interface Web simples e limitada (serve só para enviar e
-                        receber)
-                      </li>
-                      <li>Falta de organização entre usuários e equipes </li>
-                      <li>
-                        Pouco controle sobre acessos, permissões e segurança
-                      </li>
-                      <li>Dificuldade para padronizar o uso na empresa </li>
-                      <li>Perda de tempo com e-mails desorganizados </li>
-                      <li>
-                        Informações importantes se perdem no meio dos e-mails
-                      </li>
-                    </ul>
-                  </S.CompareCard>
-                </MotionReveal>
-
-                <MotionReveal direction="right" delay={0.14}>
-                  <S.CompareCard type="good">
-                    <h3>✅ E-mail corporativo com a INVETEC Mail</h3>
-                    <p className="highlight-good">
-                      Mais controle, organização e ganho real de produtividade
-                    </p>
-                    <ul>
-                      <li>Equipes mais organizadas e comunicação sem ruído</li>
-                      <li>
-                        Acesso de qualquer lugar (web, celular ou computador)
-                      </li>
-                      <li>
-                        Gestão centralizada de contas, permissões e segurança
-                      </li>
-                      <li>
-                        Recursos compartilhados que aumentam a produtividade
-                      </li>
-                      <li>Estrutura pronta para crescer junto com a empresa</li>
-                      <li>Suporte humano - não é atendimento robotizado </li>
-                    </ul>
-                  </S.CompareCard>
-                </MotionReveal>
-              </S.CompareGrid>
+              </S.SupportContent>
             </MotionReveal>
-          </S.CompareSection>
-
-          <S.SystemSection>
+          </S.SupportSection>
+          <S.Resources id="invetec-mail-recursos" ref={resourcesRef}>
             <MotionReveal>
-              <h2>
-                Veja como funciona o <span>INVETEC Mail</span> na prática
-              </h2>
-              <p>
-                Sua equipe passa a trabalhar com mais organização, menos
-                retrabalho e mais controle sobre as informações.
-              </p>
+              <S.SectionHeading>
+                <span>CONHEÇA O INVETEC MAIL NA PRÁTICA</span>
+                <h2>
+                  Uma plataforma completa para a comunicação da sua equipe
+                </h2>
+                <p>
+                  Centralize e-mails, compromissos, contatos e recursos de
+                  colaboração em um ambiente corporativo baseado em tecnologia
+                  Zimbra.
+                </p>
+              </S.SectionHeading>
             </MotionReveal>
-
-            <S.SystemImage>
-              <img
-                src={imageZimbra}
-                alt="Interface do Zimbra"
-                width={900}
-                height={506}
-                loading="lazy"
-                role="button"
-                tabIndex={0}
-                aria-label="Ampliar interface do Zimbra"
-                onClick={() => setSelectedImage(imageZimbraFull)}
-                onKeyDown={event => {
-                  if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    setSelectedImage(imageZimbraFull);
-                  }
-                }}
-                style={{ cursor: 'zoom-in' }}
-              />
-            </S.SystemImage>
-
-            <S.Grid>
-              <MotionReveal delay={0.04}>
-                <S.Card>
-                  <h3>📥 Caixa de entrada organizada</h3>
-                  <p>
-                    Use pastas, filtros e busca rápida para localizar
-                    informações sem perder tempo.
-                  </p>
-                </S.Card>
-              </MotionReveal>
-
-              <MotionReveal delay={0.08}>
-                <S.Card>
-                  <h3>📅 Agenda compartilhada</h3>
-                  <p>
-                    Coordene compromissos da equipe com mais visibilidade e
-                    sincronização entre dispositivos.
-                  </p>
-                </S.Card>
-              </MotionReveal>
-
-              <MotionReveal delay={0.12}>
-                <S.Card>
-                  <h3>👥 Contatos centralizados</h3>
-                  <p>
-                    Mantenha informações internas e recorrentes organizadas para
-                    agilizar o atendimento.
-                  </p>
-                </S.Card>
-              </MotionReveal>
-
-              <MotionReveal delay={0.16}>
-                <S.Card>
-                  <h3>✅ Tarefas e lembretes</h3>
-                  <p>
-                    Acompanhe atividades ligadas a processos, clientes e
-                    responsabilidades do time.
-                  </p>
-                </S.Card>
-              </MotionReveal>
-
-              <MotionReveal delay={0.2}>
-                <S.Card>
-                  <h3>📁 Arquivos corporativos</h3>
-                  <p>
-                    Compartilhe documentos com mais ordem e menos dependência de
-                    anexos espalhados.
-                  </p>
-                </S.Card>
-              </MotionReveal>
-
-              <MotionReveal delay={0.24}>
-                <S.Card>
-                  <h3>💬 Comunicação interna mais alinhada</h3>
-                  <p>
-                    Reduza a dispersão entre canais e concentre a rotina em um
-                    ambiente corporativo.
-                  </p>
-                </S.Card>
-              </MotionReveal>
-
-              <MotionReveal delay={0.28}>
-                <S.Card>
-                  <h3>🎥 Recursos integrados para reuniões</h3>
-                  <p>
-                    Facilite conversas e alinhamentos sem depender de várias
-                    ferramentas desconectadas.
-                  </p>
-                </S.Card>
-              </MotionReveal>
-
-              <MotionReveal delay={0.32}>
-                <S.Card>
-                  <h3>🔄 Liberdade de acesso</h3>
-                  <p>
-                    Trabalhe pelo navegador, celular ou Outlook, conforme a
-                    rotina da empresa exigir.
-                  </p>
-                </S.Card>
-              </MotionReveal>
-            </S.Grid>
-          </S.SystemSection>
-
+            <MotionReveal delay={0.08}>
+              <S.ResourceLayout>
+                <S.ResourceImage>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedImage(currentSlide.image)}
+                    aria-label="Ampliar imagem da interface do INVETEC Mail"
+                  >
+                    <img
+                      src={currentSlide.image}
+                      alt={`Interface do INVETEC Mail: ${currentSlide.label}`}
+                      width={900}
+                      height={506}
+                      loading="lazy"
+                    />
+                  </button>
+                  <S.SlideControls>
+                    <button
+                      type="button"
+                      onClick={() => changeSlide(slideIndex - 1)}
+                      aria-label="Recurso anterior"
+                    >
+                      <FiArrowLeft />
+                    </button>
+                    <span aria-live="polite">
+                      {slideIndex + 1} de {featureSlides.length}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => changeSlide(slideIndex + 1)}
+                      aria-label="Próximo recurso"
+                    >
+                      <FiArrowRight />
+                    </button>
+                  </S.SlideControls>
+                </S.ResourceImage>
+                <S.ResourcePanel aria-live="polite">
+                  <span>{currentSlide.label}</span>
+                  <h3>{currentSlide.title}</h3>
+                  <p>{currentSlide.description}</p>
+                  <ul>
+                    {currentSlide.benefits.map(item => (
+                      <li key={item}>
+                        <FiCheck />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  {currentSlide.availabilityNote && (
+                    <small>{currentSlide.availabilityNote}</small>
+                  )}
+                </S.ResourcePanel>
+              </S.ResourceLayout>
+              <S.SlideTabs aria-label="Recursos do INVETEC Mail">
+                {featureSlides.map((slide, index) => (
+                  <button
+                    key={slide.id}
+                    type="button"
+                    aria-label={`Ver recurso ${slide.label}`}
+                    aria-pressed={index === slideIndex}
+                    onClick={() => setSlideIndex(index)}
+                  >
+                    {slide.label}
+                  </button>
+                ))}
+              </S.SlideTabs>
+            </MotionReveal>
+          </S.Resources>
           <MotionReveal>
-            <S.InfoBox>
-              <h2>Uma estrutura corporativa com suporte próximo</h2>
-              <p>
-                Sua empresa pode contar com uma estrutura robusta de e-mail
-                corporativo, com suporte próximo e acompanhamento técnico — sem
-                depender de soluções genéricas ou caras demais para sua
-                realidade.
-              </p>
-            </S.InfoBox>
+            <S.Controls>
+              <S.SectionHeading>
+                <h2>Mais controle sobre a comunicação da sua empresa</h2>
+                <p>
+                  Recursos para proteger, administrar e organizar o ambiente de
+                  e-mail corporativo.
+                </p>
+              </S.SectionHeading>
+              <S.ControlGrid>
+                {controlFeatures.map(({ title, text, tag, icon: Icon }) => (
+                  <S.ControlCard key={title}>
+                    <Icon />
+                    <div>
+                      <span>{tag}</span>
+                      <h3>{title}</h3>
+                      <p>{text}</p>
+                    </div>
+                  </S.ControlCard>
+                ))}
+              </S.ControlGrid>
+            </S.Controls>
           </MotionReveal>
-
           <MotionReveal>
-            <CTASection
-              variant="infrastructure"
-              badge="INFRAESTRUTURA DE ALTO NÍVEL"
-              title="Infraestrutura pensada para confiabilidade e segurança"
-              subtitle="Essa é a base que garante segurança, estabilidade e confiança no dia a dia da sua empresa — sem você precisar se preocupar com infraestrutura."
-              items={[
-                '99,9% de disponibilidade',
-                '+ de 1.600 empresas atendidas',
-                '5 data centers TIER III',
-                'Segurança certificada ISO 27001',
-                'Antispam avançado',
-                'Conformidade total com a LGPD',
-                'Suporte especializado',
-                'Plataforma Zimbra NE',
-              ]}
-            />
+            <S.Infrastructure $image={infrastructureImage}>
+              <div>
+                <span>INFRAESTRUTURA</span>
+                <h2>
+                  Infraestrutura profissional para a comunicação da sua empresa
+                </h2>
+                <p>
+                  O INVETEC Mail utiliza tecnologia Zimbra e uma estrutura
+                  preparada para oferecer estabilidade, proteção e continuidade
+                  à comunicação corporativa.
+                </p>
+                <S.InfrastructureHighlight>
+                  Tecnologia Zimbra Network Edition
+                </S.InfrastructureHighlight>
+                <p>
+                  Uma plataforma corporativa administrada e acompanhada pela
+                  equipe técnica da INVETEC.
+                </p>
+              </div>
+              <S.InfrastructureGrid>
+                {[
+                  '99,9% de disponibilidade',
+                  '5 data centers TIER III',
+                  'Segurança certificada ISO 27001',
+                  'Proteção antispam',
+                  'Administração centralizada',
+                  'Suporte especializado',
+                ].map(item => (
+                  <span key={item}>
+                    <FiServer />
+                    {item}
+                  </span>
+                ))}
+              </S.InfrastructureGrid>
+            </S.Infrastructure>
           </MotionReveal>
-
           <MotionReveal>
-            <S.ValueHighlight>
-              <h2>
-                Não é só e-mail — antes de contratar, entendemos o seu processo
-              </h2>
-
-              <p>
-                Cada empresa usa e-mail de um jeito. Por isso, não fazemos
-                configuração padrão.
-              </p>
-
-              <p>
-                Antes de criar qualquer conta, analisamos como sua empresa
-                trabalha e estruturamos o ambiente para melhorar a comunicação,
-                o controle e a rotina da equipe.
-              </p>
-
-              <p>
-                <strong>Na prática, isso significa:</strong>
-              </p>
-
-              <ul>
-                <li>
-                  Estudamos como sua empresa utiliza o e-mail no dia a dia
-                </li>
-                <li>
-                  Configuramos tudo conforme sua realidade (acesso remoto ou
-                  local)
-                </li>
-                <li> Organizamos usuários, pastas e fluxos de comunicação</li>
-                <li>
-                  Implantamos padrões para evitar bagunça e perda de informação
-                </li>
-                <li>
-                  {' '}
-                  Suporte humano, próximo e contínuo — não é atendimento
-                  automático
-                </li>
-              </ul>
-            </S.ValueHighlight>
+            <S.Process>
+              <S.SectionHeading>
+                <span>COMO FUNCIONA A IMPLANTAÇÃO</span>
+                <h2>Um processo simples e acompanhado em quatro etapas</h2>
+              </S.SectionHeading>
+              <S.ProcessSteps>
+                {implementationSteps.map(([title, text], index) => (
+                  <article key={title}>
+                    <b>{index + 1}</b>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </article>
+                ))}
+              </S.ProcessSteps>
+            </S.Process>
           </MotionReveal>
-
+          <MotionReveal>
+            <S.Faq>
+              <S.SectionHeading>
+                <h2>Perguntas frequentes</h2>
+                <p>
+                  Confira as principais dúvidas sobre implantação, migração,
+                  recursos e suporte do INVETEC Mail.
+                </p>
+              </S.SectionHeading>
+              <S.FaqList>
+                {faqItems.map((item, index) => (
+                  <article key={item.question}>
+                    <button
+                      type="button"
+                      aria-expanded={openFaq === index}
+                      aria-controls={`faq-answer-${index}`}
+                      onClick={() =>
+                        setOpenFaq(openFaq === index ? null : index)
+                      }
+                    >
+                      {item.question}
+                      <FiChevronDown />
+                    </button>
+                    <div id={`faq-answer-${index}`} hidden={openFaq !== index}>
+                      <p>{item.answer}</p>
+                    </div>
+                  </article>
+                ))}
+              </S.FaqList>
+            </S.Faq>
+          </MotionReveal>
           <S.FormArea id="email-contact-form" ref={formRef}>
-            <MotionReveal>
-              <S.MeiHelper>
-                Trabalha sozinho ou tem poucos e-mails?{' '}
-                <Link to="/servicos/invetec-mail-mei">
-                  Veja uma solução mais simples →
-                </Link>
-              </S.MeiHelper>
-              <h2>Vamos organizar o e-mail da sua empresa</h2>
+            <S.FormCopy>
+              <span>FALE COM A INVETEC</span>
+              <h2>Receba uma proposta para o cenário da sua empresa</h2>
               <p>
-                Em poucos minutos você recebe uma orientação clara do que
-                precisa ser feito.
+                Informe quantas contas sua empresa utiliza e como funciona o
+                e-mail atualmente. A INVETEC avaliará implantação, migração,
+                recursos e suporte necessários.
               </p>
-
+              <p>Possui poucas contas e uma operação mais simples?</p>
+              <Link to="/servicos/invetec-mail-mei">
+                Conheça o INVETEC Mail MEI
+              </Link>
+            </S.FormCopy>
+            <S.FormPanel>
               <FormContactEmail />
-            </MotionReveal>
+            </S.FormPanel>
           </S.FormArea>
         </S.Container>
-
         {selectedImage && (
           <S.Lightbox
             role="dialog"
             aria-modal="true"
-            aria-label="Interface do Zimbra ampliada"
+            aria-label="Interface do INVETEC Mail ampliada"
             onClick={() => setSelectedImage(null)}
           >
             <S.CloseButton
@@ -430,9 +692,12 @@ export const Zimbra = () => {
               aria-label="Fechar imagem ampliada"
               onClick={() => setSelectedImage(null)}
             >
-              x
+              ×
             </S.CloseButton>
-            <img src={selectedImage} alt="Interface do Zimbra ampliada" />
+            <img
+              src={imageZimbraFull}
+              alt="Interface do INVETEC Mail ampliada"
+            />
           </S.Lightbox>
         )}
       </PageHeroSection>
