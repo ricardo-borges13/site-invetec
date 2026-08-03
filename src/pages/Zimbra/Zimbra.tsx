@@ -10,28 +10,40 @@ import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
 import { type MouseEvent, useEffect, useRef, useState } from 'react';
+import type { IconType } from 'react-icons';
 import {
   FiArrowLeft,
   FiArrowRight,
   FiCheck,
+  FiCalendar,
   FiChevronDown,
+  FiDollarSign,
+  FiGrid,
   FiHeadphones,
   FiKey,
   FiLock,
+  FiMail,
+  FiMessageCircle,
   FiRotateCcw,
   FiSearch,
   FiServer,
   FiShield,
+  FiSliders,
+  FiSmartphone,
+  FiTarget,
+  FiTrendingUp,
   FiUsers,
+  FiVideo,
 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import * as S from './Zimbra.styles';
 
-type ComparisonOption = {
-  title: string;
-  tone: 'personal' | 'hosting' | 'invetec';
-  badge?: string;
-  items: string[];
+type ComparisonRow = {
+  criterion: string;
+  icon: IconType;
+  hosting: string;
+  invetec: string;
+  suites: string;
 };
 type SupportItem = { title: string; text: string };
 type FeatureSlide = {
@@ -51,42 +63,16 @@ type ControlFeature = {
 };
 type FaqItem = { question: string; answer: string };
 
-const comparisonOptions: ComparisonOption[] = [
-  {
-    title: 'E-mail gratuito ou pessoal',
-    tone: 'personal',
-    items: [
-      'Domínio genérico e pouca identificação com a empresa',
-      'Uso voltado principalmente a contas individuais',
-      'Sem administração centralizada dos usuários',
-      'Pouco controle sobre acessos e desligamentos',
-      'Suporte não orientado à rotina empresarial',
-    ],
-  },
-  {
-    title: 'E-mail comum de hospedagem',
-    tone: 'hosting',
-    items: [
-      'Envio e recebimento de mensagens',
-      'Webmail e recursos normalmente mais simples',
-      'Poucos recursos de colaboração entre equipes',
-      'Administração limitada de contas e permissões',
-      'Suporte geralmente restrito ao serviço de hospedagem',
-    ],
-  },
-  {
-    title: 'INVETEC Mail',
-    tone: 'invetec',
-    badge: 'Melhor equilíbrio para empresas',
-    items: [
-      'E-mails com o domínio da empresa',
-      'Plataforma com tecnologia Zimbra',
-      'E-mail, agenda, contatos e tarefas',
-      'Gestão centralizada de contas e acessos',
-      'Implantação e migração assistidas',
-      'Suporte técnico da INVETEC',
-    ],
-  },
+const positioningComparisonRows: ComparisonRow[] = [
+  { criterion: 'Foco principal', icon: FiTarget, hosting: 'Menor custo por conta', invetec: 'E-mail corporativo com colaboração e suporte', suites: 'Suíte completa de produtividade' },
+  { criterion: 'Webmail profissional', icon: FiMail, hosting: 'Simples', invetec: 'Sim, completo e personalizável', suites: 'Sim, completo' },
+  { criterion: 'Calendário e agenda', icon: FiCalendar, hosting: 'Limitado ou básico', invetec: 'Sim, compartilhado*', suites: 'Sim, integrado' },
+  { criterion: 'Pastas e contas compartilhadas', icon: FiUsers, hosting: 'Limitado', invetec: 'Sim*', suites: 'Sim' },
+  { criterion: 'Chat interno', icon: FiMessageCircle, hosting: 'Geralmente não', invetec: 'Sim, chat integrado', suites: 'Sim' },
+  { criterion: 'Videoconferência', icon: FiVideo, hosting: 'Geralmente não', invetec: 'Sim*', suites: 'Sim, integrada' },
+  { criterion: 'Sincronização avançada', icon: FiSmartphone, hosting: 'Limitada', invetec: 'Sim, ActiveSync no plano Professional*', suites: 'Sim, nativo' },
+  { criterion: 'Suporte', icon: FiHeadphones, hosting: 'Suporte da plataforma', invetec: 'Suporte especializado INVETEC', suites: 'Suporte do fornecedor / parceiro' },
+  { criterion: 'Custo', icon: FiDollarSign, hosting: 'Baixo', invetec: 'Intermediário (excelente custo-benefício)', suites: 'Mais alto' },
 ];
 const supportItems: SupportItem[] = [
   {
@@ -321,6 +307,7 @@ const faqItems: FaqItem[] = [
 
 export const Zimbra = () => {
   const [slideIndex, setSlideIndex] = useState(0);
+  const [comparisonView, setComparisonView] = useState<'hosting' | 'invetec' | 'suites'>('invetec');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const formRef = useRef<HTMLElement | null>(null);
@@ -385,37 +372,65 @@ export const Zimbra = () => {
         <S.Container>
           <MotionReveal>
             <S.Positioning>
-              <S.SectionHeading>
-                <span>ESCOLHA A ESTRUTURA CERTA</span>
-                <h2>Do e-mail básico para uma estrutura profissional</h2>
-                <p>
-                  Entenda onde o INVETEC Mail se posiciona e qual estrutura faz
-                  sentido para a rotina da sua empresa.
-                </p>
-              </S.SectionHeading>
-              <S.ComparisonGrid>
-                {comparisonOptions.map(option => (
-                  <S.ComparisonCard key={option.title} $tone={option.tone}>
-                    <h3>{option.title}</h3>
-                    {option.badge && <S.Badge>{option.badge}</S.Badge>}
-                    <ul>
-                      {option.items.map(item => (
-                        <li key={item}>
-                          <FiCheck />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </S.ComparisonCard>
+              <S.PositioningHeading>
+                <span>POSICIONAMENTO DO INVETEC MAIL</span>
+                <h2>Mais recursos que o e-mail comum. Mais flexível e econômico que uma suíte completa.</h2>
+                <p>O INVETEC Mail combina tecnologia Zimbra, recursos de colaboração, gestão centralizada e suporte técnico da INVETEC em planos ajustados à necessidade de cada empresa.</p>
+              </S.PositioningHeading>
+              <S.PositioningHighlights>
+                {[
+                  { icon: FiTrendingUp, title: 'Mais estrutura que o e-mail básico', text: 'Recursos de organização, colaboração e administração que vão além de uma caixa postal simples.' },
+                  { icon: FiSliders, title: 'Planos ajustados à necessidade', text: 'Business, Standard e Professional permitem escolher espaço, colaboração e sincronização conforme o perfil dos usuários.' },
+                  { icon: FiHeadphones, title: 'Suporte próximo e especializado', text: 'A INVETEC acompanha implantação, migração, configuração e atendimento técnico dos usuários.' },
+                ].map(({ icon: Icon, title, text }) => (
+                  <S.PositioningHighlight key={title}>
+                    <span><Icon /></span><div><h3>{title}</h3><p>{text}</p></div>
+                  </S.PositioningHighlight>
                 ))}
-              </S.ComparisonGrid>
-              <S.PositioningNote>
-                Para empresas que precisam de suítes completas de aplicativos,
-                existem soluções como Google Workspace e Microsoft 365. O
-                INVETEC Mail é indicado para quem busca uma estrutura
-                profissional de e-mail e colaboração, com suporte próximo e
-                investimento ajustado à sua necessidade.
-              </S.PositioningNote>
+              </S.PositioningHighlights>
+              <S.PositioningStatement>
+                <FiTrendingUp />
+                <p>O <strong>INVETEC Mail</strong> oferece uma estrutura corporativa acima do e-mail básico e se aproxima das grandes suítes em recursos de colaboração, com suporte técnico próximo e planos ajustados ao perfil de cada empresa.</p>
+              </S.PositioningStatement>
+              <S.ComparisonTableContainer>
+                <S.ComparisonTable>
+                  <caption>Comparativo de posicionamento entre e-mail básico, INVETEC Mail e suítes completas.</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Critério</th>
+                      <th scope="col">
+                        <S.ComparisonHeaderContent>
+                          <FiMail />
+                          <S.ComparisonHeaderTitle>E-mail básico / hospedagem</S.ComparisonHeaderTitle>
+                        </S.ComparisonHeaderContent>
+                      </th>
+                      <th scope="col" className="invetec">
+                        <S.ComparisonHeaderContent>
+                          <S.ComparisonHeaderLogo src={logoInvetecMail} alt="Logo do INVETEC Mail" />
+                          <S.ComparisonHeaderSubtitle>Tecnologia Zimbra</S.ComparisonHeaderSubtitle>
+                        </S.ComparisonHeaderContent>
+                      </th>
+                      <th scope="col">
+                        <S.ComparisonHeaderContent>
+                          <FiGrid />
+                          <S.ComparisonBrandStack>
+                            <S.ComparisonHeaderTitle>Google Workspace</S.ComparisonHeaderTitle>
+                            <S.ComparisonHeaderSubtitle>Microsoft 365</S.ComparisonHeaderSubtitle>
+                          </S.ComparisonBrandStack>
+                        </S.ComparisonHeaderContent>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>{positioningComparisonRows.map(({ criterion, icon: Icon, hosting, invetec, suites }) => <tr key={criterion}><th scope="row"><Icon />{criterion}</th><td>{hosting}</td><td className="invetec">{invetec}</td><td>{suites}</td></tr>)}</tbody>
+                </S.ComparisonTable>
+              </S.ComparisonTableContainer>
+              <S.ComparisonMobile>
+                <S.ComparisonTabs aria-label="Escolha uma solução para comparar">
+                  {([['hosting', 'Hospedagem'], ['invetec', 'INVETEC Mail'], ['suites', 'Google/Microsoft']] as const).map(([value, label]) => <button key={value} type="button" aria-pressed={comparisonView === value} onClick={() => setComparisonView(value)}>{label}</button>)}
+                </S.ComparisonTabs>
+                <S.ComparisonMobileList>{positioningComparisonRows.map(({ criterion, icon: Icon, [comparisonView]: detail }) => <li key={criterion}><span><Icon />{criterion}</span><p>{detail}</p></li>)}</S.ComparisonMobileList>
+              </S.ComparisonMobile>
+              <S.ComparisonNote>* Algumas funcionalidades do INVETEC Mail variam conforme o plano escolhido (Business, Standard ou Professional). A INVETEC recomenda a combinação ideal conforme a operação da empresa.</S.ComparisonNote>
             </S.Positioning>
           </MotionReveal>
           <S.SupportSection>
