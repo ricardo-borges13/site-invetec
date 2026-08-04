@@ -21,7 +21,7 @@ export const FormContactERP = () => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormInputs>();
+  } = useForm<FormInputs>({ shouldFocusError: true });
 
   const onSubmitMock = async () => {
     try {
@@ -101,6 +101,7 @@ export const FormContactERP = () => {
             <S.Input
               id="erp-nome"
               placeholder="Nome"
+              autoComplete="name"
               aria-required="true"
               aria-invalid={Boolean(errors.nome)}
               aria-describedby={errors.nome ? 'erp-nome-erro' : undefined}
@@ -118,6 +119,7 @@ export const FormContactERP = () => {
             <S.Input
               id="erp-empresa"
               placeholder="Empresa"
+              autoComplete="organization"
               aria-required="true"
               aria-invalid={Boolean(errors.empresa)}
               aria-describedby={errors.empresa ? 'erp-empresa-erro' : undefined}
@@ -139,6 +141,8 @@ export const FormContactERP = () => {
               id="erp-email"
               placeholder="E-mail"
               type="email"
+              autoComplete="email"
+              inputMode="email"
               aria-required="true"
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? 'erp-email-erro' : undefined}
@@ -158,11 +162,15 @@ export const FormContactERP = () => {
           </S.Field>
 
           <S.Field>
-            <label htmlFor="erp-telefone">Telefone</label>
+            <label htmlFor="erp-telefone">Telefone ou WhatsApp *</label>
             <S.Input
               id="erp-telefone"
               placeholder="Telefone"
-              {...register('telefone', { required: false })}
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              aria-required="true"
+              {...register('telefone', { required: 'O telefone é obrigatório.' })}
             />
           </S.Field>
         </S.FieldGroup>

@@ -1,139 +1,260 @@
 import styled from 'styled-components';
-
 export const Container = styled.div`
-  max-width: 1100px;
+  width: min(1240px, calc(100% - 2rem));
   margin: 0 auto;
-  padding: 1px 20px;
+  padding: 2.5rem 0 5rem;
 `;
-
-export const Section = styled.section`
-  margin-block: 30px 50px;
-  text-align: center;
-
-  h2 {
-    color: ${({ theme }) => theme.colors.black};
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-    color: #555;
-  }
-
+export const HeroActions = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
   button {
-    margin-top: 20px;
-  }
-
-  /* Mobile */
-  @media (max-width: 430px) {
-    h2 {
-      font-size: 1.5rem;
-    }
+    min-height: 46px;
+    font-size: 1rem;
   }
 `;
-
-export const Title = styled.h2`
+export const HeroSecondary = styled.button`
+  padding: 0.8rem 1.25rem;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover {
+    background: rgba(255, 255, 255, 0.14);
+  }
+  &:focus-visible {
+    outline: 3px solid #8fd1ff;
+    outline-offset: 3px;
+  }
+`;
+export const Section = styled.section`
+  margin: 3.5rem 0;
+  scroll-margin-top: 90px;
+`;
+export const Intro = styled.header`
+  max-width: 780px;
+  margin: 0 auto 1.75rem;
   text-align: center;
-  margin-bottom: 40px;
+  > span,
+  .Consulting > div > span,
+  .FormArea > div > span {
+    color: #176fb7;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+  }
+  h2 {
+    margin: 0.45rem 0 0.7rem;
+    color: #17365d;
+    font-size: clamp(1.8rem, 3vw, 2.55rem);
+    line-height: 1.16;
+  }
+  p {
+    margin: 0;
+    color: #536b83;
+    line-height: 1.58;
+  }
 `;
-
-export const Grid = styled.div`
+export const Signs = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-
-  @media (max-width: 768px) {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.8rem;
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    min-height: 128px;
+    padding: 1rem;
+    border: 1px solid #dce8f3;
+    border-radius: 12px;
+    background: #fff;
+    color: #385a77;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+  article:hover {
+    border-color: #9dc7e8;
+    box-shadow: 0 8px 18px rgba(21, 93, 153, 0.08);
+    transform: translateY(-2px);
+  }
+  svg {
+    width: 23px;
+    height: 23px;
+    color: #176fb7;
+  }
+`;
+export const Consulting = styled.section`
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 2rem;
+  align-items: start;
+  margin: 4rem 0;
+  padding: 2rem;
+  border-radius: 18px;
+  background: #f1f8ff;
+  > div h2 {
+    margin: 0.45rem 0 0.75rem;
+    color: #17365d;
+    font-size: clamp(1.8rem, 3vw, 2.45rem);
+    line-height: 1.15;
+  }
+  > div p {
+    margin: 0;
+    color: #536b83;
+    line-height: 1.58;
+  }
+`;
+export const StageGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  article {
+    padding: 1rem;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid #dce8f3;
+  }
+  b {
+    color: #168a58;
+    font-size: 0.82rem;
+  }
+  h3 {
+    margin: 0.45rem 0;
+    color: #17365d;
+    font-size: 1rem;
+  }
+  p {
+    margin: 0;
+    color: #5b7187;
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+`;
+export const Comparison = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+`;
+export const ProductCard = styled.article<{ $featured?: boolean }>`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+  padding: 1.65rem;
+  border: 1px solid ${p => (p.$featured ? '#82b8e2' : '#dce5ed')};
+  border-radius: 16px;
+  background: ${p => (p.$featured ? '#f2f9ff' : '#fff')};
+  box-shadow: 0 8px 22px rgba(16, 61, 96, 0.06);
+  h3 {
+    margin: 0.8rem 0 0.55rem;
+    color: #17365d;
+    font-size: 1.8rem;
+  }
+  p {
+    margin: 0;
+    color: #536b83;
+    line-height: 1.52;
+  }
+  ul {
+    display: grid;
+    gap: 0.65rem;
+    margin: 1.25rem 0;
+    padding: 0;
+    list-style: none;
+    color: #385a77;
+  }
+  li {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+    line-height: 1.4;
+  }
+  li svg {
+    flex: none;
+    margin-top: 0.1rem;
+    color: #168a58;
+  }
+  strong {
+    margin: 0 0 1.2rem;
+    color: #365a78;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  button {
+    width: 100%;
+    margin-top: auto;
+    min-height: 46px;
+    font-size: 1rem;
+  }
+`;
+export const Badge = styled.span`
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.32rem 0.65rem;
+  border-radius: 20px;
+  background: #e7f3ff;
+  color: #176fb7;
+  font-size: 0.76rem;
+  font-weight: 700;
+`;
+export const Advisory = styled.aside`
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: #0c3b68;
+  color: #fff;
+  > svg {
+    width: 32px;
+    height: 32px;
+    color: #9fd8ff;
+  }
+  h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.35rem;
+  }
+  p {
+    margin: 0;
+    color: #d9ecfb;
+    line-height: 1.45;
+  }
+  button {
+    min-height: 46px;
+    font-size: 0.95rem;
+  }
+`;
+export const FormArea = styled.section`
+  display: grid;
+  grid-template-columns: 0.42fr 0.58fr;
+  gap: 1.5rem;
+  align-items: start;
+  margin-top: 4rem;
+  padding: 1.5rem;
+  border-top: 1px solid #dce8f3;
+  background: #f8fbfe;
+  scroll-margin-top: 90px;
+  h2 {
+    margin: 0.45rem 0 0.7rem;
+    color: #17365d;
+    font-size: clamp(1.8rem, 2.5vw, 2.35rem);
+    line-height: 1.15;
+  }
+  p {
+    margin: 0;
+    color: #536b83;
+    line-height: 1.55;
+  }
+  @media (max-width: 850px) {
     grid-template-columns: 1fr;
   }
-`;
-
-export const Card = styled.div<{ $highlight?: boolean }>`
-  background: ${({ $highlight }) =>
-    $highlight ? 'linear-gradient(180deg, #f0f7ff, #ffffff)' : '#f9fdf9'};
-
-  border-radius: 16px;
-  padding: 30px;
-  position: relative;
-  margin-top: 20px;
-
-  border: ${({ $highlight }) =>
-    $highlight ? '2px solid #2563eb' : '1px solid #e5e7eb'};
-
-  transform: ${({ $highlight }) => ($highlight ? 'scale(1.03)' : 'scale(1)')};
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-
-  transition: all 0.25s ease;
-
-  &:hover {
-    transform: ${({ $highlight }) =>
-      $highlight ? 'scale(1.05)' : 'translateY(-6px)'};
-
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  }
-
-  h3 {
-    margin: 10px 0 20px;
-  }
-
-  &:hover h3 {
-    color: ${({ theme }) => theme.colors.primary};
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
-
-    li {
-      margin-bottom: 8px;
-    }
-  }
-`;
-
-export const Badge = styled.div`
-  background: #2563eb;
-  color: white;
-  font-size: 0.8rem;
-  padding: 4px 10px;
-  border-radius: 20px;
-  display: inline-block;
-`;
-
-export const Price = styled.p`
-  font-weight: bold;
-  margin: 20px 0;
-  font-size: 1.1rem;
-`;
-
-/* 📋 FORMULÁRIO */
-export const FormArea = styled.section`
-  margin-top: 3rem;
-  background: #c7dbf3;
-  border-radius: 16px;
-  padding: 2.5rem;
-  text-align: center;
-  border: 2px solid rgba(0, 0, 0, 0.05);
-
-  h2 {
-    margin-bottom: 1.5rem;
-    color: ${({ theme }) => theme.colors.primary};
-  }
-
-  > div {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 768px) {
-    padding: 1rem; /* 🔥 reduz MUITO o lateral */
-  }
-
-  @media (max-width: 500px) {
-    padding: 0.5rem; /* 🔥 reduz MUITO o lateral */
+  @media (max-width: 600px) {
+    margin-top: 3rem;
+    padding: 1rem;
   }
 `;
