@@ -3,42 +3,49 @@ import supportImage from '@/assets/images/e-mail-zimbra.jpg';
 import logoInvetecMail from '@/assets/images/INVETEC-Mail-Branco.png';
 import heroImage from '@/assets/images/PagesHero-Email-InvetecMail.png';
 import imageAgenda from '@/assets/images/Zimbra-Agenda.webp';
-import imageAgendaFull from '@/assets/images/Zimbra-Full-Agenda.webp';
-import imageContatos from '@/assets/images/Zimbra-Contato.webp';
+import imageArquivosFull from '@/assets/images/Zimbra-Arquivos-Full.webp';
+import imageArquivos from '@/assets/images/Zimbra-Arquivos.webp';
+import imageChat from '@/assets/images/Zimbra-Chat.webp';
 import imageContatosFull from '@/assets/images/Zimbra-Contato-Full.webp';
+import imageContatos from '@/assets/images/Zimbra-Contato.webp';
+import imageAgendaFull from '@/assets/images/Zimbra-Full-Agenda.webp';
+import imageChatFull from '@/assets/images/Zimbra-Full-Chat.webp';
 import imageZimbraFull from '@/assets/images/Zimbra-Mail-Full.webp';
 import imageZimbra from '@/assets/images/Zimbra-Mail.webp';
-import imageZimbraTarefas from '@/assets/images/Zimbra-Tarefa.webp';
-import imageZimbraTarefasFull from '@/assets/images/Zimbra-Tarefa-Full.webp';
-import imageArquivos from '@/assets/images/Zimbra-Arquivos.webp';
-import imageArquivosFull from '@/assets/images/Zimbra-Arquivos-Full.webp';
-import imageChat from '@/assets/images/Zimbra-Chat.webp';
-import imageChatFull from '@/assets/images/Zimbra-Full-Chat.webp';
-import imageMeet from '@/assets/images/Zimbra-Meet.webp';
 import imageMeetFull from '@/assets/images/Zimbra-Meet-Full.webp';
-import imagePreferences from '@/assets/images/Zimbra-Preferencia.webp';
+import imageMeet from '@/assets/images/Zimbra-Meet.webp';
 import imagePreferencesFull from '@/assets/images/Zimbra-Preferencia-Full.webp';
+import imagePreferences from '@/assets/images/Zimbra-Preferencia.webp';
+import imageZimbraTarefasFull from '@/assets/images/Zimbra-Tarefa-Full.webp';
+import imageZimbraTarefas from '@/assets/images/Zimbra-Tarefa.webp';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { FormContactEmail } from '@/components/FormContactEmail/FormContactEmail';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
-import { type MouseEvent, type PointerEvent, useEffect, useRef, useState } from 'react';
+import {
+  type MouseEvent,
+  type PointerEvent,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import type { IconType } from 'react-icons';
 import {
   FiArrowLeft,
   FiArrowRight,
+  FiArchive,
   FiCalendar,
   FiCheck,
   FiChevronDown,
   FiDollarSign,
   FiGrid,
   FiHeadphones,
+  FiInfo,
   FiKey,
   FiLock,
   FiMail,
   FiMessageCircle,
-  FiRotateCcw,
   FiSearch,
   FiServer,
   FiSettings,
@@ -79,13 +86,26 @@ type FeatureSlide = {
   image: string;
   fullImage: string;
   availabilityNote?: string;
+  highlightNote?: string;
 };
+
+type ControlFeatureStatus = 'included' | 'conditional' | 'additional';
+type InfrastructureMobileGroup = 'primary' | 'secondary';
 
 type ControlFeature = {
   title: string;
   text: string;
   tag: string;
+  status: ControlFeatureStatus;
   icon: IconType;
+  featured?: boolean;
+  supportText?: string;
+  actionLabel?: string;
+};
+
+type InfrastructureItem = {
+  label: string;
+  mobileGroup: InfrastructureMobileGroup;
 };
 
 type FaqItem = {
@@ -193,28 +213,34 @@ const featureSlides: FeatureSlide[] = [
     label: 'E-mail',
     title: 'Caixa de entrada organizada',
     description:
-      'Organize mensagens com pastas, filtros, marcadores e recursos de busca.',
+      'Organize mensagens com pastas, filtros e recursos de busca em uma interface profissional, acessível pelo navegador e compatível com programas de e-mail como Outlook.',
     benefits: [
       'Interface corporativa e organizada',
-      'Busca rápida de mensagens',
-      'Filtros e pastas para reduzir retrabalho',
-      'Mensagens agrupadas por assunto e conversas',
-      'Pasta compartilhada para equipes',
+      'Mais de uma conta no mesmo painel',
+      'Acesso 100% web, de qualquer lugar',
+      'Pastas compartilhadas para equipes',
+      'Histórico completo das conversas com clientes',
     ],
+    highlightNote:
+      'A equipe acompanha mensagens enviadas e recebidas em sequência, sabe o que já foi tratado e reduz respostas duplicadas.',
     image: imageZimbra,
     fullImage: imageZimbraFull,
   },
-    {
+  {
     id: 'contatos',
     label: 'Contatos',
     title: 'Contatos centralizados',
     description:
-      'Mantenha contatos pessoais, corporativos e listas organizados para facilitar a comunicação.',
+      'Organize contatos pessoais, corporativos e listas de distribuição em um único ambiente, com acesso facilitado pela equipe e possibilidade de importar ou exportar dados.',
     benefits: [
-      'Catálogos de contatos',
-      'Listas de distribuição',
-      'Informações acessíveis à equipe',
+      'Contatos pessoais e corporativos organizados',
+      'Listas de distribuição para envios em grupo',
+      'Importação e exportação de contatos',
+      'Compatibilidade com formatos usados pelo Outlook',
+      'Informações acessíveis e compartilháveis pela equipe',
     ],
+    highlightNote:
+      'Os contatos importantes deixam de ficar dispersos em agendas individuais e passam a compor uma base organizada para clientes, fornecedores e parceiros.',
     image: imageContatos,
     fullImage: imageContatosFull,
   },
@@ -223,12 +249,16 @@ const featureSlides: FeatureSlide[] = [
     label: 'Calendário',
     title: 'Calendários compartilhados',
     description:
-      'Organize compromissos, convites e agendas da equipe em um único ambiente.',
+      'Centralize reuniões, compromissos e atividades da equipe em agendas individuais e compartilhadas, com mais controle sobre horários e responsabilidades.',
     benefits: [
       'Agendas individuais e compartilhadas',
-      'Convites e lembretes',
-      'Mais visibilidade sobre os compromissos',
+      'Convites, confirmações e lembretes',
+      'Visualização da disponibilidade da equipe',
+      'Menos conflitos e compromissos duplicados',
+      'Acesso pelo navegador e dispositivos compatíveis',
     ],
+      highlightNote:
+      'A equipe visualiza os compromissos em um único ambiente, encontra horários disponíveis e reduz desencontros na organização da rotina.',
     image: imageAgenda,
     fullImage: imageAgendaFull,
   },
@@ -236,58 +266,72 @@ const featureSlides: FeatureSlide[] = [
   {
     id: 'tarefas',
     label: 'Tarefas',
-    title: 'Tarefas e lembretes',
+    title: 'Tarefas organizadas e lembretes',
     description:
-      'Acompanhe atividades, responsabilidades e prazos relacionados à rotina da empresa.',
+      'Registre atividades importantes ou pequenas pendências, defina prazos e receba lembretes para não depender de anotações espalhadas ou da memória.',
     benefits: [
-      'Organização de atividades',
-      'Controle de prazos',
-      'Acompanhamento de responsabilidades',
+      'Tarefas importantes e pequenas pendências em um só lugar',
+      'Prazos, prioridades, status e lembretes',
+      'Organização por listas e marcadores',
+      'Transforme um e-mail diretamente em tarefa',
+      'Acompanhe o que está pendente, em andamento ou concluído',
     ],
+    highlightNote:
+      'Solicitações recebidas por e-mail podem ser transformadas em tarefas, evitando que atividades importantes fiquem esquecidas na caixa de entrada.',
     image: imageZimbraTarefas,
     fullImage: imageZimbraTarefasFull,
   },
   {
     id: 'arquivos',
     label: 'Arquivos',
-    title: 'Arquivos e compartilhamentos',
+    title: 'Arquivos corporativos no próprio e-mail',
     description:
-      'Compartilhe documentos com mais organização e menos dependência de anexos espalhados.',
+      'Centralize documentos importantes da empresa, organize pastas por setor e compartilhe arquivos com usuários autorizados diretamente no ambiente do INVETEC Mail.',
     benefits: [
-      'Documentos centralizados',
-      'Compartilhamento controlado',
-      'Menos versões dispersas',
+      'Documentos e arquivos centralizados',
+      'Pastas compartilhadas por equipe ou departamento',
+      'Controle de acesso aos materiais',
+      'Visualização e edição de documentos compatíveis pelo navegador',
+      'Menos anexos duplicados e versões dispersas',
     ],
+      highlightNote:
+      'Contratos, dados cadastrais, manuais, instaladores e materiais internos ficam disponíveis em um único local para os usuários autorizados.',
     image: imageArquivos,
     fullImage: imageArquivosFull,
   },
   {
     id: 'chat',
     label: 'Chat',
-    title: 'Chat e comunicação interna',
+    title: 'Chat interno para a equipe',
     description:
-      'Facilite conversas rápidas e alinhamentos entre os usuários do ambiente corporativo.',
+      'Centralize conversas profissionais entre funcionários dentro do INVETEC Mail, facilitando alinhamentos rápidos e reduzindo a dependência de aplicativos pessoais.',
     benefits: [
-      'Comunicação mais direta',
-      'Menos dispersão entre ferramentas',
-      'Integração com a rotina de trabalho',
+      'Mensagens diretas entre colaboradores',
+      'Canais organizados por setor, projeto ou assunto',
+      'Visualização de usuários disponíveis',
+      'Histórico das conversas de trabalho',
+      'Comunicação integrada ao ambiente corporativo',
     ],
+    highlightNote:
+      'Assuntos internos deixam de ficar espalhados em grupos pessoais e passam a ser tratados em um canal corporativo integrado à rotina da empresa.',
     image: imageChat,
     fullImage: imageChatFull,
-    availabilityNote:
-      'Disponibilidade conforme o plano e a configuração contratada.',
   },
   {
     id: 'reunioes',
     label: 'Reuniões',
-    title: 'Integrações para reuniões online',
+    title: 'Videoconferência integrada ao INVETEC Mail',
     description:
-      'Possibilidade de integrar recursos de reunião e videoconferência à rotina da equipe.',
+      'Reuniões online no mesmo ambiente da sua equipe',
     benefits: [
-      'Convites vinculados à agenda',
-      'Organização dos compromissos',
-      'Integração com ferramentas compatíveis',
+      'Criação e acesso a reuniões pelo navegador',
+      'Chamadas de vídeo individuais ou em grupo',
+      'Compartilhamento de tela durante a reunião',
+      'Envio de arquivos e mensagens no ambiente de colaboração',
+      'Histórico e organização das reuniões realizadas',
     ],
+      highlightNote:
+      'A equipe pode conversar, compartilhar a tela e trocar arquivos sem sair do ambiente corporativo de comunicação.',
     image: imageMeet,
     fullImage: imageMeetFull,
     availabilityNote:
@@ -298,72 +342,101 @@ const featureSlides: FeatureSlide[] = [
     label: 'Preferências',
     title: 'Preferências e organização do e-mail',
     description:
-      'Personalize o uso do INVETEC Mail, automatize tarefas e facilite o trabalho compartilhado entre usuários e equipes.',
+      'Configure o ambiente conforme a rotina da empresa, automatize a organização das mensagens e compartilhe recursos com usuários autorizados.',
     benefits: [
-      'Múltiplas contas vinculadas no mesmo painel',
+      'Acesso a múltiplas contas no mesmo painel',
       'Filtros e regras automáticas para organizar mensagens',
-      'Assinaturas personalizadas para envios e respostas',
+      'Assinaturas personalizadas para novos e-mails e respostas',
       'Resposta automática para férias e ausência',
-      'Pastas e recursos compartilhados com a equipe',
+      'Compartilhamento de pastas e recursos com permissões',
     ],
+    highlightNote:
+      'Configurações bem definidas reduzem tarefas manuais, padronizam a comunicação e facilitam o trabalho entre usuários e departamentos.',
     image: imagePreferences,
     fullImage: imagePreferencesFull,
     availabilityNote:
-      'Alguns recursos dependem da configuração e do perfil de uso de cada empresa.',
+      'Alguns recursos dependem do plano contratado, das permissões atribuídas e da configuração definida para cada empresa.',
   },
 ];
 
 const controlFeatures: ControlFeature[] = [
   {
-    title: 'Proteção antispam e antivírus',
-    text: 'Filtros para reduzir mensagens indesejadas e ameaças recebidas por e-mail.',
-    tag: 'Disponível',
+    title: 'Proteção antispam e contra ameaças',
+    text: 'Filtros para reduzir spam, mensagens maliciosas e riscos recebidos por e-mail.',
+    tag: 'Incluído',
+    status: 'included',
     icon: FiShield,
   },
   {
     title: 'Gestão centralizada de contas',
-    text: 'Criação, bloqueio, redefinição de senhas e organização dos usuários.',
-    tag: 'Disponível',
+    text: 'Administre usuários, senhas, aliases e grupos em um painel próprio, com suporte técnico da INVETEC quando necessário.',
+    tag: 'Incluído',
+    status: 'included',
     icon: FiUsers,
   },
   {
     title: 'Autenticação em dois fatores',
-    text: 'Camada adicional de proteção para o acesso às contas corporativas.',
-    tag: 'Conforme o plano',
+    text: 'Camada adicional de proteção para o acesso às contas corporativas, quando habilitada.',
+    tag: 'Incluído',
+    status: 'included',
     icon: FiLock,
   },
   {
-    title: 'Backup e recuperação',
-    text: 'Recursos de proteção e recuperação conforme a configuração contratada.',
-    tag: 'Conforme o plano',
-    icon: FiRotateCcw,
+    title: 'Auditoria de e-mail',
+    text: 'Preserva cópias das mensagens enviadas e recebidas para pesquisa, retenção e consulta conforme a política contratada.',
+    tag: 'Serviço adicional',
+    status: 'additional',
+    icon: FiArchive,
+    featured: true,
+    supportText:
+      'Indicado para empresas que precisam manter o histórico das comunicações.',
+    actionLabel: 'Falar com um especialista',
   },
   {
-    title: 'Logs e auditoria',
-    text: 'Acompanhamento de atividades para empresas que precisam de maior controle.',
-    tag: 'Opcional',
+    title: 'Registros de acesso e alterações',
+    text: 'Histórico técnico para acompanhar acessos e mudanças realizadas no ambiente, conforme os recursos contratados.',
+    tag: 'Incluído',
+    status: 'included',
     icon: FiSearch,
   },
   {
-    title: 'Políticas de acesso',
+    title: 'Políticas e permissões de acesso',
     text: 'Regras e permissões ajustadas à necessidade e à estrutura da empresa.',
-    tag: 'Conforme o plano',
+    tag: 'Incluído',
+    status: 'included',
     icon: FiKey,
+  },
+];
+
+const infrastructureItems: InfrastructureItem[] = [
+  { label: '99,9% de disponibilidade', mobileGroup: 'primary' },
+  { label: '5 data centers TIER III', mobileGroup: 'primary' },
+  { label: 'Segurança certificada ISO 27001', mobileGroup: 'primary' },
+  { label: 'Proteção antispam', mobileGroup: 'primary' },
+  { label: 'Administração centralizada', mobileGroup: 'secondary' },
+  { label: 'Suporte especializado', mobileGroup: 'secondary' },
+  {
+    label: 'Estrutura preparada para apoiar a conformidade com a LGPD',
+    mobileGroup: 'secondary',
+  },
+  {
+    label: 'Infraestrutura parceira utilizada por mais de 1.600 empresas',
+    mobileGroup: 'secondary',
   },
 ];
 
 const implementationSteps = [
   [
     'Entendimento do cenário',
-    'Levantamos quantidade de contas, domínio, dispositivos, serviço atual e objetivos.',
+    'Levantamos contas, domínio, dispositivos, serviço atual, volume de dados e necessidades da equipe.',
   ],
   [
     'Planejamento',
-    'Definimos a estrutura, os acessos e a estratégia de implantação e migração.',
+    'Definimos estrutura, acessos, regras, responsáveis e estratégia de implantação e migração.',
   ],
   [
     'Implantação e migração',
-    'Criamos o ambiente, configuramos as contas e realizamos a migração planejada.',
+    'Criamos o ambiente, configuramos contas e realizamos a transferência planejada das informações.',
   ],
   [
     'Suporte contínuo',
@@ -452,24 +525,18 @@ export const Zimbra = () => {
     scrollTo(formRef.current);
   };
 
-  const scrollToFormFromHero = (
-    event: MouseEvent<HTMLAnchorElement>
-  ) => {
+  const scrollToFormFromHero = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     scrollToForm();
   };
 
-  const scrollToResources = (
-    event: MouseEvent<HTMLAnchorElement>
-  ) => {
+  const scrollToResources = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     scrollTo(resourcesRef.current);
   };
 
   const changeSlide = (next: number) => {
-    setSlideIndex(
-      (next + featureSlides.length) % featureSlides.length
-    );
+    setSlideIndex((next + featureSlides.length) % featureSlides.length);
     setAutoplayRestart(restart => restart + 1);
   };
 
@@ -755,13 +822,7 @@ export const Zimbra = () => {
 
                   <tbody>
                     {positioningComparisonRows.map(
-                      ({
-                        criterion,
-                        icon: Icon,
-                        hosting,
-                        invetec,
-                        suites,
-                      }) => (
+                      ({ criterion, icon: Icon, hosting, invetec, suites }) => (
                         <tr key={criterion}>
                           <th scope="row">
                             <Icon />
@@ -900,10 +961,7 @@ export const Zimbra = () => {
             </MotionReveal>
           </S.SupportSection>
 
-          <S.Resources
-            id="invetec-mail-recursos"
-            ref={resourcesRef}
-          >
+          <S.Resources id="invetec-mail-recursos" ref={resourcesRef}>
             <MotionReveal>
               <S.SectionHeading>
                 <span>CONHEÇA O INVETEC MAIL NA PRÁTICA</span>
@@ -936,77 +994,83 @@ export const Zimbra = () => {
               >
                 <S.ResourceLayout>
                   <S.ResourceImage>
-                  <button
-                    type="button"
-                    onClick={openCurrentSlideImage}
-                    aria-label={`Ampliar imagem do recurso ${currentSlide.label}`}
-                  >
-                    <img
-                      src={currentSlide.image}
-                      alt={currentSlideImageAlt}
-                      width={900}
-                      height={506}
-                      loading="lazy"
-                    />
-                  </button>
-
-                  <S.SlideControls>
                     <button
                       type="button"
-                      onClick={() => changeSlide(slideIndex - 1)}
-                      aria-label="Recurso anterior"
+                      onClick={openCurrentSlideImage}
+                      aria-label={`Ampliar imagem do recurso ${currentSlide.label}`}
                     >
-                      <FiArrowLeft />
+                      <img
+                        src={currentSlide.image}
+                        alt={currentSlideImageAlt}
+                        width={900}
+                        height={506}
+                        loading="lazy"
+                      />
                     </button>
 
-                    <span aria-live="polite">
-                      {slideIndex + 1} de {featureSlides.length}
-                    </span>
+                    <S.SlideControls>
+                      <button
+                        type="button"
+                        onClick={() => changeSlide(slideIndex - 1)}
+                        aria-label="Recurso anterior"
+                      >
+                        <FiArrowLeft />
+                      </button>
 
-                    <button
-                      type="button"
-                      onClick={() => changeSlide(slideIndex + 1)}
-                      aria-label="Próximo recurso"
-                    >
-                      <FiArrowRight />
-                    </button>
-                  </S.SlideControls>
+                      <span aria-live="polite">
+                        {slideIndex + 1} de {featureSlides.length}
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={() => changeSlide(slideIndex + 1)}
+                        aria-label="Próximo recurso"
+                      >
+                        <FiArrowRight />
+                      </button>
+                    </S.SlideControls>
                   </S.ResourceImage>
-
                   <S.ResourcePanel aria-live="polite">
-                  <span>{currentSlide.label}</span>
+                    <span>{currentSlide.label}</span>
 
-                  <h3>{currentSlide.title}</h3>
+                    <h3>{currentSlide.title}</h3>
 
-                  <p>{currentSlide.description}</p>
+                    <p>{currentSlide.description}</p>
 
-                  <ul>
-                    {currentSlide.benefits.map(item => (
-                      <li key={item}>
-                        <FiCheck />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                    <ul>
+                      {currentSlide.benefits.map(item => (
+                        <li key={item}>
+                          <FiCheck />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
 
-                  {currentSlide.availabilityNote && (
-                    <small>{currentSlide.availabilityNote}</small>
-                  )}
+                    {currentSlide.highlightNote && (
+                      <S.ResourceHighlight>
+                        <FiMessageCircle aria-hidden="true" />
+                        <p>{currentSlide.highlightNote}</p>
+                      </S.ResourceHighlight>
+                    )}
+
+                    {currentSlide.availabilityNote && (
+                      <small>{currentSlide.availabilityNote}</small>
+                    )}
                   </S.ResourcePanel>
                 </S.ResourceLayout>
 
                 <S.SlideTabs aria-label="Recursos do INVETEC Mail">
-                {featureSlides.map((slide, index) => (
-                  <button
-                    key={slide.id}
-                    type="button"
-                    aria-label={`Ver recurso ${slide.label}`}
-                    aria-pressed={index === slideIndex}
-                    onClick={() => selectSlide(index)}
-                  >
-                    {slide.label}
-                  </button>
-                ))}
+                  {featureSlides.map((slide, index) => (
+                    <button
+                      key={slide.id}
+                      type="button"
+                      aria-label={`Ver recurso ${slide.label}`}
+                      aria-pressed={index === slideIndex}
+                      onClick={() => selectSlide(index)}
+                    >
+                      {slide.label}
+                    </button>
+                  ))}
                 </S.SlideTabs>
               </S.ResourceCarousel>
             </MotionReveal>
@@ -1018,27 +1082,93 @@ export const Zimbra = () => {
                 <h2>Mais controle sobre a comunicação da sua empresa</h2>
 
                 <p>
-                  Recursos para proteger, administrar e organizar o ambiente de
+                  Recursos para proteger, administrar e acompanhar o ambiente de
                   e-mail corporativo.
                 </p>
               </S.SectionHeading>
 
               <S.ControlGrid>
                 {controlFeatures.map(
-                  ({ title, text, tag, icon: Icon }) => (
-                    <S.ControlCard key={title}>
-                      <Icon />
-
-                      <div>
-                        <span>{tag}</span>
-                        <h3>{title}</h3>
-                        <p>{text}</p>
-                      </div>
+                  ({
+                    title,
+                    text,
+                    tag,
+                    status,
+                    icon: Icon,
+                    featured,
+                    supportText,
+                    actionLabel,
+                  }) => (
+                    <S.ControlCard
+                      key={title}
+                      $featured={featured}
+                      $status={status}
+                    >
+                      <S.ControlCardHeader>
+                        <S.ControlIcon $status={status}>
+                          <Icon aria-hidden="true" />
+                        </S.ControlIcon>
+                        <S.ControlTag $status={status}>{tag}</S.ControlTag>
+                      </S.ControlCardHeader>
+                      <h3>{title}</h3>
+                      <p>{text}</p>
+                      {supportText && <S.ControlSupport>{supportText}</S.ControlSupport>}
+                      {actionLabel && (
+                        <S.ControlAction type="button" onClick={scrollToForm}>
+                          {actionLabel}
+                        </S.ControlAction>
+                      )}
                     </S.ControlCard>
                   )
                 )}
               </S.ControlGrid>
+
+              <S.ControlsNote>
+                <FiInfo aria-hidden="true" />
+                <p>
+                Os recursos disponíveis variam conforme o plano e a configuração contratada. A Auditoria de e-mail é um serviço adicional para retenção e consulta de mensagens, inclusive após exclusões na caixa postal.
+                </p>
+              </S.ControlsNote>
             </S.Controls>
+          </MotionReveal>
+
+          <MotionReveal>
+            <S.ConsultativeSection>
+              <S.ConsultativeIntro>
+                <span>ATENDIMENTO CONSULTIVO</span>
+                <h2>
+                  Não é só e-mail — implantamos a estrutura certa para a sua empresa
+                </h2>
+                <p>
+                  Cada empresa usa o e-mail de um jeito. Por isso, a INVETEC não
+                  entrega apenas contas prontas: analisamos sua operação, organizamos
+                  o ambiente e configuramos tudo para que a equipe comece a usar com
+                  segurança, padrão e suporte próximo.
+                </p>
+              </S.ConsultativeIntro>
+
+              <S.ConsultativeList>
+                {[
+                  'Entendemos como sua empresa utiliza o e-mail no dia a dia',
+                  'Definimos contas, grupos, pastas e regras conforme a rotina da equipe',
+                  'Migramos mensagens, contatos e histórico do ambiente anterior',
+                  'Configuramos acesso no navegador, celular e Outlook, quando necessário',
+                  'Padronizamos assinaturas, permissões, atalhos e organização dos usuários',
+                  'Acompanhamos a implantação e prestamos suporte humano após a entrega',
+                ].map(item => (
+                  <li key={item}>
+                    <FiCheck aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </S.ConsultativeList>
+
+              <S.ConsultativeHighlight>
+                Se a empresa preferir, a INVETEC pode assumir toda a configuração
+                técnica para que os usuários comecem a trabalhar sem precisar lidar
+                com os detalhes da implantação.
+              </S.ConsultativeHighlight>
+            </S.ConsultativeSection>
           </MotionReveal>
 
           <MotionReveal>
@@ -1051,14 +1181,10 @@ export const Zimbra = () => {
                 </h2>
 
                 <p>
-                  O INVETEC Mail utiliza tecnologia Zimbra e uma estrutura
-                  preparada para oferecer estabilidade, proteção e continuidade
-                  à comunicação corporativa.
+                  O INVETEC Mail utiliza tecnologia Zimbra Network Edition e uma
+                  infraestrutura preparada para oferecer estabilidade, proteção e
+                  continuidade à comunicação corporativa.
                 </p>
-
-                <S.InfrastructureHighlight>
-                  Tecnologia Zimbra Network Edition
-                </S.InfrastructureHighlight>
 
                 <p>
                   Uma plataforma corporativa administrada e acompanhada pela
@@ -1067,20 +1193,21 @@ export const Zimbra = () => {
               </div>
 
               <S.InfrastructureGrid>
-                {[
-                  '99,9% de disponibilidade',
-                  '5 data centers TIER III',
-                  'Segurança certificada ISO 27001',
-                  'Proteção antispam',
-                  'Administração centralizada',
-                  'Suporte especializado',
-                ].map(item => (
-                  <span key={item}>
-                    <FiServer />
-                    {item}
-                  </span>
+                {infrastructureItems.map(({ label, mobileGroup }) => (
+                  <S.InfrastructureItem key={label} $mobileGroup={mobileGroup}>
+                    <FiServer aria-hidden="true" />
+                    {label}
+                  </S.InfrastructureItem>
                 ))}
               </S.InfrastructureGrid>
+              <S.InfrastructureSummary>
+                {infrastructureItems.map(({ label }) => (
+                  <li key={label}>
+                    <FiServer aria-hidden="true" />
+                    {label}
+                  </li>
+                ))}
+              </S.InfrastructureSummary>
             </S.Infrastructure>
           </MotionReveal>
 
@@ -1130,10 +1257,7 @@ export const Zimbra = () => {
                       <FiChevronDown />
                     </button>
 
-                    <div
-                      id={`faq-answer-${index}`}
-                      hidden={openFaq !== index}
-                    >
+                    <div id={`faq-answer-${index}`} hidden={openFaq !== index}>
                       <p>{item.answer}</p>
                     </div>
                   </article>
@@ -1142,10 +1266,7 @@ export const Zimbra = () => {
             </S.Faq>
           </MotionReveal>
 
-          <S.FormArea
-            id="email-contact-form"
-            ref={formRef}
-          >
+          <S.FormArea id="email-contact-form" ref={formRef}>
             <S.FormCopy>
               <span>FALE COM A INVETEC</span>
 
@@ -1174,7 +1295,7 @@ export const Zimbra = () => {
           <S.Lightbox
             role="dialog"
             aria-modal="true"
-              aria-label={currentSlideFullImageAlt}
+            aria-label={currentSlideFullImageAlt}
             onClick={closeLightbox}
           >
             <S.CloseButton

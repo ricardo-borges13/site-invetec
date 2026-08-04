@@ -463,6 +463,12 @@ export const ResourceLayout = styled.div`
   border-radius: 18px;
   overflow: hidden;
   background: #fff;
+  @media (min-width: 1024px) and (max-width: 1599px) and (max-height: 900px) {
+    grid-template-columns: minmax(0, 1.25fr) minmax(360px, 1fr);
+  }
+  @media (min-width: 1024px) and (max-width: 1440px) and (max-height: 800px) {
+    grid-template-columns: minmax(0, 1.2fr) minmax(360px, 1fr);
+  }
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
   }
@@ -551,6 +557,16 @@ export const ResourcePanel = styled.div`
     color: #64748b;
     line-height: 1.45;
   }
+  @media (min-width: 1024px) and (max-width: 1599px) and (max-height: 900px) {
+    padding: 1.35rem 1.45rem;
+    h3 { margin: 0.4rem 0 0.65rem; }
+    p { line-height: 1.52; }
+    ul { margin: 1rem 0; gap: 0.55rem; }
+    li { line-height: 1.35; }
+  }
+  @media (min-width: 1024px) and (max-width: 1440px) and (max-height: 800px) {
+    padding: 1.2rem 1.3rem;
+  }
 `;
 export const SlideTabs = styled.div`
   display: flex;
@@ -576,14 +592,56 @@ export const SlideTabs = styled.div`
     outline: 3px solid #1f80d1;
     outline-offset: 2px;
   }
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.45rem;
+    width: 100%;
+    overflow: visible;
+    padding: 0.8rem 0 0;
+    button {
+      flex: 0 0 auto;
+      padding: 0.46rem 0.72rem;
+      font-size: 0.78rem;
+      line-height: 1.1;
+    }
+  }
+  @media (max-width: 420px) {
+    gap: 0.4rem;
+    button {
+      padding: 0.43rem 0.66rem;
+      font-size: 0.74rem;
+    }
+  }
 `;
 export const Controls = styled.section`
   margin: 5rem 0;
+  @media (min-width: 1024px) and (max-width: 1599px) and (max-height: 900px) {
+    margin: 3.9rem 0;
+    > header { margin-bottom: 1.4rem; }
+    > header h2 { margin: 0.4rem 0 0.5rem; }
+    > header p { line-height: 1.5; }
+  }
+  @media (min-width: 1024px) and (max-width: 1440px) and (max-height: 800px) {
+    margin: 3.4rem 0;
+    > header { margin-bottom: 1.2rem; }
+  }
+  @media (max-width: 800px) {
+    margin-top: 1.5rem;
+  }
 `;
 export const ControlGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  align-items: stretch;
+  @media (min-width: 1024px) and (max-width: 1599px) and (max-height: 900px) {
+    gap: 0.85rem;
+  }
+  @media (min-width: 1024px) and (max-width: 1440px) and (max-height: 800px) {
+    gap: 0.75rem;
+  }
   @media (max-width: 850px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -591,36 +649,170 @@ export const ControlGrid = styled.div`
     grid-template-columns: 1fr;
   }
 `;
-export const ControlCard = styled.article`
+type ControlStatus = 'included' | 'conditional' | 'additional';
+const controlColors: Record<ControlStatus, { accent: string; soft: string; tag: string }> = {
+  included: { accent: '#1677d2', soft: '#eaf4ff', tag: '#dceeff' },
+  conditional: { accent: '#7057ba', soft: '#f1edff', tag: '#e8e1ff' },
+  additional: { accent: '#168a58', soft: '#e8f7ef', tag: '#d8f1e3' },
+};
+export const ControlCard = styled.article<{
+  $status: ControlStatus;
+  $featured?: boolean;
+}>`
   display: flex;
-  gap: 0.8rem;
-  padding: 1.15rem;
-  border: 1px solid #e1eaf3;
+  min-width: 0;
+  min-height: 225px;
+  flex-direction: column;
+  padding: 1.25rem;
+  border: 1px solid ${({ $status }) => controlColors[$status].accent}33;
+  border-top: 3px solid ${({ $status }) => controlColors[$status].accent};
   border-radius: 14px;
-  background: #fff;
-  svg {
-    flex: none;
-    font-size: 1.4rem;
-    color: ${({ theme }) => theme.colors.primary};
-  }
-  span {
-    display: inline-block;
-    color: #4c718f;
-    font-size: 0.72rem;
-    font-weight: 700;
-    margin-bottom: 0.35rem;
-  }
+  background: ${({ $featured, $status }) =>
+    $featured ? controlColors[$status].soft : '#fff'};
+  box-shadow: ${({ $featured }) =>
+    $featured ? '0 8px 20px rgba(18, 91, 60, 0.08)' : 'none'};
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   h3 {
-    font-size: 1rem;
+    margin: 0.9rem 0 0.45rem;
     color: #17365d;
-    margin: 0 0 0.4rem;
+    font-size: 1.04rem;
+    line-height: 1.3;
   }
-  p {
+  > p {
+    margin: 0;
     color: #526a82;
     font-size: 0.9rem;
-    line-height: 1.45;
+    line-height: 1.48;
+  }
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-3px);
+      border-color: ${({ $status }) => controlColors[$status].accent};
+      box-shadow: 0 10px 24px rgba(15, 54, 92, 0.11);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) { transition: none; }
+  @media (min-width: 1024px) and (max-width: 1599px) and (max-height: 900px) {
+    min-height: 0;
+    padding: 1rem 1.05rem;
+    h3 { margin: 0.7rem 0 0.35rem; font-size: 0.98rem; }
+    > p { font-size: 0.86rem; line-height: 1.4; }
+  }
+  @media (min-width: 1024px) and (max-width: 1440px) and (max-height: 800px) {
+    padding: 0.9rem 0.95rem;
+    h3 { margin-top: 0.62rem; }
+    > p { font-size: 0.84rem; line-height: 1.38; }
+  }
+  @media (max-width: 560px) { min-height: 0; padding: 1rem; }
+`;
+export const ControlCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+`;
+export const ControlIcon = styled.span<{ $status: ControlStatus }>`
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  place-items: center;
+  border-radius: 50%;
+  background: ${({ $status }) => controlColors[$status].soft};
+  color: ${({ $status }) => controlColors[$status].accent};
+  svg { width: 21px; height: 21px; }
+  @media (min-width: 1024px) and (max-width: 1599px) and (max-height: 900px) {
+    width: 40px;
+    height: 40px;
+    svg { width: 19px; height: 19px; }
+  }
+  @media (min-width: 1024px) and (max-width: 1440px) and (max-height: 800px) {
+    width: 38px;
+    height: 38px;
+    svg { width: 18px; height: 18px; }
+  }
+`;
+export const ControlTag = styled.span<{ $status: ControlStatus }>`
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  background: ${({ $status }) => controlColors[$status].tag};
+  color: ${({ $status }) => controlColors[$status].accent};
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  @media (min-width: 1024px) and (max-width: 1599px) and (max-height: 900px) {
+    min-height: 24px;
+    padding: 0.26rem 0.5rem;
+    font-size: 0.69rem;
+  }
+`;
+export const ControlSupport = styled.p`
+  margin: 0.7rem 0 0;
+  color: #39715a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  @media (min-width: 1024px) and (max-width: 1599px) and (max-height: 900px) {
+    margin-top: 0.5rem;
+    font-size: 0.76rem;
+    line-height: 1.32;
+  }
+`;
+export const ControlAction = styled.button`
+  align-self: flex-start;
+  min-height: 38px;
+  margin-top: auto;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #168a58;
+  border-radius: 8px;
+  background: #168a58;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  &:focus-visible { outline: 3px solid #1f80d1; outline-offset: 3px; }
+  @media (min-width: 1024px) and (max-width: 1599px) and (max-height: 900px) {
+    min-height: 35px;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.78rem;
+  }
+  @media (min-width: 1024px) and (max-width: 1440px) and (max-height: 800px) {
+    min-height: 34px;
+    padding: 0.42rem 0.65rem;
+    font-size: 0.75rem;
+  }
+  @media (max-width: 560px) { width: 100%; min-height: 44px; }
+`;
+export const ControlsNote = styled.div`
+  display: flex;
+  max-width: 880px;
+  gap: 0.6rem;
+  margin: 1.25rem auto 0;
+  color: #58708a;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  svg { flex: none; width: 18px; height: 18px; margin-top: 0.08rem; color: #4276a5; }
+  p {
     margin: 0;
   }
+  @media (min-width: 1024px) and (max-width: 1599px) and (max-height: 900px) {
+    max-width: 980px;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    font-size: 0.76rem;
+    line-height: 1.35;
+    svg { width: 16px; height: 16px; }
+  }
+  @media (min-width: 1024px) and (max-width: 1440px) and (max-height: 800px) {
+    margin-top: 0.7rem;
+    font-size: 0.74rem;
+  }
+  @media (max-width: 560px) { margin-top: 1rem; font-size: 0.78rem; }
 `;
 export const Infrastructure = styled.section<{ $image: string }>`
   margin: 5rem 0;
@@ -656,25 +848,40 @@ export const Infrastructure = styled.section<{ $image: string }>`
     margin: 0.65rem 0;
     color: #e0edf9;
   }
-  @media (max-width: 750px) {
+  @media (min-width: 700px) and (max-width: 1023px) {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+  @media (max-width: 699px) {
     grid-template-columns: 1fr;
     padding: 1.7rem;
   }
-`;
-export const InfrastructureHighlight = styled.strong`
-  display: inline-block;
-  background: rgba(86, 193, 255, 0.15);
-  border: 1px solid rgba(156, 220, 255, 0.35);
-  border-radius: 8px;
-  padding: 0.65rem 0.8rem;
-  margin-top: 0.5rem;
+  @media (max-width: 430px) {
+    width: calc(100% + 16px);
+    margin: 3.5rem -0.5rem 1.75rem;
+    padding: 1.1rem 0.9rem;
+    gap: 1rem;
+  }
 `;
 export const InfrastructureGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
   align-content: center;
-  span {
+  @media (max-width: 450px) {
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: 430px) {
+    gap: 0.6rem;
+  }
+  @media (max-width: 699px) {
+    display: none;
+  }
+`;
+export const InfrastructureItem = styled.article<{
+  $mobileGroup: 'primary' | 'secondary';
+}>`
     display: flex;
     gap: 0.55rem;
     align-items: center;
@@ -684,17 +891,136 @@ export const InfrastructureGrid = styled.div`
     border-radius: 10px;
     font-size: 0.9rem;
     line-height: 1.3;
-  }
   svg {
     flex: none;
     color: #91e6c0;
   }
-  @media (max-width: 450px) {
-    grid-template-columns: 1fr;
+  @media (max-width: 430px) {
+    gap: 0.5rem;
+    padding: 0.76rem 0.8rem;
+    font-size: 0.82rem;
+    line-height: 1.3;
+    svg { width: 16px; height: 16px; }
   }
 `;
+export const InfrastructureSummary = styled.ul`
+  display: none;
+  @media (max-width: 699px) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem 0.85rem;
+    margin: 0;
+    padding: 0.9rem;
+    list-style: none;
+    border: 1px solid rgba(156, 220, 255, 0.25);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    li {
+      display: flex;
+      min-width: 0;
+      gap: 0.45rem;
+      align-items: flex-start;
+      color: #e0edf9;
+      font-size: 0.8rem;
+      line-height: 1.3;
+    }
+    svg { flex: none; width: 15px; height: 15px; margin-top: 0.08rem; color: #91e6c0; }
+  }
+  @media (max-width: 430px) {
+    gap: 0.55rem 0.65rem;
+    padding: 0.78rem;
+    li { gap: 0.38rem; font-size: 0.74rem; line-height: 1.25; }
+    svg { width: 14px; height: 14px; }
+  }
+`;
+export const ConsultativeSection = styled.section`
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 2rem 2.5rem;
+  margin: 4rem 0 2.75rem;
+  padding: 2.25rem;
+  border: 1px solid #d6e7f5;
+  border-left: 4px solid #176fb7;
+  border-radius: 18px;
+  background: #f7fbff;
+  > * { min-width: 0; }
+  @media (max-width: 850px) {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+    padding: 1.5rem;
+  }
+  @media (max-width: 430px) {
+    margin: 3rem 0 2rem;
+    padding: 1.15rem;
+    border-left-width: 3px;
+  }
+`;
+export const ConsultativeIntro = styled.div`
+  > span {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: #176fb7;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  h2 {
+    margin: 0 0 0.8rem;
+    color: #0a315f;
+    font-size: clamp(1.55rem, 2.35vw, 2.15rem);
+    line-height: 1.16;
+  }
+  p {
+    margin: 0;
+    color: #526a82;
+    line-height: 1.58;
+  }
+  @media (max-width: 430px) {
+    > span { font-size: 0.72rem; }
+    h2 { font-size: 1.48rem; }
+    p { font-size: 0.91rem; line-height: 1.5; }
+  }
+`;
+export const ConsultativeList = styled.ul`
+  display: grid;
+  gap: 0.72rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    color: #274866;
+    line-height: 1.42;
+  }
+  svg {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    margin-top: 0.12rem;
+    color: #168a58;
+  }
+  @media (max-width: 430px) {
+    gap: 0.58rem;
+    li { gap: 0.55rem; font-size: 0.88rem; line-height: 1.38; }
+    svg { width: 16px; height: 16px; }
+  }
+`;
+export const ConsultativeHighlight = styled.p`
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid #168a58;
+  border-radius: 10px;
+  background: #e9f8ef;
+  color: #245d3e;
+  font-weight: 600;
+  line-height: 1.5;
+  @media (max-width: 430px) { padding: 0.8rem; font-size: 0.88rem; }
+`;
 export const Process = styled.section`
-  margin: 5rem 0;
+  margin: 2.75rem 0 5rem;
 `;
 export const ProcessSteps = styled.div`
   display: grid;
@@ -865,4 +1191,53 @@ export const CloseButton = styled.button`
   background: #fff;
   color: #17365d;
   cursor: pointer;
+`;
+
+export const ResourceHighlight = styled.div`
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  margin-top: 1.1rem;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid #1677d2;
+  border-radius: 10px;
+  background: #eef6ff;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-top: 0.1rem;
+    color: #1677d2;
+  }
+
+  p {
+    margin: 0;
+    color: #17375e;
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  @media (min-width: 1024px) and (max-width: 1599px) and (max-height: 900px) {
+    grid-template-columns: 30px 1fr;
+    gap: 0.65rem;
+    margin-top: 0.9rem;
+    padding: 0.78rem 0.85rem;
+    p { font-size: 0.88rem; line-height: 1.4; }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 28px 1fr;
+    gap: 0.6rem;
+    padding: 0.8rem;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    p {
+      font-size: 0.86rem;
+    }
+  }
 `;
