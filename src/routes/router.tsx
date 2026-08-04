@@ -47,11 +47,6 @@ const W3ERP = lazy(() =>
 const Zimbra = lazy(() =>
   import('@/pages/Zimbra/Zimbra').then(module => ({ default: module.Zimbra }))
 );
-const ZimbraMei = lazy(() =>
-  import('@/pages/ZimbraMei/ZimbraMei').then(module => ({
-    default: module.ZimbraMei,
-  }))
-);
 const NotFound = lazy(() =>
   import('@/pages/NotFound/NotFound').then(module => ({
     default: module.NotFound,
@@ -91,7 +86,6 @@ export const router = createBrowserRouter([
       { path: '/cases/datron', element: <CaseDatron /> },
       { path: '/cases/jpm', element: <CaseJPM /> },
       { path: '/servicos/invetec-mail', element: <Zimbra /> },
-      { path: '/servicos/invetec-mail-mei', element: <ZimbraMei /> },
       { path: '/servicos/criacao-de-sites', element: <Site /> },
       { path: '/servicos/suporte-ti', element: <SuporteTI /> },
       { path: '/servicos/e-commerce', element: <Ecommerce /> },

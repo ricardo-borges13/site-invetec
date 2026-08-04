@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-  background: #f9fafb;
-  padding: 30px;
-  border-radius: 20px;
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 14px;
   border: 1px solid #dbe5f1;
   box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
 
   form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 0.9rem;
   }
 
   label {
@@ -21,8 +21,7 @@ export const FormContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 20px 16px;
-    border-radius: 18px;
+    padding: 1rem;
   }
 `;
 
@@ -38,13 +37,14 @@ export const Field = styled.div`
 `;
 
 export const FieldGroup = styled.div`
-  display: flex;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
   align-items: flex-start;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 18px;
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
   }
 `;
 
@@ -90,7 +90,7 @@ export const Select = styled.select`
 
 export const TextArea = styled.textarea`
   width: 100%;
-  min-height: 120px;
+  min-height: 92px;
   padding: 0.8rem 0.95rem;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
@@ -110,20 +110,10 @@ export const TextArea = styled.textarea`
 `;
 
 export const SubmitRow = styled.div`
-  display: flex;
-  justify-content: center;
-  padding-top: 0.5rem;
+  padding-top: 0.15rem;
 
   button {
-    min-width: min(100%, 320px);
-  }
-
-  @media (max-width: 768px) {
     width: 100%;
-
-    button {
-      width: 100%;
-    }
   }
 `;
 

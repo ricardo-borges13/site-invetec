@@ -68,7 +68,7 @@ export const ERP = () => {
                     <li>✔ Ideal para pequenas empresas</li>
                   </ul>
 
-                  <S.Price>Planos a partir de R$ 55,00/mês</S.Price>
+                  <S.Price>Planos a partir de R$ 60,00/mês</S.Price>
 
                   <CustomButton
                     variant="primary"

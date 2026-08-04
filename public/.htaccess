@@ -19,6 +19,9 @@
   # Página antiga E-mail Corporativo Zimbra
   RewriteRule ^servicos/email-corporativo-zimbra/?$ https://www.invetec.com.br/servicos/invetec-mail [R=301,L]
 
+  # Página antiga INVETEC Mail MEI
+  RewriteRule ^servicos/invetec-mail-mei/?$ https://www.invetec.com.br/servicos/invetec-mail [R=301,L]
+
   # Página antiga Pró-Rata
   RewriteRule ^prorata/?$ https://www.invetec.com.br/servicos/ferramentas-uteis/pro-rata [R=301,L]
 
@@ -73,7 +76,7 @@
   # ROTAS VÁLIDAS DO REACT
   # ==========================
 
-  RewriteCond %{REQUEST_URI} ^/(sobre|contato|politica-de-privacidade|cases(?:/(datron|jpm))?|servicos/(erp(?:/(bling|w3erp))?|invetec-mail(?:-mei)?|criacao-de-sites|suporte-ti|e-commerce|ferramentas-uteis(?:/(pro-rata|calculadora-de-datas))?))/?$ [NC]
+  RewriteCond %{REQUEST_URI} ^/(sobre|contato|politica-de-privacidade|cases(?:/(datron|jpm))?|servicos/(erp(?:/(bling|w3erp))?|invetec-mail|criacao-de-sites|suporte-ti|e-commerce|ferramentas-uteis(?:/(pro-rata|calculadora-de-datas))?))/?$ [NC]
   RewriteRule ^ /index.html [L]
 
   # ==========================

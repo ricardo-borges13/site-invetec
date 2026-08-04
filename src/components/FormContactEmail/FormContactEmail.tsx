@@ -11,9 +11,7 @@ type FormInputs = {
   telefone: string;
   quantidade: string;
   situacao: string;
-  migracao: string;
   problema: string;
-  prioridade: string;
 };
 
 export const FormContactEmail = () => {
@@ -22,7 +20,7 @@ export const FormContactEmail = () => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormInputs>();
+  } = useForm<FormInputs>({ shouldFocusError: true });
 
   const onSubmitMock = async () => {
     try {
@@ -89,11 +87,6 @@ export const FormContactEmail = () => {
         }}
       />
 
-      <S.IntroText>
-        Seus dados estão seguros e serão usados apenas para retorno. Vou
-        analisar seu cenário e te orientar com a melhor solução.
-      </S.IntroText>
-
       <form onSubmit={handleSubmit(submitHandler)}>
         <S.FieldGroup>
           <S.Field>
@@ -101,6 +94,7 @@ export const FormContactEmail = () => {
             <S.Input
               id="email-nome"
               placeholder="Seu nome"
+              autoComplete="name"
               aria-required="true"
               aria-invalid={Boolean(errors.nome)}
               aria-describedby={errors.nome ? 'email-nome-erro' : undefined}
@@ -118,6 +112,7 @@ export const FormContactEmail = () => {
             <S.Input
               id="email-empresa"
               placeholder="Nome da empresa"
+              autoComplete="organization"
               aria-required="true"
               aria-invalid={Boolean(errors.empresa)}
               aria-describedby={errors.empresa ? 'email-empresa-erro' : undefined}
@@ -138,6 +133,8 @@ export const FormContactEmail = () => {
               id="email-email"
               placeholder="E-mail"
               type="email"
+              autoComplete="email"
+              inputMode="email"
               aria-required="true"
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? 'email-email-erro' : undefined}
@@ -161,94 +158,53 @@ export const FormContactEmail = () => {
             <S.Input
               id="email-telefone"
               placeholder="Telefone"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
               {...register('telefone', { required: false })}
             />
           </S.Field>
         </S.FieldGroup>
 
-        <S.Field>
-          <label htmlFor="email-quantidade">Quantas contas de e-mail sua empresa utiliza hoje?</label>
-          <S.Select id="email-quantidade" {...register('quantidade')}>
-            <option>Ate 5</option>
-            <option>6 a 10</option>
-            <option>11 a 20</option>
-            <option>21 a 50</option>
-            <option>Mais de 50</option>
-          </S.Select>
-        </S.Field>
+        <S.FieldGroup>
+          <S.Field>
+            <label htmlFor="email-quantidade">
+              Quantas contas de e-mail sua empresa utiliza hoje?
+            </label>
+            <S.Select id="email-quantidade" {...register('quantidade')}>
+              <option value="">Selecione uma opção</option>
+              <option>Até 5</option>
+              <option>6 a 10</option>
+              <option>11 a 20</option>
+              <option>21 a 50</option>
+              <option>Mais de 50</option>
+            </S.Select>
+          </S.Field>
+
+          <S.Field>
+            <label htmlFor="email-situacao">
+              Como é o e-mail da sua empresa hoje?
+            </label>
+            <S.Select id="email-situacao" {...register('situacao')}>
+              <option value="">Selecione uma opção</option>
+              <option>Não tenho e-mail</option>
+              <option>Outlook sincronizado</option>
+              <option>Google Workspace / Microsoft</option>
+              <option>Gmail gratuito</option>
+              <option>E-mail de hospedagem (tipo Locaweb)</option>
+              <option>Outro</option>
+            </S.Select>
+          </S.Field>
+        </S.FieldGroup>
 
         <S.Field>
-          <label htmlFor="email-situacao">Como é o e-mail da sua empresa hoje?</label>
-          <S.Select
-            id="email-situacao"
-            aria-required="true"
-            aria-invalid={Boolean(errors.situacao)}
-            aria-describedby={errors.situacao ? 'email-situacao-erro' : undefined}
-            {...register('situacao', { required: 'Campo obrigatorio' })}
-          >
-            <option value="">Selecione uma opção</option>
-            <option>Nao tenho e-mail</option>
-            <option>Outlook sincronizado</option>
-            <option>Google Workspace / Microsoft</option>
-            <option>Gmail gratuito</option>
-            <option>e-mail de hospedagem (tipo Locaweb)</option>
-            <option>Outro</option>
-          </S.Select>
-          {errors.situacao && (
-            <S.ErrorMessage id="email-situacao-erro" role="alert">
-              {errors.situacao.message}
-            </S.ErrorMessage>
-          )}
-        </S.Field>
-
-        <S.Field>
-          <label htmlFor="email-migracao">Precisa migrar e-mails antigos?</label>
-          <S.Select
-            id="email-migracao"
-            aria-required="true"
-            aria-invalid={Boolean(errors.migracao)}
-            aria-describedby={errors.migracao ? 'email-migracao-erro' : undefined}
-            {...register('migracao', { required: 'Campo obrigatorio' })}
-          >
-            <option value="">Selecione uma opcao</option>
-            <option>Sim</option>
-            <option>Nao</option>
-            <option>Nao sei</option>
-          </S.Select>
-          {errors.migracao && (
-            <S.ErrorMessage id="email-migracao-erro" role="alert">
-              {errors.migracao.message}
-            </S.ErrorMessage>
-          )}
-        </S.Field>
-
-        <S.Field>
-          <label htmlFor="email-prioridade">Quando você precisa resolver isso?</label>
-          <S.Select
-            id="email-prioridade"
-            aria-required="true"
-            aria-invalid={Boolean(errors.prioridade)}
-            aria-describedby={errors.prioridade ? 'email-prioridade-erro' : undefined}
-            {...register('prioridade', { required: 'Campo obrigatorio' })}
-          >
-            <option value="">Selecione uma opcao</option>
-            <option>Urgente (essa semana)</option>
-            <option>Em breve</option>
-            <option>Só estou pesquisando</option>
-          </S.Select>
-          {errors.prioridade && (
-            <S.ErrorMessage id="email-prioridade-erro" role="alert">
-              {errors.prioridade.message}
-            </S.ErrorMessage>
-          )}
-        </S.Field>
-
-        <S.Field>
-          <label htmlFor="email-problema">O que você quer resolver no seu e-mail?</label>
+          <label htmlFor="email-problema">
+            O que sua empresa precisa melhorar no e-mail?
+          </label>
           <S.TextArea
             id="email-problema"
             rows={3}
-            placeholder="Ex: perda de e-mails, lentidão, falta de organização ou melhorar controle da equipe..."
+            placeholder="Ex.: migração, lentidão, organização, segurança ou suporte aos usuários."
             {...register('problema')}
           />
         </S.Field>
@@ -256,7 +212,9 @@ export const FormContactEmail = () => {
         <PrivacyNotice />
         <S.SubmitRow>
           <CustomButton type="submit" variant="cta" disabled={isSubmitting}>
-            Quero uma solução para meu e-mail
+            {isSubmitting
+              ? 'Enviando análise...'
+              : 'Solicitar análise do meu cenário'}
           </CustomButton>
         </S.SubmitRow>
       </form>

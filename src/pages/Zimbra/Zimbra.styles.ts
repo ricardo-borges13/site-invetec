@@ -981,6 +981,27 @@ export const ConsultativeIntro = styled.div`
     p { font-size: 0.91rem; line-height: 1.5; }
   }
 `;
+export const ConsultativeAction = styled.button`
+  min-height: 42px;
+  margin-top: 1.15rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #168a58;
+  border-radius: 9px;
+  background: #168a58;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  &:focus-visible {
+    outline: 3px solid #1f80d1;
+    outline-offset: 3px;
+  }
+  @media (max-width: 430px) {
+    width: 100%;
+    min-height: 44px;
+  }
+`;
 export const ConsultativeList = styled.ul`
   display: grid;
   gap: 0.72rem;
@@ -1019,52 +1040,56 @@ export const ConsultativeHighlight = styled.p`
   line-height: 1.5;
   @media (max-width: 430px) { padding: 0.8rem; font-size: 0.88rem; }
 `;
-export const Process = styled.section`
-  margin: 2.75rem 0 5rem;
+export const InlineCta = styled.aside`
+  display: flex;
+  max-width: 900px;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.25rem auto 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid #d2e4f4;
+  border-radius: 14px;
+  background: #f3f9ff;
+  color: #264b6d;
+  strong,
+  span {
+    display: block;
+  }
+  strong {
+    margin-bottom: 0.2rem;
+  }
+  span {
+    font-size: 0.84rem;
+    line-height: 1.4;
+  }
+  @media (max-width: 600px) {
+    align-items: stretch;
+    flex-direction: column;
+    margin-top: 1rem;
+    padding: 0.9rem;
+  }
 `;
-export const ProcessSteps = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  position: relative;
-  article {
-    position: relative;
+export const InlineCtaButton = styled.button`
+  min-height: 42px;
+  flex: none;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #168a58;
+  border-radius: 9px;
+  background: #168a58;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  white-space: nowrap;
+  &:focus-visible {
+    outline: 3px solid #1f80d1;
+    outline-offset: 3px;
   }
-  b {
-    display: grid;
-    place-items: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: #e9f4ff;
-    color: #1260a6;
-    margin-bottom: 0.8rem;
-  }
-  h3 {
-    color: #17365d;
-    font-size: 1rem;
-    margin: 0 0 0.45rem;
-  }
-  p {
-    color: #526a82;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin: 0;
-  }
-  @media (max-width: 750px) {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    article {
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      column-gap: 0.8rem;
-    }
-    b {
-      grid-row: span 2;
-    }
-    h3 {
-      margin-top: 0.2rem;
-    }
+  @media (max-width: 600px) {
+    width: 100%;
+    min-height: 44px;
   }
 `;
 export const Faq = styled.section`
@@ -1073,30 +1098,44 @@ export const Faq = styled.section`
 export const FaqList = styled.div`
   max-width: 900px;
   margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.7rem;
   article {
     border: 1px solid #dce8f3;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     background: #fff;
+    transition: border-color 0.24s ease, background-color 0.24s ease,
+      box-shadow 0.24s ease;
+  }
+  article:hover {
+    border-color: #a9cde9;
+    background: #f8fcff;
+    box-shadow: 0 6px 16px rgba(23, 111, 183, 0.08);
+  }
+  article[data-open='true'] {
+    border-color: #78add8;
+    background: #fbfdff;
   }
   button {
     width: 100%;
+    min-height: 52px;
     border: 0;
-    background: #fff;
-    padding: 1rem;
+    background: transparent;
+    padding: 0.95rem 1rem;
     text-align: left;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
     color: #17365d;
     font-weight: 700;
     cursor: pointer;
   }
+  button > span { min-width: 0; }
   button svg {
     flex: none;
+    width: 19px;
+    height: 19px;
+    color: #176fb7;
     transition: transform 0.2s;
   }
   button[aria-expanded='true'] svg {
@@ -1106,35 +1145,82 @@ export const FaqList = styled.div`
     outline: 3px solid #1f80d1;
     outline-offset: -3px;
   }
-  div {
-    border-top: 1px solid #e4edf5;
-    padding: 0 1rem;
+  div[role='region'] {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.26s ease, opacity 0.22s ease;
   }
-  p {
+  div[role='region'][aria-hidden='false'] {
+    grid-template-rows: 1fr;
+    border-top: 1px solid #e4edf5;
+    opacity: 1;
+  }
+  div[role='region'] p {
+    min-height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 1rem;
     color: #526a82;
     line-height: 1.55;
     font-size: 0.92rem;
+    transition: padding 0.26s ease;
   }
-  @media (max-width: 720px) {
-    grid-template-columns: 1fr;
+  div[role='region'][aria-hidden='false'] p {
+    padding: 0.9rem 1rem 1rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    article,
+    button svg,
+    div[role='region'],
+    div[role='region'] p {
+      transition: none;
+    }
+  }
+`;
+export const FaqColumns = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: flex-start;
+  gap: 1.1rem;
+  article > button {
+    min-height: 70px;
+  }
+  @media (max-width: 900px) {
+    display: none;
+  }
+`;
+export const FaqColumn = styled.div`
+  display: grid;
+  align-items: flex-start;
+  gap: 0.85rem;
+`;
+export const FaqMobileList = styled.div`
+  display: none;
+  @media (max-width: 900px) {
+    display: grid;
+    gap: 0.75rem;
   }
 `;
 export const FormArea = styled.section`
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 2rem;
-  padding: 2rem;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+  gap: 1.5rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.5rem;
   background: #eef5fb;
   border: 1px solid #d7e5f1;
   border-radius: 18px;
   scroll-margin-top: 90px;
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
-    padding: 1.25rem;
+    gap: 1.25rem;
+    padding: 1.15rem;
   }
 `;
 export const FormCopy = styled.div`
-  align-self: center;
+  align-self: start;
   > span {
     display: block;
     margin-bottom: 0.5rem;
@@ -1147,8 +1233,8 @@ export const FormCopy = styled.div`
   }
   p {
     color: #526a82;
-    line-height: 1.6;
-    margin: 0.7rem 0;
+    line-height: 1.55;
+    margin: 0.65rem 0 1rem;
   }
   a {
     color: ${({ theme }) => theme.colors.primary};
@@ -1156,14 +1242,30 @@ export const FormCopy = styled.div`
     text-decoration: none;
   }
 `;
-export const FormPanel = styled.div`
-  background: #fff;
-  border-radius: 12px;
-  padding: 1.25rem;
-  min-width: 0;
-  @media (max-width: 430px) {
-    padding: 1rem;
+export const FormBenefits = styled.ul`
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #365b7b;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  li {
+    display: flex;
+    gap: 0.45rem;
+    align-items: flex-start;
   }
+  svg {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    margin-top: 0.04rem;
+    color: #168a58;
+  }
+`;
+export const FormPanel = styled.div`
+  min-width: 0;
 `;
 export const Lightbox = styled.div`
   position: fixed;

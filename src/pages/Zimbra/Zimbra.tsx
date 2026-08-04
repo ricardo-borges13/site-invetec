@@ -58,7 +58,7 @@ import {
   FiUsers,
   FiVideo,
 } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+
 import * as S from './Zimbra.styles';
 
 type ComparisonView = 'hosting' | 'invetec' | 'suites';
@@ -425,30 +425,16 @@ const infrastructureItems: InfrastructureItem[] = [
   },
 ];
 
-const implementationSteps = [
-  [
-    'Entendimento do cenário',
-    'Levantamos contas, domínio, dispositivos, serviço atual, volume de dados e necessidades da equipe.',
-  ],
-  [
-    'Planejamento',
-    'Definimos estrutura, acessos, regras, responsáveis e estratégia de implantação e migração.',
-  ],
-  [
-    'Implantação e migração',
-    'Criamos o ambiente, configuramos contas e realizamos a transferência planejada das informações.',
-  ],
-  [
-    'Suporte contínuo',
-    'Orientamos os usuários e prestamos atendimento técnico quando necessário.',
-  ],
-] as const;
-
 const faqItems: FaqItem[] = [
+   {
+    question: 'O que está incluído no suporte da INVETEC?',
+    answer:
+      'A INVETEC atua como uma extensão da equipe de TI da sua empresa para tudo o que envolve o e-mail corporativo. O suporte pode incluir implantação, configuração de contas e dispositivos, orientação aos usuários, atendimento remoto e acompanhamento técnico das solicitações relacionadas ao serviço.',
+  },
   {
     question: 'O e-mail utiliza o domínio da minha empresa?',
     answer:
-      'Sim. As contas podem utilizar o domínio da empresa, como nome@suaempresa.com.br, reforçando a identidade profissional da comunicação.',
+      'Sim. As contas utilizam o domínio da empresa, como nome@suaempresa.com.br, reforçando a identidade profissional e a credibilidade da comunicação.',
   },
   {
     question: 'É possível migrar os e-mails antigos?',
@@ -461,14 +447,9 @@ const faqItems: FaqItem[] = [
       'O acesso pode ser realizado pelo navegador, celular e programas de e-mail compatíveis. A configuração disponível depende do plano, do dispositivo e do cliente utilizado.',
   },
   {
-    question: 'Qual é a diferença para o e-mail comum da hospedagem?',
+    question: 'Qual é o diferencial do INVETEC Mail em relação a uma hospedagem comum?',
     answer:
-      'O INVETEC Mail oferece uma plataforma corporativa com tecnologia Zimbra, recursos de colaboração, administração centralizada, implantação assistida e suporte técnico da INVETEC.',
-  },
-  {
-    question: 'O que está incluído no suporte da INVETEC?',
-    answer:
-      'O suporte pode envolver implantação, configuração, orientação aos usuários e atendimento remoto autorizado para resolver solicitações relacionadas ao serviço contratado.',
+      'Enquanto a hospedagem comum oferece apenas caixas de e-mail básicas, o INVETEC Mail entrega uma plataforma corporativa com tecnologia Zimbra, administração centralizada, recursos de colaboração, implantação assistida e suporte técnico próximo da INVETEC.',
   },
   {
     question: 'Existe proteção contra spam e mensagens maliciosas?',
@@ -483,7 +464,7 @@ const faqItems: FaqItem[] = [
   {
     question: 'Quais recursos estão disponíveis além do e-mail?',
     answer:
-      'Conforme o plano, a solução pode oferecer calendário, contatos, tarefas, arquivos, chat, administração centralizada e integrações para colaboração.',
+      'Conforme o plano, o INVETEC Mail pode incluir calendário, contatos, tarefas, armazenamento e compartilhamento de arquivos, chat corporativo, reuniões por vídeo, administração centralizada e outros recursos de colaboração.',
   },
 ];
 
@@ -516,7 +497,9 @@ export const Zimbra = () => {
 
   const scrollTo = (element: HTMLElement | null) => {
     element?.scrollIntoView({
-      behavior: 'smooth',
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'auto'
+        : 'smooth',
       block: 'start',
     });
   };
@@ -662,6 +645,36 @@ export const Zimbra = () => {
       }
     };
   }, []);
+
+  const renderFaqItem = (item: FaqItem, index: number) => {
+    const isOpen = openFaq === index;
+    const questionId = `faq-question-${index}`;
+    const answerId = `faq-answer-${index}`;
+
+    return (
+      <article key={item.question} data-open={isOpen}>
+        <button
+          id={questionId}
+          type="button"
+          aria-expanded={isOpen}
+          aria-controls={answerId}
+          onClick={() => setOpenFaq(isOpen ? null : index)}
+        >
+          <span>{item.question}</span>
+          <FiChevronDown aria-hidden="true" />
+        </button>
+
+        <div
+          id={answerId}
+          role="region"
+          aria-labelledby={questionId}
+          aria-hidden={!isOpen}
+        >
+          <p>{item.answer}</p>
+        </div>
+      </article>
+    );
+  };
 
   return (
     <>
@@ -885,6 +898,26 @@ export const Zimbra = () => {
                 plano escolhido (Business, Standard ou Professional). A INVETEC
                 recomenda a combinação ideal conforme a operação da empresa.
               </S.ComparisonNote>
+
+              <S.InlineCta>
+                <div>
+                  <strong>
+                    Não sabe qual plano ou combinação de recursos faz sentido para
+                    sua empresa?
+                  </strong>
+                  <span>
+                    A INVETEC avalia usuários, espaço, colaboração e sincronização
+                    necessários para a operação.
+                  </span>
+                </div>
+                <S.InlineCtaButton
+                  type="button"
+                  data-cta="comparacao-plano"
+                  onClick={scrollToForm}
+                >
+                  Encontrar o plano ideal
+                </S.InlineCtaButton>
+              </S.InlineCta>
             </S.Positioning>
           </MotionReveal>
 
@@ -1145,6 +1178,13 @@ export const Zimbra = () => {
                   o ambiente e configuramos tudo para que a equipe comece a usar com
                   segurança, padrão e suporte próximo.
                 </p>
+                <S.ConsultativeAction
+                  type="button"
+                  data-cta="consultivo-avaliacao"
+                  onClick={scrollToForm}
+                >
+                  Solicitar avaliação do ambiente
+                </S.ConsultativeAction>
               </S.ConsultativeIntro>
 
               <S.ConsultativeList>
@@ -1212,56 +1252,38 @@ export const Zimbra = () => {
           </MotionReveal>
 
           <MotionReveal>
-            <S.Process>
-              <S.SectionHeading>
-                <span>COMO FUNCIONA A IMPLANTAÇÃO</span>
-
-                <h2>Um processo simples e acompanhado em quatro etapas</h2>
-              </S.SectionHeading>
-
-              <S.ProcessSteps>
-                {implementationSteps.map(([title, text], index) => (
-                  <article key={title}>
-                    <b>{index + 1}</b>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                  </article>
-                ))}
-              </S.ProcessSteps>
-            </S.Process>
-          </MotionReveal>
-
-          <MotionReveal>
             <S.Faq>
               <S.SectionHeading>
                 <h2>Perguntas frequentes</h2>
 
                 <p>
-                  Confira as principais dúvidas sobre implantação, migração,
-                  recursos e suporte do INVETEC Mail.
+                  Tire suas dúvidas sobre implantação, migração, recursos e suporte
+                  do INVETEC Mail.
                 </p>
               </S.SectionHeading>
 
               <S.FaqList>
-                {faqItems.map((item, index) => (
-                  <article key={item.question}>
-                    <button
-                      type="button"
-                      aria-expanded={openFaq === index}
-                      aria-controls={`faq-answer-${index}`}
-                      onClick={() =>
-                        setOpenFaq(openFaq === index ? null : index)
-                      }
-                    >
-                      {item.question}
-                      <FiChevronDown />
-                    </button>
+                <S.FaqColumns>
+                  <S.FaqColumn>
+                    {faqItems
+                      .filter((_, index) => index % 2 === 0)
+                      .map((item, columnIndex) =>
+                        renderFaqItem(item, columnIndex * 2),
+                      )}
+                  </S.FaqColumn>
 
-                    <div id={`faq-answer-${index}`} hidden={openFaq !== index}>
-                      <p>{item.answer}</p>
-                    </div>
-                  </article>
-                ))}
+                  <S.FaqColumn>
+                    {faqItems
+                      .filter((_, index) => index % 2 !== 0)
+                      .map((item, columnIndex) =>
+                        renderFaqItem(item, columnIndex * 2 + 1),
+                      )}
+                  </S.FaqColumn>
+                </S.FaqColumns>
+
+                <S.FaqMobileList>
+                  {faqItems.map(renderFaqItem)}
+                </S.FaqMobileList>
               </S.FaqList>
             </S.Faq>
           </MotionReveal>
@@ -1272,17 +1294,24 @@ export const Zimbra = () => {
 
               <h2>Receba uma proposta para o cenário da sua empresa</h2>
 
-              <p>
+              <p hidden>
                 Informe quantas contas sua empresa utiliza e como funciona o
                 e-mail atualmente. A INVETEC avaliará implantação, migração,
                 recursos e suporte necessários.
               </p>
 
-              <p>Possui poucas contas e uma operação mais simples?</p>
 
-              <Link to="/servicos/invetec-mail-mei">
-                Conheça o INVETEC Mail MEI
-              </Link>
+              <p>
+                Informe quantas contas sua empresa utiliza e como o e-mail funciona
+                atualmente. A INVETEC analisará o cenário e indicará uma solução
+                adequada para implantação, organização e suporte.
+              </p>
+
+              <S.FormBenefits>
+                <li><FiCheck aria-hidden="true" />Implantação e configuração assistidas</li>
+                <li><FiCheck aria-hidden="true" />Suporte próximo da INVETEC</li>
+                <li><FiCheck aria-hidden="true" />Solução dimensionada para sua empresa</li>
+              </S.FormBenefits>
             </S.FormCopy>
 
             <S.FormPanel>
