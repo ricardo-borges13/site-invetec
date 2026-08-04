@@ -3,7 +3,7 @@ export const Container = styled.div`
   max-width: 1180px;
   margin: auto;
   padding: 3rem 1.5rem 4rem;
-  overflow: hidden;
+  overflow: visible;
   @media (max-width: 600px) {
     padding: 2rem 1rem 3rem;
   }
@@ -275,66 +275,78 @@ export const ComparisonNote = styled.p`
 `;
 export const SupportSection = styled.section`
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 3rem;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2.5rem;
   align-items: center;
-  margin: 5rem 0;
+  margin: 4rem 0;
   @media (max-width: 850px) {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.75rem;
   }
 `;
 export const SupportVisual = styled.div`
   position: relative;
   overflow: hidden;
   border-radius: 18px;
-  min-height: 430px;
+  min-height: clamp(450px, 34vw, 520px);
   background: #eaf3fe;
   > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 58% 18%;
     position: absolute;
     inset: 0;
   }
-  div {
+  > div {
     position: absolute;
-    inset: auto 1.25rem 1.25rem;
+    inset: auto 1rem 1rem;
     background: rgba(8, 39, 76, 0.88);
-    padding: 1.2rem;
+    padding: 1rem;
     color: #fff;
     border-radius: 12px;
     display: grid;
-    gap: 0.55rem;
+    gap: 0.4rem;
   }
-  div img {
+  > div img {
     height: 30px;
     width: auto;
     filter: brightness(0) invert(1);
   }
-  svg {
-    font-size: 1.55rem;
+  > div svg {
+    font-size: 1.35rem;
     color: #79d7ff;
   }
+  strong { font-size: 1rem; }
+  small { color: #d9eafa; font-size: 0.78rem; line-height: 1.4; }
   @media (max-width: 850px) {
-    min-height: 270px;
+    min-height: 330px;
+    > img { object-position: 58% 20%; }
   }
+  @media (min-width: 1024px) and (max-width: 1440px) and (max-height: 800px) { min-height: 450px; }
 `;
 export const SupportContent = styled.div`
   > span {
     display: block;
     margin-bottom: 0.5rem;
+    color: ${({ theme }) => theme.colors.primary};
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
   }
   h2 {
-    color: #142b4a;
-    font-size: clamp(1.55rem, 2.4vw, 2.2rem);
-    line-height: 1.2;
-    margin: 0 0 1rem;
+    color: #082b5c;
+    max-width: 620px;
+    font-size: clamp(1.55rem, 2.2vw, 2.12rem);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.16;
+    margin: 0 0 0.75rem;
   }
   > p {
     color: #526a82;
-    line-height: 1.65;
-    margin: 0 0 1.25rem;
+    line-height: 1.55;
+    margin: 0 0 1rem;
   }
 `;
 export const SupportList = styled.ul`
@@ -342,48 +354,82 @@ export const SupportList = styled.ul`
   margin: 0;
   list-style: none;
   display: grid;
-  gap: 1rem;
+  gap: 0.8rem;
   li {
-    display: flex;
+    display: grid;
+    grid-template-columns: 42px 1fr;
     gap: 0.7rem;
   }
-  svg {
-    flex: none;
-    margin-top: 0.25rem;
-    color: ${({ theme }) => theme.colors.ctaGreen};
+  li > span {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border-radius: 50%;
+    background: #eaf4ff;
+    color: #1260a6;
   }
+  li > span svg { width: 19px; height: 19px; }
   h3 {
-    font-size: 1rem;
-    margin: 0 0 0.2rem;
+    font-size: 0.98rem;
+    margin: 0 0 0.18rem;
     color: #17365d;
   }
   p {
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.45;
     color: #526a82;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
   }
 `;
 export const PriceBand = styled.div`
-  margin: 1.3rem 0;
-  padding: 0.9rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  margin: 1rem 0 0;
+  padding: 0.85rem 1rem;
   border-left: 3px solid ${({ theme }) => theme.colors.ctaGreen};
   background: #f0fbf4;
-  display: grid;
-  gap: 0.35rem;
   color: #174a2b;
+  strong { display: block; margin-bottom: 0.25rem; }
   small {
+    display: block;
     color: #587061;
     line-height: 1.45;
+    font-size: 0.76rem;
+  }
+  button {
+    white-space: nowrap;
+  }
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    button { min-height: 44px; }
   }
 `;
 export const Resources = styled.section`
-  margin: 5rem 0;
+  width: min(1440px, 92vw);
+  margin: 5rem 50%;
+  transform: translateX(-50%);
   scroll-margin-top: 90px;
+  @media (max-width: 800px) {
+    width: 100%;
+    margin: 4rem 0;
+    transform: none;
+  }
+`;
+export const ResourceCarousel = styled.div`
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+    }
+  }
 `;
 export const ResourceLayout = styled.div`
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: minmax(0, 1.8fr) minmax(300px, 1fr);
+  align-items: start;
   border: 1px solid #dbe7f4;
   border-radius: 18px;
   overflow: hidden;
@@ -393,7 +439,7 @@ export const ResourceLayout = styled.div`
   }
 `;
 export const ResourceImage = styled.div`
-  padding: 1rem;
+  padding: clamp(0.65rem, 1vw, 1rem);
   background: #f3f8fe;
   button {
     padding: 0;
@@ -405,6 +451,7 @@ export const ResourceImage = styled.div`
   img {
     display: block;
     width: 100%;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 12px 28px rgba(14, 48, 79, 0.14);
   }
@@ -414,7 +461,7 @@ export const SlideControls = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-top: 0.9rem;
+  margin-top: 0.7rem;
   color: #526a82;
   font-size: 0.9rem;
   button {
@@ -434,8 +481,8 @@ export const SlideControls = styled.div`
   }
 `;
 export const ResourcePanel = styled.div`
-  padding: 2rem;
-  align-self: center;
+  padding: clamp(1.25rem, 2.2vw, 2rem);
+  align-self: start;
   > span {
     color: ${({ theme }) => theme.colors.primary};
     font-weight: 700;
@@ -480,7 +527,7 @@ export const SlideTabs = styled.div`
   display: flex;
   gap: 0.5rem;
   overflow-x: auto;
-  padding: 0.9rem 0 0.25rem;
+  padding: 0.8rem 0 0.25rem;
   button {
     flex: none;
     border: 1px solid #d8e4f0;
