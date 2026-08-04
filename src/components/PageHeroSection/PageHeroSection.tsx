@@ -4,6 +4,10 @@ import * as S from './PageHeroSection.styles';
 export type PageHeroSectionProps = {
   title: string;
   subTitle?: string;
+  subTitleMaxWidth?: string;
+  brandContent?: React.ReactNode;
+  benefit?: React.ReactNode;
+  allowContentOverflow?: boolean;
   image: string;
   children?: React.ReactNode;
   heroContent?: React.ReactNode;
@@ -14,6 +18,10 @@ export type PageHeroSectionProps = {
 export const PageHeroSection = ({
   title,
   subTitle,
+  subTitleMaxWidth,
+  brandContent,
+  benefit,
+  allowContentOverflow,
   image,
   children,
   heroContent,
@@ -22,7 +30,11 @@ export const PageHeroSection = ({
 }: PageHeroSectionProps) => {
   return (
     <main>
-      <S.HeroWrapper $image={image} as="header">
+      <S.HeroWrapper
+        $allowContentOverflow={allowContentOverflow}
+        $image={image}
+        as="header"
+      >
         <S.Overlay $opacity={overlayOpacity} />
 
         <S.Content $color={textColor}>
@@ -31,7 +43,9 @@ export const PageHeroSection = ({
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
+            {brandContent}
             <h1>{title}</h1>
+            {benefit && <S.Benefit>{benefit}</S.Benefit>}
           </motion.div>
 
           {subTitle && (
@@ -40,7 +54,7 @@ export const PageHeroSection = ({
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <p>{subTitle}</p>
+              <S.Subtitle $maxWidth={subTitleMaxWidth}>{subTitle}</S.Subtitle>
             </motion.div>
           )}
 

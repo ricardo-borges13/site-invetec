@@ -1,6 +1,6 @@
 import infrastructureImage from '@/assets/images/CTA2.jpg';
 import supportImage from '@/assets/images/e-mail-zimbra.jpg';
-import logoInvetecMail from '@/assets/images/INVETEC-Mail-site.png';
+import logoInvetecMail from '@/assets/images/INVETEC-Mail-Branco.png';
 import heroImage from '@/assets/images/PagesHero-Email-InvetecMail.png';
 import imageAgenda from '@/assets/images/Zimbra-Agenda.webp';
 import imageAgendaFull from '@/assets/images/Zimbra-Full-Agenda.webp';
@@ -606,8 +606,14 @@ export const Zimbra = () => {
       />
 
       <PageHeroSection
-        title="INVETEC Mail: e-mail corporativo profissional com mais controle e suporte"
-        subTitle="Tenha e-mails com o domínio da sua empresa, tecnologia Zimbra e acesso pelo navegador, celular ou programas de e-mail, com implantação, migração e suporte técnico da INVETEC."
+        brandContent={
+          <S.HeroBrand>
+            <img src={logoInvetecMail} alt="INVETEC Mail" />
+          </S.HeroBrand>
+        }
+        title="E-mail corporativo profissional"
+        benefit="Mais controle, organização e suporte para a comunicação da sua empresa."
+        allowContentOverflow
         image={heroImage}
         overlayOpacity={0.74}
         heroContent={

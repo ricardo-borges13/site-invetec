@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const HeroActions = styled.div`
   display: flex;
   max-width: 760px;
-  margin: 1.5rem auto 0;
+  margin: 1.15rem auto 0;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.85rem;
@@ -58,6 +58,35 @@ export const HeroTrust = styled.p`
   font-size: 0.9rem !important;
   span {
     margin: 0 0.35rem;
+  }
+`;
+export const HeroBrand = styled.div`
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  padding-top: 2.5rem;
+  overflow: visible;
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(230px, 100%);
+    max-height: none;
+    margin: 0;
+    object-fit: contain;
+    object-position: center;
+  }
+  @media (max-width: 768px) {
+    padding-top: 1.5rem;
+    margin-bottom: 0.55rem;
+    img { max-width: min(180px, 100%); }
+  }
+  @media (max-width: 420px) {
+    padding-top: 1.25rem;
+    img { max-width: min(160px, 100%); }
   }
 `;
 export const SectionHeading = styled.header`

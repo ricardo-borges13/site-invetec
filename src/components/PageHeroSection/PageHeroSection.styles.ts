@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const HeroWrapper = styled.section<{ $image: string }>`
+export const HeroWrapper = styled.section<{
+  $image: string;
+  $allowContentOverflow?: boolean;
+}>`
   position: relative;
   width: 100%;
   user-select: none;
@@ -16,7 +19,8 @@ export const HeroWrapper = styled.section<{ $image: string }>`
 
   padding: 80px 20px 60px;
 
-  overflow: hidden;
+  overflow: ${({ $allowContentOverflow }) =>
+    $allowContentOverflow ? 'visible' : 'hidden'};
 
   /* 🔥 MOBILE */
   @media (max-width: 768px) {
@@ -98,6 +102,24 @@ export const Content = styled.div<{ $color?: string }>`
       font-size: 1rem;
     }
   }
+`;
+
+export const Benefit = styled.p`
+  max-width: 780px;
+  margin: 0.1rem auto 0;
+  color: #e4f3ff;
+  font-size: clamp(1.05rem, 1.55vw, 1.3rem);
+  font-weight: 600;
+  line-height: 1.35;
+`;
+
+export const Subtitle = styled.p<{ $maxWidth?: string }>`
+  ${({ $maxWidth }) =>
+    $maxWidth &&
+    `
+      max-width: ${$maxWidth};
+      margin: 0.75rem auto 0;
+    `}
 `;
 
 export const ChildrenContent = styled.div`
