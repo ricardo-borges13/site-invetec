@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { MenuItem, MenuLink, Nav, Submenu, SubmenuItem } from './Menu.styles';
-import { menuItems } from './menuData';
+import { menuItems, type MenuItem as MenuDataItem } from './menuData';
 
 type MenuProps = {
   onLinkClick?: () => void;
@@ -23,7 +23,7 @@ export const Menu = ({ onLinkClick }: MenuProps) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  function handleMenuClick(e: React.MouseEvent, item: (typeof menuItems)[0]) {
+  function handleMenuClick(e: React.MouseEvent, item: MenuDataItem) {
     // 📱 MOBILE
     if (isMobile) {
       if (item.submenu) {

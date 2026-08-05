@@ -129,11 +129,6 @@ export const NavigationLink = styled(Link)<{ $active: boolean }>`
   ${({ $active }) => $active && activeStyles}
 `;
 
-export const NavigationButton = styled.button<{ $active: boolean }>`
-  ${itemStyles}
-  ${({ $active }) => $active && activeStyles}
-`;
-
 export const NavigationGroup = styled.div``;
 
 export const ServicesButton = styled.button<{ $active: boolean }>`

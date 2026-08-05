@@ -1,7 +1,7 @@
 import logo from '@/assets/images/Logo-Invetec.png';
 import { useState } from 'react';
 import { FiX } from 'react-icons/fi';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { menuItems } from './menuData';
 import * as S from './MobileMenuDrawer.styles';
 
@@ -14,10 +14,9 @@ type MobileMenuDrawerProps = {
 const mobileItems = [
   menuItems[0],
   menuItems[1],
+  menuItems[2],
   menuItems[3],
   menuItems[4],
-  menuItems[2],
-  menuItems[5],
 ];
 
 export const MobileMenuDrawer = ({
@@ -26,7 +25,6 @@ export const MobileMenuDrawer = ({
   drawerRef,
 }: MobileMenuDrawerProps) => {
   const location = useLocation();
-  const navigate = useNavigate();
   const servicesActive = location.pathname.startsWith('/servicos');
   const [servicesOpen, setServicesOpen] = useState(false);
   const [collapsedServicePath, setCollapsedServicePath] = useState<string | null>(null);
@@ -38,19 +36,6 @@ export const MobileMenuDrawer = ({
     path === '/'
       ? location.pathname === '/'
       : location.pathname === path || location.pathname.startsWith(`${path}/`);
-
-  const handleScrollLink = (scrollTo?: string) => {
-    if (!scrollTo) return;
-    if (location.pathname === '/') {
-      const section =
-        document.getElementById(scrollTo) ??
-        (scrollTo === 'parceiros' ? document.getElementById('partners') : null);
-      section?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/', { state: { scrollTo } });
-    }
-    onClose();
-  };
 
   return (
     <S.Portal $open={open} aria-hidden={!open}>
@@ -113,20 +98,6 @@ export const MobileMenuDrawer = ({
                 </S.NavigationGroup>
               );
             }
-
-            if (item.scrollTo) {
-              return (
-                <S.NavigationButton
-                  key={item.id}
-                  type="button"
-                  $active={false}
-                  onClick={() => handleScrollLink(item.scrollTo)}
-                >
-                  {item.title}
-                </S.NavigationButton>
-              );
-            }
-
             return (
               <S.NavigationLink
                 key={item.id}

@@ -20,7 +20,6 @@ export const menuItems = [
         title: 'E-commerce',
         path: '/servicos/e-commerce',
       },
-      // { title: 'Marketing Digital', path: '/servicos/marketing-digital' },
       { title: 'Gestão e Suporte de TI', path: '/servicos/suporte-ti' },
       {
         title: 'Ferramentas Úteis',
@@ -28,13 +27,6 @@ export const menuItems = [
         showInFooter: true,
       },
     ],
-  },
-  {
-    id: 3,
-    title: 'Parceiros',
-    path: '/',
-    scrollTo: 'parceiros',
-    showInFooter: false,
   },
   {
     id: 4,
@@ -57,4 +49,15 @@ export const menuItems = [
   },
 ];
 
-export type MenuItem = (typeof menuItems)[0];
+export type MenuItem = {
+  id: number;
+  title: string;
+  path: string;
+  showInFooter?: boolean;
+  scrollTo?: string;
+  submenu?: Array<{
+    title: string;
+    path: string;
+    showInFooter?: boolean;
+  }>;
+};

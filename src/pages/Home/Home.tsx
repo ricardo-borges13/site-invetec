@@ -18,15 +18,6 @@ export const Home = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.state?.scrollTo === 'parceiros') {
-      const section = document.getElementById('parceiros');
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, [location]);
-
-  useEffect(() => {
     if (location.state?.scrollTo === 'servicos') {
       const section = document.getElementById('servicos');
       if (section) {
@@ -105,10 +96,6 @@ export const Home = () => {
         <DepoimentosSection>
           <Depoimentos />
         </DepoimentosSection>
-
-        {/* <div id="parceiros">
-          <BusinessPartner />
-        </div> */}
       </S.HomeWrapper>
     </>
   );
