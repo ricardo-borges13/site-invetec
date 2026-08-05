@@ -9,9 +9,7 @@ type FormInputs = {
   empresa: string;
   telefone: string;
   email: string;
-  faturamento: string;
-  funcionarios: string;
-  possuiERP: string;
+  erpAtual: string;
   dificuldade: string;
 };
 
@@ -45,7 +43,7 @@ export const FormContactERP = () => {
 
       if (response.ok) {
         toast.success(
-            'Perfeito! Em breve vou te orientar com a melhor solução.',
+            'Recebemos sua solicitação. A INVETEC entrará em contato em breve.',
           {
             duration: 4000,
           }
@@ -88,10 +86,7 @@ export const FormContactERP = () => {
         }}
       />
 
-      <p>
-        🔒 Leva menos de 1 minuto. Eu analiso seu cenário e te retorno com a
-        melhor solução.
-      </p>
+      <p>Seus dados serão usados somente para entender a necessidade da sua empresa e retornar o contato.</p>
 
       <form onSubmit={handleSubmit(submitHandler)}>
         {/* Nome + Empresa */}
@@ -175,47 +170,26 @@ export const FormContactERP = () => {
           </S.Field>
         </S.FieldGroup>
 
-        {/* Faturamento */}
         <S.Field>
-          <label htmlFor="erp-faturamento">Faturamento mensal</label>
-          <S.Select id="erp-faturamento" {...register('faturamento')}>
-            <option>Selecione</option>
-            <option>Até R$100k</option>
-            <option>R$100k a R$500k</option>
-            <option>R$500k a R$1M</option>
-            <option>Acima de R$1M</option>
-          </S.Select>
-        </S.Field>
-
-        {/* Funcionários */}
-        <S.Field>
-          <label htmlFor="erp-funcionarios">Número de funcionários</label>
-          <S.Select id="erp-funcionarios" {...register('funcionarios')}>
-            <option>Selecione</option>
-            <option>Até 5</option>
-            <option>6 a 20</option>
-            <option>21 a 50</option>
-            <option>+50</option>
-          </S.Select>
-        </S.Field>
-
-        {/* Possui ERP */}
-        <S.Field>
-          <label htmlFor="erp-possui">Possui ERP atualmente?</label>
-          <S.Select id="erp-possui" {...register('possuiERP')}>
-            <option>Selecione</option>
-            <option>Sim</option>
-            <option>Não</option>
+          <label htmlFor="erp-atual">ERP utilizado atualmente</label>
+          <S.Select id="erp-atual" defaultValue="" {...register('erpAtual')}>
+            <option value="" disabled>Selecione uma opção</option>
+            <option>Não utiliza ERP</option>
+            <option>Planilhas ou controles manuais</option>
+            <option>Bling</option>
+            <option>TOTVS</option>
+            <option>Outro ERP</option>
+            <option>Prefiro informar depois</option>
           </S.Select>
         </S.Field>
 
         {/* Dificuldade */}
         <S.Field>
-          <label htmlFor="erp-dificuldade">Qual seu objetivo com o ERP?</label>
+          <label htmlFor="erp-dificuldade">Principal necessidade ou problema</label>
           <S.TextArea
             id="erp-dificuldade"
             rows={3}
-            placeholder="Ex: organizar financeiro, controlar estoque, faturamento, integrar setores..."
+            placeholder="Ex.: integrar vendas, estoque, faturamento e financeiro; substituir sistema atual; melhorar relatórios; reduzir retrabalho."
             {...register('dificuldade')}
           />
         </S.Field>
@@ -227,7 +201,7 @@ export const FormContactERP = () => {
           disabled={isSubmitting}
           loading={isSubmitting}
         >
-          Solicitar diagnóstico gratuito
+          Solicitar análise do W3ERP
         </CustomButton>
       </form>
     </S.FormContainer>

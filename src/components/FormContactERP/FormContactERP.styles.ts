@@ -4,7 +4,7 @@ export const FormContainer = styled.div`
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  background: linear-gradient(180deg, #f8fafc, #eef2f7);
+  background: #fff;
   padding: 30px;
   border-radius: 16px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
@@ -30,7 +30,8 @@ export const FormContainer = styled.div`
   p {
     margin-bottom: 10px;
     font-size: 0.9rem;
-    opacity: 0.7;
+    color: #475569;
+    line-height: 1.5;
   }
 
   button {
@@ -61,7 +62,7 @@ export const FieldGroup = styled.div`
 
 export const Input = styled.input`
   width: 100%;
-  padding: 0.7rem;
+  padding: 0.8rem;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
   transition: all 0.2s ease;
@@ -75,7 +76,7 @@ export const Input = styled.input`
 
 export const Select = styled.select`
   width: 100%;
-  padding: 0.7rem;
+  padding: 0.8rem;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
   transition: all 0.2s ease;
@@ -89,7 +90,7 @@ export const Select = styled.select`
 
 export const TextArea = styled.textarea`
   width: 100%;
-  padding: 0.7rem;
+  padding: 0.8rem;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
   transition: all 0.2s ease;
