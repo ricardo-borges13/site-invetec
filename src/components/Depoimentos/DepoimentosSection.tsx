@@ -1,41 +1,32 @@
 import type { ReactNode } from 'react';
-import * as S from './DepoimentosSection.styles';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
+import * as S from './DepoimentosSection.styles';
 
 type DepoimentosSectionProps = {
-  title?: string;
-  subTitle?: string;
   children: ReactNode;
 };
 
-export const DepoimentosSection = ({
-  title = 'O que nossos clientes dizem',
-  subTitle = 'Projetos desenvolvidos com foco em performance, organização e presença profissional.',
-  children,
-}: DepoimentosSectionProps) => {
-  return (
-    <S.Section>
-      <S.BackgroundGlowBlue />
-      <S.BackgroundGlowOrange />
-      <S.BackgroundGlow />
+export const DepoimentosSection = ({ children }: DepoimentosSectionProps) => (
+  <S.Section aria-labelledby="depoimentos-title">
+    <S.Container>
+      <S.Header>
+        <MotionReveal distance={20}>
+          <span>DEPOIMENTOS</span>
+        </MotionReveal>
+        <MotionReveal delay={0.08} distance={20}>
+          <h2 id="depoimentos-title">O que nossos clientes dizem sobre a INVETEC</h2>
+        </MotionReveal>
+        <MotionReveal delay={0.14} distance={20}>
+          <p>
+            Experiências reais de empresas que utilizam nossas soluções para organizar
+            processos, fortalecer a presença digital e evoluir com tecnologia.
+          </p>
+        </MotionReveal>
+      </S.Header>
 
-      <S.Container>
-        <S.Header>
-          <MotionReveal delay={0.2}>
-            <span>DEPOIMENTOS</span>
-          </MotionReveal>
-
-          <MotionReveal delay={0.4}>
-            <h2>{title}</h2>
-          </MotionReveal>
-
-          <MotionReveal delay={0.6}>
-            <p>{subTitle}</p>
-          </MotionReveal>
-        </S.Header>
-
+      <MotionReveal delay={0.1} distance={16}>
         <S.Content>{children}</S.Content>
-      </S.Container>
-    </S.Section>
-  );
-};
+      </MotionReveal>
+    </S.Container>
+  </S.Section>
+);

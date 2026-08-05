@@ -1,67 +1,68 @@
-import { FaPlay } from 'react-icons/fa';
-import { motion } from 'framer-motion';
-
+import { FiPlay } from 'react-icons/fi';
+import type { Testimonial } from './Depoimentos.data';
 import {
+  Author,
+  AuthorImage,
   Card,
+  Identification,
   QuoteIcon,
-  Header,
-  Avatar,
-  UserInfo,
-  Stars,
+  Rating,
+  Services,
   TestimonialText,
   VideoButton,
 } from './DepoimentosCard.styles';
 
-import type { Depoimento } from './Depoimentos';
-
-type Props = {
-  testimonial: Depoimento;
-  onOpenVideo: (url: string) => void;
+type DepoimentosCardProps = {
+  testimonial: Testimonial;
+  onOpenVideo: (videoUrl: string) => void;
 };
 
 export const DepoimentosCard = ({
   testimonial,
   onOpenVideo,
-}: Props) => {
+}: DepoimentosCardProps) => {
+  const image = testimonial.avatar ?? testimonial.companyLogo;
+  const rating = testimonial.rating
+    ? Math.min(5, Math.max(0, testimonial.rating))
+    : 0;
+
   return (
-    <Card
-      as={motion.div}
-      whileHover={{ y: -6 }}
-      transition={{ duration: 0.3 }}
-    >
-      <QuoteIcon>“</QuoteIcon>
-
-      <Header>
-        {testimonial.avatar && (
-          <Avatar
-            src={testimonial.avatar}
-            alt={testimonial.name}
-          />
-        )}
-
-        <UserInfo>
-          <h3>{testimonial.name}</h3>
-
-          <span>
-            {testimonial.role && `${testimonial.role} — `}
-            {testimonial.company}
-          </span>
-
-          <Stars>★★★★★</Stars>
-        </UserInfo>
-      </Header>
-
+    <Card>
+      <QuoteIcon aria-hidden="true">“</QuoteIcon>
       <TestimonialText>
-        {testimonial.testimonial}
+        <blockquote>{testimonial.testimonial}</blockquote>
       </TestimonialText>
-
+      <Author>
+        {image && <AuthorImage src={image} alt={testimonial.imageAlt ?? ''} />}
+        <Identification>
+          <strong>{testimonial.name}</strong>
+          {(testimonial.role || testimonial.company) && (
+            <cite>
+              {[testimonial.role, testimonial.company]
+                .filter(Boolean)
+                .join(' · ')}
+            </cite>
+          )}
+          {rating > 0 && (
+            <Rating aria-label={`${rating} de 5 estrelas`}>
+              {'★'.repeat(rating)}
+            </Rating>
+          )}
+        </Identification>
+      </Author>
+      {testimonial.services && testimonial.services.length > 0 && (
+        <Services aria-label="Soluções utilizadas">
+          {testimonial.services.map(service => (
+            <li key={service}>{service}</li>
+          ))}
+        </Services>
+      )}
       {testimonial.videoUrl && (
         <VideoButton
-          onClick={() =>
-            onOpenVideo(testimonial.videoUrl!)
-          }
+          type="button"
+          onClick={() => onOpenVideo(testimonial.videoUrl!)}
         >
-          <FaPlay />
+          <FiPlay aria-hidden="true" />
           Assistir depoimento
         </VideoButton>
       )}

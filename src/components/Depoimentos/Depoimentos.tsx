@@ -1,186 +1,108 @@
-
-import { useCallback, useEffect, useState } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
+import useEmblaCarousel from 'embla-carousel-react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { testimonials } from './Depoimentos.data';
 import {
-  Wrapper,
+  Dot,
+  Dots,
   Embla,
   EmblaContainer,
   EmblaSlide,
-  Navigation,
   NavButton,
-  Dots,
-  Dot,
+  Navigation,
+  Wrapper,
 } from './Depoimentos.styles';
-
+import { DepoimentosCard } from './DepoimentosCard';
 import { VideoModal } from './VideoModal';
 
-import avatar1 from '@/assets/images/Depoimentos/Avatar1.png';
-import avatar2 from '@/assets/images/Depoimentos/Avatar2.png';
-import avatar3 from '@/assets/images/Depoimentos/Avatar3.png';
-import avatar4 from '@/assets/images/Depoimentos/Avatar4.png';
-import avatar5 from '@/assets/images/Depoimentos/Avatar5.png';
-import avatar6 from '@/assets/images/Depoimentos/Avatar6.png';
-import { DepoimentosCard } from './DepoimentosCard';
-
-
-export interface Depoimento {
-  id: number;
-  name: string;
-  company: string;
-  role?: string;
-  testimonial: string;
-  avatar?: string;
-  videoUrl?: string;
-}
-
-const depoimentosMock: Depoimento[] = [
-  {
-    id: 1,
-    name: 'Elizeu Condé',
-    company: 'JCL Empilhadeiras',
-    role: 'Diretor Comercial',
-    testimonial:
-      'Os equipamentos entregues superaram nossas expectativas. As empilhadeiras trouxeram mais agilidade para a movimentação interna e aumentaram muito nossa produtividade.',
-    avatar: avatar1,
-
-  },
-  {
-    id: 2,
-    name: 'Ariadina Santos',
-    company: 'Catellar Móveis',
-    role: 'Gerente de Marketing',
-    testimonial:
-      'Os maquinários adquiridos melhoraram significativamente nosso processo de produção. Tivemos mais precisão nos cortes e redução no tempo de fabricação.',
-    avatar: avatar2,
-
-  },
-  {
-    id: 3,
-    name: 'Marcos Silva',
-    company: 'Itatiaia Móveis',
-    role: 'Gerente Operacional',
-    testimonial:
-      'A qualidade dos equipamentos e o suporte prestado fizeram toda diferença na nossa operação industrial. Hoje temos mais eficiência e segurança na linha de produção.',
-    avatar: avatar3,
-
-  },
-  {
-    id: 4,
-    name: 'Simone Teixeira',
-    company: 'Modecor',
-    role: 'Diretora',
-    testimonial:
-      'Os equipamentos atenderam perfeitamente às necessidades da nossa fábrica. Conseguimos otimizar processos e aumentar nossa capacidade produtiva.',
-    avatar: avatar4,
-
-  },
-  {
-    id: 5,
-    name: 'Marcos Silva',
-    company: 'Distripack',
-    role: 'Gerente Operacional',
-    testimonial:
-      'Além da excelente qualidade dos maquinários, o atendimento foi rápido e muito profissional. Tivemos um ótimo retorno no desempenho da produção.',
-    avatar: avatar5,
-
-  },
-  {
-    id: 6,
-    name: 'Rosânela Maria',
-    company: 'Paropas',
-    role: 'Coordenadora',
-    testimonial:
-      'As soluções fornecidas ajudaram bastante na organização e movimentação de materiais dentro da fábrica. Equipamentos robustos e extremamente confiáveis.',
-    avatar: avatar6,
-
-  },
-];
-
 export const Depoimentos = () => {
-  const [selectedVideo, setSelectedVideo] =
-    useState<string | null>(null);
-
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const autoplay = useRef(
+    Autoplay({
+      delay: 6000,
+      stopOnInteraction: true,
+      stopOnMouseEnter: true,
+      stopOnFocusIn: true,
+    })
+  );
   const [selectedIndex, setSelectedIndex] = useState(0);
-
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: true,
-      align: 'start',
-      skipSnaps: false,
-    },
-    [
-      Autoplay({
-        delay: 7000,
-        stopOnInteraction: false,
-      }),
-    ]
+    { align: 'start', loop: testimonials.length > 2, skipSnaps: false },
+    testimonials.length > 1 ? [autoplay.current] : []
   );
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
+  const updateControls = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+    setScrollSnaps(emblaApi.scrollSnapList());
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
   }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  const scrollTo = useCallback(
-    (index: number) => {
-      if (emblaApi) emblaApi.scrollTo(index);
-    },
-    [emblaApi]
-  );
 
   useEffect(() => {
     if (!emblaApi) return;
-
-    const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
+    updateControls();
+    emblaApi.on('select', updateControls);
+    emblaApi.on('reInit', updateControls);
+    return () => {
+      emblaApi.off('select', updateControls);
+      emblaApi.off('reInit', updateControls);
     };
+  }, [emblaApi, updateControls]);
 
-    emblaApi.on('select', onSelect);
-
-    onSelect();
-  }, [emblaApi]);
-
+  const showControls = scrollSnaps.length > 1;
   return (
     <>
-      <Wrapper>
+      <Wrapper aria-label="Depoimentos de clientes">
         <Embla ref={emblaRef}>
           <EmblaContainer>
-            {depoimentosMock.map(item => (
-              <EmblaSlide key={item.id}>
+            {testimonials.map(testimonial => (
+              <EmblaSlide key={testimonial.id}>
                 <DepoimentosCard
-                  testimonial={item}
+                  testimonial={testimonial}
                   onOpenVideo={setSelectedVideo}
                 />
               </EmblaSlide>
             ))}
           </EmblaContainer>
         </Embla>
-
-        <Navigation>
-          <NavButton onClick={scrollPrev}>
-            ‹
-          </NavButton>
-
-          <Dots>
-            {depoimentosMock.map((_, index) => (
-              <Dot
-                key={index}
-                $active={index === selectedIndex}
-                onClick={() => scrollTo(index)}
-              />
-            ))}
-          </Dots>
-
-          <NavButton onClick={scrollNext}>
-            ›
-          </NavButton>
-        </Navigation>
+        {showControls && (
+          <Navigation aria-label="Controles do carrossel de depoimentos">
+            <NavButton
+              type="button"
+              onClick={() => emblaApi?.scrollPrev()}
+              disabled={!canScrollPrev}
+              aria-label="Ver depoimentos anteriores"
+            >
+              <FiChevronLeft aria-hidden="true" />
+            </NavButton>
+            <Dots>
+              {scrollSnaps.map((_, index) => (
+                <Dot
+                  key={index}
+                  type="button"
+                  $active={index === selectedIndex}
+                  onClick={() => emblaApi?.scrollTo(index)}
+                  aria-label={`Ir para a página ${index + 1} de ${scrollSnaps.length}`}
+                  aria-current={index === selectedIndex ? 'true' : undefined}
+                />
+              ))}
+            </Dots>
+            <NavButton
+              type="button"
+              onClick={() => emblaApi?.scrollNext()}
+              disabled={!canScrollNext}
+              aria-label="Ver próximos depoimentos"
+            >
+              <FiChevronRight aria-hidden="true" />
+            </NavButton>
+          </Navigation>
+        )}
       </Wrapper>
-
       {selectedVideo && (
         <VideoModal
           videoUrl={selectedVideo}

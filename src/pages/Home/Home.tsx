@@ -1,4 +1,3 @@
-import { BusinessPartner } from '@/components/Sections/BusinessPartner/BusinessPartner';
 import { CTASection } from '@/components/Sections/CTASection/CTASection';
 import { Hero } from '@/components/Sections/Hero/hero';
 import { SectionInfo } from '@/components/Sections/SectionInfo/SectionInfo';
@@ -104,8 +103,8 @@ export const Home = () => {
         />
 
         <DepoimentosSection>
-        <Depoimentos />
-      </DepoimentosSection>
+          <Depoimentos />
+        </DepoimentosSection>
 
         {/* <div id="parceiros">
           <BusinessPartner />

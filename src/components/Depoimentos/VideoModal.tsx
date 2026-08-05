@@ -1,52 +1,35 @@
-import { motion } from 'framer-motion';
 import { useEffect } from 'react';
-
 import {
-  Overlay,
-  ModalContent,
   CloseButton,
+  ModalContent,
+  Overlay,
   VideoWrapper,
 } from './VideoModal.styles';
 
-type Props = {
-  videoUrl: string;
-  onClose: () => void;
-};
+type VideoModalProps = { videoUrl: string; onClose: () => void };
 
-export const VideoModal = ({ videoUrl, onClose }: Props) => {
+export const VideoModal = ({ videoUrl, onClose }: VideoModalProps) => {
   useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
     };
-
-    window.addEventListener('keydown', handleEsc);
-
-    return () => {
-      window.removeEventListener('keydown', handleEsc);
-    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
   }, [onClose]);
 
   return (
-    <Overlay
-      as={motion.div}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={onClose}
-    >
+    <Overlay role="presentation" onClick={onClose}>
       <ModalContent
-        as={motion.div}
-        initial={{ y: 20, scale: 0.96, opacity: 0 }}
-        animate={{ y: 0, scale: 1, opacity: 1 }}
-        exit={{ y: 20, scale: 0.96, opacity: 0 }}
-        onClick={e => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Depoimento em vídeo"
+        onClick={event => event.stopPropagation()}
       >
-        <CloseButton onClick={onClose}>✕</CloseButton>
-
+        <CloseButton type="button" onClick={onClose} aria-label="Fechar vídeo">
+          ×
+        </CloseButton>
         <VideoWrapper>
-          <iframe src={videoUrl} title="Depoimento" allowFullScreen />
+          <iframe src={videoUrl} title="Depoimento em vídeo" allowFullScreen />
         </VideoWrapper>
       </ModalContent>
     </Overlay>
