@@ -1,4 +1,4 @@
-import heroImage from '@/assets/images/PagesHero-Email-v3.jpg';
+import heroImage from '@/assets/images/PagesHero-Site.jpg';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
 import {

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 export const Hero = styled.header<{ $image: string }>`
-  min-height: clamp(390px, 43vh, 445px);
+  min-height: 500px;
+  height: clamp(500px, 32vw, 620px);
   padding: 7rem 1.5rem 2.25rem;
 
   background-image:
@@ -22,6 +23,11 @@ export const Hero = styled.header<{ $image: string }>`
   color: #fff;
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    min-height: clamp(390px, 43vh, 445px);
+    height: auto;
+  }
 `;
 export const HeroContent = styled.div`
   width: min(1240px, 100%);

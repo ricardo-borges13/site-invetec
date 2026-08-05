@@ -1,9 +1,7 @@
-import avatar2 from '@/assets/images/Depoimentos/Avatar2.png';
-import avatar3 from '@/assets/images/Depoimentos/Avatar3.png';
-import avatar4 from '@/assets/images/Depoimentos/Avatar4.png';
-import avatar5 from '@/assets/images/Depoimentos/Avatar5.png';
-import avatar6 from '@/assets/images/Depoimentos/Avatar6.png';
-import avatar1 from '@/assets/images/Depoimentos/Heitor.png';
+import avatar2 from '@/assets/images/Depoimentos/Junior.webp';
+import avatar3 from '@/assets/images/Depoimentos/Heitor.webp';
+import avatar4 from '@/assets/images/Depoimentos/Renata.webp';
+import avatar1 from '@/assets/images/Depoimentos/Borges.png';
 
 export type Testimonial = {
   id: string;
@@ -24,62 +22,43 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     id: 'testimonial-01',
-    name: 'Robson Heitor',
-    company: 'Consulter Soluções',
-    role: 'Diretor Comercial',
+    name: 'Borges',
+    company: 'Datron Tecnologia e Locação',
+    role: 'Gerente de TI',
     testimonial:
-      'A INVETEC trouxe mais organização e segurança para nossa operação. Com o INVETEC Mail, melhoramos a comunicação da equipe; o File Server em Nuvem facilitou o acesso e o compartilhamento dos arquivos; e o suporte de TI nos atende com agilidade sempre que precisamos. Hoje temos uma estrutura mais confiável e centralizada para trabalhar.',
+      '“A INVETEC cuida da nossa área de tecnologia desde 2005. Ao longo desses anos, implantou e passou a acompanhar diferentes soluções na empresa, como ERP, e-mail corporativo, servidores em nuvem, infraestrutura e suporte de TI. Essa parceria nos dá mais segurança e tranquilidade para manter a operação funcionando no dia a dia.”',
     avatar: avatar1,
     rating: 5,
   },
   {
     id: 'testimonial-02',
-    name: 'Ariadina Santos',
-    company: 'Catellar Móveis',
-    role: 'Gerente de Marketing',
+    name: 'Júnior Marliere',
+    company: 'JPM Borrachas e Materiais Elétricos',
+    role: 'Gerente Comercial',
     testimonial:
-      'Os maquinários adquiridos melhoraram significativamente nosso processo de produção. Tivemos mais precisão nos cortes e redução no tempo de fabricação.',
+      'O W3ERP trouxe uma mudança importante para a nossa empresa. Conseguimos integrar faturamento, estoque, financeiro e comercial em um único sistema, melhorando o controle das informações e a organização dos processos. Com as soluções e o suporte da INVETEC, nossas operações passaram a fluir de forma mais tranquila no dia a dia.',
     avatar: avatar2,
     rating: 5,
   },
   {
     id: 'testimonial-03',
-    name: 'Marcos Silva',
-    company: 'Itatiaia Móveis',
-    role: 'Gerente Operacional',
+    name: 'Robson Heitor',
+    company: 'Consulter Soluções',
+    role: 'Diretor Comercial',
     testimonial:
-      'A qualidade dos equipamentos e o suporte prestado fizeram toda diferença na nossa operação industrial. Hoje temos mais eficiência e segurança na linha de produção.',
+      'A INVETEC trouxe mais organização e segurança para nossa operação. Com o INVETEC Mail, melhoramos a comunicação da equipe; o File Server em Nuvem facilitou o acesso e o compartilhamento dos arquivos; e o suporte de TI nos atende com agilidade sempre que precisamos. Hoje temos uma estrutura mais confiável e centralizada para trabalhar.',
     avatar: avatar3,
     rating: 5,
   },
   {
     id: 'testimonial-04',
-    name: 'Simone Teixeira',
-    company: 'Modecor',
+    name: 'Renata B. Soares',
+    company: 'Revele Semijoias',
     role: 'Diretora',
     testimonial:
-      'Os equipamentos atenderam perfeitamente às necessidades da nossa fábrica. Conseguimos otimizar processos e aumentar nossa capacidade produtiva.',
+      'A INVETEC desenvolveu nosso site institucional e uma página voltada para conversão de vendas, deixando nossa presença digital mais profissional e organizada. Sempre que precisamos, também contamos com um suporte rápido e próximo.',
     avatar: avatar4,
     rating: 5,
   },
-  {
-    id: 'testimonial-05',
-    name: 'Marcos Silva',
-    company: 'Distripack',
-    role: 'Gerente Operacional',
-    testimonial:
-      'Além da excelente qualidade dos maquinários, o atendimento foi rápido e muito profissional. Tivemos um ótimo retorno no desempenho da produção.',
-    avatar: avatar5,
-    rating: 5,
-  },
-  {
-    id: 'testimonial-06',
-    name: 'Rosânela Maria',
-    company: 'Paropas',
-    role: 'Coordenadora',
-    testimonial:
-      'As soluções fornecidas ajudaram bastante na organização e movimentação de materiais dentro da fábrica. Equipamentos robustos e extremamente confiáveis.',
-    avatar: avatar6,
-    rating: 5,
-  },
+
 ];

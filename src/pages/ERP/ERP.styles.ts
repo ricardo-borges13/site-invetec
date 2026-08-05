@@ -4,7 +4,7 @@ export const Container = styled.div`
   max-width: 1240px;
   box-sizing: border-box;
   margin-inline: auto;
-  padding: 2.5rem 0 5rem;
+  padding: 0rem 0 5rem;
   overflow-x: clip;
 
   @media (max-width: 768px) {
