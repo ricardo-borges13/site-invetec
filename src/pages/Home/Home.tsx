@@ -9,6 +9,8 @@ import { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { servicesData, sobreData } from './Home.data';
 import * as S from './Home.styles';
+import { DepoimentosSection } from '@/components/Depoimentos/DepoimentosSection';
+import { Depoimentos } from '@/components/Depoimentos/Depoimentos';
 
 const imgHero = "/images/BannerPrincipalHero.jpg";
 
@@ -101,9 +103,13 @@ export const Home = () => {
           onClick={handleSecondaryClick}
         />
 
-        <div id="parceiros">
+        <DepoimentosSection>
+        <Depoimentos />
+      </DepoimentosSection>
+
+        {/* <div id="parceiros">
           <BusinessPartner />
-        </div>
+        </div> */}
       </S.HomeWrapper>
     </>
   );
