@@ -8,6 +8,7 @@ export type PageHeroSectionProps = {
   brandContent?: React.ReactNode;
   benefit?: React.ReactNode;
   allowContentOverflow?: boolean;
+  compactMobile?: boolean;
   image: string;
   children?: React.ReactNode;
   heroContent?: React.ReactNode;
@@ -22,6 +23,7 @@ export const PageHeroSection = ({
   brandContent,
   benefit,
   allowContentOverflow,
+  compactMobile,
   image,
   children,
   heroContent,
@@ -32,6 +34,7 @@ export const PageHeroSection = ({
     <main>
       <S.HeroWrapper
         $allowContentOverflow={allowContentOverflow}
+        $compactMobile={compactMobile}
         $image={image}
         as="header"
       >

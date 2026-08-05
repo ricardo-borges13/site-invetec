@@ -1,17 +1,46 @@
 import styled from 'styled-components';
 export const Container = styled.div`
-  width: min(1240px, calc(100% - 2rem));
-  margin: 0 auto;
+  width: 100%;
+  max-width: 1240px;
+  box-sizing: border-box;
+  margin-inline: auto;
   padding: 2.5rem 0 5rem;
+  overflow-x: clip;
+
+  @media (max-width: 768px) {
+    padding: 2rem 16px 3.5rem;
+  }
+
+  @media (min-width: 400px) and (max-width: 768px) {
+    padding-inline: 20px;
+  }
 `;
 export const HeroActions = styled.div`
   display: flex;
+  width: 100%;
+  max-width: 760px;
   justify-content: center;
   gap: 0.8rem;
-  margin-top: 1.5rem;
+  margin: 1.5rem auto 0;
   button {
     min-height: 46px;
     font-size: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 0;
+
+    button {
+      width: 100%;
+      min-width: 0;
+      min-height: 48px;
+      box-sizing: border-box;
+      justify-content: center;
+      white-space: nowrap;
+    }
   }
 `;
 export const HeroSecondary = styled.button`
@@ -30,10 +59,19 @@ export const HeroSecondary = styled.button`
     outline: 3px solid #8fd1ff;
     outline-offset: 3px;
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
 `;
 export const Section = styled.section`
   margin: 3.5rem 0;
   scroll-margin-top: 90px;
+
+  @media (max-width: 768px) {
+    margin: 2.5rem 0;
+  }
 `;
 export const Intro = styled.header`
   max-width: 780px;
@@ -57,6 +95,18 @@ export const Intro = styled.header`
     margin: 0;
     color: #536b83;
     line-height: 1.58;
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 1.25rem;
+    text-align: left;
+    h2 {
+      font-size: clamp(1.5rem, 7vw, 1.75rem);
+      line-height: 1.22;
+      overflow-wrap: anywhere;
+    }
+    p {
+      line-height: 1.6;
+    }
   }
 `;
 export const Signs = styled.div`
@@ -86,6 +136,17 @@ export const Signs = styled.div`
     height: 23px;
     color: #176fb7;
   }
+  @media (max-width: 820px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.65rem;
+    article {
+      min-height: 0;
+      padding: 0.9rem;
+    }
+  }
 `;
 export const Consulting = styled.section`
   display: grid;
@@ -106,6 +167,17 @@ export const Consulting = styled.section`
     margin: 0;
     color: #536b83;
     line-height: 1.58;
+  }
+  @media (max-width: 820px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (max-width: 600px) {
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+    padding: 1.25rem;
+    > div h2 {
+      font-size: clamp(1.5rem, 7vw, 1.75rem);
+    }
   }
 `;
 export const StageGrid = styled.div`
@@ -133,11 +205,21 @@ export const StageGrid = styled.div`
     font-size: 0.9rem;
     line-height: 1.45;
   }
+  @media (max-width: 600px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.65rem;
+    article {
+      padding: 0.9rem;
+    }
+  }
 `;
 export const Comparison = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1rem;
+  @media (max-width: 768px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
 `;
 export const ProductCard = styled.article<{ $featured?: boolean }>`
   display: flex;
@@ -190,6 +272,16 @@ export const ProductCard = styled.article<{ $featured?: boolean }>`
     min-height: 46px;
     font-size: 1rem;
   }
+  @media (max-width: 768px) {
+    min-width: 0;
+    padding: 1.25rem;
+    h3 {
+      font-size: 1.5rem;
+    }
+    li {
+      min-width: 0;
+    }
+  }
 `;
 export const Badge = styled.span`
   display: inline-flex;
@@ -200,6 +292,9 @@ export const Badge = styled.span`
   color: #176fb7;
   font-size: 0.76rem;
   font-weight: 700;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
 `;
 export const Advisory = styled.aside`
   display: grid;
@@ -228,10 +323,27 @@ export const Advisory = styled.aside`
     min-height: 46px;
     font-size: 0.95rem;
   }
+  @media (max-width: 768px) {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+    padding: 1.25rem;
+    > svg {
+      width: 28px;
+      height: 28px;
+    }
+    h2 {
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+    button {
+      width: 100%;
+      min-width: 0;
+    }
+  }
 `;
 export const FormArea = styled.section`
   display: grid;
-  grid-template-columns: 0.42fr 0.58fr;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
   gap: 1.5rem;
   align-items: start;
   margin-top: 4rem;
@@ -251,10 +363,10 @@ export const FormArea = styled.section`
     line-height: 1.55;
   }
   @media (max-width: 850px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     margin-top: 3rem;
-    padding: 1rem;
+    padding: 1.25rem 0 0;
   }
 `;

@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   background: linear-gradient(180deg, #f8fafc, #eef2f7);
   padding: 30px;
   border-radius: 16px;
@@ -11,6 +14,11 @@ export const FormContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
 
   label {
@@ -24,11 +32,27 @@ export const FormContainer = styled.div`
     font-size: 0.9rem;
     opacity: 0.7;
   }
+
+  button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+  @media (max-width: 390px) {
+    padding: 16px;
+  }
 `;
 
 export const FieldGroup = styled.div`
   display: flex;
   gap: 10px;
+
+  > * {
+    min-width: 0;
+  }
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -69,6 +93,7 @@ export const TextArea = styled.textarea`
   border-radius: 8px;
   border: 1px solid #e5e7eb;
   transition: all 0.2s ease;
+  resize: vertical;
 
   &:focus {
     outline: none;
@@ -82,6 +107,7 @@ export const ErrorMessage = styled.span`
   font-size: 0.8rem;
   margin-top: 4px;
   display: block;
+  overflow-wrap: anywhere;
 `;
 
 export const Assunto = styled.div`
@@ -98,6 +124,7 @@ export const Mensagem = styled.div`
 
 export const Field = styled.div`
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   text-align: left;

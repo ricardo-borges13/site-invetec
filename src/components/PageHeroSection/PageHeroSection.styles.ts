@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const HeroWrapper = styled.section<{
   $image: string;
   $allowContentOverflow?: boolean;
+  $compactMobile?: boolean;
 }>`
   position: relative;
   width: 100%;
@@ -24,14 +25,18 @@ export const HeroWrapper = styled.section<{
 
   /* 🔥 MOBILE */
   @media (max-width: 768px) {
-    min-height: 70vh;
-    padding: 100px 20px 80px;
+    min-height: ${({ $compactMobile }) => ($compactMobile ? 'auto' : '70vh')};
+    padding: ${({ $compactMobile }) =>
+      $compactMobile ? '88px 20px 56px' : '100px 20px 80px'};
+    background-position: ${({ $compactMobile }) =>
+      $compactMobile ? 'center' : 'center'};
   }
 
   /* 🔥 MOBILE PEQUENO (360px) */
   @media (max-width: 420px) {
-    min-height: 75vh;
-    padding: 120px 16px 90px;
+    min-height: ${({ $compactMobile }) => ($compactMobile ? 'auto' : '75vh')};
+    padding: ${({ $compactMobile }) =>
+      $compactMobile ? '84px 16px 52px' : '120px 16px 90px'};
   }
 `;
 
