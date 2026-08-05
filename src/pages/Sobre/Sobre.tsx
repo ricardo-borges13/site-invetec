@@ -2,6 +2,7 @@ import heroImage from '@/assets/images/PagesHero-Sobre.jpg';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
+import { useEffect, useState } from 'react';
 import {
   FiBriefcase,
   FiCloud,
@@ -43,8 +44,37 @@ const differentials = [
   ['Tecnologia proporcional à necessidade', 'Não recomendamos complexidade desnecessária. A solução deve fazer sentido para o tamanho, a realidade e os objetivos da empresa.', FiTrendingUp],
 ] as const;
 
-export const Sobre = () => (
-  <>
+type IntroMotionDirections = {
+  copyDirection: 'up' | 'left';
+  panelDirection: 'up' | 'right';
+};
+
+const useIntroMotionDirections = (): IntroMotionDirections => {
+  const [isCompact, setIsCompact] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 800px)').matches,
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 800px)');
+    const updateDirection = () => setIsCompact(mediaQuery.matches);
+
+    updateDirection();
+    mediaQuery.addEventListener('change', updateDirection);
+
+    return () => mediaQuery.removeEventListener('change', updateDirection);
+  }, []);
+
+  return {
+    copyDirection: isCompact ? 'up' : 'left',
+    panelDirection: isCompact ? 'up' : 'right',
+  };
+};
+
+export const Sobre = () => {
+  const { copyDirection, panelDirection } = useIntroMotionDirections();
+
+  return (
+    <>
     <SEO
       title="Sobre a INVETEC | Tecnologia para empresas há mais de 20 anos"
       description="Conheça a INVETEC, empresa especializada em ERP, infraestrutura, cloud, e-mail corporativo, criação de sites e suporte de TI para empresas."
@@ -59,8 +89,8 @@ export const Sobre = () => (
     >
       <S.Container>
         <S.IntroSection>
-          <MotionReveal direction="left"><S.Copy><S.Eyebrow>QUEM É A INVETEC</S.Eyebrow><h2>Tecnologia precisa resolver problemas reais</h2><p>A INVETEC é especializada em soluções de tecnologia para empresas, atuando com sistemas de gestão, infraestrutura, cloud, e-mail corporativo, desenvolvimento web e suporte técnico.</p><p>Nossa atuação combina conhecimento técnico com experiência prática dentro das empresas. Antes de recomendar uma solução, buscamos entender a operação, as dificuldades e os objetivos do negócio.</p><S.Highlight>Investimos tecnologia onde ela realmente gera resultado: mais organização, controle, segurança, produtividade e capacidade de crescimento.</S.Highlight></S.Copy></MotionReveal>
-          <MotionReveal direction="right" delay={0.12}><S.IndicatorPanel>{indicators.map(([title, text, Icon]) => <S.Indicator key={title}><Icon aria-hidden="true" /><div><h3>{title}</h3><p>{text}</p></div></S.Indicator>)}</S.IndicatorPanel></MotionReveal>
+          <MotionReveal direction={copyDirection}><S.Copy><S.Eyebrow>QUEM É A INVETEC</S.Eyebrow><h2>Tecnologia precisa resolver problemas reais</h2><p>A INVETEC é especializada em soluções de tecnologia para empresas, atuando com sistemas de gestão, infraestrutura, cloud, e-mail corporativo, desenvolvimento web e suporte técnico.</p><p>Nossa atuação combina conhecimento técnico com experiência prática dentro das empresas. Antes de recomendar uma solução, buscamos entender a operação, as dificuldades e os objetivos do negócio.</p><S.Highlight>Investimos tecnologia onde ela realmente gera resultado: organização, controle, segurança e crescimento.</S.Highlight></S.Copy></MotionReveal>
+          <MotionReveal direction={panelDirection} delay={0.1}><S.IndicatorPanel>{indicators.map(([title, text, Icon]) => <S.Indicator key={title}><Icon aria-hidden="true" /><div><h3>{title}</h3><p>{text}</p></div></S.Indicator>)}</S.IndicatorPanel></MotionReveal>
         </S.IntroSection>
 
         <S.LightSection>
@@ -91,13 +121,14 @@ export const Sobre = () => (
           </MotionReveal>
         </S.CasesCallout>
 
-        <S.ContentSection>
+        <S.DifferentialsSection>
           <S.SectionHeading><MotionReveal><h2>Por que trabalhar com a INVETEC</h2></MotionReveal></S.SectionHeading>
           <S.DifferentialGrid>{differentials.map(([title, text, Icon], index) => <MotionReveal key={title} delay={index * 0.08}><S.Differential><Icon aria-hidden="true" /><h3>{title}</h3><p>{text}</p></S.Differential></MotionReveal>)}</S.DifferentialGrid>
-        </S.ContentSection>
+        </S.DifferentialsSection>
 
         <MotionReveal><S.CTA><div><h2>Sua empresa precisa de mais organização, segurança ou presença digital?</h2><p>Converse com a INVETEC e entenda quais soluções fazem sentido para o momento da sua empresa.</p></div><S.CTALink to="/contato">Falar com um especialista</S.CTALink></S.CTA></MotionReveal>
       </S.Container>
     </PageHeroSection>
-  </>
-);
+    </>
+  );
+};
