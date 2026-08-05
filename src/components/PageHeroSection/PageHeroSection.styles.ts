@@ -8,7 +8,8 @@ export const HeroWrapper = styled.section<{
   position: relative;
   width: 100%;
   user-select: none;
-  min-height: clamp(400px, 55vh, 500px);
+  min-height: 500px;
+  height: clamp(500px, 32vw, 620px);
 
   background-image: url(${({ $image }) => $image});
   background-size: cover;
@@ -25,6 +26,7 @@ export const HeroWrapper = styled.section<{
 
   /* 🔥 MOBILE */
   @media (max-width: 768px) {
+    height: auto;
     min-height: ${({ $compactMobile }) => ($compactMobile ? 'auto' : '70vh')};
     padding: ${({ $compactMobile }) =>
       $compactMobile ? '88px 20px 56px' : '100px 20px 80px'};

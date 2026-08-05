@@ -1,9 +1,9 @@
-import avatar1 from '@/assets/images/Depoimentos/Avatar1.png';
 import avatar2 from '@/assets/images/Depoimentos/Avatar2.png';
 import avatar3 from '@/assets/images/Depoimentos/Avatar3.png';
 import avatar4 from '@/assets/images/Depoimentos/Avatar4.png';
 import avatar5 from '@/assets/images/Depoimentos/Avatar5.png';
 import avatar6 from '@/assets/images/Depoimentos/Avatar6.png';
+import avatar1 from '@/assets/images/Depoimentos/Heitor.png';
 
 export type Testimonial = {
   id: string;
@@ -24,11 +24,11 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     id: 'testimonial-01',
-    name: 'Elizeu Condé',
-    company: 'JCL Empilhadeiras',
+    name: 'Robson Heitor',
+    company: 'Consulter Soluções',
     role: 'Diretor Comercial',
     testimonial:
-      'Os equipamentos entregues superaram nossas expectativas. As empilhadeiras trouxeram mais agilidade para a movimentação interna e aumentaram muito nossa produtividade.',
+      'A INVETEC trouxe mais organização e segurança para nossa operação. Com o INVETEC Mail, melhoramos a comunicação da equipe; o File Server em Nuvem facilitou o acesso e o compartilhamento dos arquivos; e o suporte de TI nos atende com agilidade sempre que precisamos. Hoje temos uma estrutura mais confiável e centralizada para trabalhar.',
     avatar: avatar1,
     rating: 5,
   },
