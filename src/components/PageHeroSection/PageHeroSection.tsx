@@ -14,6 +14,7 @@ export type PageHeroSectionProps = {
   heroContent?: React.ReactNode;
   textColor?: string;
   overlayOpacity?: number;
+  semanticMain?: boolean;
 };
 
 export const PageHeroSection = ({
@@ -29,9 +30,10 @@ export const PageHeroSection = ({
   heroContent,
   textColor,
   overlayOpacity,
+  semanticMain = true,
 }: PageHeroSectionProps) => {
-  return (
-    <main>
+  const content = (
+    <>
       <S.HeroWrapper
         $allowContentOverflow={allowContentOverflow}
         $compactMobile={compactMobile}
@@ -68,6 +70,8 @@ export const PageHeroSection = ({
       {children && (
         <S.ChildrenContent as="section">{children}</S.ChildrenContent>
       )}
-    </main>
+    </>
   );
+
+  return semanticMain ? <main>{content}</main> : content;
 };

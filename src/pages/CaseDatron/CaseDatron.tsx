@@ -2,222 +2,339 @@ import heroImage from '@/assets/images/PagesHero-Datron.jpg';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
+import type { IconType } from 'react-icons';
+import {
+  FiBarChart2,
+  FiCheck,
+  FiCloud,
+  FiFileText,
+  FiGlobe,
+  FiMail,
+  FiMonitor,
+  FiServer,
+  FiSettings,
+  FiShield,
+  FiTrendingUp,
+} from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import * as S from './CaseDatron.styles';
 
-export const CaseDatron = () => {
-  return (
-    <>
-      <SEO
-        title="Case Datron Tecnologia: soluções integradas | INVETEC"
-        description="Conheça o projeto integrado da Datron Tecnologia, com ERP, infraestrutura, INVETEC Mail, File Server em Nuvem e presença digital."
-        image="https://www.invetec.com.br/images/SEO-Case-Datron.jpg"
-        url="https://www.invetec.com.br/cases/datron"
-      />
-      <PageHeroSection
-        title="Datron Tecnologia: um projeto integrado para a operação"
-        subTitle="ERP, infraestrutura, comunicação corporativa e presença digital aplicados conforme as necessidades da empresa"
-        image={heroImage}
-      >
-        <S.Container>
-          {/* 🔥 CONTEXTO */}
-          <S.Section>
-            <MotionReveal>
-              <h2>Sobre a empresa</h2>
-              <p>
-                A DATRON atua com locação de radiocomunicação, com operação
-                baseada em controle de equipamentos, contratos recorrentes,
-                faturamento e gestão financeira.
-              </p>
-            </MotionReveal>
-          </S.Section>
+type IconItem = { icon: IconType; title: string; text?: string };
 
-          <S.Section>
-            <MotionReveal>
+const solutionAreas: IconItem[] = [
+  { icon: FiBarChart2, title: 'ERP e gestão' },
+  { icon: FiMonitor, title: 'Infraestrutura e TI' },
+  { icon: FiMail, title: 'INVETEC Mail' },
+  { icon: FiCloud, title: 'File Server em Nuvem' },
+  { icon: FiGlobe, title: 'Site, SEO e presença digital' },
+];
+
+const strategicDecisions: IconItem[] = [
+  { icon: FiCheck, title: 'Migrar para uma solução 100% web' },
+  { icon: FiServer, title: 'Eliminar a dependência de servidores locais' },
+  { icon: FiTrendingUp, title: 'Reduzir custos com licenças e infraestrutura' },
+  { icon: FiSettings, title: 'Simplificar manutenção e atualizações' },
+  { icon: FiShield, title: 'Manter o controle operacional da empresa' },
+  { icon: FiGlobe, title: 'Tornar o acesso ao sistema mais flexível' },
+];
+
+const additionalSolutions: IconItem[] = [
+  {
+    icon: FiMonitor,
+    title: 'Infraestrutura e suporte de TI',
+    text: 'Organização do ambiente tecnológico, suporte aos usuários e acompanhamento contínuo para manter a operação estável e segura.',
+  },
+  {
+    icon: FiMail,
+    title: 'INVETEC Mail',
+    text: 'Comunicação corporativa profissional, com mais organização, controle administrativo e suporte direto da INVETEC.',
+  },
+  {
+    icon: FiCloud,
+    title: 'File Server em Nuvem',
+    text: 'Centralização e compartilhamento de arquivos com acesso controlado, disponibilidade e mais organização para a equipe.',
+  },
+  {
+    icon: FiGlobe,
+    title: 'Site institucional e presença digital',
+    text: 'Novo site com páginas por segmento, responsividade, SEO, formulário de orçamento e preparação técnica para integração com Google Ads.',
+  },
+];
+
+const outcomes: IconItem[] = [
+  {
+    icon: FiTrendingUp,
+    title: 'Redução de custos de infraestrutura',
+    text: 'Eliminação da necessidade de novos investimentos em servidores e licenças locais.',
+  },
+  {
+    icon: FiGlobe,
+    title: 'Sistema 100% web',
+    text: 'Acesso ao sistema sem dependência da estrutura interna da empresa.',
+  },
+  {
+    icon: FiSettings,
+    title: 'Menos complexidade operacional',
+    text: 'Atualizações, manutenção e suporte realizados de forma mais simples.',
+  },
+  {
+    icon: FiShield,
+    title: 'Controle mantido',
+    text: 'Contratos, faturamento, financeiro e demais processos continuaram integrados.',
+  },
+  {
+    icon: FiFileText,
+    title: 'Comunicação e arquivos organizados',
+    text: 'INVETEC Mail e File Server em Nuvem organizaram a comunicação e o compartilhamento de documentos.',
+  },
+  {
+    icon: FiMonitor,
+    title: 'Presença digital modernizada',
+    text: 'Novo site, SEO, páginas por segmento e estrutura preparada para geração de contatos.',
+  },
+];
+
+export const CaseDatron = () => (
+  <>
+    <SEO
+      title="Case Datron Tecnologia | ERP, TI, Cloud e Site | INVETEC"
+      description="Conheça o projeto da Datron Tecnologia com ERP, infraestrutura de TI, INVETEC Mail, File Server em Nuvem, site institucional, SEO e preparação para Google Ads."
+      image="https://www.invetec.com.br/images/SEO-Case-Datron.jpg"
+      url="https://www.invetec.com.br/cases/datron"
+    />
+    <PageHeroSection
+      title="Uma parceria tecnológica construída desde 2005"
+      subTitle="ERP, infraestrutura, INVETEC Mail, File Server, site institucional e SEO aplicados de forma contínua à realidade da empresa."
+      image={heroImage}
+      compactMobile
+      overlayOpacity={0.6}
+      brandContent={<S.Eyebrow>Case Datron Tecnologia</S.Eyebrow>}
+    >
+      <S.Container>
+        <S.PartnerGrid>
+          <MotionReveal direction="left">
+            <S.CopyBlock>
+              <h2>Sobre a Datron Tecnologia</h2>
+              <p>
+                A Datron Tecnologia atua com locação de radiocomunicação para
+                empresas, atendendo operações que dependem de controle de
+                equipamentos, contratos recorrentes, faturamento e suporte
+                técnico.
+              </p>
+              <p>
+                Sua operação exige continuidade, organização e acompanhamento
+                constante dos recursos utilizados pelos clientes.
+              </p>
+            </S.CopyBlock>
+          </MotionReveal>
+          <MotionReveal direction="right">
+            <S.PartnerPanel>
+              <span>Desde 2005</span>
+              <h2>Uma parceria tecnológica contínua</h2>
+              <p>
+                A INVETEC acompanha a evolução tecnológica da Datron, atuando
+                em sistemas de gestão, infraestrutura, comunicação corporativa,
+                cloud e presença digital.
+              </p>
+            </S.PartnerPanel>
+          </MotionReveal>
+        </S.PartnerGrid>
+
+        <S.Section>
+          <MotionReveal>
+            <S.SectionHeading>
               <h2>Soluções aplicadas</h2>
-              <p>O projeto reuniu ERP e gestão, infraestrutura de TI, INVETEC Mail, File Server em Nuvem e uma nova presença digital para apoiar diferentes pontos da operação.</p>
-            </MotionReveal>
-          </S.Section>
-
-          <S.Section>
-            <MotionReveal>
-              <h2>O cenário inicial</h2>
-
               <p>
-                A DATRON já utilizava um sistema robusto da TOTVS, com processos
-                bem estruturados e controle eficiente de contratos, faturamento
-                e gestão financeira.
+                O projeto reuniu diferentes soluções da INVETEC para apoiar a
+                gestão, a continuidade da operação, a comunicação e a presença
+                digital da Datron.
               </p>
-
-              <p>
-                👉 Ou seja, o sistema atendia bem — o problema não estava na
-                operação.
-              </p>
-            </MotionReveal>
-          </S.Section>
-
-          <S.Warning>
-            <MotionReveal>
-              <h2>
-                O problema não era o sistema — era o custo e a complexidade
-              </h2>
-
-              <p>
-                Com a necessidade de atualização do sistema da TOTVS, seria
-                necessário investir mais de R$30.000 em infraestrutura,
-                incluindo servidores, licenças de Windows Server e banco de
-                dados.
-              </p>
-
-              <p>
-                Além disso, havia custos contínuos com manutenção, atualizações
-                e necessidade de máquinas mais potentes para rodar o sistema.
-              </p>
-
-              <p>
-                O desafio era manter o nível de controle da operação, mas com
-                uma estrutura mais simples e sustentável.
-              </p>
-            </MotionReveal>
-          </S.Warning>
-          {/* ⚙️ SOLUÇÃO */}
-          <S.Section>
-            <MotionReveal>
-              <h2>A decisão estratégica</h2>
-
-              <ul>
-                <li>✔ Migração para um sistema 100% web</li>
-                <li>✔ Eliminação da necessidade de servidores locais</li>
-                <li>✔ Redução de custos com licenças e infraestrutura</li>
-                <li>✔ Manutenção do nível de controle operacional</li>
-              </ul>
-            </MotionReveal>
-          </S.Section>
-
-          <S.Section>
-            <MotionReveal>
-              <h2>Infraestrutura e TI</h2>
-              <p>A atualização do cenário anterior exigiria investimentos em infraestrutura, servidores e licenças. A solução web reduziu essa dependência e simplificou a operação.</p>
-            </MotionReveal>
-          </S.Section>
-
-          <S.Section>
-            <MotionReveal>
-              <h2>INVETEC Mail e File Server em Nuvem</h2>
-              <p>A Datron utiliza INVETEC Mail e File Server em Nuvem para apoiar a comunicação corporativa e o acesso centralizado ao compartilhamento de arquivos.</p>
-            </MotionReveal>
-          </S.Section>
-
-          <S.Section>
-            <MotionReveal>
-              <h2>Site e presença digital</h2>
-              <p>O novo site institucional foi estruturado com páginas por segmento, organização das informações, responsividade, SEO, formulário de orçamento e preparação para integração com Google Ads.</p>
-            </MotionReveal>
-          </S.Section>
-
-          {/* 📊 RESULTADOS */}
-          <S.Highlight>
-            <MotionReveal>
-                <h2>Melhorias alcançadas</h2>
-              <p>Veja o impacto direto na operação:</p>
-
-              <S.Grid>
-                <S.Card>
-                  <h3>💰 Redução de custos</h3>
-                  <p>Eliminação de investimentos em servidores e licenças.</p>
-                </S.Card>
-
-                <S.Card>
-                  <h3>☁️ Sistema 100% web</h3>
-                  <p>
-                    Acesso de qualquer lugar, sem necessidade de servidor ou
-                    estrutura interna.
-                  </p>
-                </S.Card>
-
-                <S.Card>
-                  <h3>⚙️ Menos complexidade</h3>
-                  <p>Fim da gestão de infraestrutura e atualizações locais.</p>
-                </S.Card>
-
-                <S.Card>
-                  <h3>📊 Controle mantido</h3>
-                  <p>Todas as operações continuaram funcionando normalmente.</p>
-                </S.Card>
-
-                <S.Card>
-                  <h3>📄 Melhor gestão de contratos</h3>
-                  <p>
-                    W3ERP atendeu melhor que o sistema anterior nesse ponto.
-                  </p>
-                </S.Card>
-
-                <S.Card>
-                  <h3>🚀 Mais agilidade</h3>
-                  <p>Atualizações automáticas sem impacto nos usuários.</p>
-                </S.Card>
-
-                <S.Card>
-                  <h3>💾 Backup automatizado</h3>
-                  <p>
-                    Sem necessidade de rotinas manuais ou risco de falhas. Os
-                    dados ficam protegidos automaticamente na nuvem.
-                  </p>
-                </S.Card>
-
-                <S.Card>
-                  <h3>⚡ Suporte mais ágil</h3>
-                  <p>
-                    Fim da dificuldade de atendimento. Suporte rápido, direto e
-                    sem burocracia.
-                  </p>
-                </S.Card>
-              </S.Grid>
-            </MotionReveal>
-          </S.Highlight>
-
-          {/* 🖥️ NA PRÁTICA */}
-          <S.Warning>
-            <MotionReveal>
-              <h2>
-                Nem sempre trocar de sistema é sobre melhorar — às vezes é sobre
-                simplificar a operação
-              </h2>
-
-              <p>
-                A DATRON já tinha um sistema eficiente. A mudança não foi por
-                falha, mas por estratégia.
-              </p>
-
-              <p>
-                Reduzir custos, eliminar complexidade e manter a eficiência da
-                operação.
-              </p>
-
-              <p>
-                E isso só é possível quando a escolha e a implantação são feitas
-                da forma correta.
-              </p>
-            </MotionReveal>
-          </S.Warning>
-
-          {/* 🚀 CTA */}
-          <S.CTA>
-            <S.FormArea>
-              <MotionReveal>
-                <h2>Quer entender qual é a melhor decisão para sua empresa?</h2>
-
-                <p>
-                  Nem sempre a melhor decisão é trocar de sistema — mas quando
-                  é, precisa ser feita da forma certa.
-                </p>
-
-                <Link to="/contato">Entre em contato</Link>
+            </S.SectionHeading>
+          </MotionReveal>
+          <S.SolutionStrip>
+            {solutionAreas.map(({ icon: Icon, title }, index) => (
+              <MotionReveal key={title} delay={index * 0.05}>
+                <S.SolutionItem>
+                  <Icon aria-hidden="true" />
+                  <span>{title}</span>
+                </S.SolutionItem>
               </MotionReveal>
-            </S.FormArea>
-          </S.CTA>
-        </S.Container>
-      </PageHeroSection>
-    </>
-  );
-};
+            ))}
+          </S.SolutionStrip>
+        </S.Section>
+
+        <S.Section>
+          <MotionReveal>
+            <S.CopyBlock>
+              <h2>O cenário inicial</h2>
+              <p>
+                A Datron já utilizava um sistema robusto da TOTVS, com processos
+                estruturados e controle eficiente de contratos, faturamento e
+                gestão financeira.
+              </p>
+              <p>
+                O sistema atendia às necessidades da operação. O problema estava
+                no custo de atualização, na infraestrutura exigida e na
+                complexidade de manutenção.
+              </p>
+            </S.CopyBlock>
+          </MotionReveal>
+        </S.Section>
+
+        <S.Warning>
+          <MotionReveal>
+            <h2>
+              O desafio era reduzir custo e complexidade sem perder controle
+            </h2>
+            <p>
+              A atualização do sistema anterior exigiria investimento superior a
+              R$ 30.000 em infraestrutura, incluindo servidores, licenças de
+              Windows Server e banco de dados.
+            </p>
+            <p>
+              Além do investimento inicial, permaneceriam os custos recorrentes
+              de manutenção, atualização e aquisição de máquinas mais potentes
+              para executar o sistema.
+            </p>
+            <p>
+              A meta era simplificar a estrutura e reduzir custos sem
+              comprometer contratos, faturamento, controle financeiro e os
+              demais processos da operação.
+            </p>
+          </MotionReveal>
+        </S.Warning>
+
+        <S.Section>
+          <MotionReveal>
+            <S.SectionHeading>
+              <h2>A decisão estratégica</h2>
+            </S.SectionHeading>
+          </MotionReveal>
+          <S.DecisionList>
+            {strategicDecisions.map(({ icon: Icon, title }, index) => (
+              <MotionReveal key={title} delay={index * 0.06}>
+                <li>
+                  <Icon aria-hidden="true" />
+                  <span>{title}</span>
+                </li>
+              </MotionReveal>
+            ))}
+          </S.DecisionList>
+        </S.Section>
+
+        <S.ERPSection>
+          <MotionReveal>
+            <S.CopyBlock>
+              <h2>ERP e gestão</h2>
+              <p>
+                A migração para o W3ERP permitiu manter o controle da operação
+                com uma estrutura mais simples, acessível e menos dependente de
+                infraestrutura local.
+              </p>
+            </S.CopyBlock>
+          </MotionReveal>
+          <S.ERPList>
+            <li>Sistema 100% web</li>
+            <li>Acesso sem dependência de servidor local</li>
+            <li>Contratos, faturamento e gestão financeira integrados</li>
+            <li>Atualizações mais simples</li>
+            <li>Menor dependência de infraestrutura interna</li>
+            <li>Suporte mais direto</li>
+          </S.ERPList>
+          <MotionReveal delay={0.1}>
+            <S.ERPNote>
+              <span>Adequação à operação</span>
+              <p>
+                O W3ERP passou a atender melhor as necessidades atuais da
+                Datron na gestão de contratos, mantendo os demais processos
+                integrados.
+              </p>
+            </S.ERPNote>
+          </MotionReveal>
+        </S.ERPSection>
+
+        <S.Section>
+          <MotionReveal>
+            <S.SectionHeading>
+              <h2>Soluções além do ERP</h2>
+              <p>
+                A atuação da INVETEC também envolve a infraestrutura, a
+                comunicação corporativa, os arquivos em nuvem e a presença
+                digital da Datron.
+              </p>
+            </S.SectionHeading>
+          </MotionReveal>
+          <S.SolutionsGrid>
+            {additionalSolutions.map(({ icon: Icon, title, text }, index) => (
+              <MotionReveal key={title} direction="up" delay={index * 0.05}>
+                <S.SolutionCard>
+                  <S.SolutionCardHeader>
+                    <Icon aria-hidden="true" />
+                    <h3>{title}</h3>
+                  </S.SolutionCardHeader>
+                  <p>{text}</p>
+                </S.SolutionCard>
+              </MotionReveal>
+            ))}
+          </S.SolutionsGrid>
+        </S.Section>
+
+        <S.Results>
+          <MotionReveal>
+            <S.SectionHeading>
+              <h2>Melhorias alcançadas</h2>
+              <p>
+                As soluções foram aplicadas para reduzir complexidade, manter o
+                controle da operação e apoiar diferentes áreas da empresa.
+              </p>
+            </S.SectionHeading>
+          </MotionReveal>
+          <S.ResultsGrid>
+            {outcomes.map(({ icon: Icon, title, text }, index) => (
+              <MotionReveal key={title} direction="up" delay={index * 0.05}>
+                <S.ResultCard>
+                  <S.ResultCardHeader>
+                    <Icon aria-hidden="true" />
+                    <h3>{title}</h3>
+                  </S.ResultCardHeader>
+                  <p>{text}</p>
+                </S.ResultCard>
+              </MotionReveal>
+            ))}
+          </S.ResultsGrid>
+        </S.Results>
+
+        <S.Conclusion>
+          <MotionReveal direction="up">
+            <h2>Tecnologia aplicada de forma contínua</h2>
+            <p>
+              O projeto da Datron mostra que a tecnologia gera mais resultado
+              quando sistemas, infraestrutura, comunicação e presença digital
+              evoluem de forma integrada.
+            </p>
+            <p>
+              A atuação da INVETEC não se limitou à implantação de uma solução.
+              O acompanhamento contínuo permite adaptar os recursos conforme a
+              operação e as necessidades da empresa evoluem.
+            </p>
+          </MotionReveal>
+        </S.Conclusion>
+
+        <S.CTA>
+          <MotionReveal direction="up">
+            <div>
+              <h2>
+                Sua empresa também precisa integrar tecnologia e operação?
+              </h2>
+              <p>
+                Converse com a INVETEC para avaliar quais soluções fazem sentido
+                para a realidade da sua empresa.
+              </p>
+            </div>
+            <Link to="/contato">Entre em contato</Link>
+          </MotionReveal>
+        </S.CTA>
+      </S.Container>
+    </PageHeroSection>
+  </>
+);

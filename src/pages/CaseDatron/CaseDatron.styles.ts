@@ -1,124 +1,28 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+export const Eyebrow = styled.span`
+  display: inline-block; margin-bottom: .75rem; color: #e4f3ff; font-size: .875rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; text-shadow: 0 2px 8px rgba(0,0,0,.6);
 `;
-
-export const Section = styled.section`
-  margin-bottom: 3rem;
-  text-align: center;
-
-  h2 {
-    color: ${({ theme }) => theme.colors.black};
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-
-  ul {
-    margin-top: 1rem;
-    display: inline-block;
-    text-align: left;
-
-    li {
-      margin-bottom: 0.5rem;
-      list-style: none;
-    }
-  }
-
-  @media (max-width: 430px) {
-    h2 {
-      font-size: 1.5rem;
-    }
-  }
-`;
-
-export const Highlight = styled.section`
-  background: #f0fdf4;
-  border: 1px solid ${({ theme }) => theme.colors.ctaGreen};
-  border-radius: 16px;
-  padding: 2rem;
-  margin: 3rem 0;
-`;
-
-export const Warning = styled.section`
-  background: #fff7ed;
-  border: 1px solid #fb923c;
-  border-radius: 16px;
-  padding: 2rem;
-  margin: 3rem 0;
-`;
-
-export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-
-  @media (max-width: 900px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-export const Card = styled.div`
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  border: 1px solid ${({ theme }) => theme.colors.primary};
-
-  h3 {
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 0.9rem;
-  }
-`;
-
-export const CTA = styled.section`
-  text-align: center;
-  margin-top: 3rem;
-
-  h2 {
-    margin-bottom: 1rem;
-  }
-`;
-
-export const FormArea = styled.section`
-  margin-top: 3rem;
-  background: #c7dbf3;
-  border-radius: 16px;
-  padding: 2.5rem;
-  text-align: center;
-  border: 2px solid rgba(0, 0, 0, 0.05);
-
-  h2 {
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    margin-bottom: 1.5rem;
-    color: ${({ theme }) => theme.colors.darkGray};
-  }
-
-  a { display: inline-block; background: ${({ theme }) => theme.colors.ctaGreen}; color: white; border-radius: 8px; padding: .8rem 1.25rem; font-weight: 700; text-decoration: none; }
-
-  @media (max-width: 768px) {
-    padding: 1rem; /* 🔥 reduz MUITO o lateral */
-  }
-
-  @media (max-width: 500px) {
-    padding: 0.5rem; /* 🔥 reduz MUITO o lateral */
-  }
-`;
+export const Container = styled.div`max-width: 1120px; margin: 0 auto; padding: 2.5rem 1.5rem 4.5rem; color: ${({ theme }) => theme.colors.darkGray};`;
+const heading = `h2 { margin: 0 0 .85rem; color: #1a2e4a; font-size: clamp(1.65rem, 2.4vw, 2.15rem); line-height: 1.2; } p { margin: 0; line-height: 1.7; }`;
+export const CopyBlock = styled.div`${heading} max-width: 640px; p + p { margin-top: .9rem; }`;
+export const Section = styled.section`margin-top: clamp(3.25rem, 6vw, 5rem); ${heading}`;
+export const PartnerGrid = styled.section`display:grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap:1.5rem; ${heading} & + section{margin-top:clamp(2.25rem,4vw,3.25rem);} @media(max-width:800px){grid-template-columns:1fr; & + section{margin-top:2rem;}}`;
+export const PartnerPanel = styled.div`height:100%; padding:1.75rem; border-radius:14px; background:#f0f6fc; border-left:4px solid #1557b0; span{display:block; margin-bottom:.7rem; color:#1557b0; font-weight:700; font-size:.9rem;}`;
+export const SectionHeading = styled.div`max-width: 760px; ${heading}`;
+export const SolutionStrip = styled.div`display:grid; grid-template-columns:.9fr 1fr .9fr 1.15fr 1.45fr; gap:.7rem; margin-top:1.2rem; @media(max-width:1050px){grid-template-columns:repeat(3,minmax(0,1fr));} @media(max-width:560px){grid-template-columns:repeat(2,minmax(0,1fr));}`;
+export const SolutionItem = styled.div`display:flex; gap:.6rem; align-items:center; min-height:64px; padding:.7rem; background:#f7fafc; border-radius:10px; color:#1a2e4a; font-size:.9rem; font-weight:600; line-height:1.35; svg{flex:0 0 auto; color:#1557b0; font-size:1.4rem;}`;
+export const Warning = styled.section`margin-top:clamp(2rem,3.5vw,3rem); padding:clamp(1.25rem,2.5vw,2rem); background:#fff8f1; border:1px solid #f5c58d; border-radius:14px; ${heading} h2{max-width:800px;} p{max-width:850px;} p + p{margin-top:.8rem;} @media(max-width:600px){margin-top:1.75rem; padding:1.2rem;}`;
+export const DecisionList = styled.ul`display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.85rem 1.5rem; margin:1.35rem 0 0; padding:0; li{display:flex; align-items:flex-start; gap:.7rem; list-style:none; line-height:1.45;} svg{flex:0 0 auto; margin-top:.1rem; color:#1e7f4f; font-size:1.2rem;} @media(max-width:650px){grid-template-columns:1fr;}`;
+export const ERPSection = styled(Section)`margin-top:clamp(2.5rem,4.5vw,3.75rem); @media(max-width:650px){margin-top:2.25rem;}`;
+export const ERPList = styled.ul`display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.7rem 1.75rem; margin:1.35rem 0; padding:0; li{display:flex; gap:.55rem; list-style:none; line-height:1.5;} li::before{content:'✓'; color:#1e7f4f; font-weight:700;} @media(max-width:760px){grid-template-columns:1fr;}`;
+export const ERPNote = styled.div`margin:0; max-width:850px; padding:.85rem 1rem; background:#f4f8fc; border-left:3px solid #1557b0; border-radius:0 8px 8px 0; span{display:block; margin-bottom:.35rem; color:#1557b0; font-size:.8rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;} p{margin:0; line-height:1.6;}`;
+export const SolutionsGrid = styled.div`display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1.5rem; @media(max-width:720px){grid-template-columns:1fr;}`;
+export const SolutionCard = styled.article`padding:1.5rem; background:#fbfcfe; border:1px solid #e4ebf2; border-radius:12px; border-left:3px solid #a8c5df; box-shadow:0 2px 8px rgba(26,46,74,.035); cursor:default; transition:transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease; p{margin:.6rem 0 0; line-height:1.58; font-size:.95rem;} @media(max-width:1440px){padding:1.15rem; p{margin-top:.5rem; line-height:1.55;}} @media(max-width:720px){padding:1rem 1.1rem; p{font-size:.93rem;}} @media(hover:hover) and (pointer:fine){&:hover{transform:translateY(-4px); border-left-color:#1557b0; box-shadow:0 8px 18px rgba(26,46,74,.1);} &:hover svg{transform:scale(1.05) translateY(-1px);}}`;
+export const SolutionCardHeader = styled.div`display:flex; align-items:flex-start; gap:.65rem; svg{flex:0 0 auto; margin-top:.08rem; color:#1557b0; font-size:1.4rem; transition:transform 200ms ease;} h3{margin:0; color:#1a2e4a; font-size:1.1rem; line-height:1.35;} @media(max-width:1440px){gap:.55rem; svg{font-size:1.25rem;} h3{font-size:1.05rem;}} @media(max-width:720px){svg{font-size:1.2rem;}}`;
+export const Results = styled.section`margin-top:clamp(3.25rem,6vw,5rem); padding:clamp(1.35rem,3vw,2.25rem); background:#f5f9fc; border:1px solid #dce8f2; border-radius:14px; ${heading}`;
+export const ResultsGrid = styled.div`display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:1.5rem; @media(max-width:900px){grid-template-columns:repeat(2,minmax(0,1fr));} @media(max-width:560px){grid-template-columns:1fr;}`;
+export const ResultCard = styled.article`padding:1.2rem; background:#fff; border:1px solid #e1eaf1; border-radius:10px; box-shadow:0 2px 8px rgba(26,46,74,.035); cursor:default; transition:transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease; p{margin:.5rem 0 0; font-size:.92rem; line-height:1.53;} @media(max-width:1440px){padding:1rem; p{margin-top:.45rem; line-height:1.5;}} @media(max-width:560px){padding:.95rem 1rem; p{font-size:.9rem;}} @media(hover:hover) and (pointer:fine){&:hover{transform:translateY(-4px); border-color:#b9cfe1; box-shadow:0 8px 18px rgba(26,46,74,.1);} &:hover svg{transform:scale(1.05) translateY(-1px);}}`;
+export const ResultCardHeader = styled.div`display:flex; align-items:flex-start; gap:.6rem; svg{flex:0 0 auto; margin-top:.08rem; color:#1e7f4f; font-size:1.3rem; transition:transform 200ms ease;} h3{margin:0; color:#1a2e4a; font-size:1.05rem; line-height:1.35;} @media(max-width:1440px){gap:.5rem; svg{font-size:1.2rem;} h3{font-size:1rem;}} @media(max-width:560px){svg{font-size:1.15rem;}}`;
+export const Conclusion = styled.section`margin-top:clamp(3.25rem,6vw,5rem); padding:clamp(1.2rem,2.5vw,1.85rem); background:#f7fbff; border:1px solid #d8e7f3; border-radius:14px; ${heading} h2{margin-bottom:.65rem;} p{max-width:780px;} p+p{margin-top:.7rem;} @media(max-width:600px){padding:1.1rem;}`;
+export const CTA = styled.section`margin-top:2rem; padding:clamp(1.35rem,2.75vw,2rem); background:linear-gradient(135deg,#1a2e4a,#1557b0); border:1px solid rgba(255,255,255,.15); border-radius:14px; box-shadow:0 4px 12px rgba(26,46,74,.12); ${heading} > div{display:grid; grid-template-columns:minmax(0,7fr) minmax(160px,3fr); align-items:center; gap:1.5rem;} h2{margin-bottom:.55rem; color:#fff; font-size:clamp(1.35rem,2.1vw,1.8rem);} p{max-width:680px; color:#fff; opacity:.94;} a{justify-self:end; display:inline-flex; justify-content:center; align-items:center; min-height:48px; padding:.75rem 1.2rem; border-radius:8px; background:#25d366; color:#fff; font-weight:700; text-decoration:none; transition:transform 200ms ease,background 200ms ease;} a:focus-visible{outline:3px solid #fff;outline-offset:3px;} @media(hover:hover) and (pointer:fine){a:hover{background:#1ebe57;transform:translateY(-2px);}} @media(max-width:700px){margin-top:1.75rem; padding:1.2rem; >div{grid-template-columns:1fr; gap:1rem;} a{justify-self:start;}}`;
