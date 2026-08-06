@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 type MotionRevealProps = {
   children: React.ReactNode;
@@ -15,6 +15,7 @@ export const MotionReveal = ({
   direction = 'up',
   duration = 0.55,
 }: MotionRevealProps) => {
+  const shouldReduceMotion = useReducedMotion();
   const axis =
     direction === 'left' || direction === 'right'
       ? { x: direction === 'left' ? distance : -distance, y: 0 }
@@ -22,13 +23,13 @@ export const MotionReveal = ({
 
   return (
     <motion.div
-      initial={{ ...axis, opacity: 0 }}
+      initial={shouldReduceMotion ? false : { ...axis, opacity: 0 }}
       whileInView={{ x: 0, y: 0, opacity: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration,
+        duration: shouldReduceMotion ? 0 : duration,
         ease: [0.22, 1, 0.36, 1],
-        delay,
+        delay: shouldReduceMotion ? 0 : delay,
       }}
     >
       {children}

@@ -4,22 +4,28 @@ export const HeroWrapper = styled.section<{
   $image: string;
   $allowContentOverflow?: boolean;
   $compactMobile?: boolean;
+  $backgroundPosition?: string;
+  $topPadding?: string;
+  $startContentOnShortViewport?: boolean;
+  $minHeight?: string;
 }>`
   position: relative;
   width: 100%;
   user-select: none;
-  min-height: 500px;
-  height: clamp(500px, 32vw, 620px);
+  min-height: ${({ $minHeight }) => $minHeight || '500px'};
+  height: ${({ $minHeight }) =>
+    $minHeight ? `clamp(${$minHeight}, 32vw, 620px)` : 'clamp(500px, 32vw, 620px)'};
 
   background-image: url(${({ $image }) => $image});
   background-size: cover;
-  background-position: center;
+  background-position: ${({ $backgroundPosition }) => $backgroundPosition || 'center'};
 
   display: flex;
-  align-items: center;
+  align-items: ${({ $startContentOnShortViewport }) =>
+    $startContentOnShortViewport ? 'flex-start' : 'center'};
   justify-content: center;
 
-  padding: 80px 20px 60px;
+  padding: ${({ $topPadding }) => $topPadding || '80px'} 20px 60px;
 
   overflow: ${({ $allowContentOverflow }) =>
     $allowContentOverflow ? 'visible' : 'hidden'};
@@ -28,8 +34,8 @@ export const HeroWrapper = styled.section<{
   @media (max-width: 768px) {
     height: auto;
     min-height: ${({ $compactMobile }) => ($compactMobile ? 'auto' : '70vh')};
-    padding: ${({ $compactMobile }) =>
-      $compactMobile ? '88px 20px 56px' : '100px 20px 80px'};
+    padding: ${({ $compactMobile, $topPadding }) =>
+      `${$topPadding || ($compactMobile ? '88px' : '100px')} 20px ${$compactMobile ? '56px' : '80px'}`};
     background-position: ${({ $compactMobile }) =>
       $compactMobile ? 'center' : 'center'};
   }
@@ -37,8 +43,8 @@ export const HeroWrapper = styled.section<{
   /* 🔥 MOBILE PEQUENO (360px) */
   @media (max-width: 420px) {
     min-height: ${({ $compactMobile }) => ($compactMobile ? 'auto' : '75vh')};
-    padding: ${({ $compactMobile }) =>
-      $compactMobile ? '84px 16px 52px' : '120px 16px 90px'};
+    padding: ${({ $compactMobile, $topPadding }) =>
+      `${$topPadding || ($compactMobile ? '84px' : '120px')} 16px ${$compactMobile ? '52px' : '90px'}`};
   }
 `;
 
@@ -57,15 +63,22 @@ export const Overlay = styled.div<{ $opacity?: number }>`
   backdrop-filter: none;
 `;
 
-export const Content = styled.div<{ $color?: string }>`
+export const Content = styled.div<{
+  $color?: string;
+  $align?: 'left' | 'center';
+  $maxWidth?: string;
+  $subtleTextShadow?: boolean;
+  $safeTop?: string;
+}>`
   position: relative;
   z-index: 2;
 
-  text-align: center;
+  text-align: ${({ $align }) => $align || 'center'};
   color: ${({ $color }) => $color || '#fff'};
 
   width: 100%;
-  max-width: 1260px;
+  max-width: ${({ $maxWidth }) => $maxWidth || '1260px'};
+  padding-top: ${({ $safeTop }) => $safeTop || '0'};
 
   /* 🔥 MOBILE */
   @media (max-width: 768px) {
@@ -73,8 +86,8 @@ export const Content = styled.div<{ $color?: string }>`
   }
 
   h1 {
-    max-width: 1240px;
-    margin-inline: auto;
+    max-width: ${({ $maxWidth }) => $maxWidth || '1240px'};
+    margin-inline: ${({ $align }) => ($align === 'left' ? '0' : 'auto')};
     font-size: clamp(2.5rem, 3.25vw, 3.25rem);
     font-weight: 700;
     margin-bottom: 12px;
@@ -82,9 +95,8 @@ export const Content = styled.div<{ $color?: string }>`
     line-height: 1.12;
     text-wrap: balance;
 
-    text-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.6),
-      0 0 20px rgba(0, 0, 0, 0.3);
+    text-shadow: ${({ $subtleTextShadow }) =>
+      $subtleTextShadow ? '0 1px 2px rgba(0, 0, 0, 0.22)' : '0 2px 8px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 0, 0, 0.3)'};
 
     /* 🔥 MOBILE */
     @media (max-width: 768px) {
@@ -100,9 +112,8 @@ export const Content = styled.div<{ $color?: string }>`
     opacity: 0.95;
     color: #fff;
 
-    text-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.6),
-      0 0 20px rgba(0, 0, 0, 0.3);
+    text-shadow: ${({ $subtleTextShadow }) =>
+      $subtleTextShadow ? '0 1px 2px rgba(0, 0, 0, 0.28)' : '0 2px 8px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 0, 0, 0.3)'};
 
     /* 🔥 MOBILE */
     @media (max-width: 768px) {

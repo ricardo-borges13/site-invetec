@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import * as S from './PageHeroSection.styles';
 
 export type PageHeroSectionProps = {
@@ -14,6 +14,14 @@ export type PageHeroSectionProps = {
   heroContent?: React.ReactNode;
   textColor?: string;
   overlayOpacity?: number;
+  contentAlign?: 'left' | 'center';
+  backgroundPosition?: string;
+  contentMaxWidth?: string;
+  subtleTextShadow?: boolean;
+  contentSafeTop?: string;
+  heroTopPadding?: string;
+  startContentOnShortViewport?: boolean;
+  heroMinHeight?: string;
   semanticMain?: boolean;
 };
 
@@ -30,23 +38,36 @@ export const PageHeroSection = ({
   heroContent,
   textColor,
   overlayOpacity,
+  contentAlign = 'center',
+  backgroundPosition,
+  contentMaxWidth,
+  subtleTextShadow = false,
+  contentSafeTop,
+  heroTopPadding,
+  startContentOnShortViewport = false,
+  heroMinHeight,
   semanticMain = true,
 }: PageHeroSectionProps) => {
+  const shouldReduceMotion = useReducedMotion();
   const content = (
     <>
       <S.HeroWrapper
         $allowContentOverflow={allowContentOverflow}
         $compactMobile={compactMobile}
+        $backgroundPosition={backgroundPosition}
+        $topPadding={heroTopPadding}
+        $startContentOnShortViewport={startContentOnShortViewport}
+        $minHeight={heroMinHeight}
         $image={image}
         as="header"
       >
         <S.Overlay $opacity={overlayOpacity} />
 
-        <S.Content $color={textColor}>
+        <S.Content $align={contentAlign} $color={textColor} $maxWidth={contentMaxWidth} $subtleTextShadow={subtleTextShadow} $safeTop={contentSafeTop}>
           <motion.div
-            initial={{ y: 40, opacity: 0 }}
+            initial={shouldReduceMotion ? false : { y: 28, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.55 }}
           >
             {brandContent}
             <h1>{title}</h1>
@@ -55,9 +76,9 @@ export const PageHeroSection = ({
 
           {subTitle && (
             <motion.div
-              initial={{ y: 40, opacity: 0 }}
+              initial={shouldReduceMotion ? false : { y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              transition={{ delay: shouldReduceMotion ? 0 : 0.15, duration: 0.55 }}
             >
               <S.Subtitle $maxWidth={subTitleMaxWidth}>{subTitle}</S.Subtitle>
             </motion.div>
