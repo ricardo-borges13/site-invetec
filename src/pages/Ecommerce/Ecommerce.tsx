@@ -11,206 +11,314 @@ import { SEO } from '@/components/SEO/Seo';
 import { Carousel } from 'react-bootstrap';
 import * as S from './Ecommerce.styles';
 
+const benefits = [
+  {
+    title: 'Loja responsiva',
+    description:
+      'Experiência adequada para celular, tablet e computador, sem comprometer a navegação.',
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="7" y="2" width="10" height="20" rx="2" />
+        <path d="M10 18h4" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Operação integrada',
+    description:
+      'Organize produtos, pedidos, pagamentos e opções de entrega em uma única plataforma.',
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 7h16v10H4z" />
+        <path d="M4 10h16M8 14h3" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Estrutura personalizável',
+    description:
+      'Configure a loja de acordo com a identidade visual e as necessidades da sua empresa.',
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3a9 9 0 1 0 9 9c0-1.1-.9-2-2-2h-2.2a2 2 0 0 1-2-2V5c0-1.1-.9-2-2-2Z" />
+        <circle cx="7.5" cy="11.5" r="1" />
+        <circle cx="10" cy="7.5" r="1" />
+        <circle cx="7.5" cy="15.5" r="1" />
+      </svg>
+    ),
+  },
+];
+
+const platformFeatures = [
+  {
+    title: 'Plataforma estável e segura',
+    description: 'Base profissional para manter a operação disponível e protegida.',
+  },
+  {
+    title: 'Layout responsivo',
+    description: 'Navegação consistente em diferentes tamanhos de tela.',
+  },
+  {
+    title: 'Pagamentos e fretes',
+    description: 'Recursos para configurar meios de pagamento e opções de entrega.',
+  },
+  {
+    title: 'Estrutura para crescer',
+    description: 'Uma solução preparada para evoluir junto com a operação da empresa.',
+  },
+];
+
+const implementationItems = [
+  'Configuração inicial da loja',
+  'Configuração dos meios de pagamento',
+  'Regras e opções de frete',
+  'Apoio no cadastro dos primeiros produtos',
+  'Orientação para o início da operação',
+];
+
+const stores = [
+  {
+    image: image1,
+    alt: 'Exemplo de loja virtual do segmento de bebidas',
+    label: 'Bebidas',
+  },
+  {
+    image: image2,
+    alt: 'Exemplo de loja virtual do segmento de vestuário',
+    label: 'Vestuário',
+  },
+  {
+    image: image3,
+    alt: 'Exemplo de loja virtual do segmento de joias',
+    label: 'Joias',
+  },
+  {
+    image: image4,
+    alt: 'Exemplo de loja virtual do segmento de moda',
+    label: 'Moda',
+  },
+  {
+    image: image5,
+    alt: 'Exemplo de loja virtual do segmento de alimentos',
+    label: 'Alimentos',
+  },
+];
+
 export const Ecommerce = () => {
+  const openExternalUrl = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   const handleStart = () => {
-    window.open('https://id.moovin.app/register?reseller=invetec', '_blank');
+    openExternalUrl('https://id.moovin.app/register?reseller=invetec');
   };
 
   const handleHelp = () => {
     const phone = '5531997101336';
-
     const message = encodeURIComponent(
-      'Olá, quero ajuda para montar minha loja virtual e começar a vender online.'
+      'Olá, quero estruturar uma loja virtual para minha empresa e gostaria de conversar sobre a implantação.'
     );
 
-    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+    openExternalUrl(`https://wa.me/${phone}?text=${message}`);
   };
 
   return (
     <>
       <SEO
-        title="Criação de Loja Virtual para Vender Online | E-commerce Profissional | Invetec"
-        description="Monte sua loja virtual com estrutura profissional e comece a vender online de verdade. Plataforma completa, integração com pagamentos e suporte para acelerar seus resultados."
+        title="Criação de Loja Virtual Profissional | E-commerce para Empresas | INVETEC"
+        description="Estruture uma loja virtual profissional com tecnologia Moovin, implantação orientada, pagamentos, frete e suporte da INVETEC para começar a vender online."
         image="https://www.invetec.com.br/images/SEO-E-commerce.jpg"
         url="https://www.invetec.com.br/servicos/e-commerce"
       />
+
       <PageHeroSection
-        title="Venda todos os dias com uma loja virtual profissional"
-        subTitle="Plataforma completa + acompanhamento para você vender online com segurança"
+        title="Loja virtual profissional para vender e crescer online"
+        subTitle="Plataforma completa, implantação orientada e estrutura integrada para sua empresa operar vendas pela internet."
         image={heroImage}
       >
         <S.Container>
-          {/* 🔥 INTRO */}
-          <S.Section>
+          <S.IntroSection aria-labelledby="ecommerce-intro-title">
             <MotionReveal>
-              <h2>Venda seus produtos pela internet de forma profissional</h2>
-              <p>
-                Ter uma loja virtual hoje não é mais diferencial — é
-                necessidade.
-              </p>
-
-              <p>
-                Com a plataforma certa, você consegue vender 24h por dia,
-                alcançar novos clientes e expandir seu negócio.
-              </p>
-            </MotionReveal>
-          </S.Section>
-
-          <S.Highlight>
-            <MotionReveal>
-              <h2>Uma plataforma pronta para vender de verdade</h2>
-
-              <p>
-                Você não precisa começar do zero — com a Moovin, você já começa
-                com uma estrutura profissional, pronta para crescer, integrar e
-                vender com segurança.
-              </p>
-
-              <ul>
-                <li>✔ Plataforma estável e profissional</li>
-                <li>✔ Alta performance e segurança</li>
-                <li>✔ Personalização completa</li>
-                <li>✔ Estrutura pronta para crescimento</li>
-              </ul>
-            </MotionReveal>
-          </S.Highlight>
-
-          {/* ⚡ BENEFÍCIOS */}
-          <S.Section>
-            <S.Grid>
-              <MotionReveal>
-                <S.Card>
-                  <h3>🛒 Estrutura pronta para vender</h3>
-                  <p>
-                    Você já começa com uma loja preparada para receber pedidos e
-                    escalar.
-                  </p>
-                </S.Card>
-              </MotionReveal>
-
-              <MotionReveal delay={0.1}>
-                <S.Card>
-                  <h3>📱 Venda pelo celular</h3>
-                  <p>
-                    A maioria das compras acontece no mobile — sua loja funciona
-                    perfeitamente.
-                  </p>
-                </S.Card>
-              </MotionReveal>
-
-              <MotionReveal delay={0.2}>
-                <S.Card>
-                  <h3>💳 Tudo integrado</h3>
-                  <p>Pagamentos, frete e pedidos organizados em um só lugar.</p>
-                </S.Card>
-              </MotionReveal>
-            </S.Grid>
-          </S.Section>
-
-          <S.Section>
-            <MotionReveal>
-              <h2>Veja exemplos de lojas na prática</h2>
-              <S.CarouselWrapper>
-                <Carousel interval={3000} controls indicators>
-                  <Carousel.Item>
-                    <img
-                      src={image1}
-                      alt="Exemplo de loja virtual de bebidas"
-                      width={720}
-                      height={1150}
-                    />
-                  </Carousel.Item>
-
-                  <Carousel.Item>
-                    <img
-                      src={image2}
-                      alt="Exemplo de loja virtual de roupas"
-                      width={720}
-                      height={1150}
-                    />
-                  </Carousel.Item>
-
-                  <Carousel.Item>
-                    <img
-                      src={image3}
-                      alt="Exemplo de loja virtual de joias"
-                      width={720}
-                      height={1150}
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      src={image4}
-                      alt="Exemplo de loja virtual de moda"
-                      width={720}
-                      height={1150}
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      src={image5}
-                      alt="Exemplo de loja virtual de alimentos"
-                      width={720}
-                      height={1150}
-                    />
-                  </Carousel.Item>
-                </Carousel>
-              </S.CarouselWrapper>
-            </MotionReveal>
-          </S.Section>
-
-          {/* 💎 DIFERENCIAL */}
-          <S.Highlight>
-            <MotionReveal>
-              <h2>
-                Você pode montar sozinho — ou evitar erros e acelerar resultados
+              <S.Eyebrow>E-COMMERCE PARA EMPRESAS</S.Eyebrow>
+              <h2 id="ecommerce-intro-title">
+                Estruture uma operação de vendas online adequada ao seu negócio
               </h2>
-
               <p>
-                A plataforma permite que você crie sua loja por conta própria.
+                Uma loja virtual profissional reúne catálogo, pedidos,
+                pagamentos e frete em um ambiente preparado para atender seus
+                clientes em diferentes dispositivos.
               </p>
-
               <p>
-                Mas sem orientação, é comum perder tempo, configurar errado e
-                não gerar vendas.
+                A INVETEC auxilia na implantação e configuração da plataforma
+                para que sua empresa comece com uma base organizada e pronta
+                para evoluir.
               </p>
-
-              <p>
-                Com minha ajuda, você já começa com tudo estruturado para
-                vender.
-              </p>
-
-              <ul>
-                <li>✔ Criação da loja</li>
-                <li>✔ Configuração de pagamentos</li>
-                <li>✔ Configuração de frete</li>
-                <li>✔ Cadastro inicial de produtos</li>
-                <li>✔ Orientação para começar a vender</li>
-              </ul>
 
               <S.ButtonGroup>
                 <CustomButton variant="cta" onClick={handleHelp}>
-                  Quero ajuda na implantação
+                  Solicitar uma proposta
+                </CustomButton>
+                <CustomButton variant="secondary" onClick={handleStart}>
+                  Testar grátis
                 </CustomButton>
               </S.ButtonGroup>
             </MotionReveal>
-          </S.Highlight>
+          </S.IntroSection>
 
-          {/* 🚀 CTA FINAL */}
-          <S.CTA>
+          <S.BenefitsSection aria-labelledby="benefits-title">
             <MotionReveal>
-              <h2>Comece agora sua loja virtual</h2>
+              <S.SectionHeader>
+                <S.Eyebrow>ESTRUTURA PARA OPERAR</S.Eyebrow>
+                <h2 id="benefits-title">
+                  Recursos essenciais para uma loja profissional
+                </h2>
+                <p>
+                  Uma base organizada para apresentar produtos, receber pedidos
+                  e administrar a rotina de vendas online.
+                </p>
+              </S.SectionHeader>
+            </MotionReveal>
 
+            <S.BenefitsGrid>
+              {benefits.map((benefit, index) => (
+                <MotionReveal key={benefit.title} delay={index * 0.1}>
+                  <S.BenefitCard>
+                    <S.IconWrapper>{benefit.icon}</S.IconWrapper>
+                    <div>
+                      <h3>{benefit.title}</h3>
+                      <p>{benefit.description}</p>
+                    </div>
+                  </S.BenefitCard>
+                </MotionReveal>
+              ))}
+            </S.BenefitsGrid>
+          </S.BenefitsSection>
+
+          <S.PlatformSection aria-labelledby="platform-title">
+            <MotionReveal>
+              <S.PlatformContent>
+                <S.PlatformIntro>
+                  <S.Eyebrow>TECNOLOGIA MOOVIN</S.Eyebrow>
+                  <h2 id="platform-title">
+                    Uma plataforma pronta para implantação e crescimento
+                  </h2>
+                  <p>
+                    A INVETEC trabalha com a tecnologia Moovin para oferecer uma
+                    estrutura profissional de e-commerce, preparada para
+                    personalização, integrações e evolução da operação.
+                  </p>
+                </S.PlatformIntro>
+
+                <S.FeatureGrid>
+                  {platformFeatures.map((feature) => (
+                    <S.FeatureItem key={feature.title}>
+                      <S.CheckIcon aria-hidden="true">✓</S.CheckIcon>
+                      <div>
+                        <h3>{feature.title}</h3>
+                        <p>{feature.description}</p>
+                      </div>
+                    </S.FeatureItem>
+                  ))}
+                </S.FeatureGrid>
+              </S.PlatformContent>
+            </MotionReveal>
+          </S.PlatformSection>
+
+          <S.ShowcaseSection aria-labelledby="showcase-title">
+            <MotionReveal>
+              <S.SectionHeader>
+                <S.Eyebrow>EXEMPLOS DA PLATAFORMA</S.Eyebrow>
+                <h2 id="showcase-title">
+                  Veja aplicações de lojas virtuais em diferentes segmentos
+                </h2>
+                <p>
+                  As telas abaixo demonstram possibilidades de apresentação e
+                  organização de produtos dentro da plataforma.
+                </p>
+              </S.SectionHeader>
+
+              <S.CarouselWrapper>
+                <Carousel
+                  interval={4500}
+                  controls
+                  indicators
+                  pause="hover"
+                  touch
+                  aria-label="Exemplos de lojas virtuais"
+                >
+                  {stores.map((store) => (
+                    <Carousel.Item key={store.label}>
+                      <S.StorePreview>
+                        <S.BrowserBar aria-hidden="true">
+                          <span />
+                          <span />
+                          <span />
+                        </S.BrowserBar>
+                        <img src={store.image} alt={store.alt} loading="lazy" />
+                      </S.StorePreview>
+                      <S.StoreLabel>{store.label}</S.StoreLabel>
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+              </S.CarouselWrapper>
+            </MotionReveal>
+          </S.ShowcaseSection>
+
+          <S.ImplementationSection aria-labelledby="implementation-title">
+            <MotionReveal>
+              <S.ImplementationGrid>
+                <S.ImplementationContent>
+                  <S.Eyebrow>IMPLANTAÇÃO INVETEC</S.Eyebrow>
+                  <h2 id="implementation-title">
+                    Comece com uma estrutura configurada e mais segurança na
+                    operação
+                  </h2>
+                  <p>
+                    A plataforma permite diferentes níveis de configuração.
+                    Para reduzir retrabalho e organizar a etapa inicial, a
+                    INVETEC pode apoiar sua empresa na implantação da loja.
+                  </p>
+
+                  <S.ButtonGroup $align="left">
+                    <CustomButton variant="cta" onClick={handleHelp}>
+                      Falar sobre a implantação
+                    </CustomButton>
+                  </S.ButtonGroup>
+                </S.ImplementationContent>
+
+                <S.ImplementationList>
+                  {implementationItems.map((item) => (
+                    <li key={item}>
+                      <S.CheckIcon aria-hidden="true">✓</S.CheckIcon>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </S.ImplementationList>
+              </S.ImplementationGrid>
+            </MotionReveal>
+          </S.ImplementationSection>
+
+          <S.FinalCTA aria-labelledby="final-cta-title">
+            <MotionReveal>
+              <S.Eyebrow>PRÓXIMO PASSO</S.Eyebrow>
+              <h2 id="final-cta-title">
+                Quer estruturar uma loja virtual para sua empresa?
+              </h2>
               <p>
-                Dê o primeiro passo para vender online com uma estrutura
-                profissional.
+                Converse com a INVETEC para avaliar a plataforma, a implantação
+                e as configurações necessárias para a sua operação.
               </p>
 
-              <CustomButton variant="cta" onClick={handleStart}>
-                Quero testar grátis
-              </CustomButton>
+              <S.ButtonGroup>
+                <CustomButton variant="cta" onClick={handleHelp}>
+                  Solicitar uma proposta
+                </CustomButton>
+                <CustomButton variant="secondary" onClick={handleStart}>
+                  Testar grátis
+                </CustomButton>
+              </S.ButtonGroup>
             </MotionReveal>
-          </S.CTA>
+          </S.FinalCTA>
         </S.Container>
       </PageHeroSection>
     </>

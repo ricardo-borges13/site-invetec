@@ -10,6 +10,7 @@ import { servicesData, sobreData } from './Home.data';
 import * as S from './Home.styles';
 import { DepoimentosSection } from '@/components/Depoimentos/DepoimentosSection';
 import { Depoimentos } from '@/components/Depoimentos/Depoimentos';
+import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 
 const imgHero = "/images/BannerPrincipalHero.jpg";
 
@@ -71,16 +72,15 @@ export const Home = () => {
         <SectionInfo {...sobreData} />
 
         <div id="servicos">
-          <ServiceSection title="Nossos Serviços">
-            {servicesData.map(service => (
-              <CardService
-                key={service.title}
-                image={service.image}
-                title={service.title}
-                subtitle={service.subtitle}
-                path={service.path}
-                badge={service.badge}
-              />
+          <ServiceSection
+            eyebrow="Soluções para empresas"
+            title="Nossos Serviços"
+            description="A INVETEC oferece soluções práticas em tecnologia, presença digital, operação, cloud e suporte para impulsionar o crescimento da sua empresa."
+          >
+            {servicesData.map((service, index) => (
+              <MotionReveal key={service.title} direction="up" distance={18} delay={index * 0.05}>
+                <CardService {...service} />
+              </MotionReveal>
             ))}
           </ServiceSection>
         </div>
