@@ -464,12 +464,14 @@ export const Cloud = () => {
         image="https://www.invetec.com.br/images/SEO-Cloud.jpg"
         url="https://www.invetec.com.br/servicos/cloud"
       />
+      <S.CloudHero>
       <PageHeroSection
         image={heroImage}
         compactMobile
         overlayOpacity={0.62}
         contentAlign="left"
-        heroTopPadding="clamp(122px, 9vw, 140px)"
+        heroTopPadding="clamp(118px, 8.5vw, 136px)"
+        heroMinHeight="460px"
         brandContent={<S.Eyebrow>SOLUÇÕES EM NUVEM</S.Eyebrow>}
         title="Cloud para organizar e proteger os dados da sua empresa"
         subTitle="Centralize os arquivos da sua empresa, facilite o acesso da equipe e mantenha cópias protegidas contra falhas, perdas e imprevistos."
@@ -491,7 +493,7 @@ export const Cloud = () => {
           </S.HeroActions>
         }
       >
-        <S.Page onClick={handleHeroSecondary}>
+        <S.ResponsivePage onClick={handleHeroSecondary}>
           <ChoiceCards />
           <ScenarioSection />
           <DetailedSolutionSections onContact={scrollToContact} />
@@ -526,8 +528,9 @@ export const Cloud = () => {
             </div>
             <FormContact variant="cloud" serviceInterest={serviceInterest} onServiceInterestChange={setServiceInterest} />
           </S.Contact>
-        </S.Page>
+        </S.ResponsivePage>
       </PageHeroSection>
+      </S.CloudHero>
     </>
   );
 };
