@@ -20,6 +20,7 @@ export const menuItems = [
         title: 'E-commerce',
         path: '/servicos/e-commerce',
       },
+      { title: 'Arquivos e Backup em Nuvem', path: '/servicos/cloud' },
       { title: 'Gestão e Suporte de TI', path: '/servicos/suporte-ti' },
       {
         title: 'Ferramentas Úteis',

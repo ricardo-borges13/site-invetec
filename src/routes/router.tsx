@@ -41,6 +41,9 @@ const Ecommerce = lazy(() =>
     default: module.Ecommerce,
   }))
 );
+const Cloud = lazy(() =>
+  import('@/pages/Cloud/Cloud').then(module => ({ default: module.Cloud }))
+);
 const W3ERP = lazy(() =>
   import('@/pages/W3ERP/W3ERP').then(module => ({ default: module.W3ERP }))
 );
@@ -89,6 +92,7 @@ export const router = createBrowserRouter([
       { path: '/servicos/criacao-de-sites', element: <Site /> },
       { path: '/servicos/suporte-ti', element: <SuporteTI /> },
       { path: '/servicos/e-commerce', element: <Ecommerce /> },
+      { path: '/servicos/cloud', element: <Cloud /> },
       { path: '/servicos/ferramentas-uteis', element: <FerramentasUteis /> },
       { path: '/servicos/ferramentas-uteis/pro-rata', element: <ProRata /> },
       {

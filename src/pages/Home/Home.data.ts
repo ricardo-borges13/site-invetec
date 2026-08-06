@@ -1,5 +1,5 @@
 import ecommerce from '@/assets/images/Card-E-commerce.jpg';
-import cloud from '@/assets/images/Card-Cloud.png';
+import cloud from '@/assets/images/Cloud-FileServer.webp';
 import email from '@/assets/images/Card-E-mail.jpg';
 import erpImg from '@/assets/images/Card-W3.jpg';
 import web from '@/assets/images/Card-Web.jpg';
