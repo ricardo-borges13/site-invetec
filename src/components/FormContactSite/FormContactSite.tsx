@@ -17,6 +17,16 @@ type FormInputs = {
   descricao: string;
 };
 
+const normalizeWebsiteUrl = (value?: string) => {
+  const trimmedValue = value?.trim() ?? '';
+
+  if (!trimmedValue || /^https?:\/\//i.test(trimmedValue)) {
+    return trimmedValue;
+  }
+
+  return `https://${trimmedValue}`;
+};
+
 export const FormContactSite = () => {
   const {
     register,
@@ -112,7 +122,7 @@ export const FormContactSite = () => {
               aria-required="true"
               aria-invalid={Boolean(errors.nome)}
               aria-describedby={errors.nome ? 'site-nome-erro' : undefined}
-              {...register('nome', { required: 'O nome e obrigatorio.' })}
+              {...register('nome', { required: 'O nome e obrigatório.' })}
             />
             {errors.nome && (
               <S.ErrorMessage id="site-nome-erro" role="alert">
@@ -129,7 +139,7 @@ export const FormContactSite = () => {
               aria-required="true"
               aria-invalid={Boolean(errors.empresa)}
               aria-describedby={errors.empresa ? 'site-empresa-erro' : undefined}
-              {...register('empresa', { required: 'A empresa e obrigatoria.' })}
+              {...register('empresa', { required: 'A empresa e obrigatória.' })}
             />
             {errors.empresa && (
               <S.ErrorMessage id="site-empresa-erro" role="alert">
@@ -149,7 +159,7 @@ export const FormContactSite = () => {
               aria-invalid={Boolean(errors.telefone)}
               aria-describedby={errors.telefone ? 'site-telefone-erro' : undefined}
               {...register('telefone', {
-                required: 'O telefone e obrigatorio.',
+                required: 'O telefone e obrigatório.',
               })}
             />
             {errors.telefone && (
@@ -169,10 +179,10 @@ export const FormContactSite = () => {
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? 'site-email-erro' : undefined}
               {...register('email', {
-                required: 'O e-mail e obrigatorio.',
+                required: 'O e-mail e obrigatório.',
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: 'E-mail invalido.',
+                  message: 'E-mail inválido.',
                 },
               })}
             />
@@ -188,10 +198,10 @@ export const FormContactSite = () => {
           <S.Field>
             <label htmlFor="site-objetivo">Qual o objetivo principal do site?</label>
             <S.Select id="site-objetivo" {...register('objetivo')}>
-              <option>Selecione uma opcao</option>
+              <option>Selecione uma opção</option>
               <option>Gerar contatos</option>
               <option>Apresentar a empresa</option>
-              <option>Mostrar portfolio ou servicos</option>
+              <option>Mostrar portfólio ou serviços</option>
               <option>Fortalecer a marca</option>
               <option>Ainda estou definindo</option>
             </S.Select>
@@ -224,16 +234,22 @@ export const FormContactSite = () => {
             <label htmlFor="site-website-url">Qual é o endereço do site atual?</label>
             <S.Input
               id="site-website-url"
-              type="url"
+              type="text"
+              inputMode="url"
               placeholder="https://www.suaempresa.com.br"
               aria-required="true"
               aria-invalid={Boolean(errors.websiteUrl)}
               aria-describedby={errors.websiteUrl ? 'site-website-url-erro' : 'site-website-url-ajuda'}
               {...register('websiteUrl', {
                 required: 'Informe o endereço do site atual.',
-                pattern: {
-                  value: /^https?:\/\/\S+$/i,
-                  message: 'Informe uma URL válida, começando com http:// ou https://.',
+                setValueAs: normalizeWebsiteUrl,
+                validate: value => {
+                  try {
+                    new URL(normalizeWebsiteUrl(value));
+                    return true;
+                  } catch {
+                    return 'Informe um endereço de site válido.';
+                  }
                 },
               })}
             />
@@ -249,26 +265,26 @@ export const FormContactSite = () => {
         )}
 
         <S.Field>
-          <label htmlFor="site-referencia">Tem alguma referencia?</label>
+          <label htmlFor="site-referencia">Tem alguma referência?</label>
           <S.TextArea
             id="site-referencia"
             rows={2}
-            placeholder="Pode ser um site que voce goste, um concorrente ou alguma ideia de estrutura."
+            placeholder="Pode ser um site que você goste, um concorrente ou alguma ideia de estrutura."
             {...register('referencia')}
           />
         </S.Field>
 
         <S.Field>
-          <label htmlFor="site-descricao">Como voce imagina o site ideal para sua empresa?</label>
+          <label htmlFor="site-descricao">Como você imagina o site ideal para sua empresa?</label>
           <S.TextArea
             id="site-descricao"
             rows={3}
             aria-required="true"
             aria-invalid={Boolean(errors.descricao)}
             aria-describedby={errors.descricao ? 'site-descricao-erro' : undefined}
-            placeholder="Ex: quero um site mais profissional, que explique melhor meus servicos e gere mais contatos."
+            placeholder="Ex: quero um site mais profissional, que explique melhor meus serviços e gere mais contatos."
             {...register('descricao', {
-              required: 'Descreva brevemente o que voce precisa.',
+              required: 'Descreva brevemente o que você precisa.',
               minLength: {
                 value: 8,
                 message: 'Escreva pelo menos 8 caracteres.',

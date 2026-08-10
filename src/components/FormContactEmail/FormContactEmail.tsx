@@ -98,7 +98,7 @@ export const FormContactEmail = () => {
               aria-required="true"
               aria-invalid={Boolean(errors.nome)}
               aria-describedby={errors.nome ? 'email-nome-erro' : undefined}
-              {...register('nome', { required: 'O nome e obrigatorio.' })}
+              {...register('nome', { required: 'O nome e obrigatório.' })}
             />
             {errors.nome && (
               <S.ErrorMessage id="email-nome-erro" role="alert">
@@ -116,7 +116,7 @@ export const FormContactEmail = () => {
               aria-required="true"
               aria-invalid={Boolean(errors.empresa)}
               aria-describedby={errors.empresa ? 'email-empresa-erro' : undefined}
-              {...register('empresa', { required: 'A empresa e obrigatoria.' })}
+              {...register('empresa', { required: 'A empresa e obrigatória.' })}
             />
             {errors.empresa && (
               <S.ErrorMessage id="email-empresa-erro" role="alert">
@@ -139,10 +139,10 @@ export const FormContactEmail = () => {
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? 'email-email-erro' : undefined}
               {...register('email', {
-                required: 'O e-mail e obrigatorio.',
+                required: 'O e-mail e obrigatório.',
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: 'E-mail invalido.',
+                  message: 'E-mail inválido.',
                 },
               })}
             />
