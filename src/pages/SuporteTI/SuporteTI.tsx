@@ -315,7 +315,7 @@ export const SuporteTI = () => {
   };
   const onSubmitReal = async (data: FormData) => {
     try {
-      const r = await fetch('https://formspree.io/f/xrpbgdgp', {
+      const r = await fetch('https://formspree.io/f/xrpgbgqp', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
