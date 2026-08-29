@@ -35,7 +35,7 @@ export const projects: Project[] = [
     description:
       'Site institucional desenvolvido para apresentar as soluções de radiocomunicação da Datron, fortalecer sua presença digital e facilitar a solicitação de orçamentos por empresas de todo o Brasil.',
     image: imageDatron,
-    url: 'https://datron.invetec.com.br/',
+    url: 'https://datrontecnologia.com.br/',
     highlights: [
       'Arquitetura institucional',
       'Responsividade',

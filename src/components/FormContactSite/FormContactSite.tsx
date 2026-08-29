@@ -55,10 +55,13 @@ export const FormContactSite = () => {
     try {
       const response = await fetch('https://formspree.io/f/xgorezvp', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
           ...data,
-          origem: 'site-criacao-de-sites',
+          origem: 'criacao-de-sites',
         }),
       });
 
@@ -155,6 +158,7 @@ export const FormContactSite = () => {
             <S.Input
               id="site-telefone"
               placeholder="Telefone"
+              type="tel"
               aria-required="true"
               aria-invalid={Boolean(errors.telefone)}
               aria-describedby={errors.telefone ? 'site-telefone-erro' : undefined}

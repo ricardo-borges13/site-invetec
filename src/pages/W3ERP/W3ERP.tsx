@@ -622,7 +622,7 @@ export const W3ERP = () => {
                     entender se o W3ERP é adequado para sua empresa.
                   </p>
                 </S.SectionLead>
-                <FormContactERP />
+                <FormContactERP origem="w3erp" />
               </MotionReveal>
             </S.FormArea>
 

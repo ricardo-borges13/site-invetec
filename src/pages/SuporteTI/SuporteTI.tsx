@@ -286,7 +286,7 @@ export const SuporteTI = () => {
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
     shouldFocusError: true,
-    defaultValues: { origem: 'Página Gestão e Suporte de TI' },
+    defaultValues: { origem: 'suporte-ti' },
   });
   const scrollForm = () =>
     formRef.current?.scrollIntoView({
@@ -302,11 +302,25 @@ export const SuporteTI = () => {
       'noopener,noreferrer'
     );
   void whatsapp;
-  const submit = async (data: FormData) => {
+  const onSubmitMock = async () => {
     try {
-      const r = await fetch('https://formspree.io/f/xpqkzqaz', {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      toast.success(
+        'Recebemos suas informações. A INVETEC entrará em contato em breve.'
+      );
+      reset();
+    } catch {
+      toast.error('Não foi possível enviar agora. Tente novamente mais tarde.');
+    }
+  };
+  const onSubmitReal = async (data: FormData) => {
+    try {
+      const r = await fetch('https://formspree.io/f/xrpbgdgp', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(data),
       });
       if (!r.ok) throw Error();
@@ -318,6 +332,7 @@ export const SuporteTI = () => {
       toast.error('Não foi possível enviar agora. Tente novamente mais tarde.');
     }
   };
+  const submitHandler = import.meta.env.DEV ? onSubmitMock : onSubmitReal;
   return (
     <>
       <SEO
@@ -747,7 +762,7 @@ export const SuporteTI = () => {
             </p>
           </div>
           <S.FormCard>
-            <form onSubmit={handleSubmit(submit)}>
+            <form onSubmit={handleSubmit(submitHandler)}>
               <input type="hidden" {...register('origem')} />
               <S.FormGrid>
                 <label>

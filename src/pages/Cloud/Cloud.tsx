@@ -2,7 +2,10 @@ import fileServerImage from '@/assets/images/Cloud-FileServer.webp';
 import backupImage from '@/assets/images/Cloud-backup.webp';
 import heroImage from '@/assets/images/PagesHero-Cloud.jpg';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
-import { FormContact, type CloudServiceInterest } from '@/components/FormContact/FormContact';
+import {
+  FormContactCloud,
+  type CloudServiceInterest,
+} from '@/components/FormContactCloud/FormContactCloud';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
@@ -526,7 +529,10 @@ export const Cloud = () => {
               <h2>Vamos entender o cenário da sua empresa</h2>
               <p>Envie seus dados e conte brevemente como os arquivos da sua empresa são armazenados hoje. A INVETEC avaliará o cenário e entrará em contato.</p>
             </div>
-            <FormContact variant="cloud" serviceInterest={serviceInterest} onServiceInterestChange={setServiceInterest} />
+            <FormContactCloud
+              serviceInterest={serviceInterest}
+              onServiceInterestChange={setServiceInterest}
+            />
           </S.Contact>
         </S.ResponsivePage>
       </PageHeroSection>

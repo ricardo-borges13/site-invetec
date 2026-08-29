@@ -38,8 +38,11 @@ export const FormContactEmail = () => {
     try {
       const response = await fetch('https://formspree.io/f/xpqkzqaz', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...data, origem: 'invetec-mail' }),
       });
 
       if (response.ok) {

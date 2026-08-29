@@ -13,7 +13,11 @@ type FormInputs = {
   dificuldade: string;
 };
 
-export const FormContactERP = () => {
+type FormContactERPProps = {
+  origem?: 'erp' | 'w3erp';
+};
+
+export const FormContactERP = ({ origem = 'erp' }: FormContactERPProps) => {
   const {
     register,
     handleSubmit,
@@ -37,8 +41,11 @@ export const FormContactERP = () => {
     try {
       const response = await fetch('https://formspree.io/f/xojyvlrk', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...data, origem }),
       });
 
       if (response.ok) {
