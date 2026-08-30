@@ -38,7 +38,7 @@ export const MobileMenuDrawer = ({
       : location.pathname === path || location.pathname.startsWith(`${path}/`);
 
   return (
-    <S.Portal $open={open} aria-hidden={!open}>
+    <S.Portal $open={open} aria-hidden={!open} inert={!open}>
       <S.Overlay $open={open} onClick={onClose} aria-hidden="true" />
       <S.Drawer
         ref={drawerRef}

@@ -1,5 +1,5 @@
-import bgImage from '@/assets/images/CTA.jpg';
-import bgImage2 from '@/assets/images/CTA2.jpg';
+import bgImage from '@/assets/images/CTA.webp';
+import bgImage2 from '@/assets/images/CTA2.webp';
 
 import styled, { css } from 'styled-components';
 

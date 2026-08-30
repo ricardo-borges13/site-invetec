@@ -137,7 +137,6 @@ export const Bling = () => {
       />
 
       <PageHeroSection
-        semanticMain={false}
         compactMobile
         brandContent={<S.Eyebrow>ERP PARA OPERAÇÕES MAIS ENXUTAS</S.Eyebrow>}
         title="Organize vendas, estoque, financeiro e emissão fiscal em um único sistema"
@@ -174,7 +173,7 @@ export const Bling = () => {
         }
       />
 
-      <main>
+      <div>
         <S.Container>
           <S.Section>
             <MotionReveal>
@@ -349,7 +348,7 @@ export const Bling = () => {
             </MotionReveal>
           </S.FinalCta>
         </S.Container>
-      </main>
+      </div>
     </>
   );
 };

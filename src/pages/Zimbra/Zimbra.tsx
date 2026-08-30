@@ -1,4 +1,4 @@
-import infrastructureImage from '@/assets/images/CTA2.jpg';
+import infrastructureImage from '@/assets/images/CTA2.webp';
 import supportImage from '@/assets/images/e-mail-zimbra.jpg';
 import logoInvetecMail from '@/assets/images/INVETEC-Mail-Branco.png';
 import heroImage from '@/assets/images/PagesHero-Email-v4.jpg';

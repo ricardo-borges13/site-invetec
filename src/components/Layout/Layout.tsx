@@ -24,7 +24,9 @@ export const Layout = () => {
     <>
       <ScrollToTop />
       <HeaderMain onMobileMenuChange={setMobileMenuOpen} />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       {whatsApp.phone && (
         <WhatsAppButton
           phone={whatsApp.phone}

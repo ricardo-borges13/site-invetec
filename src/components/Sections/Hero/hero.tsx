@@ -32,7 +32,7 @@ export const Hero = React.memo(
           src={image}
           alt={`INVETEC: ${title}`}
           loading="eager"
-          $fetchPriority="high"
+          fetchPriority="high"
           decoding="async"
         />
 

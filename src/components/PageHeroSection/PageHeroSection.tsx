@@ -22,7 +22,6 @@ export type PageHeroSectionProps = {
   heroTopPadding?: string;
   startContentOnShortViewport?: boolean;
   heroMinHeight?: string;
-  semanticMain?: boolean;
 };
 
 export const PageHeroSection = ({
@@ -46,7 +45,6 @@ export const PageHeroSection = ({
   heroTopPadding,
   startContentOnShortViewport = false,
   heroMinHeight,
-  semanticMain = true,
 }: PageHeroSectionProps) => {
   const shouldReduceMotion = useReducedMotion();
   const content = (
@@ -94,5 +92,5 @@ export const PageHeroSection = ({
     </>
   );
 
-  return semanticMain ? <main>{content}</main> : content;
+  return content;
 };

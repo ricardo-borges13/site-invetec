@@ -12,7 +12,7 @@ import { DepoimentosSection } from '@/components/Depoimentos/DepoimentosSection'
 import { Depoimentos } from '@/components/Depoimentos/Depoimentos';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 
-const imgHero = "/images/BannerPrincipalHero.jpg";
+const imgHero = "/images/BannerPrincipalHero.webp";
 
 export const Home = () => {
   const navigate = useNavigate();
