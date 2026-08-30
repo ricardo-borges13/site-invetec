@@ -2,7 +2,8 @@ import heroImage from '@/assets/images/PagesHeroBling-v2.jpg';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
-import { useEffect, useRef, useState } from 'react';
+import { whatsappConfig } from '@/config/whatsapp';
+import { useRef } from 'react';
 import {
   FiBarChart2,
   FiCheck,
@@ -96,19 +97,9 @@ const criteria = [
 
 export const Bling = () => {
   const supportRef = useRef<HTMLElement | null>(null);
-  const [phone, setPhone] = useState<string>();
   const supportMessage =
     'Olá, quero ajuda para configurar o Bling e começar corretamente.';
-  const whatsappUrl = phone
-    ? `https://wa.me/${phone}?text=${encodeURIComponent(supportMessage)}`
-    : '/contato';
-
-  useEffect(() => {
-    fetch('/whatsApp.json')
-      .then(response => response.json())
-      .then(({ phone: configuredPhone }) => setPhone(configuredPhone))
-      .catch(() => undefined);
-  }, []);
+  const whatsappUrl = `https://wa.me/${whatsappConfig.phone}?text=${encodeURIComponent(supportMessage)}`;
 
   const scrollToSupport = () =>
     supportRef.current?.scrollIntoView({
@@ -294,8 +285,8 @@ export const Bling = () => {
                 </S.CheckList>
                 <S.ActionLink
                   href={whatsappUrl}
-                  target={phone ? '_blank' : undefined}
-                  rel={phone ? 'noopener noreferrer' : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Quero ajuda para configurar o Bling
                 </S.ActionLink>
@@ -339,8 +330,8 @@ export const Bling = () => {
                 </S.ActionLink>
                 <S.SecondaryLink
                   href={whatsappUrl}
-                  target={phone ? '_blank' : undefined}
-                  rel={phone ? 'noopener noreferrer' : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Falar com a INVETEC
                 </S.SecondaryLink>
