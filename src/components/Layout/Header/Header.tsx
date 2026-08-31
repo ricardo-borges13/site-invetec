@@ -95,8 +95,8 @@ export const HeaderMain = ({ onMobileMenuChange }: HeaderMainProps) => {
           <S.Image
             src={logo}
             alt="Logotipo da INVETEC"
-            width={400}
-            height={120}
+            width={301}
+            height={130}
             $isScrolled={isScrolled}
           />
         </Link>
