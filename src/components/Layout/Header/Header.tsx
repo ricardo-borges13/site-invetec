@@ -1,4 +1,4 @@
-import logo from '@/assets/images/Logo-Invetec.png';
+import logo from '@/assets/images/Logo-INVETEC-v2.webp';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { contactData } from '@/pages/Contato/contactData';
 import { useEffect, useRef, useState } from 'react';

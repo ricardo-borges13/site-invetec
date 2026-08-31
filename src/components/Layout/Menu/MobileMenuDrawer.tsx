@@ -1,4 +1,4 @@
-import logo from '@/assets/images/Logo-Invetec.png';
+import logo from '@/assets/images/Logo-Invetec.webp';
 import { useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import { Link, useLocation } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import infrastructureImage from '@/assets/images/CTA2.webp';
 import supportImage from '@/assets/images/e-mail-zimbra.webp';
-import logoInvetecMail from '@/assets/images/INVETEC-Mail-Branco.png';
+import logoInvetecMail from '@/assets/images/INVETEC-Mail-Branco.webp';
 import heroImage from '@/assets/images/PagesHero-Email-v4.webp';
 import imageAgenda from '@/assets/images/Zimbra-Agenda.webp';
 import imageArquivosFull from '@/assets/images/Zimbra-Arquivos-Full.webp';

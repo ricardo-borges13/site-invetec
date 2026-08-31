@@ -118,6 +118,7 @@ export const MenuLink = styled(Link)`
 
 export const Submenu = styled.ul<{ $isOpen?: boolean }>`
   list-style: none;
+  margin: 0;
   background: #ffffff;
   border-radius: 12px;
 
@@ -131,7 +132,7 @@ export const Submenu = styled.ul<{ $isOpen?: boolean }>`
 
   z-index: 1000;
   position: absolute;
-  top: calc(100% - 10px);
+  top: 100%;
   left: 0;
 
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};

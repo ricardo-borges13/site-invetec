@@ -1,4 +1,4 @@
-import logo from '@/assets/images/Logo-Invetec-branco.png';
+import logo from '@/assets/images/Logo-Invetec-branco.webp';
 import { menuItems, type MenuItem } from '@/components/Layout/Menu/menuData';
 import type { ContactInfo } from '@/pages/Contato/contactData';
 import { BiSolidPhoneOutgoing } from 'react-icons/bi';
