@@ -138,9 +138,6 @@ export const Credibility = styled.div`
     }
   }
 `;
-export const Section = styled.section`
-  padding-top: ${sectionSpace};
-`;
 export const SectionLead = styled.div`
   max-width: 720px;
   h2 {
@@ -1325,30 +1322,6 @@ export const CtaActions = styled.div`
     color: #1557b0;
     font-weight: 700;
     text-decoration: none;
-  }
-`;
-export const IntermediateCta = styled.section`
-  margin-top: ${sectionSpace};
-  padding: 2rem;
-  display: flex;
-  background: #eaf4ff;
-  border-radius: 14px;
-  > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-    width: 100%;
-  }
-  h2 {
-    color: #1a2e4a;
-    font-size: 1.45rem;
-    margin: 0 0 0.4rem;
-  }
-  p {
-    margin: 0;
-    color: #475569;
-    line-height: 1.55;
   }
 `;
 export const FormArea = styled.section`

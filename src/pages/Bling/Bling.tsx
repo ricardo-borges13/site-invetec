@@ -1,4 +1,4 @@
-import heroImage from '@/assets/images/PagesHeroBling-v2.jpg';
+import heroImage from '@/assets/images/PagesHeroBling-v2.webp';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';

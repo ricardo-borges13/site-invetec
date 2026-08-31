@@ -9,6 +9,7 @@ import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
 import { Carousel } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import * as S from './Ecommerce.styles';
 
 const benefits = [

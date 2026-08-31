@@ -7,12 +7,6 @@ export const Container = styled.div`
   padding: 20px;
 `;
 
-export const Form = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
 export const Field = styled.div`
   display: flex;
   flex-direction: column;

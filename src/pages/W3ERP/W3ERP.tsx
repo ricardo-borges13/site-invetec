@@ -1,4 +1,4 @@
-import heroImage from '@/assets/images/PagesHero-W3ERP.jpg';
+import heroImage from '@/assets/images/PagesHero-W3ERP.webp';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { testimonials } from '@/components/Depoimentos/Depoimentos.data';
 import { FormContactERP } from '@/components/FormContactERP/FormContactERP';

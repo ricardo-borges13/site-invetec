@@ -30,7 +30,7 @@ import {
 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import * as S from './SuporteTI.styles';
-import heroImage from '@/assets/images/PagesHero-Suporte-v2.jpg';
+import heroImage from '@/assets/images/PagesHero-Suporte-v2.webp';
 
 const benefits = [
   [
@@ -597,7 +597,7 @@ export const SuporteTI = () => {
             ))}
           </S.ServiceGrid>
         </S.Section>
- 
+
         <S.ProcessSection>
           <MotionReveal direction="up" distance={20} duration={0.5}>
             <S.ProcessIntro>

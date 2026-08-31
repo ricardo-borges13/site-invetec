@@ -1,5 +1,5 @@
-import heroImage from '@/assets/images/PagesHero-Case-v2.jpg';
-import datronImage from '@/assets/images/PagesHero-Datron.jpg';
+import heroImage from '@/assets/images/PagesHero-Case-v2.webp';
+import datronImage from '@/assets/images/PagesHero-Datron.webp';
 import jpmImage from '@/assets/images/case-jpm.jpg';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';

@@ -710,14 +710,6 @@ export const TechnologyVisual = styled.div`
   svg:last-child { color: #fff; }
 `;
 
-export const TechnologyTags = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1.25rem;
-  span { padding: 0.42rem 0.7rem; border: 1px solid rgba(125, 211, 252, 0.4); border-radius: 999px; color: #e4f4ff; font-size: 0.8rem; }
-`;
-
 export const GoogleAdsSection = styled.section`
   max-width: 1040px;
   margin: -1.5rem auto 1.5rem;

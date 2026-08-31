@@ -111,18 +111,6 @@ export const ErrorMessage = styled.span`
   overflow-wrap: anywhere;
 `;
 
-export const Assunto = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-`;
-
-export const Mensagem = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-`;
-
 export const Field = styled.div`
   flex: 1;
   min-width: 0;

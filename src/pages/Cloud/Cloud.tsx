@@ -1,6 +1,6 @@
 import fileServerImage from '@/assets/images/Cloud-FileServer.webp';
 import backupImage from '@/assets/images/Cloud-backup.webp';
-import heroImage from '@/assets/images/PagesHero-Cloud.jpg';
+import heroImage from '@/assets/images/PagesHero-Cloud.webp';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import {
   FormContactCloud,

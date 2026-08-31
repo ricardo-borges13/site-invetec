@@ -25,13 +25,6 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const IntroText = styled.p`
-  margin: 0 0 1rem;
-  color: #475569;
-  font-size: 0.95rem;
-  line-height: 1.6;
-`;
-
 export const Field = styled.div`
   width: 100%;
 `;

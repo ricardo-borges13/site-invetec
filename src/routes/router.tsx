@@ -1,7 +1,12 @@
 import { Layout } from '@/components/Layout/Layout';
-import { CalculadoraData } from '@/pages/CalculadoraData/CalculadoraData';
 import Home from '@/pages/Home';
 import { lazy } from 'react';
+
+const CalculadoraData = lazy(() =>
+  import('@/pages/CalculadoraData/CalculadoraData').then(module => ({
+    default: module.CalculadoraData,
+  }))
+);
 import { createBrowserRouter } from 'react-router-dom';
 
 const CaseDatron = lazy(() =>

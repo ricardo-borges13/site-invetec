@@ -1,4 +1,4 @@
-import heroImage from '@/assets/images/PagesHero-ERP-v2.jpg';
+import heroImage from '@/assets/images/PagesHero-ERP-v2.webp';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { FormContactERP } from '@/components/FormContactERP/FormContactERP';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';

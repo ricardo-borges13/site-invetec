@@ -1,11 +1,12 @@
-import beforeImage from '@/assets/images/ControlePedido_JPM.jpg';
+import beforeImage from '@/assets/images/ControlePedido_JPM.webp';
 import heroImage from '@/assets/images/PagesHeroJPM.jpg';
-import afterImage from '@/assets/images/PedidoVenda_JPM.jpg';
+import afterImage from '@/assets/images/PedidoVenda_JPM.webp';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
 import { useEffect, useRef, useState } from 'react';
 import { Accordion } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import type { IconType } from 'react-icons';
 import { FiArchive, FiBarChart2, FiCheck, FiCloud, FiFileText, FiGlobe, FiMail, FiMonitor, FiPackage, FiShield, FiShoppingCart, FiTrendingUp, FiUsers } from 'react-icons/fi';
 import { Link } from 'react-router-dom';

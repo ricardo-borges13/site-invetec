@@ -1,4 +1,4 @@
-import heroImage from '@/assets/images/PagesHero-Datron.jpg';
+import heroImage from '@/assets/images/PagesHero-Datron.webp';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';
