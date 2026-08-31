@@ -1,5 +1,5 @@
 import beforeImage from '@/assets/images/ControlePedido_JPM.webp';
-import heroImage from '@/assets/images/PagesHeroJPM.jpg';
+import heroImage from '@/assets/images/PagesHeroJPM.webp';
 import afterImage from '@/assets/images/PedidoVenda_JPM.webp';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';

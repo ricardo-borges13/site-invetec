@@ -41,6 +41,8 @@ export const SectionLogo = styled.div`
 export const Section = styled.div``;
 
 export const LogoImage = styled.img`
+  width: auto;
+  max-width: 100%;
   height: 90px;
   margin-bottom: 16px;
 `;

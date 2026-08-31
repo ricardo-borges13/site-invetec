@@ -1,10 +1,10 @@
-import ecommerce from '@/assets/images/Card-E-commerce.jpg';
+import ecommerce from '@/assets/images/Card-E-commerce.webp';
 import cloud from '@/assets/images/Cloud-FileServer.webp';
-import email from '@/assets/images/Card-E-mail.jpg';
-import erpImg from '@/assets/images/Card-W3.jpg';
-import web from '@/assets/images/Card-Web.jpg';
-import image1 from '@/assets/images/sobre.jpg';
-import ti from '@/assets/images/Card-TI.jpg';
+import email from '@/assets/images/Card-E-mail.webp';
+import erpImg from '@/assets/images/Card-W3.webp';
+import web from '@/assets/images/Card-Web.webp';
+import image1 from '@/assets/images/sobre.webp';
+import ti from '@/assets/images/Card-TI.webp';
 
 import type { SectionInfoProps } from '../../components/Sections/SectionInfo/SectionInfo';
 import type { Badge } from '../../components/Sections/ServiceSection/CardService/CardService';
@@ -12,6 +12,8 @@ import type { Badge } from '../../components/Sections/ServiceSection/CardService
 export type ServiceData = {
   image: string;
   imageAlt: string;
+  imageWidth: number;
+  imageHeight: number;
   title: string;
   subtitle: string;
   path: string;
@@ -45,6 +47,8 @@ export const servicesData: ServiceData[] = [
   {
     image: web,
     imageAlt: 'Ilustração de criação de sites profissionais',
+    imageWidth: 160,
+    imageHeight: 160,
     title: 'Criação de Sites',
     subtitle: 'Sites profissionais com SEO e estrutura para gerar novos clientes.',
     path: '/servicos/criacao-de-sites',
@@ -54,6 +58,8 @@ export const servicesData: ServiceData[] = [
   {
     image: email,
     imageAlt: 'Ilustração de e-mail corporativo',
+    imageWidth: 160,
+    imageHeight: 160,
     title: 'INVETEC Mail',
     subtitle: 'E-mail corporativo com mais controle, segurança e suporte próximo.',
     path: '/servicos/invetec-mail',
@@ -62,6 +68,8 @@ export const servicesData: ServiceData[] = [
   {
     image: erpImg,
     imageAlt: 'Ilustração de sistema ERP',
+    imageWidth: 160,
+    imageHeight: 160,
     title: 'Sistema ERP',
     subtitle: 'Vendas, estoque e financeiro integrados em um único sistema.',
     path: '/servicos/erp',
@@ -69,6 +77,8 @@ export const servicesData: ServiceData[] = [
   {
     image: cloud,
     imageAlt: 'Ilustração de nuvem com arquivos e proteção de dados',
+    imageWidth: 300,
+    imageHeight: 200,
     title: 'Cloud para Empresas',
     subtitle: 'File Server e backup em nuvem para organizar, acessar e proteger os dados.',
     path: '/servicos/cloud',
@@ -77,6 +87,8 @@ export const servicesData: ServiceData[] = [
   {
     image: ecommerce,
     imageAlt: 'Ilustração de loja virtual e e-commerce',
+    imageWidth: 160,
+    imageHeight: 160,
     title: 'E-commerce',
     subtitle: 'Loja virtual integrada a pagamentos e marketplaces, pronta para vender.',
     path: '/servicos/e-commerce',
@@ -84,6 +96,8 @@ export const servicesData: ServiceData[] = [
   {
     image: ti,
     imageAlt: 'Ilustração de gestão de tecnologia da informação',
+    imageWidth: 160,
+    imageHeight: 160,
     title: 'Gestão de TI para Empresas',
     subtitle: 'Suporte, segurança e organização da tecnologia da sua empresa.',
     path: '/servicos/suporte-ti',

@@ -11,6 +11,8 @@ export type Testimonial = {
   testimonial: string;
   services?: string[];
   avatar?: string;
+  avatarWidth?: number;
+  avatarHeight?: number;
   companyLogo?: string;
   imageAlt?: string;
   rating?: number;
@@ -28,6 +30,8 @@ export const testimonials: Testimonial[] = [
     testimonial:
       '“A INVETEC cuida da nossa área de tecnologia desde 2005. Ao longo desses anos, implantou e passou a acompanhar diferentes soluções na empresa, como ERP, e-mail corporativo, servidores em nuvem, infraestrutura e suporte de TI. Essa parceria nos dá mais segurança e tranquilidade para manter a operação funcionando no dia a dia.”',
     avatar: avatar1,
+    avatarWidth: 300,
+    avatarHeight: 300,
     rating: 5,
   },
   {
@@ -38,6 +42,8 @@ export const testimonials: Testimonial[] = [
     testimonial:
       'O W3ERP trouxe uma mudança importante para a nossa empresa. Conseguimos integrar faturamento, estoque, financeiro e comercial em um único sistema, melhorando o controle das informações e a organização dos processos. Com as soluções e o suporte da INVETEC, nossas operações passaram a fluir de forma mais tranquila no dia a dia.',
     avatar: avatar2,
+    avatarWidth: 398,
+    avatarHeight: 611,
     rating: 5,
   },
   {
@@ -48,6 +54,8 @@ export const testimonials: Testimonial[] = [
     testimonial:
       'A INVETEC trouxe mais organização e segurança para nossa operação. Com o INVETEC Mail, melhoramos a comunicação da equipe; o File Server em Nuvem facilitou o acesso e o compartilhamento dos arquivos; e o suporte de TI nos atende com agilidade sempre que precisamos. Hoje temos uma estrutura mais confiável e centralizada para trabalhar.',
     avatar: avatar3,
+    avatarWidth: 319,
+    avatarHeight: 425,
     rating: 5,
   },
   {
@@ -58,6 +66,8 @@ export const testimonials: Testimonial[] = [
     testimonial:
       'A INVETEC desenvolveu nosso site institucional e uma página voltada para conversão de vendas, deixando nossa presença digital mais profissional e organizada. Sempre que precisamos, também contamos com um suporte rápido e próximo.',
     avatar: avatar4,
+    avatarWidth: 203,
+    avatarHeight: 257,
     rating: 5,
   },
 

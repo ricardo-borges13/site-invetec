@@ -63,8 +63,8 @@ export const SectionInfo = ({ image1 }: SectionInfoProps) => (
         <img
           src={image1}
           alt="Consultores da INVETEC apresentando soluções de tecnologia para uma empresa"
-          width={1600}
-          height={600}
+          width={600}
+          height={400}
           loading="lazy"
         />
       </S.ImagesArea>

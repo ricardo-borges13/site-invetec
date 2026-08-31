@@ -50,7 +50,7 @@ export const MobileMenuDrawer = ({
       >
         <S.DrawerHeader>
           <Link to="/" aria-label="Página inicial da INVETEC" onClick={onClose}>
-            <S.Logo src={logo} alt="Logotipo da INVETEC" />
+            <S.Logo src={logo} alt="Logotipo da INVETEC" width={400} height={120} />
           </Link>
           <S.CloseButton type="button" onClick={onClose} aria-label="Fechar menu">
             <FiX />

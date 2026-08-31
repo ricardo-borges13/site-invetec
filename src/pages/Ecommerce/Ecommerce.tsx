@@ -1,9 +1,9 @@
-import image3 from '@/assets/images//JOIAS-MOOVIN.jpg';
-import image1 from '@/assets/images/BEBIDAS-MOOVIN.jpg';
-import image5 from '@/assets/images/COMIDA-MOOVIN.jpg';
-import image4 from '@/assets/images/MODA-MOOVIN.jpg';
-import heroImage from '@/assets/images/PagesHero-Ecommerce.jpg';
-import image2 from '@/assets/images/ROUPAS-MOOVIN.jpg';
+import image3 from '@/assets/images//JOIAS-MOOVIN.webp';
+import image1 from '@/assets/images/BEBIDAS-MOOVIN.webp';
+import image5 from '@/assets/images/COMIDA-MOOVIN.webp';
+import image4 from '@/assets/images/MODA-MOOVIN.webp';
+import heroImage from '@/assets/images/PagesHero-Ecommerce.webp';
+import image2 from '@/assets/images/ROUPAS-MOOVIN.webp';
 import { CustomButton } from '@/components/CustomButton/CustomButton';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';

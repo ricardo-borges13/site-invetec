@@ -10,6 +10,8 @@ export type Badge = {
 type CardServiceProps = {
   image: string;
   imageAlt: string;
+  imageWidth: number;
+  imageHeight: number;
   title: string;
   subtitle: string;
   path: string;
@@ -17,10 +19,10 @@ type CardServiceProps = {
   featured?: boolean;
 };
 
-export const CardService = ({ image, imageAlt, title, subtitle, path, badge, featured = false }: CardServiceProps) => (
+export const CardService = ({ image, imageAlt, imageWidth, imageHeight, title, subtitle, path, badge, featured = false }: CardServiceProps) => (
   <S.CardContainer as={Link} to={path} $clickable $featured={featured} aria-label={`Saiba mais sobre ${title}`}>
     <S.ImageWrapper>
-      <S.Image src={image} alt={imageAlt} />
+      <S.Image src={image} alt={imageAlt} width={imageWidth} height={imageHeight} />
     </S.ImageWrapper>
     <S.Content>
       <S.BadgeSlot aria-hidden={!badge}>

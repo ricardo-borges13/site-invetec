@@ -34,6 +34,8 @@ export const Hero = React.memo(
           loading="eager"
           fetchPriority="high"
           decoding="async"
+          width={1920}
+          height={900}
         />
 
         {/* Overlay escuro */}

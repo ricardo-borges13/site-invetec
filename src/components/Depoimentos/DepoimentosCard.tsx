@@ -33,7 +33,14 @@ export const DepoimentosCard = ({
         <blockquote>{testimonial.testimonial}</blockquote>
       </TestimonialText>
       <Author>
-        {image && <AuthorImage src={image} alt={testimonial.imageAlt ?? ''} />}
+        {image && (
+          <AuthorImage
+            src={image}
+            alt={testimonial.imageAlt ?? ''}
+            width={testimonial.avatarWidth}
+            height={testimonial.avatarHeight}
+          />
+        )}
         <Identification>
           <strong>{testimonial.name}</strong>
           {(testimonial.role || testimonial.company) && (

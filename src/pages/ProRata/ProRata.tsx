@@ -1,4 +1,4 @@
-import imageProRata from '@/assets/images/PagesHero-Pro-Rata.jpg';
+import imageProRata from '@/assets/images/PagesHero-Pro-Rata.webp';
 import { MotionReveal } from '@/components/Motion/MotionReveal/MotionReveal';
 import { PageHeroSection } from '@/components/PageHeroSection/PageHeroSection';
 import { SEO } from '@/components/SEO/Seo';

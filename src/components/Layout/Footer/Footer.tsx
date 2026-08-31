@@ -41,7 +41,8 @@ export const Footer = ({ phone, email }: ContactInfo) => {
           <S.LogoImage
             src={logo}
             alt="Logotipo da INVETEC"
-            
+            width={400}
+            height={120}
           />
 
           <S.Text>
