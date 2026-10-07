@@ -49,7 +49,7 @@ export const PoliticaPrivacidade = () => (
           <S.ContactDetails>
             INVETEC — Investindo em Tecnologia
             <br />
-            CNPJ: 46.261.182/0001-55
+            CNPJ: 69.388.747/0001-65
             <br />
             Site: <a href="https://www.invetec.com.br/">www.invetec.com.br</a>
             <br />
@@ -187,7 +187,7 @@ export const PoliticaPrivacidade = () => (
             .
           </p>
         </Section>
-        <S.Update>Última atualização: julho de 2026.</S.Update>
+        <S.Update>Última atualização: outubro de 2026.</S.Update>
       </S.Container>
     </PageHeroSection>
   </>

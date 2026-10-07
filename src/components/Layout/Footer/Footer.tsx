@@ -123,7 +123,7 @@ export const Footer = ({ phone, email }: ContactInfo) => {
       </S.Content>
 
       <S.Copy>
-        © {new Date().getFullYear()} Invetec • CNPJ: 46.261.182/0001-55 •
+        © {new Date().getFullYear()} Invetec • CNPJ: 69.388.747/0001-65 •
         Atendimento em todo o Brasil
         <S.PrivacyLink to="/politica-de-privacidade">
           Política de Privacidade
