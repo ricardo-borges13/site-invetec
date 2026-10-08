@@ -1,4 +1,5 @@
 import imageDatron from '@/assets/images/site-datron.webp';
+import imageElev from '@/assets/images/site-Elev.webp';
 import imageRevele from '@/assets/images/site-revele.webp';
 import imageJPM from '@/assets/images/site-jpm.webp';
 
@@ -13,6 +14,24 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+
+    {
+    name: 'Datron Tecnologia',
+    segment: 'Radiocomunicação',
+    description:
+      'Site institucional desenvolvido para apresentar as soluções de radiocomunicação da Datron, fortalecer sua presença digital e facilitar a solicitação de orçamentos por empresas de todo o Brasil.',
+    image: imageDatron,
+    url: 'https://datrontecnologia.com.br/',
+    highlights: [
+      'Arquitetura institucional',
+      'Responsividade',
+      'SEO por página',
+      'Formulário de orçamento',
+      'Integração com WhatsApp',
+      'Next.js e React',
+    ],
+  },
+
   {
     name: 'Grupo JPM',
     segment: 'Indústria',
@@ -29,19 +48,19 @@ export const projects: Project[] = [
       'React'
     ],
   },
-  {
-    name: 'Datron Tecnologia',
-    segment: 'Radiocomunicação',
+   {
+    name: 'ELEV Soluções',
+    segment: 'Indústria',
     description:
-      'Site institucional desenvolvido para apresentar as soluções de radiocomunicação da Datron, fortalecer sua presença digital e facilitar a solicitação de orçamentos por empresas de todo o Brasil.',
-    image: imageDatron,
-    url: 'https://datrontecnologia.com.br/',
+      'Site institucional desenvolvido para apresentar as soluções industriais da ELEV, organizar suas representações, máquinas e equipamentos e facilitar o contato com empresas que buscam soluções para suas operações.',
+    image: imageElev,
+    url: 'https://www.elevsolucoes.com/',
     highlights: [
-      'Arquitetura institucional',
+      'Arquitetura de páginas',
       'Responsividade',
-      'SEO por página',
-      'Formulário de orçamento',
-      'Integração com WhatsApp',
+      'SEO técnico',
+      'Performance',
+      'Catálogo de produtos',
       'Next.js e React',
     ],
   },

@@ -668,11 +668,15 @@ export const SiteFaq = () => {
             <details
               key={question}
               open={openQuestion === question}
-              onToggle={event =>
-                setOpenQuestion(event.currentTarget.open ? question : null)
-              }
             >
-              <summary>
+              <summary
+                onClick={event => {
+                  event.preventDefault();
+                  setOpenQuestion(current =>
+                    current === question ? null : question
+                  );
+                }}
+              >
                 {question}
                 <FiArrowRight aria-hidden="true" />
               </summary>
