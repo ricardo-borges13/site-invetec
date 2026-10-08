@@ -24,7 +24,7 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     id: 'testimonial-01',
-    name: 'Borges',
+    name: 'Soares',
     company: 'Datron Tecnologia e Locação',
     role: 'Gerente de TI',
     testimonial:
